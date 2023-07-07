@@ -6,7 +6,8 @@
     "UiPath.Excel.Activities": "[2.20.1]",
     "UiPath.Mail.Activities": "[1.18.2]",
     "UiPath.System.Activities": "[23.4.2]",
-    "UiPath.Testing.Activities": "[23.4.0]"
+    "UiPath.Testing.Activities": "[23.4.0]",
+    "UiPath.UIAutomation.Activities": "[23.4.7]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -44,7 +45,7 @@
     "fileInfoCollection": [
       {
         "templateType": "Generic",
-        "fileName": ".templates\\Dispatchers\\Base.xaml"
+        "fileName": ".templates\\Dispatchers\\BasicDispatcher.xaml"
       }
     ],
     "modernBehavior": true

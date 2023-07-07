@@ -2,7 +2,6 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="The DataTable to convert to HTML." Name="in_dt_ToConvert" Type="InArgument(sd:DataTable)" />
     <x:Property sap2010:Annotation.AnnotationText="The output HTML." Name="out_HTMLTable" Type="OutArgument(x:String)" />
-    <x:Property sap2010:Annotation.AnnotationText="An ID to specify for the table tag for css purposes." Name="in_Id" Type="InArgument(x:String)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
   <sap:VirtualizedContainerService.HintSize>687.3333333333334,1828</sap:VirtualizedContainerService.HintSize>

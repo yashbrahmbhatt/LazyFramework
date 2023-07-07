@@ -1,1 +1,1 @@
-{"Workflows":[{"FilePath":"PlaceholderMain.xaml","Activities":[]},{"FilePath":".templates/Dispatchers/Base.xaml","Activities":[]},{"FilePath":"Utility/LoadConfig.xaml","Activities":[]},{"FilePath":"Utility/SendEmail.xaml","Activities":[]},{"FilePath":"Utility/DataTableToHTML.xaml","Activities":[]}]}
+{"Workflows":[{"FilePath":"PlaceholderMain.xaml","Activities":[]},{"FilePath":".templates/Dispatchers/BasicDispatcher.xaml","Activities":[]},{"FilePath":"Utility/GenerateDiagnosticDictionary.xaml","Activities":[]},{"FilePath":"Utility/TakeScreenshot.xaml","Activities":[]}]}
