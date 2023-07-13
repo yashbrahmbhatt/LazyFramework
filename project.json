@@ -1,7 +1,8 @@
 {
   "name": "LazyFramework",
+  "projectId": "3971c12b-df8e-4a81-a95a-5eac0491c45a",
   "description": "A different design approach to UiPath Project frameworks that heavily leverage templates.",
-  "main": "PlaceholderMain.xaml",
+  "main": "Dispatcher.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.20.1]",
     "UiPath.Mail.Activities": "[1.20.2]",
@@ -49,7 +50,63 @@
       },
       {
         "templateType": "Generic",
-        "fileName": ".templates\\Performer\\Basic\\Framework\\Performer.xaml"
+        "fileName": ".templates\\Dispatchers\\BasicDispatcher - HardTyped.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\Framework\\CloseApplications.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\Framework\\HandleTransactionOutcome.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\Framework\\InitializeApplications.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\Framework\\IsMaintenanceTime.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\Framework\\KillProcesses.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\Framework\\Process.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\BasicPerformer.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic - Hard Typed\\Framework\\CloseApplications.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic - Hard Typed\\Framework\\HandleTransactionOutcome.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic - Hard Typed\\Framework\\InitializeApplications.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic - Hard Typed\\Framework\\IsMaintenanceTime.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic - Hard Typed\\Framework\\KillProcesses.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic - Hard Typed\\Framework\\Process.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic - Hard Typed\\BasicPerformer - HardTyped.xaml"
       }
     ],
     "modernBehavior": true
@@ -57,8 +114,8 @@
   "expressionLanguage": "CSharp",
   "entryPoints": [
     {
-      "filePath": "PlaceholderMain.xaml",
-      "uniqueId": "c1ca8a00-3cbd-4e69-b684-99a1ac549786",
+      "filePath": "Dispatcher.xaml",
+      "uniqueId": "34f66a62-964c-4ae5-9c6c-6afa983ad272",
       "input": [],
       "output": []
     }
