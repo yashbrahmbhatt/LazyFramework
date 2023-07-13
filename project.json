@@ -4,10 +4,10 @@
   "main": "PlaceholderMain.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.20.1]",
-    "UiPath.Mail.Activities": "[1.18.2]",
-    "UiPath.System.Activities": "[23.4.2]",
-    "UiPath.Testing.Activities": "[23.4.0]",
-    "UiPath.UIAutomation.Activities": "[23.4.7]"
+    "UiPath.Mail.Activities": "[1.20.2]",
+    "UiPath.System.Activities": "[23.6.0-preview]",
+    "UiPath.Testing.Activities": "[23.6.0-preview]",
+    "UiPath.UIAutomation.Activities": "[23.6.2-preview]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -46,6 +46,10 @@
       {
         "templateType": "Generic",
         "fileName": ".templates\\Dispatchers\\BasicDispatcher.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performer\\Basic\\Framework\\Performer.xaml"
       }
     ],
     "modernBehavior": true
