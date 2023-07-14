@@ -47,66 +47,6 @@
       {
         "templateType": "Generic",
         "fileName": ".templates\\Dispatchers\\BasicDispatcher.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Dispatchers\\BasicDispatcher - HardTyped.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic\\Framework\\CloseApplications.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic\\Framework\\HandleTransactionOutcome.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic\\Framework\\InitializeApplications.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic\\Framework\\IsMaintenanceTime.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic\\Framework\\KillProcesses.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic\\Framework\\Process.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic\\BasicPerformer.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic - Hard Typed\\Framework\\CloseApplications.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic - Hard Typed\\Framework\\HandleTransactionOutcome.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic - Hard Typed\\Framework\\InitializeApplications.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic - Hard Typed\\Framework\\IsMaintenanceTime.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic - Hard Typed\\Framework\\KillProcesses.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic - Hard Typed\\Framework\\Process.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic - Hard Typed\\BasicPerformer - HardTyped.xaml"
       }
     ],
     "modernBehavior": true
