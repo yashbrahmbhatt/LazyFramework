@@ -4,11 +4,11 @@
   "description": "A different design approach to UiPath Project frameworks that heavily leverage templates.",
   "main": "Dispatcher.xaml",
   "dependencies": {
+    "Cronos": "[0.7.1]",
     "UiPath.Excel.Activities": "[2.20.1]",
     "UiPath.Mail.Activities": "[1.20.2]",
-    "UiPath.System.Activities": "[23.6.0-preview]",
-    "UiPath.Testing.Activities": "[23.6.0-preview]",
-    "UiPath.UIAutomation.Activities": "[23.6.2-preview]"
+    "UiPath.System.Activities": "[23.4.3]",
+    "UiPath.Testing.Activities": "[23.4.1]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -47,6 +47,66 @@
       {
         "templateType": "Generic",
         "fileName": ".templates\\Dispatchers\\BasicDispatcher.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\BasicPerformer.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\Framework\\CloseApplications.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\Framework\\HandleTransactionOutcome.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\Framework\\InitializeApplications.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\Framework\\IsMaintenanceTime.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\Framework\\KillProcesses.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\Basic\\Framework\\Process.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Reporters\\Basic\\BasicReporter.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Reporters\\Basic\\Orchestrator\\GetQueueDefinitionId.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Reporters\\Basic\\Orchestrator\\GetQueueItems.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Reporters\\Basic\\Logic\\GetQueueData.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Reporters\\Basic\\Logic\\Flatten.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Reporters\\Basic\\Logic\\WriteTableToExcel.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Reporters\\Basic\\Logic\\AddCalculatedColumns.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Reporters\\Basic\\Tests\\CreateTestData.xaml"
       }
     ],
     "modernBehavior": true
