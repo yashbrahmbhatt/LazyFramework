@@ -48,9 +48,9 @@ This project template was created as a result of having to make the same changes
   3. Reporter
   4. Data
 
-  This lets us be able to customize the project depending on the design. Do you need multiple dispatchers because you need to look at different sources of input at different schedules? Just copy a Dispatcher template as needed. Do you have multiple units of work for this automation and require multiple queues and performers? Just copy a Performer subfolder into your root directory as needed. Do you need a tasker in between different modules of the automation? No problem, just copy the folders as needed. Maybe some DU Extraction stuff? or Classification?
+  This lets us be able to customize the project depending on the design. Do you need multiple dispatchers because you need to look at different sources of input at different schedules? Just copy a Dispatcher template as needed. Do you have multiple units of work for this automation and require multiple queues and performers? Just copy a Performer subfolder into your root directory as needed. Do you need a tasker in between different modules of the automation? No problem, just copy the folders as needed. Maybe some DU Extraction stuff?
 
-  The idea is to have an modular template that can accommodate a large variety of designs, instead of having to create a completely different project.
+  The idea is to have a modular template that can accommodate a large variety of designs, instead of having to create a completely different project.
 
   Another amazing benefit is that it uncouples the adoption of a module template from adoption of the project template. Don't like a template that someone created? Cool, just don't use it. This also reduces the barrier for people to contribute to the template as well as adopt other's contributions because it is low-risk.
   
