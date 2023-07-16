@@ -1,15 +1,15 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="SendEmail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_To" Type="InArgument(x:String)" />
-    <x:Property Name="in_Subject" Type="InArgument(x:String)" />
-    <x:Property Name="in_Body" Type="InArgument(x:String)" />
-    <x:Property Name="in_Attachments" Type="InArgument(scg:IEnumerable(x:String))" />
-    <x:Property Name="in_Port" Type="InArgument(x:Int32)" />
-    <x:Property Name="in_Server" Type="InArgument(x:String)" />
-    <x:Property Name="in_CredentialFolder" Type="InArgument(x:String)" />
-    <x:Property Name="in_CredentialName" Type="InArgument(x:String)" />
-    <x:Property Name="in_CC" Type="InArgument(x:String)" />
-    <x:Property Name="in_TemplateData" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Who to send the email to." Name="in_To" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The templated subject of the email to send." Name="in_Subject" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The templated body of the email to send in HTML format." Name="in_Body" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="An array of file paths to include as attachments in the email." Name="in_Attachments" Type="InArgument(scg:IEnumerable(x:String))" />
+    <x:Property sap2010:Annotation.AnnotationText="The SMTP port to use when sending emails." Name="in_Port" Type="InArgument(x:Int32)" />
+    <x:Property sap2010:Annotation.AnnotationText="The SMTP server to use for sending emails." Name="in_Server" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The name of the Orchestrator folder that holds the credential asset for authenticating to the SMTP server." Name="in_CredentialFolder" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The name of the credential asset for authenticating to the SMTP server." Name="in_CredentialName" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Who to CC on the email." Name="in_CC" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="A dictionary of variables to replace in the template. Keys must match the value in the template." Name="in_TemplateData" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <this:SendEmail.in_To>
     <InArgument x:TypeArguments="x:String" />
@@ -39,7 +39,7 @@
     <InArgument x:TypeArguments="x:String" />
   </this:SendEmail.in_CC>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>687.3333333333334,2173.3333333333335</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1005,1999</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -136,33 +136,33 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Sends an email taking a dictionary of data to fill out template subject and body fields. Supports DataTable to HTML &lt;table&gt; objects as well." DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="636.6666666666666,2028.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Sends an email taking a dictionary of data to fill out template subject and body fields. Supports DataTable to HTML &lt;table&gt; objects as well." DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="637,1934" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="574.6666666666666,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="575,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">string.Format("Sending email using {0} keys in the template data dictionary", in_TemplateData.Keys.Count.ToString())</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each TemplateData Key" sap:VirtualizedContainerService.HintSize="574.6666666666666,936" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each TemplateData Key" sap:VirtualizedContainerService.HintSize="575,799" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="Key" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Process Key" sap:VirtualizedContainerService.HintSize="540.6666666666666,746" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Process Key" sap:VirtualizedContainerService.HintSize="541,613" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If DisplayName="DataTable Object?" sap:VirtualizedContainerService.HintSize="498.6666666666667,658.6666666666666" sap2010:WorkflowViewState.IdRef="If_1">
+            <If DisplayName="DataTable Object?" sap:VirtualizedContainerService.HintSize="499,525" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Condition>
                 <InArgument x:TypeArguments="x:Boolean">
                   <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">in_TemplateData[Key].GetType() == typeof(DataTable)</CSharpValue>

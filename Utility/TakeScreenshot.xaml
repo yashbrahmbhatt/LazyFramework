@@ -1,7 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="TakeScreenshot" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sdi="clr-namespace:System.Drawing.Imaging;assembly=System.Drawing.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_FolderPath" Type="InArgument(x:String)" />
-    <x:Property Name="io_FilePath" Type="InOutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The path to the folder to save screenshots to." Name="in_FolderPath" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="If specified, overrides the folder path and uses this path for the file name. Otherwise, it just outputs the full path to the screenshot." Name="io_FilePath" Type="InOutArgument(x:String)" />
   </x:Members>
   <this:TakeScreenshot.in_FolderPath>
     <InArgument x:TypeArguments="x:String">

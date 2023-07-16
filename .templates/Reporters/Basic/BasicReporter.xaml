@@ -1,11 +1,11 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="BasicReporter" this:BasicReporter.in_CRON="0 0 0 ? * *" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:c="clr-namespace:Cronos;assembly=Cronos" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_OutputFolder" Type="InArgument(x:String)" />
-    <x:Property Name="in_CRON" Type="InArgument(x:String)" />
-    <x:Property Name="in_From" Type="InArgument(s:DateTime)" />
-    <x:Property Name="in_To" Type="InArgument(s:DateTime)" />
-    <x:Property Name="in_ConfigPath" Type="InArgument(x:String)" />
-    <x:Property Name="in_IgnoreSheets" Type="InArgument(s:String[])" />
+    <x:Property sap2010:Annotation.AnnotationText="If defined, the process will also copy the report generated to this folder." Name="in_OutputFolder" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="A CRON expression to determine what the reporting period is. This should match the CRON expression used in the trigger for this Entry Point for most cases." Name="in_CRON" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="If defined, overrides the start of the reporting period to this value. in_To must also be defined if using this overload." Name="in_From" Type="InArgument(s:DateTime)" />
+    <x:Property sap2010:Annotation.AnnotationText="If defined, overrides the end of the reporting period to this value. in_From must also be defined if using this overload." Name="in_To" Type="InArgument(s:DateTime)" />
+    <x:Property sap2010:Annotation.AnnotationText="The path to the config file to load for this process." Name="in_ConfigPath" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="A list of the sheets to ignore loading into the Config." Name="in_IgnoreSheets" Type="InArgument(s:String[])" />
   </x:Members>
   <this:BasicReporter.in_ConfigPath>
     <InArgument x:TypeArguments="x:String">
@@ -18,7 +18,7 @@
     </InArgument>
   </this:BasicReporter.in_IgnoreSheets>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1005,1413</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1005,2034</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -133,21 +133,22 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BasicReporter" sap:VirtualizedContainerService.HintSize="587,1348" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Reads all queue items for a single queue within a defined reporting period, writes them to an excel, and then sends an email with the report as an attachment." DisplayName="BasicReporter" sap:VirtualizedContainerService.HintSize="647,1969" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Config" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="TextFiles" />
       <Variable x:TypeArguments="x:String" Name="OutputFilePath" />
       <Variable x:TypeArguments="x:String" Name="TempFilePath" />
       <Variable x:TypeArguments="scg:List(njl:JToken)" Name="QueueList" />
-      <Variable x:TypeArguments="sd:DataTable" Name="QueueTable" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_QueueTable" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="525,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="585,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
           <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
@@ -159,7 +160,7 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\\LoadConfig.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="525,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Utility\\LoadConfig.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\\LoadConfig.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="585,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Utility\\LoadConfig.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_ConfigPath">
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">in_ConfigPath</CSharpValue>
@@ -175,18 +176,18 @@
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <TryCatch DisplayName="Try Reporting" sap:VirtualizedContainerService.HintSize="525,903" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch DisplayName="Try Reporting" sap:VirtualizedContainerService.HintSize="585,1482" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <TryCatch.Try>
-        <Sequence DisplayName="Reporting" sap:VirtualizedContainerService.HintSize="512,434" sap2010:WorkflowViewState.IdRef="Sequence_12">
+        <Sequence DisplayName="Reporting" sap:VirtualizedContainerService.HintSize="547,1254" sap2010:WorkflowViewState.IdRef="Sequence_12">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Initialize" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Initialize" sap:VirtualizedContainerService.HintSize="485,901" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -412,7 +413,7 @@
               </ui:LogMessage.Message>
             </ui:LogMessage>
           </Sequence>
-          <Sequence DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="485,81" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -431,7 +432,7 @@
                 </InArgument>
               </ui:LogMessage.Message>
             </ui:LogMessage>
-            <ui:CopyFile ContinueOnError="{x:Null}" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="388,154" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True">
+            <ui:CopyFile ContinueOnError="{x:Null}" DisplayName="Copy Template To Temp" sap:VirtualizedContainerService.HintSize="388,154" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True">
               <ui:CopyFile.Destination>
                 <InArgument x:TypeArguments="x:String">
                   <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">TempFilePath</CSharpValue>
@@ -448,9 +449,6 @@
                 <OutArgument x:TypeArguments="scg:List(njl:JToken)" x:Key="out_QueueList">
                   <CSharpReference x:TypeArguments="scg:List(njl:JToken)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">QueueList</CSharpReference>
                 </OutArgument>
-                <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_QueueTable">
-                  <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">QueueTable</CSharpReference>
-                </OutArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_QueueName">
                   <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">Config["QueueName"]</CSharpValue>
                 </InArgument>
@@ -466,13 +464,13 @@
                 <InArgument x:TypeArguments="s:String[]" x:Key="in_Statuses">
                   <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">Config["StatusesToReport"].Split(",",StringSplitOptions.RemoveEmptyEntries)</CSharpValue>
                 </InArgument>
+                <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_QueueTable">
+                  <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_23">dt_QueueTable</CSharpReference>
+                </OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add Calculated Columns" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName=".templates\\Reporters\\Basic\\Logic\\AddCalculatedColumns.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_Table">
-                  <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_17">QueueTable</CSharpReference>
-                </InOutArgument>
                 <InArgument x:TypeArguments="x:Double" x:Key="in_SuccessTimeSaved">
                   <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">Convert.ToDouble(Config["TimeSaved_Success"].ToString())</CSharpValue>
                 </InArgument>
@@ -482,6 +480,9 @@
                 <InArgument x:TypeArguments="x:Double" x:Key="in_SysExTimeSaved">
                   <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">Convert.ToDouble(Config["TimeSaved_SysEx"].ToString())</CSharpValue>
                 </InArgument>
+                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_Table">
+                  <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_24">dt_QueueTable</CSharpReference>
+                </InOutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Write Table to Excel" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName=".templates\\Reporters\\Basic\\Logic\\WriteTableToExcel.xaml">
@@ -489,15 +490,15 @@
                 <InArgument x:TypeArguments="x:String" x:Key="in_Path">
                   <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_41">TempFilePath</CSharpValue>
                 </InArgument>
-                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Table">
-                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40">QueueTable</CSharpValue>
-                </InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">
                   <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">Config["TemplateSheet"]</CSharpValue>
                 </InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Table">
+                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_95">dt_QueueTable</CSharpValue>
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <If DisplayName="Output Path Not Empty?" sap:VirtualizedContainerService.HintSize="388,477" sap2010:WorkflowViewState.IdRef="If_4">
+            <If DisplayName="Output Path Not Empty?" sap:VirtualizedContainerService.HintSize="388,336" sap2010:WorkflowViewState.IdRef="If_4">
               <If.Condition>
                 <InArgument x:TypeArguments="x:Boolean">
                   <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_73">!string.IsNullOrEmpty(OutputFilePath)</CSharpValue>
@@ -545,10 +546,10 @@
               </ui:LogMessage.Message>
             </ui:LogMessage>
           </Sequence>
-          <Sequence DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="485,928" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="EmailData" />
-              <Variable x:TypeArguments="sd:DataTable" Name="EmailTable" />
+              <Variable x:TypeArguments="sd:DataTable" Name="dt_EmailTable" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -568,10 +569,10 @@
                 </InArgument>
               </ui:LogMessage.Message>
             </ui:LogMessage>
-            <ui:FilterDataTable DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="423,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" SelectColumnsMode="Keep">
+            <ui:FilterDataTable DisplayName="Filter Columns to Summary" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="423,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" SelectColumnsMode="Keep">
               <ui:FilterDataTable.DataTable>
                 <InArgument x:TypeArguments="sd:DataTable">
-                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51">QueueTable</CSharpValue>
+                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51">dt_QueueTable</CSharpValue>
                 </InArgument>
               </ui:FilterDataTable.DataTable>
               <ui:FilterDataTable.Filters>
@@ -581,7 +582,7 @@
               </ui:FilterDataTable.Filters>
               <ui:FilterDataTable.OutputDataTable>
                 <OutArgument x:TypeArguments="sd:DataTable">
-                  <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">EmailTable</CSharpReference>
+                  <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">dt_EmailTable</CSharpReference>
                 </OutArgument>
               </ui:FilterDataTable.OutputDataTable>
               <ui:FilterDataTable.SelectColumns>
@@ -618,7 +619,7 @@
 	{"TotalCount", QueueList.Count().ToString()},
 	{"SuccessCount",QueueList.Where(q =&gt; q["Status"].ToString() == "Successful").Count().ToString()},
 	{"FailedCount", QueueList.Where(q =&gt; q["Status"].ToString() == "Failed").Count().ToString()},
-	{"SummaryTable", EmailTable}
+	{"SummaryTable", dt_EmailTable}
 }</CSharpValue>
                       </InArgument>
                     </ui:AssignOperation.Value>
@@ -676,10 +677,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="491,740" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="551,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>

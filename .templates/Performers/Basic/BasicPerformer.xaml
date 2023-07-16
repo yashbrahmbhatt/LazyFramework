@@ -1,7 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Performer" this:Performer.in_ConfigPath=".templates\Data\Configs\PerformerConfig.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_ConfigPath" Type="InArgument(x:String)" />
-    <x:Property Name="in_IgnoreSheets" Type="InArgument(s:String[])" />
+    <x:Property sap2010:Annotation.AnnotationText="The path to the config file to use to load variables and resources." Name="in_ConfigPath" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="A list of sheet names to ignore when loading the config file." Name="in_IgnoreSheets" Type="InArgument(s:String[])" />
   </x:Members>
   <this:Performer.in_IgnoreSheets>
     <InArgument x:TypeArguments="s:String[]">
@@ -9,7 +9,7 @@
     </InArgument>
   </this:Performer.in_IgnoreSheets>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1634,1550</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1005,1550</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -26,6 +26,8 @@
       <x:String>System.Windows</x:String>
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
