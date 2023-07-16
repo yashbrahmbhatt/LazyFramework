@@ -13,8 +13,9 @@ This project template was created as a result of having to make the same changes
   4. There is no need to support non-orchestrator queues. It is such an edge case, and considering how much bloat/complexity it adds to the framework, it doesn't seem worth including it. Just try refactoring the base REFramework template to only support Orchestrator queues, and you'll see SetTransactionStatus.xaml be simplified extensiely, even completely removing RetryTransaction.xaml (or whatever its called).
   5. I think log messages are fine to hard code within the code, and should not be included in the Config file. I find that the only time I change a log message is when I want to add additional variable information at runtime, not to change the semantics of the message, in which case, I would have to make a code change and publish a new version anyways. The benefit of hard-coding messages is that it declutters the Config file to only the important stuff.
   6. The base InitAllSettings.xaml isn't great. While it doesn't require Excel to be installed, it cannot deal with the config file being 'locked' by another user (ie. ReadOnly Open). It also could have more functionality like reading mapping files or text resources from storage buckets or local paths.
-<details />
 
+</details>
+  
 <details>
   <summary>
     <b>Why Can't I Find The Click Activity?</b>
