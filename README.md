@@ -46,8 +46,7 @@ This project template was created as a result of having to make the same changes
   1. Dispatcher
   2. Performer
   3. Reporter
-  4. Configs
-  5. Templates
+  4. Data
 
   This lets us be able to customize the project depending on the design. Do you need multiple dispatchers because you need to look at different sources of input at different schedules? Just copy a Dispatcher template as needed. Do you have multiple units of work for this automation and require multiple queues and performers? Just copy a Performer subfolder into your root directory as needed. Do you need a tasker in between different modules of the automation? No problem, just copy the folders as needed. Maybe some DU Extraction stuff? or Classification?
 
@@ -76,7 +75,7 @@ Do you not like job security?
 
 <hr />
 
-# Templates
+# Module Templates
 <details>
   <summary>
     <b>Dispatchers</b>
@@ -91,9 +90,21 @@ Do you not like job security?
      </details>
   2. <details>
       <summary>
-        <b>ApplicationDispatcher</b>
+        <b>ApplicationDispatcher (TBD)</b>
       </summary>
       A more complex dispatcher designed for when you need to do steps within an application to collect information in order to add to the queue. Useful for scenarios where you read a table, and iterate through it, get additional information for each row, and then add it to the queue. This is because it provides exception handling at the 'Transaction' level so that errors processing particular rows do not impact the entire dispatcher.
+     </details>
+  3. <details>
+       <summary>
+         <b>ExcelDispatcher (TBD)</b>
+       </summary>
+       An extension of the basic dispatcher that uses an excel file as the source of input data.
+     </details>
+  4. <details>
+       <summary>
+         <b>FileDispatcher (TBD)</b>
+       </summary>
+       An extension of the basic dispatcher that uses a text file as the source of input data.
      </details>
 
 </details>
@@ -118,9 +129,27 @@ Do you not like job security?
      </details>
   3. <details>
        <summary>
-         <b>BasicTasker</b>
+         <b>BasicTasker (TBD)</b>
        </summary>
        A framework for a persistent process that creates an Action Center task, suspends until it is completed, and then parses the response and forwards the data to the next queue.
+     </details>
+  4. <details>
+       <summary>
+         <b>PostExceptionStepsPerformer (TBD)</b>
+       </summary>
+       An extension of the basic performer that has logic built in to handle and conduct steps after a business or application exception has been identified.
+     </details>
+  5. <details>
+       <summary>
+         <b>Extractor (TBD)</b>
+       </summary>
+       A framework for using DU to extract data from documents. I don't really know DU, so I don't know what else to put here.
+     </details>
+  6. <details>
+       <summary>
+         <b>Classifier (TBD)</b>
+       </summary>
+       A framework for using DU to classify documents. I don't really know DU, so I don't know what else to put here.
      </details>
 </details>
 
@@ -146,7 +175,7 @@ Do you not like job security?
 
 <details>
   <summary>
-    <b>Data: Configs and Templates</b>
+    <b>Data</b>
   </summary>
   There are a variety of data resources available as a template. Included OOB:
 
