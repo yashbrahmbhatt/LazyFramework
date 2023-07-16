@@ -107,6 +107,66 @@
       {
         "templateType": "Generic",
         "fileName": ".templates\\Reporters\\Basic\\Tests\\CreateTestData.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Main.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Tests\\GetTransactionDataTestCase.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Tests\\InitAllApplicationsTestCase.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Tests\\InitAllSettingsTestCase.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Tests\\MainTestCase.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Tests\\ProcessTestCase.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Tests\\WorkflowTestCaseTemplate.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Framework\\CloseAllApplications.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Framework\\GetTransactionData.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Framework\\InitAllApplications.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Framework\\InitAllSettings.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Framework\\KillAllProcesses.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Framework\\Process.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Framework\\RetryCurrentTransaction.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Performers\\REFramework\\Framework\\SetTransactionStatus.xaml"
       }
     ],
     "modernBehavior": true
