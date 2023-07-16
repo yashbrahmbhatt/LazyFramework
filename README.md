@@ -41,7 +41,7 @@ This project template was created as a result of having to make the same changes
   <summary>
     <b>Templates, Templates, Templates</b>
   </summary>
-    You'll notice that there are no entry points defined within the project when you first open it. This is because this is an all-purpose template and leverages the .template folder of a project to do so. The project template should be able to be able to support all sorts of combinations of modules into a single project template, because you will occassionally have a more complex design than 1 Dispatcher, 1 Performer, 1 Reporter. Currently, within this project, there are templates for the below modules:
+    You'll notice that there are no entry points defined within the project when you first open it. This is because this is an all-purpose template and leverages the .template folder of a project to do so. The project template should be able to be able to support all sorts of combinations of modules into a single project, because you will occassionally have a more complex design than 1 Dispatcher, 1 Performer, 1 Reporter. Currently, within this project, there are templates for the below modules:
 
   1. Dispatcher
   2. Performer
