@@ -5,6 +5,7 @@ This project template was created as a result of having to make the same changes
   <summary>
     <b>What's Wrong With REFramework</b>
   </summary>
+  
   I think there are a few fundamental flaws with the REFramework, outlined below:
 
   1. No separation between system exceptions for transactions vs framework components. This creates unnecessary confusing at the framework level, and requires the user to   do the heavy lifting of understanding when the SystemException variable is coming from a framework exception (ie. initialization/get transaction data/set transaction status failure) or a transaction (process.xaml exception). The answer is to just create separate variables for these different scenarios and modify the transitions to make it clearer.
@@ -22,13 +23,18 @@ This project template was created as a result of having to make the same changes
   </summary>
 
   I wanted to completely remove the UiAutomation package as a direct dependancy of the project template. This signals you to try to isolate all UI logic to libraries, which is the best practice. This will ensure that as you create automations, you will have an ever expanding set of workflows organized by libraries at your disposal to reuse as needed. No more copy pasting. The only portion of the REFramework that uses the UiAutomation package is TakeScreenshot.xaml, which uses it to take a screenshot of the screen during exceptions. This project template works around that by using the core System.Drawing and System.Windows.Forms imports from the System.Activities package.
+  
 </details>
 
 <details>
   <summary>
     <b>So Many Entry Points</b>
   </summary>
-  Entry points map 'Modules' within your automation design. This project template assumes that you will have multiple entry points within it. Entry Points allow you to create multiple processes from a single package, simplifying deployment, version control/git, and making maintenance easier by being able to share workflows between entry points (and in the future C# CLASSES). The idea is that all your code for a particular automation (end to end) should be within the same package. The one downside to this is that it makes the package larger and memory constraints may have to be taken into account, however, this is mitigated significantly due to the improvements in UiPath's compiler.
+  
+  Entry points map to 'Modules' within your automation design. This project template is built around the assumption that you will have multiple entry points within it. Entry Points allow you to create multiple processes from a single package, simplifying deployment, version control/git, and making maintenance easier by being able to share workflows between entry points (and in the future C# source code files as well).
+  
+  The idea is that all your code for a particular automation (end to end) should be within the same package. The one downside to this is that it makes the package larger and memory constraints may have to be taken into account, however, this is mitigated significantly due to the improvements in UiPath's compiler.
+    
 </details>
 
 <details>
@@ -43,21 +49,36 @@ This project template was created as a result of having to make the same changes
   4. Configs
   5. Templates
 
-  This lets us be able to customize the project depending on the design. Do you need multiple dispatchers because you need to look at different sources of input at different schedules? Just copy the BasicDispatcher.xaml as needed. Do you have multiple units of work for this automation and require multiple queues and performers? Just copy the Performer/Basic folder into your root directory as needed. Do you need a tasker in between different modules of the automation? No problem, just copy the folder as needed. Maybe some DU Extraction stuff? or Classification?
+  This lets us be able to customize the project depending on the design. Do you need multiple dispatchers because you need to look at different sources of input at different schedules? Just copy a Dispatcher template as needed. Do you have multiple units of work for this automation and require multiple queues and performers? Just copy a Performer subfolder into your root directory as needed. Do you need a tasker in between different modules of the automation? No problem, just copy the folders as needed. Maybe some DU Extraction stuff? or Classification?
 
   The idea is to have an modular template that can accommodate a large variety of designs, instead of having to create a completely different project.
 
   Another amazing benefit is that it uncouples the adoption of a module template from adoption of the project template. Don't like a template that someone created? Cool, just don't use it. This also reduces the barrier for people to contribute to the template as well as adopt other's contributions because it is low-risk.
+  
 </details>
 
 <details>
   <summary>
     <b>VB vs C#</b>
   </summary>
+  
   > "Going forward, we do not plan to evolve Visual Basic as a language," the .NET team said. "This supports language stability and maintains compatibility between the .NET Core and .NET Framework versions of Visual Basic. Future features of .NET Core that require language changes may not be supported in Visual Basic. Due to differences in the platform, there will be some differences between Visual Basic on .NET Framework and .NET Core."
-
-\- Microsoft, 2020 ([source](https://visualstudiomagazine.com/articles/2020/03/12/vb-in-net-5.aspx]))
+> 
+> \- Microsoft, 2020 ([source](https://visualstudiomagazine.com/articles/2020/03/12/vb-in-net-5.aspx]))
 
 Continuing to code in VB would be just poor planning for the future, and after 1 or 2 processes using C#, you'll realize how much easier and cleaner C# is.
+
+It also allows you to get familiar with a language that's used across the industry for other development scenarios like web front end, web back end, desktop applications, etc., instead of something that's almost exclusively used for Excel Macros. 
+
+Do you not like job security?
+
 </details>
 
+# Templates
+<details>
+  <summary>
+    <b></b>
+  </summary>
+</details>
+
+# Roadmap
