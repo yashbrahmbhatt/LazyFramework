@@ -74,11 +74,114 @@ Do you not like job security?
 
 </details>
 
+<hr />
+
 # Templates
 <details>
   <summary>
-    <b></b>
+    <b>Dispatchers</b>
   </summary>
+  Dispatchers are workflows designed to read data from sources and add them to the Orchestrator Queue. Included OOB:
+
+  1. <details>
+      <summary>
+        <b>BasicDispatcher</b>
+      </summary>
+      A basic dispatcher template that's essentially a sequence with a try-catch around it that sends an email when any exceptions occur.
+     </details>
+  2. <details>
+      <summary>
+        <b>ApplicationDispatcher</b>
+      </summary>
+      A more complex dispatcher designed for when you need to do steps within an application to collect information in order to add to the queue. Useful for scenarios where you read a table, and iterate through it, get additional information for each row, and then add it to the queue. This is because it provides exception handling at the 'Transaction' level so that errors processing particular rows do not impact the entire dispatcher.
+     </details>
+
 </details>
 
+<details>
+  <summary>
+    <b>Performers</b>
+  </summary>
+  Performers are workflows designed to read data from queue items and perform tasks, typically within an application. Included OOB:
+
+  1. <details>
+       <summary>
+         <b>BasicPerformer</b>
+       </summary>
+       A basic performer template that's has the same overall design as the REFramework, but addresses the concerns listen in the Methodology section above.
+     </details>
+  2. <details>
+       <summary>
+         <b>REFramework</b>
+       </summary>
+       The REFramework as you know and love. Here in case you are inclined to continue using it. Not recommended though.
+     </details>
+  3. <details>
+       <summary>
+         <b>BasicTasker</b>
+       </summary>
+       A framework for a persistent process that creates an Action Center task, suspends until it is completed, and then parses the response and forwards the data to the next queue.
+     </details>
+</details>
+
+<details>
+  <summary>
+    <b>Reporter</b>
+  </summary>
+  Reporters are workflows designed to read the transaction data and report on how the bot performed. Included OOB:
+
+  1. <details>
+       <summary>
+         <b>BasicReporter</b>
+       </summary>
+       A basic reporting template that uses the Orchestrator OData API to load queue data and write to an excel template. The template has some built in visualizations as well with a pivot table/chart. It uses a CRON expression argument to be able determine the reporting period, as well as a built in overload in case you want to specify the reporting range yourself. Lastly, it sends and email with a summary of the outcomes in an email and attaches the excel file created.
+     </details>
+  2. <details>
+       <summary>
+         <b>PowerQueryReporter</b>
+       </summary>
+       This is an excel file that uses the built in Power Query capabilities to connect to the Orchestrator as a built-in connection. This provides the same visualizations, and increases the scope to the entire Orchestrator, instead of a single queue/folder. Located in .templates\Data\Templates\PowerQueryReporter.xlsx.
+     </details>
+</details>
+
+<details>
+  <summary>
+    <b>Data: Configs and Templates</b>
+  </summary>
+  There are a variety of data resources available as a template. Included OOB:
+
+  1. <details>
+       <summary>
+         <b>Configs</b>
+       </summary>
+       There is a config file available for each of the out of the box dispatchers and performers.
+     </details>
+  2. <details>
+       <summary>
+         <b>Templates</b>
+       </summary>
+       The templates folder includes mainly some .html and .txt files that contain the subject and body of the emails to send across various module templates. It also contains the excel file template for the BasicReporter, as well as, an excel file that has a connection to load queue items from Orchestrator into a pivot table, in case you don't want to use a reporter at all.
+     </details>
+</details>
+
+<hr />
+
 # Roadmap
+### Modules
+- [x] Create BasicDispatcher - Yash Brahmbhatt 7/7/2023
+- [x] Create BasicPerformer - Yash Brahmbhatt 12/7/2023
+- [x] Create BasicReporter - Yash Brahmbhatt 15/7/2023
+- [x] Create Excel PowerQuery Reporter - Yash Brahmbhatt 15/7/2023
+- [ ] Import REFramework
+- [ ] Create ApplicationDispatcher
+- [ ] Create Tasker
+- [ ] Create ExcelDispatcher
+- [ ] Create FileDispatcher
+- [ ] Create PostExceptionStepsPerformer
+- [ ] Create Extractor (DU)
+- [ ] Create Classifier (DU)
+
+### Framework Changes
+- [ ] Add support for Windows - Legacy type projects
+- [ ] Add support for VB (?)
+
