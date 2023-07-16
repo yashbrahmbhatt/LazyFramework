@@ -190,7 +190,7 @@ Do you not like job security?
 <hr />
 
 # Contributing
-Feel free to fork and create a pull request for any changes or additions you would like to make! I will eventually get around to reviewing it, I promise :smile:
+Feel free to fork and create a pull request for any changes or additions you would like to make! I will eventually get around to reviewing it, I promise :smile:.
 
 If you just have an idea, please create an 'Issue' here on GitHub and we can figure it out.
 
