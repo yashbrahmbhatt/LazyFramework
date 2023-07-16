@@ -8,7 +8,7 @@ This project template was created as a result of having to make the same changes
   
   I think there are a few fundamental flaws with the REFramework, outlined below:
 
-  1. No separation between system exceptions for transactions vs framework components. This creates unnecessary confusing at the framework level, and requires the user to   do the heavy lifting of understanding when the SystemException variable is coming from a framework exception (ie. initialization/get transaction data/set transaction status failure) or a transaction (process.xaml exception). The answer is to just create separate variables for these different scenarios and modify the transitions to make it clearer.
+  1. No separation between system exceptions for transactions vs framework components. This creates unnecessary confusion at the framework level, and requires the user to do the heavy lifting of understanding when the SystemException variable is coming from a framework exception (ie. initialization/get transaction data/set transaction status failure) or a transaction (process.xaml exception). The answer is to just create separate variables for these different scenarios and modify the transitions to make it clearer.
   2. Lack of sending emails for exceptions. When the bot encounters a Business, System, or Framework exception, there is usually some action that a human must take. If its a business exception, the business must take action. If its a system or framework exception, the RPA or IT Ops team must take action. Therefore, it's just something that should be included.
   3. GetTransactionData.xaml is useless. As far as I can tell, it is used retrieve and parse the QueueItem.SpecificContent dictionary and prepare the data for the Process.xaml workflow. Considering the above point, in case the input data is incorrect and the bot fails, the REFramework just ends the process, without notifiying the business that they need to take action on this item. Parsing the input data should be a task within Process.xaml. You can then just have the GetQueueItem activity directly in Main.xaml.
   4. There is no need to support non-orchestrator queues. It is such an edge case, and considering how much bloat/complexity it adds to the framework, it doesn't seem worth including it. Just try refactoring the base REFramework template to only support Orchestrator queues, and you'll see SetTransactionStatus.xaml be simplified extensiely, even completely removing RetryTransaction.xaml (or whatever its called).
@@ -134,7 +134,7 @@ Do you not like job security?
        <summary>
          <b>BasicReporter</b>
        </summary>
-       A basic reporting template that uses the Orchestrator OData API to load queue data and write to an excel template. The template has some built in visualizations as well with a pivot table/chart. It uses a CRON expression argument to be able determine the reporting period, as well as a built in overload in case you want to specify the reporting range yourself. Lastly, it sends and email with a summary of the outcomes in an email and attaches the excel file created.
+       A basic reporting template that uses the Orchestrator OData API to load queue data and write to an excel template. The template has some built in visualizations as well with a pivot table/chart. It uses a CRON expression argument to be able determine the reporting period, as well as a built in overload in case you want to specify the reporting range yourself. Lastly, it sends and email with a summary of the outcomes and attaches the excel file created.
      </details>
   2. <details>
        <summary>
@@ -190,8 +190,8 @@ Do you not like job security?
 <hr />
 
 # Contributing
-If you feel confident enough, feel free to fork and create a pull request for any changes or additions you would like to make!
+Feel free to fork and create a pull request for any changes or additions you would like to make! I will eventually get around to reviewing it, I promise :smile:
 
-If you just have an idea, please create an 'Issue' here on GitHub and we can figure out the timeline for implementation.
+If you just have an idea, please create an 'Issue' here on GitHub and we can figure it out.
 
 
