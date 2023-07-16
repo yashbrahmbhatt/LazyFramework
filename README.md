@@ -202,6 +202,7 @@ Do you not like job security?
 - [x] Create BasicReporter - Yash Brahmbhatt 15/7/2023
 - [x] Create Excel PowerQuery Reporter - Yash Brahmbhatt 15/7/2023
 - [x] Import REFramework
+- [ ] <b>Add Tests for all modules so far</b>
 - [ ] Create ApplicationDispatcher
 - [ ] Create Tasker
 - [ ] Create ExcelDispatcher
