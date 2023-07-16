@@ -182,6 +182,16 @@ Do you not like job security?
 - [ ] Create Classifier (DU)
 
 ### Framework Changes
-- [ ] Add support for Windows - Legacy type projects
-- [ ] Add support for VB (?)
+- [ ] Add support for Windows - Legacy type projects*
+- [ ] Add support for VB*
+
+\* marks items that are still being considered.
+
+<hr />
+
+# Contributing
+If you feel confident enough, feel free to fork and create a pull request for any changes or additions you would like to make!
+
+If you just have an idea, please create an 'Issue' here on GitHub and we can figure out the timeline for implementation.
+
 
