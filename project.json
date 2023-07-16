@@ -46,10 +46,6 @@
     "fileInfoCollection": [
       {
         "templateType": "Generic",
-        "fileName": ".templates\\Dispatchers\\BasicDispatcher.xaml"
-      },
-      {
-        "templateType": "Generic",
         "fileName": ".templates\\Performers\\Basic\\BasicPerformer.xaml"
       },
       {
@@ -167,6 +163,10 @@
       {
         "templateType": "Generic",
         "fileName": ".templates\\Performers\\REFramework\\Framework\\SetTransactionStatus.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Dispatchers\\Basic\\BasicDispatcher.xaml"
       }
     ],
     "modernBehavior": true
