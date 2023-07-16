@@ -63,7 +63,7 @@ This project template was created as a result of having to make the same changes
   
   > "Going forward, we do not plan to evolve Visual Basic as a language," the .NET team said. "This supports language stability and maintains compatibility between the .NET Core and .NET Framework versions of Visual Basic. Future features of .NET Core that require language changes may not be supported in Visual Basic. Due to differences in the platform, there will be some differences between Visual Basic on .NET Framework and .NET Core."
 > 
-> \- Microsoft, 2020 ([source](https://visualstudiomagazine.com/articles/2020/03/12/vb-in-net-5.aspx]))
+> \- Microsoft, 2020 ([source](https://visualstudiomagazine.com/articles/2020/03/12/vb-in-net-5.aspx))
 
 Continuing to code in VB would be just poor planning for the future, and after 1 or 2 processes using C#, you'll realize how much easier and cleaner C# is.
 
@@ -72,6 +72,18 @@ It also allows you to get familiar with a language that's used across the indust
 Do you not like job security?
 
 </details>
+
+<hr />
+
+# Usage
+You essentially just copy subfolders under Dispatcher, Performer, or Reporter into the root directory of the project. This saves you some time instead of manually creating those workflows from the templates through Studio since the copied files are not considered templates. 
+
+The first thing you will need to do is update all of the Invoke Workflow activities within your module to the path you copied it to. This is because they currently point to the files in the .templates folder, which shouldn't be altered.
+
+Next, copy any Data templates you may need for your modules including Config files and template files. Update them to your development environment, and voila!
+
+You should be good to go.
+
 
 <hr />
 
