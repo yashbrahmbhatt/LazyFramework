@@ -226,7 +226,7 @@ You should be good to go.
 ### Framework Changes
 - [ ] Add support for Windows - Legacy type projects*
 - [ ] Add support for VB*
-- [ ] Finish the updating the 'hardtyped' branch for upcoming support for coded workflows/source C# files.
+- [ ] Finish porting over modules and workflows to the 'hardtyped' branch for upcoming support for coded workflows/source C# files.
 - [ ] <b>Add a 'Mapping' sheet to the Configs that read an excel file into a DataSet with each sheet being a named DataTable within it.</b>
 
 \* marks items that are still being considered.
