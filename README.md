@@ -31,9 +31,9 @@ This project template was created as a result of having to make the same changes
     <b>So Many Entry Points</b>
   </summary>
   
-  Entry points map to 'Modules' within your automation design. This project template is built around the assumption that you will have multiple entry points within it. Entry Points allow you to create multiple processes from a single package, simplifying deployment, version control/git, and making maintenance easier by being able to share workflows between entry points (and in the future C# source code files as well).
+  Entry points map to 'Modules' within your automation design. Entry Points allow you to create multiple processes from a single package, simplifying deployment, version control/git, and making maintenance easier by being able to share workflows between entry points (and in the future C# source code files as well).
   
-  The idea is that all your code for a particular automation (end to end) should be within the same package. The one downside to this is that it makes the package larger and memory constraints may have to be taken into account, however, this is mitigated significantly due to the improvements in UiPath's compiler.
+  The idea is that all your code for a particular automation (end to end) should be within the same package. The one downside to this is that it makes the package larger and memory constraints may have to be taken into account, however, this is mitigated significantly due to the improvements in UiPath's compiler and runtime, where only the dependencies and code for a particular entry point are loaded into memory.
     
 </details>
 
@@ -52,7 +52,7 @@ This project template was created as a result of having to make the same changes
 
   The idea is to have a modular template that can accommodate a large variety of designs, instead of having to create a completely different project.
 
-  Another amazing benefit is that it uncouples the adoption of a module template from adoption of the project template. Don't like a template that someone created? Cool, just don't use it. This also reduces the barrier for people to contribute to the template as well as adopt other's contributions because it is low-risk.
+  Another amazing benefit is that it uncouples the adoption of a module template from adoption of the project template. Don't like a module that someone created? Cool, just don't use it. This also reduces the barrier for people to contribute to the template as well as adopt other's contributions because it is low-risk.
   
 </details>
 
@@ -76,7 +76,7 @@ Do you not like job security?
 <hr />
 
 # Usage
-You essentially just copy subfolders under Dispatcher, Performer, or Reporter into the root directory of the project. This saves you some time instead of manually creating those workflows from the templates through Studio since the copied files are not considered templates. 
+You essentially just copy subfolders under Dispatcher, Performer, or Reporter templates into the root directory of the project. This saves you some time instead of manually creating those workflows from the templates through Studio since the copied files are not considered templates. 
 
 The first thing you will need to do is update all of the Invoke Workflow activities within your module to the path you copied it to. This is because they currently point to the files in the .templates folder, which shouldn't be altered.
 
@@ -181,7 +181,7 @@ You should be good to go.
        <summary>
          <b>PowerQueryReporter</b>
        </summary>
-       This is an excel file that uses the built in Power Query capabilities to connect to the Orchestrator as a built-in connection. This provides the same visualizations, and increases the scope to the entire Orchestrator, instead of a single queue/folder. Located in .templates\Data\Templates\PowerQueryReporter.xlsx.
+       This is an excel file that uses the built in Power Query capabilities to connect to the Orchestrator as a built-in connection. This provides the same visualizations, and increases the scope to the entire Orchestrator, instead of a single queue/folder.
      </details>
 </details>
 
@@ -201,7 +201,7 @@ You should be good to go.
        <summary>
          <b>Templates</b>
        </summary>
-       The templates folder includes mainly some .html and .txt files that contain the subject and body of the emails to send across various module templates. It also contains the excel file template for the BasicReporter, as well as, an excel file that has a connection to load queue items from Orchestrator into a pivot table, in case you don't want to use a reporter at all.
+       The templates folder includes mainly some .html and .txt files that contain the subject and body of the emails to send across various module templates. It also contains the excel file template for the BasicReporter.
      </details>
 </details>
 
@@ -215,7 +215,7 @@ You should be good to go.
 - [x] Create Excel PowerQuery Reporter - Yash Brahmbhatt 15/7/2023
 - [x] Import REFramework - Yash brahmbhatt 16/7/2023
 - [ ] <b>Add Tests for all modules so far</b>
-- [ ] Create ApplicationDispatcher
+- [ ] Create ApplicationDispatcher*
 - [ ] Create Tasker
 - [ ] Create ExcelDispatcher
 - [ ] Create FileDispatcher
@@ -226,8 +226,11 @@ You should be good to go.
 ### Framework Changes
 - [ ] Add support for Windows - Legacy type projects*
 - [ ] Add support for VB*
+- [ ] Finish the updating the 'hardtyped' branch for upcoming support for coded workflows/source C# files.
+- [ ] <b>Add a 'Mapping' sheet to the Configs that read an excel file into a DataSet with each sheet being a named DataTable within it.</b>
 
 \* marks items that are still being considered.
+\* bolded items are the next priority.
 
 <hr />
 
