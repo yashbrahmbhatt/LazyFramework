@@ -82,6 +82,7 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>GlobalVariablesT1PNoYwrqg</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Reads data from the srouce of work and adds it to a queue." DisplayName="BasicDispatcher" sap:VirtualizedContainerService.HintSize="659,1994" sap2010:WorkflowViewState.IdRef="Sequence_1">

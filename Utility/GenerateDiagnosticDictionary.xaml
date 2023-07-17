@@ -144,7 +144,7 @@
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:Object">
-                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">DateTime.Now.ToLongDateString</CSharpValue>
+                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">DateTime.Now.ToLongDateString()</CSharpValue>
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>

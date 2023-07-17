@@ -14,7 +14,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "23.4.1.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "23.7.0",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -167,6 +167,42 @@
       {
         "templateType": "Generic",
         "fileName": ".templates\\Dispatchers\\Basic\\BasicDispatcher.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Tests\\NoDataSource\\NegativeTestCase.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Tests\\NoDataSource\\SuccessTestCase.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Dispatchers\\Basic\\Tests\\BasicDispatcherSuccessTest.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Dispatchers\\Basic\\Tests\\BasicDispatcherFailureTest.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework\\CloseApplications\\CloseApplicationsSuccess.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework\\HandleTransactionOutcome\\HandleTransactionOutcomeSuccess.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework\\HandleTransactionOutcome\\HandleTransactionOutcomeBusEx.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework\\HandleTransactionOutcome\\HandleTransactionOutcomeSysEx.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework\\InitializeApplications\\InitializeApplicationsSuccess.xaml"
       }
     ],
     "modernBehavior": true
@@ -181,7 +217,10 @@
     }
   ],
   "isTemplate": true,
-  "templateProjectData": {},
+  "templateProjectData": {
+    "defaultProjectDescription": "A different design approach to UiPath Project frameworks that heavily leverage templates.",
+    "defaultProjectName": "LazyFramework"
+  },
   "publishData": {},
   "targetFramework": "Windows"
 }

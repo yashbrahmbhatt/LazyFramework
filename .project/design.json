@@ -1,5 +1,18 @@
 {
-  "Tags": [],
+  "Tags": [
+    {
+      "Key": "uipath"
+    },
+    {
+      "Key": "uipath studio"
+    },
+    {
+      "Key": "framework"
+    },
+    {
+      "Key": "template"
+    }
+  ],
   "SeparateRuntimeDependencies": true,
   "IncludeSources": true
 }
