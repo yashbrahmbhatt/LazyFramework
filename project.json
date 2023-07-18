@@ -186,23 +186,101 @@
       },
       {
         "templateType": "TestCase",
-        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework\\CloseApplications\\CloseApplicationsSuccess.xaml"
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Unit Tests\\CloseApplications\\CloseApplicationsSuccess.xaml"
       },
       {
         "templateType": "TestCase",
-        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework\\HandleTransactionOutcome\\HandleTransactionOutcomeSuccess.xaml"
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Unit Tests\\HandleTransactionOutcome\\HandleTransactionOutcomeBusEx.xaml"
       },
       {
         "templateType": "TestCase",
-        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework\\HandleTransactionOutcome\\HandleTransactionOutcomeBusEx.xaml"
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Unit Tests\\IsMaintenanceTime\\IsMaintenanceTimeTrue.xaml"
       },
       {
         "templateType": "TestCase",
-        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework\\HandleTransactionOutcome\\HandleTransactionOutcomeSysEx.xaml"
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Unit Tests\\KillProcesses\\KillProcessesSuccess.xaml"
       },
       {
         "templateType": "TestCase",
-        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework\\InitializeApplications\\InitializeApplicationsSuccess.xaml"
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework Tests\\FrameworkInitializationError.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework Tests\\FrameworkNoData.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Unit Tests\\HandleTransactionOutcome\\HandleTransactionOutcomeSysEx.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Unit Tests\\HandleTransactionOutcome\\HandleTransactionOutcomeSuccess.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Unit Tests\\InitializeApplications\\InitializeApplicationsSuccess.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Unit Tests\\IsMaintenanceTime\\IsMaintenanceTimeFalse.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework Tests\\FrameworkMaintenanceTime.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework Tests\\FrameworkGetTransactionDataError.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework Tests\\FrameworkProcessError.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Unit Tests\\Process\\ProcessTestTemplate.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Reporters\\Basic\\Tests\\Logic\\AddCalculatedColumns\\AddCalculatedColumnsSuccess.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Reporters\\Basic\\Tests\\Logic\\Flatten\\FlattenSuccess.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Reporters\\Basic\\Tests\\Logic\\GetQueueData\\GetQueueDataSuccess.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Reporters\\Basic\\Tests\\Logic\\WriteTableToExcel\\WriteTableToExcel.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Reporters\\Basic\\Tests\\Orchestrator\\GetQueueDefinitionId\\GetQueueDefinitionIdSuccess.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Reporters\\Basic\\Tests\\Orchestrator\\GetQueueDefinitionId\\GetQueueDefinitionIdError.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Reporters\\Basic\\Tests\\Orchestrator\\GetQueueItems\\GetQueueItemsSuccess.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Reporters\\Basic\\Tests\\BasicReporterCRONOutput.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Reporters\\Basic\\Tests\\BasicReporterFromToNoOutput.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "921a239e-f41e-4e5d-a770-a315bc80420a",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Utility\\DataTableToHTML\\DataTableToHTMLSuccess.xaml"
       }
     ],
     "modernBehavior": true
