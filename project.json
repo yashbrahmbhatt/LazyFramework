@@ -281,6 +281,24 @@
         "testCaseId": "921a239e-f41e-4e5d-a770-a315bc80420a",
         "testCaseType": "TestCase",
         "fileName": "Tests\\Utility\\DataTableToHTML\\DataTableToHTMLSuccess.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "3bcc0832-1445-43dd-afcd-43951d1dad6b",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Utility\\GenerateDiagnosticDictionary\\GenerateDiagnosticDictionarySuccess.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "e9619680-b4fe-4691-901b-e7a3274e6c91",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Utility\\TakeScreenshot\\TakeScreenshotNoPath.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "054a9ae5-685b-4b83-9cbd-0d27b2e34c45",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Utility\\TakeScreenshot\\TakeScreenshotPath.xaml"
       }
     ],
     "modernBehavior": true
