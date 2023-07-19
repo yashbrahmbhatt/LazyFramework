@@ -132,9 +132,9 @@ direction TB
 MultipleAssign_1 : MultipleAssign - Initialize Vars
 DeleteFolderX_1 : DeleteFolderX - Delete Folder
 MultipleAssign_1 --> DeleteFolderX_1
-DeleteFolderX_1 --> ForEach`1_1
-ForEach`1_1: For Each Workflow
-state ForEach`1_1 {
+DeleteFolderX_1 --> ForEach1_1
+ForEach1_1: For Each Workflow
+state ForEach1_1 {
 direction TB
 
 Sequence_2: Body

@@ -129,9 +129,9 @@ Sequence_1: SendEmail
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> ForEach`1_1
-ForEach`1_1: For Each TemplateData Key
-state ForEach`1_1 {
+LogMessage_1 --> ForEach1_1
+ForEach1_1: For Each TemplateData Key
+state ForEach1_1 {
 direction TB
 
 Sequence_3: Process Key
@@ -154,7 +154,7 @@ Sequence_4 --> MultipleAssign_2
 }
 }
 }
-ForEach`1_1 --> RetryScope_1
+ForEach1_1 --> RetryScope_1
 RetryScope_1: Retry Mail
 state RetryScope_1 {
 direction TB

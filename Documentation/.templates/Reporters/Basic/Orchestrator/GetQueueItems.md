@@ -126,9 +126,9 @@ direction TB
 LogMessage_1 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize Vars
 LogMessage_1 --> MultipleAssign_1
-MultipleAssign_1 --> ForEach`1_1
-ForEach`1_1: For Each Status
-state ForEach`1_1 {
+MultipleAssign_1 --> ForEach1_1
+ForEach1_1: For Each Status
+state ForEach1_1 {
 direction TB
 
 If_1: Last Status
@@ -139,7 +139,7 @@ MultipleAssign_3 : MultipleAssign - Append to StatusFilter
 MultipleAssign_2 --> MultipleAssign_3
 }
 }
-ForEach`1_1 --> If_2
+ForEach1_1 --> If_2
 If_2: Status Included?
 state If_2 {
 direction TB

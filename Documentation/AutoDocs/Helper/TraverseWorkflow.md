@@ -149,18 +149,18 @@ If_2: Activity Has No Children?
 state If_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Update Markdown for Single Element
-MultipleAssign_2 --> Switch`1_1
-Switch`1_1: Switch
-state Switch`1_1 {
+MultipleAssign_2 --> Switch1_1
+Switch1_1: Switch
+state Switch1_1 {
 direction TB
 
 Sequence_6: Default
 state Sequence_6 {
 direction TB
 MultipleAssign_4 : MultipleAssign - Multiple Assign
-MultipleAssign_4 --> ForEach`1_3
-ForEach`1_3: Recurse
-state ForEach`1_3 {
+MultipleAssign_4 --> ForEach1_3
+ForEach1_3: Recurse
+state ForEach1_3 {
 direction TB
 
 Sequence_7: Body
@@ -170,13 +170,13 @@ InvokeWorkflowFile_2 : InvokeWorkflowFile - AutoDocs\\Helper\\TraverseWorkflow.x
 }
 }
 MultipleAssign_5 : MultipleAssign - Multiple Assign
-ForEach`1_3 --> MultipleAssign_5
+ForEach1_3 --> MultipleAssign_5
 }
 }
 }
-If_2 --> ForEach`1_1
-ForEach`1_1: Recurse
-state ForEach`1_1 {
+If_2 --> ForEach1_1
+ForEach1_1: Recurse
+state ForEach1_1 {
 direction TB
 
 Sequence_2: Body

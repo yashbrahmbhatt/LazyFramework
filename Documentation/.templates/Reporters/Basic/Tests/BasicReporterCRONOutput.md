@@ -186,14 +186,14 @@ GetRobotCredential_1 : GetRobotCredential - Get Email Credentials
 MultipleAssign_3 --> GetRobotCredential_1
 GetIMAPMailMessages_1 : GetIMAPMailMessages - Get Emails (IMAP)
 GetRobotCredential_1 --> GetIMAPMailMessages_1
-GetIMAPMailMessages_1 --> ForEach`1_1
-ForEach`1_1: Delete Root Excels
-state ForEach`1_1 {
+GetIMAPMailMessages_1 --> ForEach1_1
+ForEach1_1: Delete Root Excels
+state ForEach1_1 {
 direction TB
 DeleteFileX_1 : DeleteFileX - Delete Excel
 }
 VerifyExpression_5 : VerifyExpression - Verify TextException
-ForEach`1_1 --> VerifyExpression_5
+ForEach1_1 --> VerifyExpression_5
 VerifyExpression_7 : VerifyExpression - Verify EmailCount
 VerifyExpression_5 --> VerifyExpression_7
 VerifyExpression_6 : VerifyExpression - Verify Report Generated in Output

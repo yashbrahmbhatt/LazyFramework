@@ -110,14 +110,14 @@ Sequence_2: Dispatching
 state Sequence_2 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - LoadConfig.xaml - Invoke Workflow File
-InvokeWorkflowFile_1 --> Switch`1_1
-Switch`1_1: TestID?
-state Switch`1_1 {
+InvokeWorkflowFile_1 --> Switch1_1
+Switch1_1: TestID?
+state Switch1_1 {
 direction TB
 Throw_1 : Throw - Throw Test Exception
 }
 LogMessage_1 : LogMessage - LM -- Start
-Switch`1_1 --> LogMessage_1
+Switch1_1 --> LogMessage_1
 MultipleAssign_2 : MultipleAssign - Setup Queue Data
 LogMessage_1 --> MultipleAssign_2
 MultipleAssign_2 --> RetryScope_1

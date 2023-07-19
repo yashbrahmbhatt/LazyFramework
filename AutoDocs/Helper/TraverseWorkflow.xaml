@@ -183,7 +183,7 @@
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">in_XElement.Attributes().Where(a =&gt; a.Name.LocalName == "WorkflowViewState.IdRef").Select(a =&gt; a.Value).FirstOrDefault("")</CSharpValue>
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">in_XElement.Attributes().Where(a =&gt; a.Name.LocalName == "WorkflowViewState.IdRef").Select(a =&gt; a.Value).FirstOrDefault("").Replace("`","")</CSharpValue>
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>

@@ -136,16 +136,16 @@ InvokeWorkflowFile_19 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke W
 LogMessage_11 --> InvokeWorkflowFile_19
 }
 }
-If_5 --> Switch`1_1
-Switch`1_1: @Test Variations - Initialization
-state Switch`1_1 {
+If_5 --> Switch1_1
+Switch1_1: @Test Variations - Initialization
+state Switch1_1 {
 direction TB
 MultipleAssign_21 : MultipleAssign - Update Maintenance Times
 Throw_1 : Throw - Throw InitializationError
 MultipleAssign_21 --> Throw_1
 }
 LogMessage_12 : LogMessage - LM -- Initializing
-Switch`1_1 --> LogMessage_12
+Switch1_1 --> LogMessage_12
 MultipleAssign_12 : MultipleAssign - Reset System Exception
 LogMessage_12 --> MultipleAssign_12
 MultipleAssign_12 --> TryCatch_7
@@ -180,14 +180,14 @@ Sequence_17: Get Transaction
 state Sequence_17 {
 direction TB
 LogMessage_13 : LogMessage - LM -- Get Next Transaction
-LogMessage_13 --> Switch`1_2
-Switch`1_2: @Test Variations - Get Transaction Data
-state Switch`1_2 {
+LogMessage_13 --> Switch1_2
+Switch1_2: @Test Variations - Get Transaction Data
+state Switch1_2 {
 direction TB
 Throw_4 : Throw - Throw GetTransactionData Error
 }
 ShouldStop_2 : ShouldStop - Stop Requested?
-Switch`1_2 --> ShouldStop_2
+Switch1_2 --> ShouldStop_2
 InvokeWorkflowFile_24 : InvokeWorkflowFile - Is Maintenance Time?
 ShouldStop_2 --> InvokeWorkflowFile_24
 InvokeWorkflowFile_24 --> IfElseIf_2
@@ -274,14 +274,14 @@ Sequence_24: Process Transaction
 state Sequence_24 {
 direction TB
 MultipleAssign_16 : MultipleAssign - Initialize State Variables
-MultipleAssign_16 --> Switch`1_3
-Switch`1_3: @Test Variations - Process
-state Switch`1_3 {
+MultipleAssign_16 --> Switch1_3
+Switch1_3: @Test Variations - Process
+state Switch1_3 {
 direction TB
 Throw_5 : Throw - Throw GetTransactionData Error
 }
 InvokeWorkflowFile_30 : InvokeWorkflowFile - Perform Transaction
-Switch`1_3 --> InvokeWorkflowFile_30
+Switch1_3 --> InvokeWorkflowFile_30
 }
 MultipleAssign_17 : MultipleAssign - Set BusinessException
 Sequence_24 --> MultipleAssign_17
@@ -292,14 +292,14 @@ TryCatch_11: Try Setting Transaction Status
 state TryCatch_11 {
 direction TB
 InvokeWorkflowFile_31 : InvokeWorkflowFile - HandleTransactionOutcome.xaml - Invoke Workflow File
-InvokeWorkflowFile_31 --> Switch`1_4
-Switch`1_4: @Test Variations - Process
-state Switch`1_4 {
+InvokeWorkflowFile_31 --> Switch1_4
+Switch1_4: @Test Variations - Process
+state Switch1_4 {
 direction TB
 Throw_7 : Throw - Throw GetTransactionData Error
 }
 MultipleAssign_19 : MultipleAssign - Set FrameworkException (Process)
-Switch`1_4 --> MultipleAssign_19
+Switch1_4 --> MultipleAssign_19
 }
 }
 Transition_12 : Transition - Error - Framework

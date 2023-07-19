@@ -172,9 +172,9 @@ direction TB
 BuildDataTable_1 : BuildDataTable - Initialize Arguments Table
 MultipleAssign_1 : MultipleAssign - Parse
 BuildDataTable_1 --> MultipleAssign_1
-MultipleAssign_1 --> ForEach`1_1
-ForEach`1_1: Add to Arguments Table
-state ForEach`1_1 {
+MultipleAssign_1 --> ForEach1_1
+ForEach1_1: Add to Arguments Table
+state ForEach1_1 {
 direction TB
 
 Sequence_2: Parse Argument
@@ -186,7 +186,7 @@ MultipleAssign_5 --> AddDataRow_2
 }
 }
 InvokeWorkflowFile_1 : InvokeWorkflowFile - AutoDocs\\Helper\\TraverseWorkflow.xaml - Invoke Workflow File
-ForEach`1_1 --> InvokeWorkflowFile_1
+ForEach1_1 --> InvokeWorkflowFile_1
 MultipleAssign_6 : MultipleAssign - Multiple Assign
 InvokeWorkflowFile_1 --> MultipleAssign_6
 }

@@ -195,14 +195,14 @@ GetIMAPMailMessages_1 : GetIMAPMailMessages - Get Emails (IMAP)
 GetRobotCredential_1 --> GetIMAPMailMessages_1
 MultipleAssign_4 : MultipleAssign - Get Exception Screenshot Files
 GetIMAPMailMessages_1 --> MultipleAssign_4
-MultipleAssign_4 --> ForEach`1_1
-ForEach`1_1: Delete Screenshot
-state ForEach`1_1 {
+MultipleAssign_4 --> ForEach1_1
+ForEach1_1: Delete Screenshot
+state ForEach1_1 {
 direction TB
 DeleteFileX_1 : DeleteFileX - Delete Screenshot File
 }
 GetQueueItems_1 : GetQueueItems - Get Failed or Retried Items
-ForEach`1_1 --> GetQueueItems_1
+ForEach1_1 --> GetQueueItems_1
 VerifyExpression_6 : VerifyExpression - Verify TestException
 GetQueueItems_1 --> VerifyExpression_6
 VerifyExpression_9 : VerifyExpression - Verify Exception Screenshot

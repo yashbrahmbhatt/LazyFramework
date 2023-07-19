@@ -98,9 +98,9 @@ direction TB
 LogMessage_2 : LogMessage - Log Message (Initialize All Settings)
 Assign_1 : Assign - Assign out_Config (initialization)
 LogMessage_2 --> Assign_1
-Assign_1 --> ForEach`1_1
-ForEach`1_1: For each configuration sheet
-state ForEach`1_1 {
+Assign_1 --> ForEach1_1
+ForEach1_1: For each configuration sheet
+state ForEach1_1 {
 direction TB
 
 Sequence_2: Get local settings and constants
@@ -120,7 +120,7 @@ Assign_2 : Assign - Add Config key/value pair
 }
 }
 }
-ForEach`1_1 --> TryCatch_2
+ForEach1_1 --> TryCatch_2
 TryCatch_2: Try initializing assets
 state TryCatch_2 {
 direction TB

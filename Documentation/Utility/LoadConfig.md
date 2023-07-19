@@ -164,8 +164,8 @@ If_3: Not Empty Row?
 state If_3 {
 direction TB
 
-Switch`1_3: Sheet Name?
-state Switch`1_3 {
+Switch1_3: Sheet Name?
+state Switch1_3 {
 direction TB
 Assign_5 : Assign - Set Default Value
 Assign_5 --> Sequence_11
