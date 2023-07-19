@@ -231,8 +231,8 @@ You should be good to go.
 - [ ] Finish porting over modules and workflows to the 'hardtyped' branch for upcoming support for coded workflows/source C# files.
 - [ ] <b>Add a 'Mapping' sheet to the Configs that read an excel file into a DataSet with each sheet being a named DataTable within it.</b>
 
-\* marks items that are still being considered.
-\* bolded items are the next priority.
+- \* marks items that are still being considered.
+- bolded items are the next priority.
 
 <hr />
 
