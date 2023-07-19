@@ -232,7 +232,8 @@ You should be good to go.
 - [ ] <b>Add a 'Mapping' sheet to the Configs that read an excel file into a DataSet with each sheet being a named DataTable within it.</b>
 
 <br />
-Legend
+
+#### Legend
 \* asterisks mark items that are still being considered.
 
 \* bolded items are the next priority.
