@@ -1,0 +1,135 @@
+# {WorkflowName}
+Class: WriteTableToExcel
+
+Writes a table to an excel file.
+
+<hr />
+
+## Workflow Details
+<details>
+    <summary>
+    <b>Namespaces</b>
+    </summary>
+    - System.Activities
+- System.Activities.Statements
+- System.Activities.Expressions
+- System.Activities.Validation
+- System.Activities.XamlIntegration
+- Microsoft.VisualBasic
+- Microsoft.VisualBasic.Activities
+- System
+- System.Collections
+- System.Collections.Generic
+- System.Collections.ObjectModel
+- System.Data
+- System.Diagnostics
+- System.Linq
+- System.Net.Mail
+- System.Xml
+- System.Text
+- System.Xml.Linq
+- UiPath.Core
+- UiPath.Core.Activities
+- System.Windows.Markup
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
+- UiPath.Excel
+- UiPath.Excel.Activities.Business
+- UiPath.Excel.Model
+- System.Reflection
+- System.ComponentModel
+- System.Runtime.Serialization
+- System.Xml.Serialization
+- UiPath.Shared.Activities
+
+</details>
+<details>
+    <summary>
+    <b>References</b>
+    </summary>
+    - Microsoft.CSharp
+- Microsoft.VisualBasic
+- Microsoft.Win32.Primitives
+- NPOI
+- PresentationFramework
+- System
+- System.Activities
+- System.ComponentModel
+- System.ComponentModel.EventBasedAsync
+- System.ComponentModel.Primitives
+- System.ComponentModel.TypeConverter
+- System.Configuration.ConfigurationManager
+- System.Console
+- System.Core
+- System.Data
+- System.Data.Common
+- System.Data.SqlClient
+- System.Linq
+- System.Memory
+- System.Memory.Data
+- System.ObjectModel
+- System.Private.CoreLib
+- System.Private.DataContractSerialization
+- System.Private.ServiceModel
+- System.Private.Uri
+- System.Private.Xml
+- System.Reflection.DispatchProxy
+- System.Reflection.Metadata
+- System.Reflection.TypeExtensions
+- System.Runtime.Serialization
+- System.Runtime.Serialization.Formatters
+- System.Runtime.Serialization.Primitives
+- System.Security.Permissions
+- System.ServiceModel
+- System.ServiceModel.Activities
+- System.Xaml
+- System.Xml
+- System.Xml.Linq
+- UiPath.Excel
+- UiPath.Excel.Activities
+- UiPath.Excel.Activities.Design
+- UiPath.Mail.Activities
+- UiPath.Studio.Constants
+- UiPath.System.Activities
+- UiPath.System.Activities.Design
+- UiPath.System.Activities.ViewModels
+- UiPath.Testing.Activities
+- UiPath.Workflow
+- WindowsBase
+
+</details>
+<details>
+    <summary>
+    <b>Arguments</b>
+    </summary>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_Path</td><td>InArgument</td><td>x:String</td><td>The path to the file to write to. File must exist already.</td></tr><tr><td>in_SheetName</td><td>InArgument</td><td>x:String</td><td>The name of the sheet to write the table to.</td></tr><tr><td>in_dt_Table</td><td>InArgument</td><td>sd:DataTable</td><td>The datatable to write to a sheet.</td></tr></table>
+</details>
+
+<hr />
+
+## Outline (Beta)
+
+```mermaid
+stateDiagram-v2
+
+Sequence_1: WriteTableToExcel
+state Sequence_1 {
+direction TB
+LogMessage_2 : LogMessage - LM -- Start
+ExcelProcessScopeX_1: Excel
+state ExcelProcessScopeX_1 {
+direction TB
+ExcelApplicationCard_1: Use File
+state ExcelApplicationCard_1 {
+direction TB
+Sequence_2: Workflow Analyzer Gives a Warning If I Don't Have This Sequence
+state Sequence_2 {
+direction TB
+WriteRangeX_2 : WriteRangeX - Write Table
+}
+}
+}
+LogMessage_1 : LogMessage - LM -- Complete
+ExcelProcessScopeX_1 --> LogMessage_1
+}
+```

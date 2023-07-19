@@ -1,0 +1,132 @@
+# {WorkflowName}
+Class: CreateTestData
+
+Helper to create test data in a queue to test the reporter.
+
+<hr />
+
+## Workflow Details
+<details>
+    <summary>
+    <b>Namespaces</b>
+    </summary>
+    - System.Activities
+- System.Activities.Statements
+- System.Activities.Expressions
+- System.Activities.Validation
+- System.Activities.XamlIntegration
+- Microsoft.VisualBasic
+- Microsoft.VisualBasic.Activities
+- System
+- System.Collections
+- System.Collections.Generic
+- System.Collections.ObjectModel
+- System.Data
+- System.Diagnostics
+- System.Linq
+- System.Net.Mail
+- System.Xml
+- System.Text
+- System.Xml.Linq
+- UiPath.Core
+- UiPath.Core.Activities
+- System.Windows.Markup
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
+- System.Reflection
+- System.Linq.Expressions
+- System.Runtime.Serialization
+
+</details>
+<details>
+    <summary>
+    <b>References</b>
+    </summary>
+    - Microsoft.CSharp
+- Microsoft.VisualBasic
+- NPOI
+- System
+- System.Activities
+- System.Collections
+- System.ComponentModel
+- System.ComponentModel.TypeConverter
+- System.Configuration.ConfigurationManager
+- System.Console
+- System.Core
+- System.Data
+- System.Data.Common
+- System.Linq
+- System.Linq.Expressions
+- System.Memory
+- System.Memory.Data
+- System.ObjectModel
+- System.Private.CoreLib
+- System.Private.DataContractSerialization
+- System.Private.ServiceModel
+- System.Private.Uri
+- System.Reflection.DispatchProxy
+- System.Reflection.Metadata
+- System.Reflection.TypeExtensions
+- System.Runtime.Serialization
+- System.Runtime.Serialization.Formatters
+- System.Runtime.Serialization.Primitives
+- System.Security.Permissions
+- System.ServiceModel
+- System.ServiceModel.Activities
+- System.Xaml
+- System.Xml
+- System.Xml.Linq
+- UiPath.Studio.Constants
+- UiPath.System.Activities
+- UiPath.System.Activities.Design
+- UiPath.System.Activities.ViewModels
+- UiPath.Workflow
+
+</details>
+<details>
+    <summary>
+    <b>Arguments</b>
+    </summary>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ConfigPath</td><td>InArgument</td><td>x:String</td><td>Path to the config file to load.</td></tr></table>
+</details>
+
+<hr />
+
+## Outline (Beta)
+
+```mermaid
+stateDiagram-v2
+
+Sequence_1: CreateTestData
+state Sequence_1 {
+direction TB
+LogMessage_1 : LogMessage - LM -- Start
+InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
+LogMessage_1 --> InvokeWorkflowFile_1
+ForEach`1_1: Loop through counts
+state ForEach`1_1 {
+direction TB
+Sequence_2: Add Item to Queue
+state Sequence_2 {
+direction TB
+AddTransactionItem_1 : AddTransactionItem - Start Transaction
+Delay_1 : Delay - Adding Delay for Execution Time
+AddTransactionItem_1 --> Delay_1
+If_1: Lucky?
+state If_1 {
+direction TB
+SetTransactionStatus_1 : SetTransactionStatus - Set Successful
+If_2: App or Bus?
+state If_2 {
+direction TB
+SetTransactionStatus_3 : SetTransactionStatus - Set Business
+SetTransactionStatus_5 : SetTransactionStatus - Set Application
+SetTransactionStatus_3 --> SetTransactionStatus_5
+}
+}
+}
+}
+LogMessage_2 : LogMessage - LM -- Complete
+ForEach`1_1 --> LogMessage_2
+}
+```
