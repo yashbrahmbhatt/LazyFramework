@@ -233,7 +233,7 @@ You should be good to go.
 
 <br />
 
-\* \* marks items that are still being considered.
+\* asterisks mark items that are still being considered.
 
 \* bolded items are the next priority.
 
