@@ -88,6 +88,8 @@ You should be good to go.
 <hr />
 
 # Module Templates
+A description of the module templates that are currently available and planned to be supported.
+
 <details>
   <summary>
     <b>Dispatchers</b>
