@@ -104,30 +104,30 @@ Helper to create test data in a queue to test the reporter.
 stateDiagram-v2
 
 
-Sequence_1: CreateTestData
+Sequence_1: Sequence - CreateTestData
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
 LogMessage_1 --> InvokeWorkflowFile_1
 InvokeWorkflowFile_1 --> ForEach1_1
-ForEach1_1: Loop through counts
+ForEach1_1: ForEach - Loop through counts
 state ForEach1_1 {
 direction TB
 
-Sequence_2: Add Item to Queue
+Sequence_2: Sequence - Add Item to Queue
 state Sequence_2 {
 direction TB
 AddTransactionItem_1 : AddTransactionItem - Start Transaction
 Delay_1 : Delay - Adding Delay for Execution Time
 AddTransactionItem_1 --> Delay_1
 Delay_1 --> If_1
-If_1: Lucky?
+If_1: If - Lucky?
 state If_1 {
 direction TB
 SetTransactionStatus_1 : SetTransactionStatus - Set Successful
 SetTransactionStatus_1 --> If_2
-If_2: App or Bus?
+If_2: If - App or Bus?
 state If_2 {
 direction TB
 SetTransactionStatus_3 : SetTransactionStatus - Set Business

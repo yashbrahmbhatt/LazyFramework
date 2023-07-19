@@ -122,7 +122,7 @@ Current Fields:
 stateDiagram-v2
 
 
-Sequence_1: AddCalculatedColumns
+Sequence_1: Sequence - AddCalculatedColumns
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
@@ -131,15 +131,15 @@ LogMessage_1 --> AddDataColumn1_2
 AddDataColumn1_3 : AddDataColumn - Add Execution Time
 AddDataColumn1_2 --> AddDataColumn1_3
 AddDataColumn1_3 --> ForEachRow_1
-ForEachRow_1: For Each Row
+ForEachRow_1: ForEachRow - For Each Row
 state ForEachRow_1 {
 direction TB
 
-Sequence_6: Update Rows
+Sequence_6: Sequence - Update Rows
 state Sequence_6 {
 direction TB
 
-If_3: Item not completed?
+If_3: If - Item not completed?
 state If_3 {
 direction TB
 Continue_1 : Continue - Skip Row
@@ -147,11 +147,11 @@ Continue_1 : Continue - Skip Row
 MultipleAssign_4 : MultipleAssign - Update Execution Time
 If_3 --> MultipleAssign_4
 MultipleAssign_4 --> If_1
-If_1: Failed?
+If_1: If - Failed?
 state If_1 {
 direction TB
 
-If_2: System Or Business?
+If_2: If - System Or Business?
 state If_2 {
 direction TB
 MultipleAssign_1 : MultipleAssign - Set System Exception Time Saved

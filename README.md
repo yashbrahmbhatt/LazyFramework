@@ -214,7 +214,9 @@ You should be good to go.
 - [x] Create BasicReporter - Yash Brahmbhatt 15/7/2023
 - [x] Create Excel PowerQuery Reporter - Yash Brahmbhatt 15/7/2023
 - [x] Import REFramework - Yash brahmbhatt 16/7/2023
-- [ ] <b>Add Tests for all modules so far</b>
+- [x] Add Tests for all modules so far - Yash Brahmbhatt 19/07/2023
+- [x] Add Auto-Documentation Module - Yash Brahmbhatt 18/07/2023
+- [ ] <b>Add Support for Mermaid Diagrams in AutoDocs</b>
 - [ ] Create ApplicationDispatcher*
 - [ ] Create Tasker
 - [ ] Create ExcelDispatcher

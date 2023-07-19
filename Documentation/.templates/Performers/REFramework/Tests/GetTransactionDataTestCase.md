@@ -102,12 +102,12 @@ Please make sure the queue name is configured.
 stateDiagram-v2
 
 
-Sequence_1: GetTransactionDataTestCase
+Sequence_1: Sequence - GetTransactionDataTestCase
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - GetTransactionDataTestCase
 LogMessage_1 --> Sequence_2
-Sequence_2: ... Given
+Sequence_2: Sequence - ... Given
 state Sequence_2 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Invoke InitAllSettings workflow
@@ -115,18 +115,18 @@ Assign_1 : Assign - Assign TransactionNumber
 InvokeWorkflowFile_1 --> Assign_1
 }
 Sequence_2 --> Sequence_4
-Sequence_4: ... When
+Sequence_4: Sequence - ... When
 state Sequence_4 {
 direction TB
 InvokeWorkflowFile_2 : InvokeWorkflowFile - Invoke GetTransactionData workflow
 }
 Sequence_4 --> Sequence_3
-Sequence_3: ... Then
+Sequence_3: Sequence - ... Then
 state Sequence_3 {
 direction TB
 VerifyExpression_1 : VerifyExpression - Verify transaction item was retrieved
 VerifyExpression_1 --> If_1
-If_1: If transaction item is not null
+If_1: If - If transaction item is not null
 state If_1 {
 direction TB
 SetTransactionProgress_1 : SetTransactionProgress - Set transaction item progress to tested

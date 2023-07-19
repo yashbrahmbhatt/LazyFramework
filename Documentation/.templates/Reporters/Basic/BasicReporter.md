@@ -138,34 +138,34 @@ Reads all queue items for a single queue within a defined reporting period, writ
 stateDiagram-v2
 
 
-Sequence_1: BasicReporter
+Sequence_1: Sequence - BasicReporter
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
 LogMessage_1 --> InvokeWorkflowFile_1
 InvokeWorkflowFile_1 --> TryCatch_2
-TryCatch_2: Try Reporting
+TryCatch_2: TryCatch - Try Reporting
 state TryCatch_2 {
 direction TB
 
-Sequence_12: Reporting
+Sequence_12: Sequence - Reporting
 state Sequence_12 {
 direction TB
 
-Sequence_2: Initialize
+Sequence_2: Sequence - Initialize
 state Sequence_2 {
 direction TB
 
-If_1: Validate Time Frame
+If_1: If - Validate Time Frame
 state If_1 {
 direction TB
 
-TryCatch_1: Try Parsing CRON
+TryCatch_1: TryCatch - Try Parsing CRON
 state TryCatch_1 {
 direction TB
 
-Sequence_5: Parsing CRON
+Sequence_5: Sequence - Parsing CRON
 state Sequence_5 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Parse CRON
@@ -176,7 +176,7 @@ Throw_1 : Throw - Throw InvalidCRON
 Sequence_5 --> Throw_1
 }
 TryCatch_1 --> If_2
-If_2: From/To Defined?
+If_2: If - From/To Defined?
 state If_2 {
 direction TB
 LogMessage_4 : LogMessage - LM -- Argument Override
@@ -189,7 +189,7 @@ If_1 --> MultipleAssign_1
 KillProcess_1 : KillProcess - Kill Excel
 MultipleAssign_1 --> KillProcess_1
 KillProcess_1 --> If_3
-If_3: Cleanup Temp Folder
+If_3: If - Cleanup Temp Folder
 state If_3 {
 direction TB
 Delete_1 : Delete - Delete Temp Folder
@@ -200,7 +200,7 @@ LogMessage_5 : LogMessage - LM -- Initialization Complete
 CreateDirectory_1 --> LogMessage_5
 }
 Sequence_2 --> Sequence_9
-Sequence_9: Create Report
+Sequence_9: Sequence - Create Report
 state Sequence_9 {
 direction TB
 LogMessage_6 : LogMessage - LM -- Create Report
@@ -213,7 +213,7 @@ InvokeWorkflowFile_2 --> InvokeWorkflowFile_4
 InvokeWorkflowFile_3 : InvokeWorkflowFile - Write Table to Excel
 InvokeWorkflowFile_4 --> InvokeWorkflowFile_3
 InvokeWorkflowFile_3 --> If_4
-If_4: Output Path Not Empty?
+If_4: If - Output Path Not Empty?
 state If_4 {
 direction TB
 CopyFile_2 : CopyFile - Copy to Output
@@ -224,7 +224,7 @@ LogMessage_7 : LogMessage - LM -- Report Generated
 If_4 --> LogMessage_7
 }
 Sequence_9 --> Sequence_10
-Sequence_10: Send Email
+Sequence_10: Sequence - Send Email
 state Sequence_10 {
 direction TB
 LogMessage_8 : LogMessage - LM -- Emailing
@@ -239,7 +239,7 @@ InvokeWorkflowFile_5 --> LogMessage_10
 }
 }
 Sequence_12 --> Sequence_13
-Sequence_13: Send Exception Email
+Sequence_13: Sequence - Send Exception Email
 state Sequence_13 {
 direction TB
 InvokeWorkflowFile_7 : InvokeWorkflowFile - Utility\\TakeScreenshot.xaml - Invoke Workflow File

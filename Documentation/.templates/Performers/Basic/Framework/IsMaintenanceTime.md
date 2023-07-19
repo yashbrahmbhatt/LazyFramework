@@ -82,11 +82,11 @@ Given a CRON expression for the maintenance schedule, checks whether the current
 stateDiagram-v2
 
 
-Sequence_1: IsMaintenanceTime
+Sequence_1: Sequence - IsMaintenanceTime
 state Sequence_1 {
 direction TB
 
-If_1: No Boundary?
+If_1: If - No Boundary?
 state If_1 {
 direction TB
 MultipleAssign_1 : MultipleAssign - Set to General Case

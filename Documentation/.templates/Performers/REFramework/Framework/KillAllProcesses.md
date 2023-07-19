@@ -69,7 +69,7 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
 stateDiagram-v2
 
 
-Sequence_2: Kill All Processes
+Sequence_2: Sequence - Kill All Processes
 state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - Log message (Kill processes)

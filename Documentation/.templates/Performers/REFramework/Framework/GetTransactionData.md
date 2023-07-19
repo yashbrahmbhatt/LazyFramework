@@ -71,7 +71,7 @@ If there are multiple transactions, use the argument in_TransactionNumber as an 
     <b>Arguments</b>
     </summary>
 
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_TransactionNumber</td><td>InArgument</td><td>x:Int32</td><td>Sequential counter of transaction items.</td></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary<x:String, x:Object></td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr><tr><td>out_TransactionItem</td><td>OutArgument</td><td>ui:QueueItem</td><td>Transaction item to be processed.</td></tr><tr><td>out_TransactionField1</td><td>OutArgument</td><td>x:String</td><td>Allow the optional addition of information about the transaction item.</td></tr><tr><td>out_TransactionField2</td><td>OutArgument</td><td>x:String</td><td>Allow the optional addition of information about the transaction item.</td></tr><tr><td>out_TransactionID</td><td>OutArgument</td><td>x:String</td><td>Transaction ID used for information and logging purposes. Ideally, the ID should be unique for each transaction. </td></tr><tr><td>io_dt_TransactionData</td><td>InOutArgument</td><td>sd:DataTable</td><td>This variable can be used in case transactions are stored in a DataTable (for example, after being retrieved from a spreadsheet).</td></tr></table>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_TransactionNumber</td><td>InArgument</td><td>x:Int32</td><td>Sequential counter of transaction items.</td></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr><tr><td>out_TransactionItem</td><td>OutArgument</td><td>ui:QueueItem</td><td>Transaction item to be processed.</td></tr><tr><td>out_TransactionField1</td><td>OutArgument</td><td>x:String</td><td>Allow the optional addition of information about the transaction item.</td></tr><tr><td>out_TransactionField2</td><td>OutArgument</td><td>x:String</td><td>Allow the optional addition of information about the transaction item.</td></tr><tr><td>out_TransactionID</td><td>OutArgument</td><td>x:String</td><td>Transaction ID used for information and logging purposes. Ideally, the ID should be unique for each transaction. </td></tr><tr><td>io_dt_TransactionData</td><td>InOutArgument</td><td>sd:DataTable</td><td>This variable can be used in case transactions are stored in a DataTable (for example, after being retrieved from a spreadsheet).</td></tr></table>
     
 </details>
 
@@ -83,21 +83,21 @@ If there are multiple transactions, use the argument in_TransactionNumber as an 
 stateDiagram-v2
 
 
-Sequence_3: Get Transaction Data
+Sequence_3: Sequence - Get Transaction Data
 state Sequence_3 {
 direction TB
 LogMessage_1 : LogMessage - Log Message Get Transaction Item
 LogMessage_1 --> RetryScope_1
-RetryScope_1: Retry Get transaction item
+RetryScope_1: RetryScope - Retry Get transaction item
 state RetryScope_1 {
 direction TB
 
-TryCatch_1: Try Catch Get transaction item
+TryCatch_1: TryCatch - Try Catch Get transaction item
 state TryCatch_1 {
 direction TB
 GetQueueItem_1 : GetQueueItem - Get transaction item
 GetQueueItem_1 --> Sequence_4
-Sequence_4: Catch Get transaction item
+Sequence_4: Sequence - Catch Get transaction item
 state Sequence_4 {
 direction TB
 LogMessage_2 : LogMessage - Log Message Get transaction item faulted
@@ -107,11 +107,11 @@ LogMessage_2 --> Rethrow_1
 }
 }
 RetryScope_1 --> If_1
-If_1: If a new transaction item is retrieved, get additional information about it
+If_1: If - If a new transaction item is retrieved, get additional information about it
 state If_1 {
 direction TB
 
-Sequence_2: Add transaction information to log fields
+Sequence_2: Sequence - Add transaction information to log fields
 state Sequence_2 {
 direction TB
 Assign_1 : Assign - Assign out_TransactionID

@@ -57,7 +57,7 @@ The retrying method is based on the configurations defined in Config.xlsx.
     <b>Arguments</b>
     </summary>
 
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary<x:String, x:Object></td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr><tr><td>io_RetryNumber</td><td>InOutArgument</td><td>x:Int32</td><td>Used to control the number of attempts of retrying the transaction processing in case of system exceptions.</td></tr><tr><td>io_TransactionNumber</td><td>InOutArgument</td><td>x:Int32</td><td>Sequential counter of transaction items.</td></tr><tr><td>in_SystemException</td><td>InArgument</td><td>s:Exception</td><td>Used during transitions between states to represent exceptions other than business exceptions.</td></tr><tr><td>in_QueueRetry</td><td>InArgument</td><td>x:Boolean</td><td>Used to indicate whether the retry procedure is managed by an Orchestrator queue.</td></tr></table>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr><tr><td>io_RetryNumber</td><td>InOutArgument</td><td>x:Int32</td><td>Used to control the number of attempts of retrying the transaction processing in case of system exceptions.</td></tr><tr><td>io_TransactionNumber</td><td>InOutArgument</td><td>x:Int32</td><td>Sequential counter of transaction items.</td></tr><tr><td>in_SystemException</td><td>InArgument</td><td>s:Exception</td><td>Used during transitions between states to represent exceptions other than business exceptions.</td></tr><tr><td>in_QueueRetry</td><td>InArgument</td><td>x:Boolean</td><td>Used to indicate whether the retry procedure is managed by an Orchestrator queue.</td></tr></table>
     
 </details>
 
@@ -69,15 +69,15 @@ The retrying method is based on the configurations defined in Config.xlsx.
 stateDiagram-v2
 
 
-Flowchart_2: Retry Current Transaction
+Flowchart_2: Flowchart - Retry Current Transaction
 state Flowchart_2 {
 direction TB
 
-FlowDecision_3: Retry transaction?
+FlowDecision_3: FlowDecision - Retry transaction?
 state FlowDecision_3 {
 direction TB
 
-FlowDecision_2: Max retries reached?
+FlowDecision_2: FlowDecision - Max retries reached?
 state FlowDecision_2 {
 direction TB
 LogMessage_1 : LogMessage - Log message (Max retries reached)
@@ -88,7 +88,7 @@ Assign_1 --> Assign_2
 LogMessage_2 : LogMessage - Log message (Retry)
 Assign_2 --> LogMessage_2
 LogMessage_2 --> FlowDecision_1
-FlowDecision_1: Use Orchestrator's retry?
+FlowDecision_1: FlowDecision - Use Orchestrator's retry?
 state FlowDecision_1 {
 direction TB
 Assign_3 : Assign - Increment TransactionNumber (Orchestrator retry)

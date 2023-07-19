@@ -108,7 +108,7 @@ Retrieves all queue items for a particular queue id into a list.
     <b>Arguments</b>
     </summary>
 
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_QueueId</td><td>InArgument</td><td>x:Int32</td><td>The ID of the queue to get queue items for.</td></tr><tr><td>in_From</td><td>InArgument</td><td>s:DateTime</td><td>The start of the reporting range.</td></tr><tr><td>in_To</td><td>InArgument</td><td>s:DateTime</td><td>The end of the reporting period.</td></tr><tr><td>in_Statuses</td><td>InArgument</td><td>s:String[]</td><td>A list of the statuses to include in the output queue items list.</td></tr><tr><td>out_QueueItems</td><td>OutArgument</td><td>scg:List<njl:JToken></td><td>The list of queue items retrieved.</td></tr></table>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_QueueId</td><td>InArgument</td><td>x:Int32</td><td>The ID of the queue to get queue items for.</td></tr><tr><td>in_From</td><td>InArgument</td><td>s:DateTime</td><td>The start of the reporting range.</td></tr><tr><td>in_To</td><td>InArgument</td><td>s:DateTime</td><td>The end of the reporting period.</td></tr><tr><td>in_Statuses</td><td>InArgument</td><td>s:String[]</td><td>A list of the statuses to include in the output queue items list.</td></tr><tr><td>out_QueueItems</td><td>OutArgument</td><td>scg:List(njl:JToken)</td><td>The list of queue items retrieved.</td></tr></table>
     
 </details>
 
@@ -120,18 +120,18 @@ Retrieves all queue items for a particular queue id into a list.
 stateDiagram-v2
 
 
-Sequence_1: GetQueueItems
+Sequence_1: Sequence - GetQueueItems
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize Vars
 LogMessage_1 --> MultipleAssign_1
 MultipleAssign_1 --> ForEach1_1
-ForEach1_1: For Each Status
+ForEach1_1: ForEach - For Each Status
 state ForEach1_1 {
 direction TB
 
-If_1: Last Status
+If_1: If - Last Status
 state If_1 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Close off StatusFilter
@@ -140,17 +140,17 @@ MultipleAssign_2 --> MultipleAssign_3
 }
 }
 ForEach1_1 --> If_2
-If_2: Status Included?
+If_2: If - Status Included?
 state If_2 {
 direction TB
 MultipleAssign_4 : MultipleAssign - Update EndPoint with Statuses
 }
 If_2 --> InterruptibleDoWhile_1
-InterruptibleDoWhile_1: Loop While 1000 Items Returned
+InterruptibleDoWhile_1: InterruptibleDoWhile - Loop While 1000 Items Returned
 state InterruptibleDoWhile_1 {
 direction TB
 
-Sequence_6: Body
+Sequence_6: Sequence - Body
 state Sequence_6 {
 direction TB
 OrchestratorHttpRequest_1 : OrchestratorHttpRequest - Queue Items API Call

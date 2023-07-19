@@ -126,18 +126,18 @@ Class: DocumentProject
 stateDiagram-v2
 
 
-Sequence_1: DocumentProject
+Sequence_1: Sequence - DocumentProject
 state Sequence_1 {
 direction TB
 MultipleAssign_1 : MultipleAssign - Initialize Vars
 DeleteFolderX_1 : DeleteFolderX - Delete Folder
 MultipleAssign_1 --> DeleteFolderX_1
 DeleteFolderX_1 --> ForEach1_1
-ForEach1_1: For Each Workflow
+ForEach1_1: ForEach - For Each Workflow
 state ForEach1_1 {
 direction TB
 
-Sequence_2: Body
+Sequence_2: Sequence - Body
 state Sequence_2 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - AutoDocs\\Helper\\ParseWorkflow.xaml - Invoke Workflow File

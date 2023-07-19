@@ -120,11 +120,11 @@ Takes a screenshot and saves it to a folder.
 stateDiagram-v2
 
 
-Sequence_1: TakeScreenshot
+Sequence_1: Sequence - TakeScreenshot
 state Sequence_1 {
 direction TB
 
-If_2: Empty File Path?
+If_2: If - Empty File Path?
 state If_2 {
 direction TB
 MultipleAssign_1 : MultipleAssign - Set File Name
@@ -134,7 +134,7 @@ MultipleAssign_1 --> MultipleAssign_3
 FolderExistsX_1 : FolderExistsX - Get Folder Exists
 If_2 --> FolderExistsX_1
 FolderExistsX_1 --> If_1
-If_1: Folder Doesn't Exist?
+If_1: If - Folder Doesn't Exist?
 state If_1 {
 direction TB
 CreateDirectory_1 : CreateDirectory - Create Folder!

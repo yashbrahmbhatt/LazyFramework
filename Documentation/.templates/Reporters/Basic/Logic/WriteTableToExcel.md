@@ -119,20 +119,20 @@ Writes a table to an excel file.
 stateDiagram-v2
 
 
-Sequence_1: WriteTableToExcel
+Sequence_1: Sequence - WriteTableToExcel
 state Sequence_1 {
 direction TB
 LogMessage_2 : LogMessage - LM -- Start
 LogMessage_2 --> ExcelProcessScopeX_1
-ExcelProcessScopeX_1: Excel
+ExcelProcessScopeX_1: ExcelProcessScopeX - Excel
 state ExcelProcessScopeX_1 {
 direction TB
 
-ExcelApplicationCard_1: Use File
+ExcelApplicationCard_1: ExcelApplicationCard - Use File
 state ExcelApplicationCard_1 {
 direction TB
 
-Sequence_2: Workflow Analyzer Gives a Warning If I Don't Have This Sequence
+Sequence_2: Sequence - Workflow Analyzer Gives a Warning If I Don't Have This Sequence
 state Sequence_2 {
 direction TB
 WriteRangeX_2 : WriteRangeX - Write Table

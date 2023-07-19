@@ -92,7 +92,7 @@ At the end, io_TransactionNumber is incremented, which makes the framework get t
     <b>Arguments</b>
     </summary>
 
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_BusinessException</td><td>InArgument</td><td>ui:BusinessRuleException</td><td>Exception variable that is used during transitions between states and represents a situation that does not conform to the rules of the process being automated.</td></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary<x:String, x:Object></td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr><tr><td>in_TransactionItem</td><td>InArgument</td><td>ui:QueueItem</td><td>Transaction item to be processed.</td></tr><tr><td>io_RetryNumber</td><td>InOutArgument</td><td>x:Int32</td><td>Used to control the number of attempts of retrying the transaction processing in case of system exceptions.</td></tr><tr><td>io_TransactionNumber</td><td>InOutArgument</td><td>x:Int32</td><td>Sequential counter of transaction items.</td></tr><tr><td>in_TransactionField1</td><td>InArgument</td><td>x:String</td><td>Optionally used to include additional information about the transaction item.</td></tr><tr><td>in_TransactionField2</td><td>InArgument</td><td>x:String</td><td>Optionally used to include additional information about the transaction item.</td></tr><tr><td>in_TransactionID</td><td>InArgument</td><td>x:String</td><td>Used for information and logging purposes. Ideally, the ID should be unique for each transaction. </td></tr><tr><td>in_SystemException</td><td>InArgument</td><td>s:Exception</td><td>Used during transitions between states to represent exceptions other than business exceptions.</td></tr><tr><td>io_ConsecutiveSystemExceptions</td><td>InOutArgument</td><td>x:Int32</td><td>Used to control the number of consecutive system exceptions.</td></tr></table>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_BusinessException</td><td>InArgument</td><td>ui:BusinessRuleException</td><td>Exception variable that is used during transitions between states and represents a situation that does not conform to the rules of the process being automated.</td></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr><tr><td>in_TransactionItem</td><td>InArgument</td><td>ui:QueueItem</td><td>Transaction item to be processed.</td></tr><tr><td>io_RetryNumber</td><td>InOutArgument</td><td>x:Int32</td><td>Used to control the number of attempts of retrying the transaction processing in case of system exceptions.</td></tr><tr><td>io_TransactionNumber</td><td>InOutArgument</td><td>x:Int32</td><td>Sequential counter of transaction items.</td></tr><tr><td>in_TransactionField1</td><td>InArgument</td><td>x:String</td><td>Optionally used to include additional information about the transaction item.</td></tr><tr><td>in_TransactionField2</td><td>InArgument</td><td>x:String</td><td>Optionally used to include additional information about the transaction item.</td></tr><tr><td>in_TransactionID</td><td>InArgument</td><td>x:String</td><td>Used for information and logging purposes. Ideally, the ID should be unique for each transaction. </td></tr><tr><td>in_SystemException</td><td>InArgument</td><td>s:Exception</td><td>Used during transitions between states to represent exceptions other than business exceptions.</td></tr><tr><td>io_ConsecutiveSystemExceptions</td><td>InOutArgument</td><td>x:Int32</td><td>Used to control the number of consecutive system exceptions.</td></tr></table>
     
 </details>
 
@@ -104,32 +104,32 @@ At the end, io_TransactionNumber is incremented, which makes the framework get t
 stateDiagram-v2
 
 
-Flowchart_2: Set Transaction Status
+Flowchart_2: Flowchart - Set Transaction Status
 state Flowchart_2 {
 direction TB
 
-FlowDecision_2: Is successful?
+FlowDecision_2: FlowDecision - Is successful?
 state FlowDecision_2 {
 direction TB
 
-Sequence_2: Success
+Sequence_2: Sequence - Success
 state Sequence_2 {
 direction TB
 
-If_1: If TransactionItem is a QueueItem (Success)
+If_1: If - If TransactionItem is a QueueItem (Success)
 state If_1 {
 direction TB
 
-RetryScope_3: Retry Set Transaction Status (Success)
+RetryScope_3: RetryScope - Retry Set Transaction Status (Success)
 state RetryScope_3 {
 direction TB
 
-TryCatch_7: Try Catch Set Transaction Status (Success)
+TryCatch_7: TryCatch - Try Catch Set Transaction Status (Success)
 state TryCatch_7 {
 direction TB
 SetTransactionStatus_5 : SetTransactionStatus - Set transaction status (Successful)
 SetTransactionStatus_5 --> Sequence_11
-Sequence_11: Catch Set Transaction Status (Success)
+Sequence_11: Sequence - Catch Set Transaction Status (Success)
 state Sequence_11 {
 direction TB
 LogMessage_11 : LogMessage - Log Message Could not set status (Success)
@@ -140,7 +140,7 @@ LogMessage_11 --> Rethrow_3
 }
 }
 If_1 --> Sequence_1
-Sequence_1: Log Success with additional logging fields
+Sequence_1: Sequence - Log Success with additional logging fields
 state Sequence_1 {
 direction TB
 AddLogFields_1 : AddLogFields - Add transaction log fields (Success)
@@ -151,7 +151,7 @@ LogMessage_1 --> RemoveLogFields_1
 }
 }
 Sequence_2 --> Sequence_3
-Sequence_3: Increment transaction index and reset retries
+Sequence_3: Sequence - Increment transaction index and reset retries
 state Sequence_3 {
 direction TB
 Assign_1 : Assign - Assign io_TransactionNumber
@@ -161,28 +161,28 @@ Assign_5 : Assign - Assign io_ConsecutiveSystemExceptions
 Assign_2 --> Assign_5
 }
 Sequence_3 --> FlowDecision_1
-FlowDecision_1: Is Business Exception?
+FlowDecision_1: FlowDecision - Is Business Exception?
 state FlowDecision_1 {
 direction TB
 
-Sequence_5: Business Exception
+Sequence_5: Sequence - Business Exception
 state Sequence_5 {
 direction TB
 
-If_2: If TransactionItem is a QueueItem (Business Exception)
+If_2: If - If TransactionItem is a QueueItem (Business Exception)
 state If_2 {
 direction TB
 
-RetryScope_2: Retry Set Transaction Status (Business Exception)
+RetryScope_2: RetryScope - Retry Set Transaction Status (Business Exception)
 state RetryScope_2 {
 direction TB
 
-TryCatch_6: Try Catch Set Transaction Status (Business Exception)
+TryCatch_6: TryCatch - Try Catch Set Transaction Status (Business Exception)
 state TryCatch_6 {
 direction TB
 SetTransactionStatus_4 : SetTransactionStatus - Set transaction status (Business Exception status)
 SetTransactionStatus_4 --> Sequence_10
-Sequence_10: Catch Set Transaction Status (Business Exception)
+Sequence_10: Sequence - Catch Set Transaction Status (Business Exception)
 state Sequence_10 {
 direction TB
 LogMessage_8 : LogMessage - Log Message Could not set status (Business Exception)
@@ -193,7 +193,7 @@ LogMessage_8 --> Rethrow_2
 }
 }
 If_2 --> Sequence_4
-Sequence_4: Log business exception with additional logging fields
+Sequence_4: Sequence - Log business exception with additional logging fields
 state Sequence_4 {
 direction TB
 AddLogFields_2 : AddLogFields - Add transaction log fields (Business Exception)
@@ -204,14 +204,14 @@ LogMessage_2 --> RemoveLogFields_2
 }
 }
 Sequence_5 --> Sequence_8
-Sequence_8: System Exception
+Sequence_8: Sequence - System Exception
 state Sequence_8 {
 direction TB
 LogMessage_10 : LogMessage - Log Message (Consecutive exceptions)
 Assign_3 : Assign - Assign QueryRetry
 LogMessage_10 --> Assign_3
 Assign_3 --> TryCatch_4
-TryCatch_4: Try taking screenshot
+TryCatch_4: TryCatch - Try taking screenshot
 state TryCatch_4 {
 direction TB
 InvokeWorkflowFile_5 : InvokeWorkflowFile - TakeScreenshot.xaml - Invoke Workflow File
@@ -219,19 +219,19 @@ LogMessage_6 : LogMessage - Log message (Screenshot not taken)
 InvokeWorkflowFile_5 --> LogMessage_6
 }
 TryCatch_4 --> If_3
-If_3: If TransactionItem is a QueueItem (System Exception)
+If_3: If - If TransactionItem is a QueueItem (System Exception)
 state If_3 {
 direction TB
 
-RetryScope_1: Retry Set Transaction Status (System Exception)
+RetryScope_1: RetryScope - Retry Set Transaction Status (System Exception)
 state RetryScope_1 {
 direction TB
 
-TryCatch_5: Try Catch Set Transaction Status (System Exception)
+TryCatch_5: TryCatch - Try Catch Set Transaction Status (System Exception)
 state TryCatch_5 {
 direction TB
 
-Sequence_6: Try Set Transaction Status (System Exception)
+Sequence_6: Sequence - Try Set Transaction Status (System Exception)
 state Sequence_6 {
 direction TB
 SetTransactionStatus_3 : SetTransactionStatus - Set transaction status (System Exception)
@@ -239,7 +239,7 @@ Assign_4 : Assign - Assign RetryNumber from Queue
 SetTransactionStatus_3 --> Assign_4
 }
 Sequence_6 --> Sequence_9
-Sequence_9: Catch Set Transaction Status (System Exception)
+Sequence_9: Sequence - Catch Set Transaction Status (System Exception)
 state Sequence_9 {
 direction TB
 LogMessage_7 : LogMessage - Log Message Could not set status (System Exception)
@@ -258,17 +258,17 @@ Assign_6 --> InvokeWorkflowFile_1
 RemoveLogFields_3 : RemoveLogFields - Remove transaction log fields (System Exception)
 InvokeWorkflowFile_1 --> RemoveLogFields_3
 RemoveLogFields_3 --> TryCatch_3
-TryCatch_3: Try closing applications
+TryCatch_3: TryCatch - Try closing applications
 state TryCatch_3 {
 direction TB
 InvokeWorkflowFile_3 : InvokeWorkflowFile - CloseAllApplications.xaml - Invoke Workflow File
 InvokeWorkflowFile_3 --> Sequence_7
-Sequence_7: Close applications
+Sequence_7: Sequence - Close applications
 state Sequence_7 {
 direction TB
 LogMessage_4 : LogMessage - Log message (CloseAllApplications failed)
 LogMessage_4 --> TryCatch_2
-TryCatch_2: Try killing processes
+TryCatch_2: TryCatch - Try killing processes
 state TryCatch_2 {
 direction TB
 InvokeWorkflowFile_4 : InvokeWorkflowFile - Invoke KillAllProcesses workflow

@@ -66,7 +66,7 @@ If another kind of exception occurs, the current transaction can be retried.
     <b>Arguments</b>
     </summary>
 
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_TransactionItem</td><td>InArgument</td><td>ui:QueueItem</td><td>Transaction item to be processed.</td></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary<x:String, x:Object></td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr></table>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_TransactionItem</td><td>InArgument</td><td>ui:QueueItem</td><td>Transaction item to be processed.</td></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr></table>
     
 </details>
 
@@ -78,7 +78,7 @@ If another kind of exception occurs, the current transaction can be retried.
 stateDiagram-v2
 
 
-Sequence_2: Process
+Sequence_2: Sequence - Process
 state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - Log Message Process Start

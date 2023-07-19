@@ -107,24 +107,24 @@ The verification should check whether the status file or report built after the 
 stateDiagram-v2
 
 
-Sequence_1: MainTestCase
+Sequence_1: Sequence - MainTestCase
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - MainTestCase
 LogMessage_1 --> Sequence_2
-Sequence_2: ... Given
+Sequence_2: Sequence - ... Given
 state Sequence_2 {
 direction TB
 Comment_1 : Comment - Prerequisites
 }
 Sequence_2 --> Sequence_3
-Sequence_3: ... When
+Sequence_3: Sequence - ... When
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Invoke Main workflow
 }
 Sequence_3 --> Sequence_4
-Sequence_4: ... Then
+Sequence_4: Sequence - ... Then
 state Sequence_4 {
 direction TB
 ReadRange_1 : ReadRange - Read Resulted Data

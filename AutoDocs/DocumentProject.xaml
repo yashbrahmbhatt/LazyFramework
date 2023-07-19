@@ -6,7 +6,7 @@
     <InArgument x:TypeArguments="x:String" />
   </this:DocumentProject.OutputRootFolder>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1634,1662</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1005,706</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -103,7 +103,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DocumentProject" sap:VirtualizedContainerService.HintSize="561,1597" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DocumentProject" sap:VirtualizedContainerService.HintSize="485,641" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ProjectFolder" />
       <Variable x:TypeArguments="s:String[]" Name="WorkflowFiles" />
@@ -118,7 +118,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Initialize Vars" sap:VirtualizedContainerService.HintSize="499,318" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Initialize Vars" sap:VirtualizedContainerService.HintSize="423,318" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -220,14 +220,14 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="499,80" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Recursive="True">
+    <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Recursive="True">
       <ui:DeleteFolderX.Path>
         <InArgument x:TypeArguments="x:String">
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">OutputRootFolder</CSharpValue>
         </InArgument>
       </ui:DeleteFolderX.Path>
     </ui:DeleteFolderX>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Workflow" sap:VirtualizedContainerService.HintSize="499,1008" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Workflow" sap:VirtualizedContainerService.HintSize="423,52" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
@@ -392,6 +392,12 @@
           <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">WorkflowFiles</CSharpValue>
         </InArgument>
       </ui:ForEach.Values>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
   </Sequence>
 </Activity>

@@ -16,7 +16,7 @@
     </InArgument>
   </this:ParseWorkflow.in_FilePath>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1634,1715</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1005,1715</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -371,7 +371,7 @@
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">ArgTypeRaw.Split("(",StringSplitOptions.RemoveEmptyEntries)[0]</CSharpValue>
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_85">ArgTypeRaw.Split("(",StringSplitOptions.RemoveEmptyEntries)[0].Replace("Direction","")</CSharpValue>
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
@@ -383,7 +383,7 @@
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_66">ArgTypeRaw.Replace(ArgDirection, "").TrimStart('(').Replace("(","&lt;").Remove(ArgTypeRaw.Replace(ArgDirection, "").TrimStart('(').Replace("(","&lt;").Length - 1).Replace(")","&gt;")</CSharpValue>
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_86">ArgTypeRaw.Replace(ArgDirection, "").TrimStart('(').Remove(ArgTypeRaw.Replace(ArgDirection, "").TrimStart('(').Length - 1)</CSharpValue>
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>

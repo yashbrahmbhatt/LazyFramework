@@ -80,7 +80,7 @@ Asset values overwrite settings and constant values if they are defined with the
     <b>Arguments</b>
     </summary>
 
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>out_Config</td><td>OutArgument</td><td>scg:Dictionary<x:String, x:Object></td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr><tr><td>in_ConfigFile</td><td>InArgument</td><td>x:String</td><td>Path to the configuration file that defines settings, constants and assets.</td></tr><tr><td>in_ConfigSheets</td><td>InArgument</td><td>s:String[]</td><td>Names of the sheets corresponding to settings and constants in the configuration file.</td></tr></table>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>out_Config</td><td>OutArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr><tr><td>in_ConfigFile</td><td>InArgument</td><td>x:String</td><td>Path to the configuration file that defines settings, constants and assets.</td></tr><tr><td>in_ConfigSheets</td><td>InArgument</td><td>s:String[]</td><td>Names of the sheets corresponding to settings and constants in the configuration file.</td></tr></table>
     
 </details>
 
@@ -92,27 +92,27 @@ Asset values overwrite settings and constant values if they are defined with the
 stateDiagram-v2
 
 
-Sequence_5: Initialize All Settings
+Sequence_5: Sequence - Initialize All Settings
 state Sequence_5 {
 direction TB
 LogMessage_2 : LogMessage - Log Message (Initialize All Settings)
 Assign_1 : Assign - Assign out_Config (initialization)
 LogMessage_2 --> Assign_1
 Assign_1 --> ForEach1_1
-ForEach1_1: For each configuration sheet
+ForEach1_1: ForEach - For each configuration sheet
 state ForEach1_1 {
 direction TB
 
-Sequence_2: Get local settings and constants
+Sequence_2: Sequence - Get local settings and constants
 state Sequence_2 {
 direction TB
 ReadRange_1 : ReadRange - Read range (Settings and Constants sheets)
 ReadRange_1 --> ForEachRow_1
-ForEachRow_1: For each configuration row
+ForEachRow_1: ForEachRow - For each configuration row
 state ForEachRow_1 {
 direction TB
 
-If_1: If configuration row is not empty
+If_1: If - If configuration row is not empty
 state If_1 {
 direction TB
 Assign_2 : Assign - Add Config key/value pair
@@ -121,24 +121,24 @@ Assign_2 : Assign - Add Config key/value pair
 }
 }
 ForEach1_1 --> TryCatch_2
-TryCatch_2: Try initializing assets
+TryCatch_2: TryCatch - Try initializing assets
 state TryCatch_2 {
 direction TB
 
-Sequence_4: Get Orchestrator assets
+Sequence_4: Sequence - Get Orchestrator assets
 state Sequence_4 {
 direction TB
 ReadRange_2 : ReadRange - Read range (Assets sheet)
 ReadRange_2 --> ForEachRow_2
-ForEachRow_2: For each asset row
+ForEachRow_2: ForEachRow - For each asset row
 state ForEachRow_2 {
 direction TB
 
-TryCatch_1: Try retrieving asset from Orchestrator
+TryCatch_1: TryCatch - Try retrieving asset from Orchestrator
 state TryCatch_1 {
 direction TB
 
-Sequence_3: Get asset from Orchestrator
+Sequence_3: Sequence - Get asset from Orchestrator
 state Sequence_3 {
 direction TB
 GetRobotAsset_1 : GetRobotAsset - Get Orchestrator asset
@@ -146,7 +146,7 @@ Assign_3 : Assign - Assign asset value in Config
 GetRobotAsset_1 --> Assign_3
 }
 Sequence_3 --> If_2
-If_2: If asset name is specified, but it cannot be retrieved
+If_2: If - If asset name is specified, but it cannot be retrieved
 state If_2 {
 direction TB
 Throw_1 : Throw - Throw AssetFailedToLoad Exception

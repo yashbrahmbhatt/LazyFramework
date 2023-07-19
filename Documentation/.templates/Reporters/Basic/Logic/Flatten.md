@@ -111,7 +111,7 @@ Flattens a list of JToken into a DataTable. Uses the Aggregate LINQ function.
     <b>Arguments</b>
     </summary>
 
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_List</td><td>InArgument</td><td>scg:List<njl:JToken></td><td>The list of JTokens to flatten.</td></tr><tr><td>out_dt_Table</td><td>OutArgument</td><td>sd:DataTable</td><td>The flattened object as a DataTable.</td></tr></table>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_List</td><td>InArgument</td><td>scg:List(njl:JToken)</td><td>The list of JTokens to flatten.</td></tr><tr><td>out_dt_Table</td><td>OutArgument</td><td>sd:DataTable</td><td>The flattened object as a DataTable.</td></tr></table>
     
 </details>
 
@@ -123,7 +123,7 @@ Flattens a list of JToken into a DataTable. Uses the Aggregate LINQ function.
 stateDiagram-v2
 
 
-Sequence_1: Flatten
+Sequence_1: Sequence - Flatten
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start

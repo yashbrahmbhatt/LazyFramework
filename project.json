@@ -299,6 +299,18 @@
         "testCaseId": "054a9ae5-685b-4b83-9cbd-0d27b2e34c45",
         "testCaseType": "TestCase",
         "fileName": "Tests\\Utility\\TakeScreenshot\\TakeScreenshotPath.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "483d3990-77e1-41c0-9ba8-b5660ee8c63c",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Utility\\SendEmail\\SendEmailSuccess.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "9b54a231-c4c5-48e7-9cd9-ed9280cfb3f5",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Utility\\LoadConfig\\LoadConfigSuccess.xaml"
       }
     ],
     "modernBehavior": true

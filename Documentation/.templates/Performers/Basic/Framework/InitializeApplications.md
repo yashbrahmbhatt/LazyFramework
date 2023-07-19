@@ -75,7 +75,7 @@ Initialize all applications required for this performer.
 stateDiagram-v2
 
 
-Sequence_1: InitializeApplications
+Sequence_1: Sequence - InitializeApplications
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start

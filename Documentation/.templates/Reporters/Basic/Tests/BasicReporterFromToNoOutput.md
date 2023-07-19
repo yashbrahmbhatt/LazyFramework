@@ -140,20 +140,20 @@ A basic template for a test with the expected outcome being success.
 stateDiagram-v2
 
 
-Sequence_1: BasicReporterFromToNoOutput
+Sequence_1: Sequence - BasicReporterFromToNoOutput
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 LogMessage_1 --> TimeoutScope_1
-TimeoutScope_1: Timed Test
+TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
 
-Sequence_5: Test
+Sequence_5: Sequence - Test
 state Sequence_5 {
 direction TB
 
-Sequence_2: Initialize Test
+Sequence_2: Sequence - Initialize Test
 state Sequence_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Vars
@@ -163,11 +163,11 @@ MultipleAssign_2 --> InvokeWorkflowFile_1
 LogMessage_2 : LogMessage - LM -- Initialization Complete
 Sequence_2 --> LogMessage_2
 LogMessage_2 --> TryCatch_1
-TryCatch_1: Execute Test
+TryCatch_1: TryCatch - Execute Test
 state TryCatch_1 {
 direction TB
 
-Sequence_3: ... When
+Sequence_3: Sequence - ... When
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_4 : InvokeWorkflowFile - .templates\\Reporters\\Basic\\BasicReporter.xaml - Invoke Workflow File
@@ -178,7 +178,7 @@ Sequence_3 --> MultipleAssign_1
 LogMessage_3 : LogMessage - LM -- Test Executed
 TryCatch_1 --> LogMessage_3
 LogMessage_3 --> Sequence_4
-Sequence_4: Validate Results
+Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
 GetRobotCredential_1 : GetRobotCredential - Get Email Credentials

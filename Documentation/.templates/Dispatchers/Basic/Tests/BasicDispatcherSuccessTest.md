@@ -121,20 +121,20 @@ A basic template for a test with the expected outcome being success.
 stateDiagram-v2
 
 
-Sequence_1: BasicDispatcherSuccessTest
+Sequence_1: Sequence - BasicDispatcherSuccessTest
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 LogMessage_1 --> TimeoutScope_1
-TimeoutScope_1: Timed Test
+TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
 
-Sequence_5: Test
+Sequence_5: Sequence - Test
 state Sequence_5 {
 direction TB
 
-Sequence_6: Initialize Test
+Sequence_6: Sequence - Initialize Test
 state Sequence_6 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Variables
@@ -144,7 +144,7 @@ MultipleAssign_2 --> InvokeWorkflowFile_1
 LogMessage_2 : LogMessage - LM -- Initialization Complete
 Sequence_6 --> LogMessage_2
 LogMessage_2 --> TryCatch_1
-TryCatch_1: Execute
+TryCatch_1: TryCatch - Execute
 state TryCatch_1 {
 direction TB
 InvokeWorkflowFile_2 : InvokeWorkflowFile - Run BasicDispatcher
@@ -154,7 +154,7 @@ InvokeWorkflowFile_2 --> MultipleAssign_1
 LogMessage_3 : LogMessage - LM -- Test Executed
 TryCatch_1 --> LogMessage_3
 LogMessage_3 --> Sequence_4
-Sequence_4: Validate Results
+Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
 GetQueueItems_1 : GetQueueItems - Get New Item

@@ -128,27 +128,27 @@ A basic template for a test with the expected outcome being failure.
 stateDiagram-v2
 
 
-Sequence_1: BasicDispatcherFailureTest
+Sequence_1: Sequence - BasicDispatcherFailureTest
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 LogMessage_1 --> TimeoutScope_2
-TimeoutScope_2: Timed Test
+TimeoutScope_2: TimeoutScope - Timed Test
 state TimeoutScope_2 {
 direction TB
 
-Sequence_13: Test
+Sequence_13: Sequence - Test
 state Sequence_13 {
 direction TB
 
-Sequence_11: Initialize Test
+Sequence_11: Sequence - Initialize Test
 state Sequence_11 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Variables
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Load Test Config
 MultipleAssign_2 --> InvokeWorkflowFile_1
 InvokeWorkflowFile_1 --> If_1
-If_1: Exception Screenshots Exists?
+If_1: If - Exception Screenshots Exists?
 state If_1 {
 direction TB
 DeleteFolderX_1 : DeleteFolderX - Delete Exception Screenshots
@@ -161,11 +161,11 @@ CreateDirectory_1 --> CreateFile_1
 LogMessage_8 : LogMessage - LM -- Initialization Complete
 Sequence_11 --> LogMessage_8
 LogMessage_8 --> Sequence_12
-Sequence_12: Execute Test
+Sequence_12: Sequence - Execute Test
 state Sequence_12 {
 direction TB
 
-TryCatch_1: Execute
+TryCatch_1: TryCatch - Execute
 state TryCatch_1 {
 direction TB
 InvokeWorkflowFile_3 : InvokeWorkflowFile - Run BasicDispatcher
@@ -176,7 +176,7 @@ InvokeWorkflowFile_3 --> MultipleAssign_1
 LogMessage_9 : LogMessage - LM -- Test Executed
 Sequence_12 --> LogMessage_9
 LogMessage_9 --> Sequence_8
-Sequence_8: Validate Results
+Sequence_8: Sequence - Validate Results
 state Sequence_8 {
 direction TB
 GetRobotCredential_1 : GetRobotCredential - Get Email Credentials
@@ -185,7 +185,7 @@ GetRobotCredential_1 --> GetIMAPMailMessages_2
 MultipleAssign_3 : MultipleAssign - Get Exception Screenshot Files
 GetIMAPMailMessages_2 --> MultipleAssign_3
 MultipleAssign_3 --> ForEach1_1
-ForEach1_1: Delete Screenshot
+ForEach1_1: ForEach - Delete Screenshot
 state ForEach1_1 {
 direction TB
 DeleteFileX_1 : DeleteFileX - Delete Screenshot File

@@ -84,7 +84,7 @@ Close all applications gracefully.
 stateDiagram-v2
 
 
-Sequence_1: CloseApplications
+Sequence_1: Sequence - CloseApplications
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start

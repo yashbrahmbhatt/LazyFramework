@@ -120,12 +120,12 @@ Gets the queue definition based on the queue folder and name.
 stateDiagram-v2
 
 
-Sequence_1: GetQueueDefinitionId
+Sequence_1: Sequence - GetQueueDefinitionId
 state Sequence_1 {
 direction TB
 OrchestratorHttpRequest_1 : OrchestratorHttpRequest - Orchestrator API Call
 OrchestratorHttpRequest_1 --> If_1
-If_1: Status Not 2xx?
+If_1: If - Status Not 2xx?
 state If_1 {
 direction TB
 Throw_1 : Throw - Throw Orchestrator Invalid Status
@@ -133,7 +133,7 @@ Throw_1 : Throw - Throw Orchestrator Invalid Status
 MultipleAssign_1 : MultipleAssign - Parse Response
 If_1 --> MultipleAssign_1
 MultipleAssign_1 --> If_2
-If_2: Validate ID Count
+If_2: If - Validate ID Count
 state If_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Set Output

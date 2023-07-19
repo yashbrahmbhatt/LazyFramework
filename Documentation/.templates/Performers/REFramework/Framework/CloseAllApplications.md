@@ -69,7 +69,7 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
 stateDiagram-v2
 
 
-Sequence_3: Close All Applications
+Sequence_3: Sequence - Close All Applications
 state Sequence_3 {
 direction TB
 LogMessage_2 : LogMessage - Log message (close applications)

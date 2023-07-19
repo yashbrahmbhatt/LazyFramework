@@ -93,12 +93,12 @@ Kill input processes by name.
 stateDiagram-v2
 
 
-Sequence_1: KillProcesses
+Sequence_1: Sequence - KillProcesses
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 LogMessage_1 --> ForEach1_1
-ForEach1_1: For Each Process
+ForEach1_1: ForEach - For Each Process
 state ForEach1_1 {
 direction TB
 KillProcess_1 : KillProcess - Kill Current Process

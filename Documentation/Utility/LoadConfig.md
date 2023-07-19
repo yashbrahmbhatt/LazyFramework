@@ -107,7 +107,7 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
     <b>Arguments</b>
     </summary>
 
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ConfigPath</td><td>InArgument</td><td>x:String</td><td>The path to the config file to read.</td></tr><tr><td>in_IgnoreSheets</td><td>InArgument</td><td>s:String[]</td><td>An array of sheet names to ignore loading into the config variable.</td></tr><tr><td>out_Config</td><td>OutArgument</td><td>scg:Dictionary<x:String, x:String></td><td>The loaded config dictionary.</td></tr><tr><td>out_TextFiles</td><td>OutArgument</td><td>scg:Dictionary<x:String, x:String></td><td>The loaded dictionary of text resources.</td></tr></table>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ConfigPath</td><td>InArgument</td><td>x:String</td><td>The path to the config file to read.</td></tr><tr><td>in_IgnoreSheets</td><td>InArgument</td><td>s:String[]</td><td>An array of sheet names to ignore loading into the config variable.</td></tr><tr><td>out_Config</td><td>OutArgument</td><td>scg:Dictionary(x:String, x:String)</td><td>The loaded config dictionary.</td></tr><tr><td>out_TextFiles</td><td>OutArgument</td><td>scg:Dictionary(x:String, x:String)</td><td>The loaded dictionary of text resources.</td></tr></table>
     
 </details>
 
@@ -119,35 +119,35 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
 stateDiagram-v2
 
 
-Sequence_1: LoadConfig
+Sequence_1: Sequence - LoadConfig
 state Sequence_1 {
 direction TB
 LogMessage_4 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize Outputs
 LogMessage_4 --> MultipleAssign_1
 MultipleAssign_1 --> ExcelProcessScopeX_1
-ExcelProcessScopeX_1: Using Excel App
+ExcelProcessScopeX_1: ExcelProcessScopeX - Using Excel App
 state ExcelProcessScopeX_1 {
 direction TB
 
-ExcelApplicationCard_1: Using Config File
+ExcelApplicationCard_1: ExcelApplicationCard - Using Config File
 state ExcelApplicationCard_1 {
 direction TB
 
-ForEachSheetX_1: For Each Sheet
+ForEachSheetX_1: ForEachSheetX - For Each Sheet
 state ForEachSheetX_1 {
 direction TB
 
-Sequence_2: Process Sheet
+Sequence_2: Sequence - Process Sheet
 state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Processing sheet
 LogMessage_1 --> If_1
-If_1: Ignorable Sheet?
+If_1: If - Ignorable Sheet?
 state If_1 {
 direction TB
 
-Sequence_3: Skip
+Sequence_3: Sequence - Skip
 state Sequence_3 {
 direction TB
 LogMessage_2 : LogMessage - LM -- Skip
@@ -156,24 +156,24 @@ LogMessage_2 --> Continue_1
 }
 }
 If_1 --> ExcelForEachRowX_1
-ExcelForEachRowX_1: For Each Row
+ExcelForEachRowX_1: ExcelForEachRowX - For Each Row
 state ExcelForEachRowX_1 {
 direction TB
 
-If_3: Not Empty Row?
+If_3: If - Not Empty Row?
 state If_3 {
 direction TB
 
-Switch1_3: Sheet Name?
+Switch1_3: Switch - Sheet Name?
 state Switch1_3 {
 direction TB
 Assign_5 : Assign - Set Default Value
 Assign_5 --> Sequence_11
-Sequence_11: Process Assets Row
+Sequence_11: Sequence - Process Assets Row
 state Sequence_11 {
 direction TB
 
-RetryScope_4: Asset Retry
+RetryScope_4: RetryScope - Asset Retry
 state RetryScope_4 {
 direction TB
 GetRobotAsset_2 : GetRobotAsset - Get Current Asset
@@ -182,30 +182,30 @@ Assign_6 : Assign - Set Asset Value
 RetryScope_4 --> Assign_6
 }
 Sequence_11 --> Sequence_12
-Sequence_12: Process TextFiles Row
+Sequence_12: Sequence - Process TextFiles Row
 state Sequence_12 {
 direction TB
 
-If_4: NOT Storage Bucket Resource?
+If_4: If - NOT Storage Bucket Resource?
 state If_4 {
 direction TB
 
-Sequence_13: Local/Network Resource
+Sequence_13: Sequence - Local/Network Resource
 state Sequence_13 {
 direction TB
 
-RetryScope_5: Retry Network/Local
+RetryScope_5: RetryScope - Retry Network/Local
 state RetryScope_5 {
 direction TB
 ReadTextFile_2 : ReadTextFile - Read Local File
 }
 }
 Sequence_13 --> Sequence_14
-Sequence_14: Storage Bucket Resource
+Sequence_14: Sequence - Storage Bucket Resource
 state Sequence_14 {
 direction TB
 
-RetryScope_6: Retry Orch
+RetryScope_6: RetryScope - Retry Orch
 state RetryScope_6 {
 direction TB
 ReadStorageText_2 : ReadStorageText - Get Storage Text

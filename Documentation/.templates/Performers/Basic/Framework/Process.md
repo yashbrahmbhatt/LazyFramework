@@ -80,7 +80,7 @@ Carry out the required steps for this transaction/unit of work.
     <b>Arguments</b>
     </summary>
 
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>io_Data</td><td>InOutArgument</td><td>scg:Dictionary<x:String, x:Object></td><td>The transaction data to be used to perform the process.</td></tr><tr><td>in_Reference</td><td>InArgument</td><td>x:String</td><td>The reference of the queue item being processed.</td></tr></table>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>io_Data</td><td>InOutArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>The transaction data to be used to perform the process.</td></tr><tr><td>in_Reference</td><td>InArgument</td><td>x:String</td><td>The reference of the queue item being processed.</td></tr></table>
     
 </details>
 
@@ -92,7 +92,7 @@ Carry out the required steps for this transaction/unit of work.
 stateDiagram-v2
 
 
-Sequence_1: Process
+Sequence_1: Sequence - Process
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
