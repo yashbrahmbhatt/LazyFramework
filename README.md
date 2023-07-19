@@ -208,6 +208,8 @@ You should be good to go.
 <hr />
 
 # Roadmap
+This is used to keep track of features to be implemented and what has been accomplished so far. This will eventually be replaced with a change log/release notes once the framework is fully functional.
+
 ### Modules
 - [x] Create BasicDispatcher - Yash Brahmbhatt 7/7/2023
 - [x] Create BasicPerformer - Yash Brahmbhatt 12/7/2023
