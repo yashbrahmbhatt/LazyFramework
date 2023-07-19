@@ -10,6 +10,7 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System
 - System.Collections.Generic
 - System.Data
@@ -20,11 +21,13 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
 - System.Linq.Expressions
 - System.Collections.ObjectModel
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - System
 - System.Activities
@@ -47,12 +50,15 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
 - UiPath.System.Activities
 - UiPath.System.Activities.Design
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    
 </details>
 
 <hr />
@@ -62,6 +68,7 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_3
 Sequence_3: Close All Applications
 state Sequence_3 {
 direction TB

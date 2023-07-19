@@ -14,6 +14,7 @@ Current Fields:
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -44,11 +45,13 @@ Current Fields:
 - UiPath.DataTableUtilities
 - System.IO
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.VisualBasic.Core
@@ -100,12 +103,15 @@ Current Fields:
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_SuccessTimeSaved</td><td>InArgument</td><td>x:Double</td><td>Time saved in minutes for successful queue items.</td></tr><tr><td>in_BusExTimeSaved</td><td>InArgument</td><td>x:Double</td><td>Time saved in minutes for business exception queue items.</td></tr><tr><td>in_SysExTimeSaved</td><td>InArgument</td><td>x:Double</td><td>Time saved in minutes for application exception queue items.</td></tr><tr><td>io_dt_Table</td><td>InOutArgument</td><td>sd:DataTable</td><td>The table to add the calculated columns to.</td></tr></table>
+    
 </details>
 
 <hr />
@@ -115,6 +121,7 @@ Current Fields:
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: AddCalculatedColumns
 state Sequence_1 {
 direction TB
@@ -123,12 +130,15 @@ AddDataColumn`1_2 : AddDataColumn - Add Time Saved
 LogMessage_1 --> AddDataColumn`1_2
 AddDataColumn`1_3 : AddDataColumn - Add Execution Time
 AddDataColumn`1_2 --> AddDataColumn`1_3
+AddDataColumn`1_3 --> ForEachRow_1
 ForEachRow_1: For Each Row
 state ForEachRow_1 {
 direction TB
+ --> Sequence_6
 Sequence_6: Update Rows
 state Sequence_6 {
 direction TB
+ --> If_3
 If_3: Item not completed?
 state If_3 {
 direction TB
@@ -136,9 +146,11 @@ Continue_1 : Continue - Skip Row
 }
 MultipleAssign_4 : MultipleAssign - Update Execution Time
 If_3 --> MultipleAssign_4
+MultipleAssign_4 --> If_1
 If_1: Failed?
 state If_1 {
 direction TB
+ --> If_2
 If_2: System Or Business?
 state If_2 {
 direction TB

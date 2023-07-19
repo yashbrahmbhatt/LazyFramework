@@ -10,6 +10,7 @@ Reads all queue items for a single queue within a defined reporting period, writ
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System
 - System.Activities
 - System.Activities.Statements
@@ -42,11 +43,13 @@ Reads all queue items for a single queue within a defined reporting period, writ
 - UiPath.Excel
 - UiPath.Excel.Activities.Business
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Cronos
 - Microsoft.CSharp
 - Microsoft.PowerShell.Commands.Diagnostics
@@ -116,12 +119,15 @@ Reads all queue items for a single queue within a defined reporting period, writ
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_OutputFolder</td><td>InArgument</td><td>x:String</td><td>If defined, the process will also copy the report generated to this folder.</td></tr><tr><td>in_CRON</td><td>InArgument</td><td>x:String</td><td>A CRON expression to determine what the reporting period is. This should match the CRON expression used in the trigger for this Entry Point for most cases.</td></tr><tr><td>in_From</td><td>InArgument</td><td>s:DateTime</td><td>If defined, overrides the start of the reporting period to this value. in_To must also be defined if using this overload.</td></tr><tr><td>in_To</td><td>InArgument</td><td>s:DateTime</td><td>If defined, overrides the end of the reporting period to this value. in_From must also be defined if using this overload.</td></tr><tr><td>in_ConfigPath</td><td>InArgument</td><td>x:String</td><td>The path to the config file to load for this process.</td></tr><tr><td>in_IgnoreSheets</td><td>InArgument</td><td>s:String[]</td><td>A list of the sheets to ignore loading into the Config.</td></tr></table>
+    
 </details>
 
 <hr />
@@ -131,27 +137,34 @@ Reads all queue items for a single queue within a defined reporting period, writ
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: BasicReporter
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
 LogMessage_1 --> InvokeWorkflowFile_1
+InvokeWorkflowFile_1 --> TryCatch_2
 TryCatch_2: Try Reporting
 state TryCatch_2 {
 direction TB
+ --> Sequence_12
 Sequence_12: Reporting
 state Sequence_12 {
 direction TB
+ --> Sequence_2
 Sequence_2: Initialize
 state Sequence_2 {
 direction TB
+ --> If_1
 If_1: Validate Time Frame
 state If_1 {
 direction TB
+ --> TryCatch_1
 TryCatch_1: Try Parsing CRON
 state TryCatch_1 {
 direction TB
+ --> Sequence_5
 Sequence_5: Parsing CRON
 state Sequence_5 {
 direction TB
@@ -162,6 +175,7 @@ MultipleAssign_2 --> LogMessage_2
 Throw_1 : Throw - Throw InvalidCRON
 Sequence_5 --> Throw_1
 }
+TryCatch_1 --> If_2
 If_2: From/To Defined?
 state If_2 {
 direction TB
@@ -174,6 +188,7 @@ MultipleAssign_1 : MultipleAssign - Set Paths
 If_1 --> MultipleAssign_1
 KillProcess_1 : KillProcess - Kill Excel
 MultipleAssign_1 --> KillProcess_1
+KillProcess_1 --> If_3
 If_3: Cleanup Temp Folder
 state If_3 {
 direction TB
@@ -184,6 +199,7 @@ If_3 --> CreateDirectory_1
 LogMessage_5 : LogMessage - LM -- Initialization Complete
 CreateDirectory_1 --> LogMessage_5
 }
+Sequence_2 --> Sequence_9
 Sequence_9: Create Report
 state Sequence_9 {
 direction TB
@@ -196,6 +212,7 @@ InvokeWorkflowFile_4 : InvokeWorkflowFile - Add Calculated Columns
 InvokeWorkflowFile_2 --> InvokeWorkflowFile_4
 InvokeWorkflowFile_3 : InvokeWorkflowFile - Write Table to Excel
 InvokeWorkflowFile_4 --> InvokeWorkflowFile_3
+InvokeWorkflowFile_3 --> If_4
 If_4: Output Path Not Empty?
 state If_4 {
 direction TB
@@ -206,6 +223,7 @@ CopyFile_2 --> LogMessage_9
 LogMessage_7 : LogMessage - LM -- Report Generated
 If_4 --> LogMessage_7
 }
+Sequence_9 --> Sequence_10
 Sequence_10: Send Email
 state Sequence_10 {
 direction TB
@@ -220,6 +238,7 @@ LogMessage_10 : LogMessage - LM -- Report Sent
 InvokeWorkflowFile_5 --> LogMessage_10
 }
 }
+Sequence_12 --> Sequence_13
 Sequence_13: Send Exception Email
 state Sequence_13 {
 direction TB

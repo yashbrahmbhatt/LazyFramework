@@ -10,6 +10,7 @@ Gets the queue data list and parses it into a table.
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -41,11 +42,13 @@ Gets the queue data list and parses it into a table.
 - System.Runtime.Serialization
 - System.Xml.Serialization
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
@@ -95,12 +98,15 @@ Gets the queue data list and parses it into a table.
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>out_QueueList</td><td>OutArgument</td><td>scg:List<njl:JToken></td><td>The unformatted list of queue items retrieved, as a List of JToken.</td></tr><tr><td>in_QueueName</td><td>InArgument</td><td>x:String</td><td>The name of the queue to report.</td></tr><tr><td>in_QueueFolder</td><td>InArgument</td><td>x:String</td><td>The path fo the folder that houses the queue to report.</td></tr><tr><td>in_From</td><td>InArgument</td><td>s:DateTime</td><td>The start of the reporting range.</td></tr><tr><td>in_To</td><td>InArgument</td><td>s:DateTime</td><td>The end of the reporting range.</td></tr><tr><td>in_Statuses</td><td>InArgument</td><td>s:String[]</td><td>The statuses to include when retrieving queue items.</td></tr><tr><td>out_dt_QueueTable</td><td>OutArgument</td><td>sd:DataTable</td><td>The queue items retrieved, formatted as a flattened table.</td></tr></table>
+    
 </details>
 
 <hr />
@@ -110,6 +116,7 @@ Gets the queue data list and parses it into a table.
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: GetQueueData
 state Sequence_1 {
 direction TB

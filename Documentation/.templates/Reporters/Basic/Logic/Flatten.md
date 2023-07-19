@@ -10,6 +10,7 @@ Flattens a list of JToken into a DataTable. Uses the Aggregate LINQ function.
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -44,11 +45,13 @@ Flattens a list of JToken into a DataTable. Uses the Aggregate LINQ function.
 - System.Collections.Specialized
 - UiPath.Activities.System.Collections
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
@@ -101,12 +104,15 @@ Flattens a list of JToken into a DataTable. Uses the Aggregate LINQ function.
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_List</td><td>InArgument</td><td>scg:List<njl:JToken></td><td>The list of JTokens to flatten.</td></tr><tr><td>out_dt_Table</td><td>OutArgument</td><td>sd:DataTable</td><td>The flattened object as a DataTable.</td></tr></table>
+    
 </details>
 
 <hr />
@@ -116,6 +122,7 @@ Flattens a list of JToken into a DataTable. Uses the Aggregate LINQ function.
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: Flatten
 state Sequence_1 {
 direction TB

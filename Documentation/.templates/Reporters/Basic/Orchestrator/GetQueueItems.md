@@ -10,6 +10,7 @@ Retrieves all queue items for a particular queue id into a list.
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -43,11 +44,13 @@ Retrieves all queue items for a particular queue id into a list.
 - System.ComponentModel
 - System.Collections.Specialized
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
@@ -98,12 +101,15 @@ Retrieves all queue items for a particular queue id into a list.
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_QueueId</td><td>InArgument</td><td>x:Int32</td><td>The ID of the queue to get queue items for.</td></tr><tr><td>in_From</td><td>InArgument</td><td>s:DateTime</td><td>The start of the reporting range.</td></tr><tr><td>in_To</td><td>InArgument</td><td>s:DateTime</td><td>The end of the reporting period.</td></tr><tr><td>in_Statuses</td><td>InArgument</td><td>s:String[]</td><td>A list of the statuses to include in the output queue items list.</td></tr><tr><td>out_QueueItems</td><td>OutArgument</td><td>scg:List<njl:JToken></td><td>The list of queue items retrieved.</td></tr></table>
+    
 </details>
 
 <hr />
@@ -113,15 +119,18 @@ Retrieves all queue items for a particular queue id into a list.
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: GetQueueItems
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize Vars
 LogMessage_1 --> MultipleAssign_1
+MultipleAssign_1 --> ForEach`1_1
 ForEach`1_1: For Each Status
 state ForEach`1_1 {
 direction TB
+ --> If_1
 If_1: Last Status
 state If_1 {
 direction TB
@@ -130,14 +139,17 @@ MultipleAssign_3 : MultipleAssign - Append to StatusFilter
 MultipleAssign_2 --> MultipleAssign_3
 }
 }
+ForEach`1_1 --> If_2
 If_2: Status Included?
 state If_2 {
 direction TB
 MultipleAssign_4 : MultipleAssign - Update EndPoint with Statuses
 }
+If_2 --> InterruptibleDoWhile_1
 InterruptibleDoWhile_1: Loop While 1000 Items Returned
 state InterruptibleDoWhile_1 {
 direction TB
+ --> Sequence_6
 Sequence_6: Body
 state Sequence_6 {
 direction TB

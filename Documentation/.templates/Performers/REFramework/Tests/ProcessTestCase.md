@@ -11,6 +11,7 @@ The verification should check whether the output of the Process workflow is the 
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - Microsoft.VisualBasic
 - Microsoft.VisualBasic.Activities
 - System
@@ -41,11 +42,13 @@ The verification should check whether the output of the Process workflow is the 
 - UiPath.Testing
 - UiPath.Testing.Activities
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - PresentationCore
@@ -79,12 +82,15 @@ The verification should check whether the output of the Process workflow is the 
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    
 </details>
 
 <hr />
@@ -94,10 +100,12 @@ The verification should check whether the output of the Process workflow is the 
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: ProcessTestCase
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - ProcessTestCase
+LogMessage_1 --> Sequence_2
 Sequence_2: ... Given
 state Sequence_2 {
 direction TB
@@ -109,17 +117,21 @@ InvokeWorkflowFile_3 --> Assign_1
 InvokeWorkflowFile_4 : InvokeWorkflowFile - Invoke GetTransactionData workflow
 Assign_1 --> InvokeWorkflowFile_4
 }
+Sequence_2 --> Sequence_3
 Sequence_3: ... When
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Invoke Process workflow
 }
+Sequence_3 --> Sequence_4
 Sequence_4: ... Then
 state Sequence_4 {
 direction TB
+ --> CommentOut_1
 CommentOut_1: Enable and change as needed
 state CommentOut_1 {
 direction TB
+ --> Sequence_5
 Sequence_5: Ignored Activities
 state Sequence_5 {
 direction TB

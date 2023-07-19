@@ -10,6 +10,7 @@ Close all applications gracefully.
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
@@ -23,11 +24,13 @@ Close all applications gracefully.
 - UiPath.Core
 - UiPath.Core.Activities
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - NPOI
@@ -62,12 +65,15 @@ Close all applications gracefully.
 - UiPath.System.Activities.ViewModels
 - UiPath.Workflow
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    
 </details>
 
 <hr />
@@ -77,6 +83,7 @@ Close all applications gracefully.
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: CloseApplications
 state Sequence_1 {
 direction TB

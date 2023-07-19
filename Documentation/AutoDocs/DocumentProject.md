@@ -10,6 +10,7 @@ Class: DocumentProject
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -43,11 +44,13 @@ Class: DocumentProject
 - System.ComponentModel
 - System.Xml.Serialization
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - NPOI
@@ -104,12 +107,15 @@ Class: DocumentProject
 - System.Collections.Immutable
 - System.Linq.Queryable
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>OutputRootFolder</td><td>InArgument</td><td>x:String</td><td></td></tr></table>
+    
 </details>
 
 <hr />
@@ -119,15 +125,18 @@ Class: DocumentProject
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: DocumentProject
 state Sequence_1 {
 direction TB
 MultipleAssign_1 : MultipleAssign - Initialize Vars
 DeleteFolderX_1 : DeleteFolderX - Delete Folder
 MultipleAssign_1 --> DeleteFolderX_1
+DeleteFolderX_1 --> ForEach`1_1
 ForEach`1_1: For Each Workflow
 state ForEach`1_1 {
 direction TB
+ --> Sequence_2
 Sequence_2: Body
 state Sequence_2 {
 direction TB

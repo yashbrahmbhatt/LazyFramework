@@ -10,6 +10,7 @@ Handles the outcome of a transaction by updating the queue item status, as well 
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
@@ -25,11 +26,13 @@ Handles the outcome of a transaction by updating the queue item status, as well 
 - UiPath.Core
 - UiPath.Core.Activities
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
@@ -74,12 +77,15 @@ Handles the outcome of a transaction by updating the queue item status, as well 
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_SystemException</td><td>InArgument</td><td>s:Exception</td><td>The System.Exception object within the Process state.</td></tr><tr><td>in_BusinessException</td><td>InArgument</td><td>ui:BusinessRuleException</td><td>The BusinessRuleException object within the Process state.</td></tr><tr><td>in_TransactionItem</td><td>InArgument</td><td>ui:QueueItem</td><td>The transaction item to update the status for.</td></tr><tr><td>in_Data</td><td>InArgument</td><td>scg:Dictionary<x:String, x:Object></td><td>The dictionary containing the input data and any values added while processing the transaction.</td></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary<x:String, x:String></td><td>The Config dictionary loaded during the first run.</td></tr><tr><td>in_TextFiles</td><td>InArgument</td><td>scg:Dictionary<x:String, x:String></td><td>The TextFiles dictionary loaded during the first run.</td></tr></table>
+    
 </details>
 
 <hr />
@@ -89,17 +95,21 @@ Handles the outcome of a transaction by updating the queue item status, as well 
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: HandleTransactionOutcome
 state Sequence_1 {
 direction TB
 LogMessage_5 : LogMessage - LM -- Start
+LogMessage_5 --> IfElseIf_1
 IfElseIf_1: Outcome?
 state IfElseIf_1 {
 direction TB
+ --> Sequence_2
 Sequence_2: Handle System Exception
 state Sequence_2 {
 direction TB
 LogMessage_3 : LogMessage - LM -- SE Start
+LogMessage_3 --> RetryScope_1
 RetryScope_1: Retry - Failed
 state RetryScope_1 {
 direction TB
@@ -107,9 +117,11 @@ SetTransactionStatus_1 : SetTransactionStatus - Set Transaction to Failed (Syste
 }
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Take Screenshot
 RetryScope_1 --> InvokeWorkflowFile_1
+InvokeWorkflowFile_1 --> If_1
 If_1: Max Retries Reached?
 state If_1 {
 direction TB
+ --> Sequence_5
 Sequence_5: Handle Max Retries Reached
 state Sequence_5 {
 direction TB
@@ -123,10 +135,12 @@ MultipleAssign_1 --> InvokeWorkflowFile_3
 }
 }
 }
+Sequence_2 --> Sequence_3
 Sequence_3: Handle Business Exception
 state Sequence_3 {
 direction TB
 LogMessage_2 : LogMessage - LM -- BRE Start
+LogMessage_2 --> RetryScope_2
 RetryScope_2: Retry - Business Exception
 state RetryScope_2 {
 direction TB
@@ -139,10 +153,12 @@ InvokeWorkflowFile_4 --> MultipleAssign_2
 InvokeWorkflowFile_5 : InvokeWorkflowFile - Send Email (BRE)
 MultipleAssign_2 --> InvokeWorkflowFile_5
 }
+Sequence_3 --> Sequence_4
 Sequence_4: Handle Success
 state Sequence_4 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Success Start
+LogMessage_1 --> RetryScope_3
 RetryScope_3: Retry - Successful
 state RetryScope_3 {
 direction TB

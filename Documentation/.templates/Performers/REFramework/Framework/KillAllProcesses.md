@@ -11,6 +11,7 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System
 - System.Collections.Generic
 - System.Data
@@ -21,11 +22,13 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
 - System.Linq.Expressions
 - System.Collections.ObjectModel
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - System
 - System.Activities
@@ -47,12 +50,15 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
 - UiPath.System.Activities
 - UiPath.System.Activities.Design
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    
 </details>
 
 <hr />
@@ -62,6 +68,7 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_2
 Sequence_2: Kill All Processes
 state Sequence_2 {
 direction TB

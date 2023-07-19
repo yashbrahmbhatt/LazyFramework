@@ -10,6 +10,7 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - Microsoft.VisualBasic
@@ -43,11 +44,13 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
 - UiPath.Platform.ResourceHandling
 - UiPath.Shared.Activities.Business
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - NPOI
@@ -97,12 +100,15 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
 - UiPath.Testing.Activities
 - UiPath.Workflow
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ConfigPath</td><td>InArgument</td><td>x:String</td><td>The path to the config file to read.</td></tr><tr><td>in_IgnoreSheets</td><td>InArgument</td><td>s:String[]</td><td>An array of sheet names to ignore loading into the config variable.</td></tr><tr><td>out_Config</td><td>OutArgument</td><td>scg:Dictionary<x:String, x:String></td><td>The loaded config dictionary.</td></tr><tr><td>out_TextFiles</td><td>OutArgument</td><td>scg:Dictionary<x:String, x:String></td><td>The loaded dictionary of text resources.</td></tr></table>
+    
 </details>
 
 <hr />
@@ -112,28 +118,35 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: LoadConfig
 state Sequence_1 {
 direction TB
 LogMessage_4 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize Outputs
 LogMessage_4 --> MultipleAssign_1
+MultipleAssign_1 --> ExcelProcessScopeX_1
 ExcelProcessScopeX_1: Using Excel App
 state ExcelProcessScopeX_1 {
 direction TB
+ --> ExcelApplicationCard_1
 ExcelApplicationCard_1: Using Config File
 state ExcelApplicationCard_1 {
 direction TB
+ --> ForEachSheetX_1
 ForEachSheetX_1: For Each Sheet
 state ForEachSheetX_1 {
 direction TB
+ --> Sequence_2
 Sequence_2: Process Sheet
 state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Processing sheet
+LogMessage_1 --> If_1
 If_1: Ignorable Sheet?
 state If_1 {
 direction TB
+ --> Sequence_3
 Sequence_3: Skip
 state Sequence_3 {
 direction TB
@@ -142,19 +155,24 @@ Continue_1 : Continue - Skip
 LogMessage_2 --> Continue_1
 }
 }
+If_1 --> ExcelForEachRowX_1
 ExcelForEachRowX_1: For Each Row
 state ExcelForEachRowX_1 {
 direction TB
+ --> If_3
 If_3: Not Empty Row?
 state If_3 {
 direction TB
+ --> Switch`1_3
 Switch`1_3: Sheet Name?
 state Switch`1_3 {
 direction TB
 Assign_5 : Assign - Set Default Value
+Assign_5 --> Sequence_11
 Sequence_11: Process Assets Row
 state Sequence_11 {
 direction TB
+ --> RetryScope_4
 RetryScope_4: Asset Retry
 state RetryScope_4 {
 direction TB
@@ -163,24 +181,30 @@ GetRobotAsset_2 : GetRobotAsset - Get Current Asset
 Assign_6 : Assign - Set Asset Value
 RetryScope_4 --> Assign_6
 }
+Sequence_11 --> Sequence_12
 Sequence_12: Process TextFiles Row
 state Sequence_12 {
 direction TB
+ --> If_4
 If_4: NOT Storage Bucket Resource?
 state If_4 {
 direction TB
+ --> Sequence_13
 Sequence_13: Local/Network Resource
 state Sequence_13 {
 direction TB
+ --> RetryScope_5
 RetryScope_5: Retry Network/Local
 state RetryScope_5 {
 direction TB
 ReadTextFile_2 : ReadTextFile - Read Local File
 }
 }
+Sequence_13 --> Sequence_14
 Sequence_14: Storage Bucket Resource
 state Sequence_14 {
 direction TB
+ --> RetryScope_6
 RetryScope_6: Retry Orch
 state RetryScope_6 {
 direction TB

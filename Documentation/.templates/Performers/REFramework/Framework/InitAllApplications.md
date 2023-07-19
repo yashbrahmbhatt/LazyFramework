@@ -10,6 +10,7 @@ Open applications used in the process and do necessary initialization procedures
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System
 - System.Collections.Generic
 - System.Data
@@ -20,11 +21,13 @@ Open applications used in the process and do necessary initialization procedures
 - System.Linq.Expressions
 - System.Collections.ObjectModel
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - System
 - System.Activities
@@ -46,12 +49,15 @@ Open applications used in the process and do necessary initialization procedures
 - UiPath.System.Activities
 - UiPath.System.Activities.Design
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary<x:String, x:Object></td><td></td></tr></table>
+    
 </details>
 
 <hr />
@@ -61,6 +67,7 @@ Open applications used in the process and do necessary initialization procedures
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_2
 Sequence_2: Initialize All Applications
 state Sequence_2 {
 direction TB

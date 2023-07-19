@@ -10,6 +10,7 @@ Initialize all applications required for this performer.
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System
 - System.Activities
 - System.Activities.Statements
@@ -19,11 +20,13 @@ Initialize all applications required for this performer.
 - System.Linq
 - UiPath.Core.Activities
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - NPOI
@@ -53,12 +56,15 @@ Initialize all applications required for this performer.
 - UiPath.System.Activities
 - UiPath.Workflow
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    
 </details>
 
 <hr />
@@ -68,6 +74,7 @@ Initialize all applications required for this performer.
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: InitializeApplications
 state Sequence_1 {
 direction TB

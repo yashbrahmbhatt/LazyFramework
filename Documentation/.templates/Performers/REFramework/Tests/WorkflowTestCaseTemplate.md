@@ -11,6 +11,7 @@ Create a new test workflow by copying and renaming this file.
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System
 - System.Activities
 - System.Activities.DynamicUpdate
@@ -31,11 +32,13 @@ Create a new test workflow by copying and renaming this file.
 - UiPath.Testing
 - UiPath.Testing.Activities
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.Bcl.AsyncInterfaces
 - Microsoft.CSharp
 - System
@@ -63,12 +66,15 @@ Create a new test workflow by copying and renaming this file.
 - UiPath.Testing
 - UiPath.Testing.Activities
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    
 </details>
 
 <hr />
@@ -78,26 +84,32 @@ Create a new test workflow by copying and renaming this file.
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_2
 Sequence_2: Test Template
 state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - Test Template
+LogMessage_1 --> Sequence_3
 Sequence_3: ... Given
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_2 : InvokeWorkflowFile - Invoke InitAllSettings workflow
 }
+Sequence_3 --> Sequence_4
 Sequence_4: ... When
 state Sequence_4 {
 direction TB
 Comment_1 : Comment - Actions to be performed
 }
+Sequence_4 --> Sequence_6
 Sequence_6: ... Then
 state Sequence_6 {
 direction TB
+ --> CommentOut_1
 CommentOut_1: Enable and change as needed
 state CommentOut_1 {
 direction TB
+ --> Sequence_5
 Sequence_5: Ignored Activities
 state Sequence_5 {
 direction TB

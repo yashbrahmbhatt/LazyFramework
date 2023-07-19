@@ -10,6 +10,7 @@ A basic template for a test with the expected outcome being success.
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -42,11 +43,13 @@ A basic template for a test with the expected outcome being success.
 - GlobalConstantsNamespace
 - System.Activities.Runtime.Collections
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - mscorlib
@@ -95,12 +98,15 @@ A basic template for a test with the expected outcome being success.
 - UiPath.System.Activities.ViewModels
 - System.Collections
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    
 </details>
 
 <hr />
@@ -110,16 +116,20 @@ A basic template for a test with the expected outcome being success.
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: GetQueueDefinitionIdError
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
+LogMessage_1 --> TimeoutScope_1
 TimeoutScope_1: Timed Test
 state TimeoutScope_1 {
 direction TB
+ --> Sequence_5
 Sequence_5: Test
 state Sequence_5 {
 direction TB
+ --> Sequence_2
 Sequence_2: Initialize Test
 state Sequence_2 {
 direction TB
@@ -129,9 +139,11 @@ MultipleAssign_2 --> InvokeWorkflowFile_1
 }
 LogMessage_2 : LogMessage - LM -- Initialization Complete
 Sequence_2 --> LogMessage_2
+LogMessage_2 --> TryCatch_1
 TryCatch_1: Execute Test
 state TryCatch_1 {
 direction TB
+ --> Sequence_3
 Sequence_3: ... When
 state Sequence_3 {
 direction TB
@@ -142,6 +154,7 @@ Sequence_3 --> MultipleAssign_1
 }
 LogMessage_3 : LogMessage - LM -- Test Executed
 TryCatch_1 --> LogMessage_3
+LogMessage_3 --> Sequence_4
 Sequence_4: Validate Results
 state Sequence_4 {
 direction TB

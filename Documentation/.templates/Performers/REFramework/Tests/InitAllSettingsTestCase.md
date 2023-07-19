@@ -11,6 +11,7 @@ The verification should check if initalization of settings was successful: if th
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - Microsoft.VisualBasic
 - Microsoft.VisualBasic.Activities
 - System
@@ -41,11 +42,13 @@ The verification should check if initalization of settings was successful: if th
 - UiPath.Testing
 - UiPath.Testing.Activities
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - PresentationCore
@@ -76,12 +79,15 @@ The verification should check if initalization of settings was successful: if th
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    
 </details>
 
 <hr />
@@ -91,20 +97,24 @@ The verification should check if initalization of settings was successful: if th
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: InitAllSettingsTestCase
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - InitAllSettingsTestCase
+LogMessage_1 --> Sequence_2
 Sequence_2: ... Given
 state Sequence_2 {
 direction TB
 Comment_1 : Comment - Prerequisities
 }
+Sequence_2 --> Sequence_3
 Sequence_3: ... When
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Invoke InitAllSettings workflow
 }
+Sequence_3 --> Sequence_4
 Sequence_4: ... Then
 state Sequence_4 {
 direction TB

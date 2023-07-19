@@ -10,6 +10,7 @@ Kill input processes by name.
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
@@ -25,11 +26,13 @@ Kill input processes by name.
 - UiPath.Core
 - UiPath.Core.Activities
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
@@ -71,12 +74,15 @@ Kill input processes by name.
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ProcessesToKill</td><td>InArgument</td><td>s:String[]</td><td>An array of Process Names to kill.</td></tr></table>
+    
 </details>
 
 <hr />
@@ -86,10 +92,12 @@ Kill input processes by name.
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: KillProcesses
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
+LogMessage_1 --> ForEach`1_1
 ForEach`1_1: For Each Process
 state ForEach`1_1 {
 direction TB

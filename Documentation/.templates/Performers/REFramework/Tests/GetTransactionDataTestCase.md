@@ -12,6 +12,7 @@ Please make sure the queue name is configured.
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - Microsoft.VisualBasic
 - Microsoft.VisualBasic.Activities
 - System
@@ -41,11 +42,13 @@ Please make sure the queue name is configured.
 - UiPath.Shared.Activities
 - UiPath.Testing.Activities
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.Bcl.AsyncInterfaces
 - Microsoft.CSharp
 - Microsoft.VisualBasic
@@ -80,12 +83,15 @@ Please make sure the queue name is configured.
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    
 </details>
 
 <hr />
@@ -95,10 +101,12 @@ Please make sure the queue name is configured.
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: GetTransactionDataTestCase
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - GetTransactionDataTestCase
+LogMessage_1 --> Sequence_2
 Sequence_2: ... Given
 state Sequence_2 {
 direction TB
@@ -106,15 +114,18 @@ InvokeWorkflowFile_1 : InvokeWorkflowFile - Invoke InitAllSettings workflow
 Assign_1 : Assign - Assign TransactionNumber
 InvokeWorkflowFile_1 --> Assign_1
 }
+Sequence_2 --> Sequence_4
 Sequence_4: ... When
 state Sequence_4 {
 direction TB
 InvokeWorkflowFile_2 : InvokeWorkflowFile - Invoke GetTransactionData workflow
 }
+Sequence_4 --> Sequence_3
 Sequence_3: ... Then
 state Sequence_3 {
 direction TB
 VerifyExpression_1 : VerifyExpression - Verify transaction item was retrieved
+VerifyExpression_1 --> If_1
 If_1: If transaction item is not null
 state If_1 {
 direction TB

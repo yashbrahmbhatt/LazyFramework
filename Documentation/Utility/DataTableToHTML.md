@@ -10,6 +10,7 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - Microsoft.VisualBasic
@@ -40,11 +41,13 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
 - UiPath.Core.Activities
 - UiPath.DataTableUtilities
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
@@ -91,12 +94,15 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_dt_ToConvert</td><td>InArgument</td><td>sd:DataTable</td><td>The DataTable to convert to HTML.</td></tr><tr><td>out_HTMLTable</td><td>OutArgument</td><td>x:String</td><td>The output HTML.</td></tr></table>
+    
 </details>
 
 <hr />
@@ -106,12 +112,14 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: DataTableToHTML
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize
 LogMessage_1 --> MultipleAssign_1
+MultipleAssign_1 --> ForEach`1_1
 ForEach`1_1: Add Header Row
 state ForEach`1_1 {
 direction TB
@@ -119,13 +127,16 @@ MultipleAssign_2 : MultipleAssign - Add Header
 }
 MultipleAssign_3 : MultipleAssign - Close Header Row
 ForEach`1_1 --> MultipleAssign_3
+MultipleAssign_3 --> ForEachRow_1
 ForEachRow_1: Add Table Rows
 state ForEachRow_1 {
 direction TB
+ --> Sequence_2
 Sequence_2: Add Row
 state Sequence_2 {
 direction TB
 MultipleAssign_4 : MultipleAssign - Open Row
+MultipleAssign_4 --> ForEach`1_2
 ForEach`1_2: Add Columns
 state ForEach`1_2 {
 direction TB

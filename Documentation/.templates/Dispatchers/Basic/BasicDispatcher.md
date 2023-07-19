@@ -10,6 +10,7 @@ Reads data from the srouce of work and adds it to a queue.
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
@@ -25,11 +26,13 @@ Reads data from the srouce of work and adds it to a queue.
 - UiPath.Core
 - UiPath.Core.Activities
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
@@ -76,12 +79,15 @@ Reads data from the srouce of work and adds it to a queue.
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ConfigPath</td><td>InArgument</td><td>x:String</td><td>The path to the config file to use to load variables and resources.</td></tr><tr><td>in_IgnoreSheets</td><td>InArgument</td><td>s:String[]</td><td>A list of the sheets to ignore loading from the config.</td></tr><tr><td>in_TestID</td><td>InArgument</td><td>x:String</td><td>Used to modify the workflow in order to test different scenarios. Only used to test exception handling in this workflow. Leave as null for production use.</td></tr></table>
+    
 </details>
 
 <hr />
@@ -91,16 +97,20 @@ Reads data from the srouce of work and adds it to a queue.
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: BasicDispatcher
 state Sequence_1 {
 direction TB
+ --> TryCatch_1
 TryCatch_1: Try Dispatching
 state TryCatch_1 {
 direction TB
+ --> Sequence_2
 Sequence_2: Dispatching
 state Sequence_2 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - LoadConfig.xaml - Invoke Workflow File
+InvokeWorkflowFile_1 --> Switch`1_1
 Switch`1_1: TestID?
 state Switch`1_1 {
 direction TB
@@ -110,6 +120,7 @@ LogMessage_1 : LogMessage - LM -- Start
 Switch`1_1 --> LogMessage_1
 MultipleAssign_2 : MultipleAssign - Setup Queue Data
 LogMessage_1 --> MultipleAssign_2
+MultipleAssign_2 --> RetryScope_1
 RetryScope_1: Retry - Orchestrator
 state RetryScope_1 {
 direction TB
@@ -120,6 +131,7 @@ RetryScope_1 --> MultipleAssign_3
 LogMessage_2 : LogMessage - LM -- Complete
 MultipleAssign_3 --> LogMessage_2
 }
+Sequence_2 --> Sequence_3
 Sequence_3: Send Exception Email
 state Sequence_3 {
 direction TB

@@ -10,6 +10,7 @@ Class: TraverseWorkflow
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -44,11 +45,13 @@ Class: TraverseWorkflow
 - System.Linq.Expressions
 - System.Runtime.Serialization
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - System
 - System.Linq
@@ -113,12 +116,15 @@ Class: TraverseWorkflow
 - UiPath.System.Activities.Design
 - UiPath.System.Activities.ViewModels
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_XElement</td><td>InArgument</td><td>sxl:XElement</td><td></td></tr><tr><td>io_Markdown</td><td>InOutArgument</td><td>x:String</td><td></td></tr><tr><td>io_PreviousActivity</td><td>InOutArgument</td><td>x:String</td><td></td></tr></table>
+    
 </details>
 
 <hr />
@@ -128,30 +134,35 @@ Class: TraverseWorkflow
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: TraverseWorkflow
 state Sequence_1 {
 direction TB
 MultipleAssign_1 : MultipleAssign - Parse Element
+MultipleAssign_1 --> If_1
 If_1: ActivityName Not Empty?
 state If_1 {
 direction TB
 WriteLine_2 : WriteLine - Write Line
+WriteLine_2 --> If_2
 If_2: Activity Has No Children?
 state If_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Update Markdown for Single Element
+MultipleAssign_2 --> Switch`1_1
 Switch`1_1: Switch
 state Switch`1_1 {
 direction TB
+ --> Sequence_6
 Sequence_6: Default
 state Sequence_6 {
 direction TB
 MultipleAssign_4 : MultipleAssign - Multiple Assign
-MultipleAssign_6 : MultipleAssign - Multiple Assign
-MultipleAssign_4 --> MultipleAssign_6
+MultipleAssign_4 --> ForEach`1_3
 ForEach`1_3: Recurse
 state ForEach`1_3 {
 direction TB
+ --> Sequence_7
 Sequence_7: Body
 state Sequence_7 {
 direction TB
@@ -163,9 +174,11 @@ ForEach`1_3 --> MultipleAssign_5
 }
 }
 }
+If_2 --> ForEach`1_1
 ForEach`1_1: Recurse
 state ForEach`1_1 {
 direction TB
+ --> Sequence_2
 Sequence_2: Body
 state Sequence_2 {
 direction TB

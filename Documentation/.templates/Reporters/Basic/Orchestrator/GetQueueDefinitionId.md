@@ -10,6 +10,7 @@ Gets the queue definition based on the queue folder and name.
     <summary>
     <b>Namespaces</b>
     </summary>
+
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -43,11 +44,13 @@ Gets the queue definition based on the queue folder and name.
 - System.Collections.Specialized
 - System.Linq.Expressions
 
+
 </details>
 <details>
     <summary>
     <b>References</b>
     </summary>
+
     - Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
@@ -98,12 +101,15 @@ Gets the queue definition based on the queue folder and name.
 - UiPath.Workflow
 - WindowsBase
 
+
 </details>
 <details>
     <summary>
     <b>Arguments</b>
     </summary>
+
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_QueueName</td><td>InArgument</td><td>x:String</td><td>The name of the queue to get the id for.</td></tr><tr><td>in_QueueFolder</td><td>InArgument</td><td>x:String</td><td>The folder that houses the queue to get the id for.</td></tr><tr><td>out_Id</td><td>OutArgument</td><td>x:Int32</td><td>The id retrieved.</td></tr></table>
+    
 </details>
 
 <hr />
@@ -113,10 +119,12 @@ Gets the queue definition based on the queue folder and name.
 ```mermaid
 stateDiagram-v2
 
+ --> Sequence_1
 Sequence_1: GetQueueDefinitionId
 state Sequence_1 {
 direction TB
 OrchestratorHttpRequest_1 : OrchestratorHttpRequest - Orchestrator API Call
+OrchestratorHttpRequest_1 --> If_1
 If_1: Status Not 2xx?
 state If_1 {
 direction TB
@@ -124,6 +132,7 @@ Throw_1 : Throw - Throw Orchestrator Invalid Status
 }
 MultipleAssign_1 : MultipleAssign - Parse Response
 If_1 --> MultipleAssign_1
+MultipleAssign_1 --> If_2
 If_2: Validate ID Count
 state If_2 {
 direction TB
