@@ -1,4 +1,4 @@
-# {WorkflowName}
+# HandleTransactionOutcome
 Class: HandleTransactionOutcome
 
 Handles the outcome of a transaction by updating the queue item status, as well as sending out any emails necessary.

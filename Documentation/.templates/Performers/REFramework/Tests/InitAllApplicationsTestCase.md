@@ -1,4 +1,4 @@
-# {WorkflowName}
+# InitAllApplicationsTestCase
 Class: InitAllApplicationsTestCase
 
 Verify if the InitAllApplications workflow works as expected.

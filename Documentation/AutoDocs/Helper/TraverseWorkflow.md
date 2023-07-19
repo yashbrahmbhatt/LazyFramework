@@ -1,4 +1,4 @@
-# {WorkflowName}
+# TraverseWorkflow
 Class: TraverseWorkflow
 
 

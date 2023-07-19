@@ -1,4 +1,4 @@
-# {WorkflowName}
+# MainTestCase
 Class: MainTestCase
 
 Verify if the Main workflow works as expected.

@@ -326,13 +326,14 @@
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20" xml:space="preserve">WorkflowTemplate
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22" xml:space="preserve">WorkflowTemplate
 .Replace("{Class}", DocumentClass)
 .Replace("{Description}", WorkflowDescription)
 .Replace("{Namespaces}", string.Join(Environment.NewLine, Namespaces.Select(n =&gt; "- " + n)) + Environment.NewLine)
 .Replace("{References}", string.Join(Environment.NewLine, References.Select(n =&gt; "- " + n)) + Environment.NewLine)
 .Replace("{Arguments}", ArgumentsHTML)
-.Replace("{Outline}", Outline)</CSharpValue>
+.Replace("{Outline}", Outline)
+.Replace("{WorkflowName}", WorkflowName)</CSharpValue>
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>

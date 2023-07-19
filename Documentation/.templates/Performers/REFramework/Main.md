@@ -1,4 +1,4 @@
-# {WorkflowName}
+# Main
 Class: Main
 
 [Process title]

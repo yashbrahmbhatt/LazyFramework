@@ -1,4 +1,4 @@
-# {WorkflowName}
+# ProcessTestCase
 Class: ProcessTestCase
 
 Verify if the Process workflow works as expected.

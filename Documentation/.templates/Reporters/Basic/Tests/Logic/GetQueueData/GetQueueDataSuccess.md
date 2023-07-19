@@ -1,4 +1,4 @@
-# {WorkflowName}
+# GetQueueDataSuccess
 Class: GetQueueDataSuccess
 
 A basic template for a test with the expected outcome being success.

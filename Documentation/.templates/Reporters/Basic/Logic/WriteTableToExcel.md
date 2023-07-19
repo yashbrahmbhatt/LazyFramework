@@ -1,4 +1,4 @@
-# {WorkflowName}
+# WriteTableToExcel
 Class: WriteTableToExcel
 
 Writes a table to an excel file.

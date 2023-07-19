@@ -1,4 +1,4 @@
-# {WorkflowName}
+# NegativeTestCase
 Class: NegativeTestCase
 
 A basic template for a test with the expected outcome being failure.

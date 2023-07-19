@@ -1,4 +1,4 @@
-# {WorkflowName}
+# DocumentProject
 Class: DocumentProject
 
 

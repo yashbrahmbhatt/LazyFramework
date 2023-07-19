@@ -1,4 +1,4 @@
-# {WorkflowName}
+# GetTransactionDataTestCase
 Class: GetTransactionDataTestCase
 
 Given the TransactionNumber, verify if GetTransactionData workflow works as expected.

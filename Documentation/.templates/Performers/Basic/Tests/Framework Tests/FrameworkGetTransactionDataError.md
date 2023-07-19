@@ -1,4 +1,4 @@
-# {WorkflowName}
+# FrameworkGetTransactionDataError
 Class: FrameworkGetTransactionDataError
 
 A basic template for a test with the expected outcome being failure.

@@ -1,4 +1,4 @@
-# {WorkflowName}
+# BasicPerformer
 Class: Performer
 
 [Process Name]

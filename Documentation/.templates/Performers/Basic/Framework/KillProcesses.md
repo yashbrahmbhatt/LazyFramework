@@ -1,4 +1,4 @@
-# {WorkflowName}
+# KillProcesses
 Class: KillProcesses
 
 Kill input processes by name.

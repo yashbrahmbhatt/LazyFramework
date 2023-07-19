@@ -1,4 +1,4 @@
-# {WorkflowName}
+# Process
 Class: Process
 
 Invoke major steps of the business process, which are usually implemented by multiple subworkflows.

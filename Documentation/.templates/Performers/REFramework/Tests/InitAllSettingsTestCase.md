@@ -1,4 +1,4 @@
-# {WorkflowName}
+# InitAllSettingsTestCase
 Class: InitAllSettingsTestCase
 
 Verify if the InitAllSettings workflow works as expected.

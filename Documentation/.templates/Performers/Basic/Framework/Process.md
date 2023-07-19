@@ -1,4 +1,4 @@
-# {WorkflowName}
+# Process
 Class: Process
 
 Carry out the required steps for this transaction/unit of work.

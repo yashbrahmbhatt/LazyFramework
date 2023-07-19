@@ -1,4 +1,4 @@
-# {WorkflowName}
+# GetQueueData
 Class: GetQueueData
 
 Gets the queue data list and parses it into a table.

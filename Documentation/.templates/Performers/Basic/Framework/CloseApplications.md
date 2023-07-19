@@ -1,4 +1,4 @@
-# {WorkflowName}
+# CloseApplications
 Class: CloseApplications
 
 Close all applications gracefully.

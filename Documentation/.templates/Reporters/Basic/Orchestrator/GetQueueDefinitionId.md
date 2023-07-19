@@ -1,4 +1,4 @@
-# {WorkflowName}
+# GetQueueDefinitionId
 Class: GetQueueDefinitionId
 
 Gets the queue definition based on the queue folder and name.

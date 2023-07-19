@@ -1,4 +1,4 @@
-# {WorkflowName}
+# TakeScreenshot
 Class: TakeScreenshot
 
 Takes a screenshot and saves it to a folder.

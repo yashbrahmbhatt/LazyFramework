@@ -1,4 +1,4 @@
-# {WorkflowName}
+# Flatten
 Class: Flatten
 
 Flattens a list of JToken into a DataTable. Uses the Aggregate LINQ function.

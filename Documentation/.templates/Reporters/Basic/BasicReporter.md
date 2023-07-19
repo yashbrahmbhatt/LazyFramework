@@ -1,4 +1,4 @@
-# {WorkflowName}
+# BasicReporter
 Class: BasicReporter
 
 Reads all queue items for a single queue within a defined reporting period, writes them to an excel, and then sends an email with the report as an attachment.

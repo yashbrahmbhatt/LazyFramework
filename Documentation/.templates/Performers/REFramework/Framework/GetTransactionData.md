@@ -1,4 +1,4 @@
-# {WorkflowName}
+# GetTransactionData
 Class: GetTransactionData
 
 Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). 

@@ -1,4 +1,4 @@
-# {WorkflowName}
+# GetQueueItems
 Class: GetQueueItems
 
 Retrieves all queue items for a particular queue id into a list.

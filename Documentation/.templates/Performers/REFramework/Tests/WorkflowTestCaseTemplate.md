@@ -1,4 +1,4 @@
-# {WorkflowName}
+# WorkflowTestCaseTemplate
 Class: TestWorkflowTemplate
 
 Template workflow used to create tests for workflows in the process.

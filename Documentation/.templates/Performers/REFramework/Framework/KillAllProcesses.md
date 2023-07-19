@@ -1,4 +1,4 @@
-# {WorkflowName}
+# KillAllProcesses
 Class: KillAllProcesses
 
 Use the Kill Process activity to force the termination of the Windows processes representing applications used in the business process being automated.

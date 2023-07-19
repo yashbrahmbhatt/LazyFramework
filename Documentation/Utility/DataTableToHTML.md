@@ -1,4 +1,4 @@
-# {WorkflowName}
+# DataTableToHTML
 Class: DataTableToHTML
 
 Convert a DataTable into HTML. Uses only .ToString for all data types so transform the column to string first for different formatting. Use the id argument to specify an id to add to the table tag for css purposes.

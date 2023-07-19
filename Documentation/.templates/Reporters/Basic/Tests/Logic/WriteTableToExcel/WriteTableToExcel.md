@@ -1,4 +1,4 @@
-# {WorkflowName}
+# WriteTableToExcel
 Class: WriteTableToExcel
 
 A basic template for a test with the expected outcome being success.

@@ -1,4 +1,4 @@
-# {WorkflowName}
+# AddCalculatedColumns
 Class: AddCalculatedColumns
 
 Adds calculated columns for all queue items.

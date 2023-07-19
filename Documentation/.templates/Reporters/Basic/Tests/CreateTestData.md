@@ -1,4 +1,4 @@
-# {WorkflowName}
+# CreateTestData
 Class: CreateTestData
 
 Helper to create test data in a queue to test the reporter.

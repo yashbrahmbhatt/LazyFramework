@@ -1,4 +1,4 @@
-# {WorkflowName}
+# RetryCurrentTransaction
 Class: RetryCurrentTransaction
 
 Manage the retrying mechanism for the framework and it is invoked in SetTransactionStatus.xaml when a system exception occurs. 

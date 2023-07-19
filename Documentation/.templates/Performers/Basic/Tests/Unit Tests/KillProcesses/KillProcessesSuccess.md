@@ -1,4 +1,4 @@
-# {WorkflowName}
+# KillProcessesSuccess
 Class: KillProcessesSuccess
 
 A basic template for a test with the expected outcome being success.

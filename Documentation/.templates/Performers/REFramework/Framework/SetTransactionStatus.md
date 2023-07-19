@@ -1,4 +1,4 @@
-# {WorkflowName}
+# SetTransactionStatus
 Class: SetTransactionStatus
 
 Set and log the transaction's status along with extra log fields. 

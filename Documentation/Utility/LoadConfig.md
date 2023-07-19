@@ -1,4 +1,4 @@
-# {WorkflowName}
+# LoadConfig
 Class: LoadConfig
 
 Reads the config file, ignoring the sheets defined, and outputs the config and textfiles arguments.

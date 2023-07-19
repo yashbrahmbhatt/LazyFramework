@@ -1,4 +1,4 @@
-# {WorkflowName}
+# IsMaintenanceTime
 Class: IsMaintenanceTime
 
 Given a CRON expression for the maintenance schedule, checks whether the current date/time is within the maintenance window. Outputs a boolean.

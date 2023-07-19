@@ -1,4 +1,4 @@
-# {WorkflowName}
+# InitAllSettings
 Class: InitAllSettings
 
 Initialize, populate and output a configuration Dictionary to be used throughout the project. 

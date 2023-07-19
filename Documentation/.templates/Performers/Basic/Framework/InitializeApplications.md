@@ -1,4 +1,4 @@
-# {WorkflowName}
+# InitializeApplications
 Class: InitializeApplications
 
 Initialize all applications required for this performer.

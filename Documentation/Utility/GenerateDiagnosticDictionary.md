@@ -1,4 +1,4 @@
-# {WorkflowName}
+# GenerateDiagnosticDictionary
 Class: GenerateDiagnosticDictionary
 
 Generates a dictinoary that contains diagnostic information in cases of system exceptions.

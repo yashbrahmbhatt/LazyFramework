@@ -1,4 +1,4 @@
-# {WorkflowName}
+# SendEmail
 Class: SendEmail
 
 Sends an email taking a dictionary of data to fill out template subject and body fields. Supports DataTable to HTML <table> objects as well.

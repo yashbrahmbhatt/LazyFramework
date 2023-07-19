@@ -1,4 +1,4 @@
-# {WorkflowName}
+# BasicDispatcher
 Class: BasicDispatcher
 
 Reads data from the srouce of work and adds it to a queue.
