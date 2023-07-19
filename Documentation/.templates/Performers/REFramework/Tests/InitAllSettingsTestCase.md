@@ -97,7 +97,7 @@ The verification should check if initalization of settings was successful: if th
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: InitAllSettingsTestCase
 state Sequence_1 {
 direction TB

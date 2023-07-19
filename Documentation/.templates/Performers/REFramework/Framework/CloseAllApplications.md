@@ -68,7 +68,7 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_3
+
 Sequence_3: Close All Applications
 state Sequence_3 {
 direction TB

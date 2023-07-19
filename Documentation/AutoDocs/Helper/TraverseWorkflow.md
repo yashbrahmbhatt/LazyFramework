@@ -134,7 +134,7 @@ Class: TraverseWorkflow
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: TraverseWorkflow
 state Sequence_1 {
 direction TB
@@ -153,7 +153,7 @@ MultipleAssign_2 --> Switch`1_1
 Switch`1_1: Switch
 state Switch`1_1 {
 direction TB
- --> Sequence_6
+
 Sequence_6: Default
 state Sequence_6 {
 direction TB
@@ -162,7 +162,7 @@ MultipleAssign_4 --> ForEach`1_3
 ForEach`1_3: Recurse
 state ForEach`1_3 {
 direction TB
- --> Sequence_7
+
 Sequence_7: Body
 state Sequence_7 {
 direction TB
@@ -178,7 +178,7 @@ If_2 --> ForEach`1_1
 ForEach`1_1: Recurse
 state ForEach`1_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Body
 state Sequence_2 {
 direction TB

@@ -74,7 +74,7 @@ Initialize all applications required for this performer.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: InitializeApplications
 state Sequence_1 {
 direction TB

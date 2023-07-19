@@ -91,7 +91,7 @@ Carry out the required steps for this transaction/unit of work.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: Process
 state Sequence_1 {
 direction TB

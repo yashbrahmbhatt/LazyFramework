@@ -103,27 +103,27 @@ At the end, io_TransactionNumber is incremented, which makes the framework get t
 ```mermaid
 stateDiagram-v2
 
- --> Flowchart_2
+
 Flowchart_2: Set Transaction Status
 state Flowchart_2 {
 direction TB
- --> FlowDecision_2
+
 FlowDecision_2: Is successful?
 state FlowDecision_2 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Success
 state Sequence_2 {
 direction TB
- --> If_1
+
 If_1: If TransactionItem is a QueueItem (Success)
 state If_1 {
 direction TB
- --> RetryScope_3
+
 RetryScope_3: Retry Set Transaction Status (Success)
 state RetryScope_3 {
 direction TB
- --> TryCatch_7
+
 TryCatch_7: Try Catch Set Transaction Status (Success)
 state TryCatch_7 {
 direction TB
@@ -164,19 +164,19 @@ Sequence_3 --> FlowDecision_1
 FlowDecision_1: Is Business Exception?
 state FlowDecision_1 {
 direction TB
- --> Sequence_5
+
 Sequence_5: Business Exception
 state Sequence_5 {
 direction TB
- --> If_2
+
 If_2: If TransactionItem is a QueueItem (Business Exception)
 state If_2 {
 direction TB
- --> RetryScope_2
+
 RetryScope_2: Retry Set Transaction Status (Business Exception)
 state RetryScope_2 {
 direction TB
- --> TryCatch_6
+
 TryCatch_6: Try Catch Set Transaction Status (Business Exception)
 state TryCatch_6 {
 direction TB
@@ -222,15 +222,15 @@ TryCatch_4 --> If_3
 If_3: If TransactionItem is a QueueItem (System Exception)
 state If_3 {
 direction TB
- --> RetryScope_1
+
 RetryScope_1: Retry Set Transaction Status (System Exception)
 state RetryScope_1 {
 direction TB
- --> TryCatch_5
+
 TryCatch_5: Try Catch Set Transaction Status (System Exception)
 state TryCatch_5 {
 direction TB
- --> Sequence_6
+
 Sequence_6: Try Set Transaction Status (System Exception)
 state Sequence_6 {
 direction TB

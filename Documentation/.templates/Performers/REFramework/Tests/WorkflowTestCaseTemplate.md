@@ -84,7 +84,7 @@ Create a new test workflow by copying and renaming this file.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_2
+
 Sequence_2: Test Template
 state Sequence_2 {
 direction TB
@@ -105,11 +105,11 @@ Sequence_4 --> Sequence_6
 Sequence_6: ... Then
 state Sequence_6 {
 direction TB
- --> CommentOut_1
+
 CommentOut_1: Enable and change as needed
 state CommentOut_1 {
 direction TB
- --> Sequence_5
+
 Sequence_5: Ignored Activities
 state Sequence_5 {
 direction TB

@@ -95,7 +95,7 @@ Handles the outcome of a transaction by updating the queue item status, as well 
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: HandleTransactionOutcome
 state Sequence_1 {
 direction TB
@@ -104,7 +104,7 @@ LogMessage_5 --> IfElseIf_1
 IfElseIf_1: Outcome?
 state IfElseIf_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Handle System Exception
 state Sequence_2 {
 direction TB
@@ -121,7 +121,7 @@ InvokeWorkflowFile_1 --> If_1
 If_1: Max Retries Reached?
 state If_1 {
 direction TB
- --> Sequence_5
+
 Sequence_5: Handle Max Retries Reached
 state Sequence_5 {
 direction TB

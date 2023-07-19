@@ -92,7 +92,7 @@ Kill input processes by name.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: KillProcesses
 state Sequence_1 {
 direction TB

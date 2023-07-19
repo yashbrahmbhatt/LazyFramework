@@ -121,7 +121,7 @@ Current Fields:
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: AddCalculatedColumns
 state Sequence_1 {
 direction TB
@@ -134,11 +134,11 @@ AddDataColumn`1_3 --> ForEachRow_1
 ForEachRow_1: For Each Row
 state ForEachRow_1 {
 direction TB
- --> Sequence_6
+
 Sequence_6: Update Rows
 state Sequence_6 {
 direction TB
- --> If_3
+
 If_3: Item not completed?
 state If_3 {
 direction TB
@@ -150,7 +150,7 @@ MultipleAssign_4 --> If_1
 If_1: Failed?
 state If_1 {
 direction TB
- --> If_2
+
 If_2: System Or Business?
 state If_2 {
 direction TB

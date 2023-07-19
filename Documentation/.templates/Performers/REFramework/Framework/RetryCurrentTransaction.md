@@ -68,15 +68,15 @@ The retrying method is based on the configurations defined in Config.xlsx.
 ```mermaid
 stateDiagram-v2
 
- --> Flowchart_2
+
 Flowchart_2: Retry Current Transaction
 state Flowchart_2 {
 direction TB
- --> FlowDecision_3
+
 FlowDecision_3: Retry transaction?
 state FlowDecision_3 {
 direction TB
- --> FlowDecision_2
+
 FlowDecision_2: Max retries reached?
 state FlowDecision_2 {
 direction TB

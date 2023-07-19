@@ -99,7 +99,7 @@ The verification should check if after opening the applications, the expected st
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: InitAllApplicationsTestCase
 state Sequence_1 {
 direction TB
@@ -120,11 +120,11 @@ Sequence_3 --> Sequence_4
 Sequence_4: ... Then
 state Sequence_4 {
 direction TB
- --> CommentOut_1
+
 CommentOut_1: Enable and change as needed
 state CommentOut_1 {
 direction TB
- --> Sequence_5
+
 Sequence_5: Ignored Activities
 state Sequence_5 {
 direction TB

@@ -116,7 +116,7 @@ Gets the queue data list and parses it into a table.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: GetQueueData
 state Sequence_1 {
 direction TB

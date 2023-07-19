@@ -68,7 +68,7 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_2
+
 Sequence_2: Kill All Processes
 state Sequence_2 {
 direction TB

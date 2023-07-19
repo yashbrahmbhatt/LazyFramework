@@ -82,7 +82,7 @@ If there are multiple transactions, use the argument in_TransactionNumber as an 
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_3
+
 Sequence_3: Get Transaction Data
 state Sequence_3 {
 direction TB
@@ -91,7 +91,7 @@ LogMessage_1 --> RetryScope_1
 RetryScope_1: Retry Get transaction item
 state RetryScope_1 {
 direction TB
- --> TryCatch_1
+
 TryCatch_1: Try Catch Get transaction item
 state TryCatch_1 {
 direction TB
@@ -110,7 +110,7 @@ RetryScope_1 --> If_1
 If_1: If a new transaction item is retrieved, get additional information about it
 state If_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Add transaction information to log fields
 state Sequence_2 {
 direction TB

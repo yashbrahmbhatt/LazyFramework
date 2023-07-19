@@ -118,7 +118,7 @@ Writes a table to an excel file.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: WriteTableToExcel
 state Sequence_1 {
 direction TB
@@ -127,11 +127,11 @@ LogMessage_2 --> ExcelProcessScopeX_1
 ExcelProcessScopeX_1: Excel
 state ExcelProcessScopeX_1 {
 direction TB
- --> ExcelApplicationCard_1
+
 ExcelApplicationCard_1: Use File
 state ExcelApplicationCard_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Workflow Analyzer Gives a Warning If I Don't Have This Sequence
 state Sequence_2 {
 direction TB

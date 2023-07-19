@@ -99,19 +99,19 @@ Class: Main
 ```mermaid
 stateDiagram-v2
 
- --> StateMachine_1
+
 StateMachine_1: General Business Process
 state StateMachine_1 {
 direction TB
- --> State_4
+
 State_4: Initialization
 state State_4 {
 direction TB
- --> TryCatch_1
+
 TryCatch_1: Try initializing settings and applications
 state TryCatch_1 {
 direction TB
- --> Sequence_1
+
 Sequence_1: Load configurations and open applications
 state Sequence_1 {
 direction TB
@@ -120,7 +120,7 @@ Assign_1 --> If_1
 If_1: If first run, read local configuration file
 state If_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: First run
 state Sequence_2 {
 direction TB
@@ -161,11 +161,11 @@ TryCatch_1 --> Transition_6
 Transition_6: Successful
 state Transition_6 {
 direction TB
- --> State_3
+
 State_3: Get Transaction Data
 state State_3 {
 direction TB
- --> Sequence_5
+
 Sequence_5: Retrieve Data
 state Sequence_5 {
 direction TB
@@ -174,7 +174,7 @@ ShouldStop_1 --> If_3
 If_3: Should Stop or Get Next
 state If_3 {
 direction TB
- --> Sequence_3
+
 Sequence_3: Orchestrator stop requested
 state Sequence_3 {
 direction TB
@@ -202,11 +202,11 @@ Sequence_5 --> Transition_11
 Transition_11: No Data
 state Transition_11 {
 direction TB
- --> State_2
+
 State_2: End Process
 state State_2 {
 direction TB
- --> TryCatch_5
+
 TryCatch_5: Try to close all aplications
 state TryCatch_5 {
 direction TB
@@ -234,15 +234,15 @@ Transition_11 --> Transition_4
 Transition_4: New Transaction
 state Transition_4 {
 direction TB
- --> State_1
+
 State_1: Process Transaction
 state State_1 {
 direction TB
- --> TryCatch_4
+
 TryCatch_4: Try to process transaction
 state TryCatch_4 {
 direction TB
- --> Sequence_6
+
 Sequence_6: Process the current TransactionItem
 state Sequence_6 {
 direction TB

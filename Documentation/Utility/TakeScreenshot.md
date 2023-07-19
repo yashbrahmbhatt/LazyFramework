@@ -119,11 +119,11 @@ Takes a screenshot and saves it to a folder.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: TakeScreenshot
 state Sequence_1 {
 direction TB
- --> If_2
+
 If_2: Empty File Path?
 state If_2 {
 direction TB

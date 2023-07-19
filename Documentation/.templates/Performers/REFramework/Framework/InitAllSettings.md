@@ -91,7 +91,7 @@ Asset values overwrite settings and constant values if they are defined with the
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_5
+
 Sequence_5: Initialize All Settings
 state Sequence_5 {
 direction TB
@@ -102,7 +102,7 @@ Assign_1 --> ForEach`1_1
 ForEach`1_1: For each configuration sheet
 state ForEach`1_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Get local settings and constants
 state Sequence_2 {
 direction TB
@@ -111,7 +111,7 @@ ReadRange_1 --> ForEachRow_1
 ForEachRow_1: For each configuration row
 state ForEachRow_1 {
 direction TB
- --> If_1
+
 If_1: If configuration row is not empty
 state If_1 {
 direction TB
@@ -124,7 +124,7 @@ ForEach`1_1 --> TryCatch_2
 TryCatch_2: Try initializing assets
 state TryCatch_2 {
 direction TB
- --> Sequence_4
+
 Sequence_4: Get Orchestrator assets
 state Sequence_4 {
 direction TB
@@ -133,11 +133,11 @@ ReadRange_2 --> ForEachRow_2
 ForEachRow_2: For each asset row
 state ForEachRow_2 {
 direction TB
- --> TryCatch_1
+
 TryCatch_1: Try retrieving asset from Orchestrator
 state TryCatch_1 {
 direction TB
- --> Sequence_3
+
 Sequence_3: Get asset from Orchestrator
 state Sequence_3 {
 direction TB

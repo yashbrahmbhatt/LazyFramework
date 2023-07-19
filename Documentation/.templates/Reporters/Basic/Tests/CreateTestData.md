@@ -103,7 +103,7 @@ Helper to create test data in a queue to test the reporter.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: CreateTestData
 state Sequence_1 {
 direction TB
@@ -114,7 +114,7 @@ InvokeWorkflowFile_1 --> ForEach`1_1
 ForEach`1_1: Loop through counts
 state ForEach`1_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Add Item to Queue
 state Sequence_2 {
 direction TB

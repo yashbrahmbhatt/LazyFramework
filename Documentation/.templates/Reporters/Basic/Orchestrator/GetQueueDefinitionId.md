@@ -119,7 +119,7 @@ Gets the queue definition based on the queue folder and name.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: GetQueueDefinitionId
 state Sequence_1 {
 direction TB

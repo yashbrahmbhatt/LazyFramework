@@ -124,7 +124,7 @@ Sends an email taking a dictionary of data to fill out template subject and body
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: SendEmail
 state Sequence_1 {
 direction TB
@@ -133,15 +133,15 @@ LogMessage_1 --> ForEach`1_1
 ForEach`1_1: For Each TemplateData Key
 state ForEach`1_1 {
 direction TB
- --> Sequence_3
+
 Sequence_3: Process Key
 state Sequence_3 {
 direction TB
- --> If_1
+
 If_1: DataTable Object?
 state If_1 {
 direction TB
- --> Sequence_4
+
 Sequence_4: DataTable Object
 state Sequence_4 {
 direction TB
@@ -158,7 +158,7 @@ ForEach`1_1 --> RetryScope_1
 RetryScope_1: Retry Mail
 state RetryScope_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Mail
 state Sequence_2 {
 direction TB

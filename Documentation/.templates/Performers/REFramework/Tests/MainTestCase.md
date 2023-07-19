@@ -106,7 +106,7 @@ The verification should check whether the status file or report built after the 
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: MainTestCase
 state Sequence_1 {
 direction TB

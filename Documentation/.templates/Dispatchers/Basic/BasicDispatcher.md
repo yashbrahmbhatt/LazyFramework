@@ -97,15 +97,15 @@ Reads data from the srouce of work and adds it to a queue.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: BasicDispatcher
 state Sequence_1 {
 direction TB
- --> TryCatch_1
+
 TryCatch_1: Try Dispatching
 state TryCatch_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Dispatching
 state Sequence_2 {
 direction TB

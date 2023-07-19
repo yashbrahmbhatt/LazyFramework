@@ -118,7 +118,7 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: LoadConfig
 state Sequence_1 {
 direction TB
@@ -129,15 +129,15 @@ MultipleAssign_1 --> ExcelProcessScopeX_1
 ExcelProcessScopeX_1: Using Excel App
 state ExcelProcessScopeX_1 {
 direction TB
- --> ExcelApplicationCard_1
+
 ExcelApplicationCard_1: Using Config File
 state ExcelApplicationCard_1 {
 direction TB
- --> ForEachSheetX_1
+
 ForEachSheetX_1: For Each Sheet
 state ForEachSheetX_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Process Sheet
 state Sequence_2 {
 direction TB
@@ -146,7 +146,7 @@ LogMessage_1 --> If_1
 If_1: Ignorable Sheet?
 state If_1 {
 direction TB
- --> Sequence_3
+
 Sequence_3: Skip
 state Sequence_3 {
 direction TB
@@ -159,11 +159,11 @@ If_1 --> ExcelForEachRowX_1
 ExcelForEachRowX_1: For Each Row
 state ExcelForEachRowX_1 {
 direction TB
- --> If_3
+
 If_3: Not Empty Row?
 state If_3 {
 direction TB
- --> Switch`1_3
+
 Switch`1_3: Sheet Name?
 state Switch`1_3 {
 direction TB
@@ -172,7 +172,7 @@ Assign_5 --> Sequence_11
 Sequence_11: Process Assets Row
 state Sequence_11 {
 direction TB
- --> RetryScope_4
+
 RetryScope_4: Asset Retry
 state RetryScope_4 {
 direction TB
@@ -185,15 +185,15 @@ Sequence_11 --> Sequence_12
 Sequence_12: Process TextFiles Row
 state Sequence_12 {
 direction TB
- --> If_4
+
 If_4: NOT Storage Bucket Resource?
 state If_4 {
 direction TB
- --> Sequence_13
+
 Sequence_13: Local/Network Resource
 state Sequence_13 {
 direction TB
- --> RetryScope_5
+
 RetryScope_5: Retry Network/Local
 state RetryScope_5 {
 direction TB
@@ -204,7 +204,7 @@ Sequence_13 --> Sequence_14
 Sequence_14: Storage Bucket Resource
 state Sequence_14 {
 direction TB
- --> RetryScope_6
+
 RetryScope_6: Retry Orch
 state RetryScope_6 {
 direction TB

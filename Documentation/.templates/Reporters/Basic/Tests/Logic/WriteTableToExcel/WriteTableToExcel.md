@@ -131,7 +131,7 @@ A basic template for a test with the expected outcome being success.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: WriteTableToExcel
 state Sequence_1 {
 direction TB
@@ -140,11 +140,11 @@ LogMessage_1 --> TimeoutScope_1
 TimeoutScope_1: Timed Test
 state TimeoutScope_1 {
 direction TB
- --> Sequence_5
+
 Sequence_5: Test
 state Sequence_5 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Initialize Test
 state Sequence_2 {
 direction TB
@@ -158,7 +158,7 @@ LogMessage_2 --> TryCatch_1
 TryCatch_1: Execute Test
 state TryCatch_1 {
 direction TB
- --> Sequence_3
+
 Sequence_3: ... When
 state Sequence_3 {
 direction TB
@@ -178,7 +178,7 @@ VerifyExpression_5 --> ExcelProcessScopeX_1
 ExcelProcessScopeX_1: Excel
 state ExcelProcessScopeX_1 {
 direction TB
- --> ExcelApplicationCard_1
+
 ExcelApplicationCard_1: File
 state ExcelApplicationCard_1 {
 direction TB

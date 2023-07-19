@@ -165,7 +165,7 @@ Class: ParseWorkflow
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: ParseWorkflow
 state Sequence_1 {
 direction TB
@@ -176,7 +176,7 @@ MultipleAssign_1 --> ForEach`1_1
 ForEach`1_1: Add to Arguments Table
 state ForEach`1_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Parse Argument
 state Sequence_2 {
 direction TB

@@ -101,7 +101,7 @@ Generates a dictinoary that contains diagnostic information in cases of system e
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: GenerateDiagnosticDictionary
 state Sequence_1 {
 direction TB

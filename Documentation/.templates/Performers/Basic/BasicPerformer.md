@@ -103,31 +103,31 @@ Class: Performer
 ```mermaid
 stateDiagram-v2
 
- --> StateMachine_3
+
 StateMachine_3: Performer State Machine
 state StateMachine_3 {
 direction TB
- --> State_9
+
 State_9: Initialization
 state State_9 {
 direction TB
- --> TryCatch_8
+
 TryCatch_8: Try Initializing
 state TryCatch_8 {
 direction TB
- --> RetryScope_4
+
 RetryScope_4: Retry - Initializing
 state RetryScope_4 {
 direction TB
- --> Sequence_21
+
 Sequence_21: Initialize
 state Sequence_21 {
 direction TB
- --> If_5
+
 If_5: First Run?
 state If_5 {
 direction TB
- --> Sequence_19
+
 Sequence_19: Initialize Settings
 state Sequence_19 {
 direction TB
@@ -167,15 +167,15 @@ TryCatch_8 --> Transition_18
 Transition_18: Success
 state Transition_18 {
 direction TB
- --> State_8
+
 State_8: Get Transaction Data
 state State_8 {
 direction TB
- --> TryCatch_9
+
 TryCatch_9: Try Getting Transaction
 state TryCatch_9 {
 direction TB
- --> Sequence_17
+
 Sequence_17: Get Transaction
 state Sequence_17 {
 direction TB
@@ -212,11 +212,11 @@ TryCatch_9 --> Transition_11
 Transition_11: Error - Get Transaction Data
 state Transition_11 {
 direction TB
- --> State_7
+
 State_7: End
 state State_7 {
 direction TB
- --> Sequence_23
+
 Sequence_23: End Process
 state Sequence_23 {
 direction TB
@@ -225,7 +225,7 @@ LogMessage_16 --> If_6
 If_6: Framework Exception?
 state If_6 {
 direction TB
- --> Sequence_18
+
 Sequence_18: Handle Frameowrk Error
 state Sequence_18 {
 direction TB
@@ -261,15 +261,15 @@ Transition_11 --> Transition_15
 Transition_15: Data
 state Transition_15 {
 direction TB
- --> State_6
+
 State_6: Process
 state State_6 {
 direction TB
- --> TryCatch_12
+
 TryCatch_12: Try Processing Transaction
 state TryCatch_12 {
 direction TB
- --> Sequence_24
+
 Sequence_24: Process Transaction
 state Sequence_24 {
 direction TB
@@ -326,7 +326,7 @@ Transition_19 --> Transition_20
 Transition_20: MaxConsecutive
 state Transition_20 {
 direction TB
- --> Sequence_25
+
 Sequence_25: Update + Log
 state Sequence_25 {
 direction TB

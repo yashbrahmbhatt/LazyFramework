@@ -127,7 +127,7 @@ A basic template for a test with the expected outcome being failure.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: BasicDispatcherFailureTest
 state Sequence_1 {
 direction TB
@@ -136,11 +136,11 @@ LogMessage_1 --> TimeoutScope_2
 TimeoutScope_2: Timed Test
 state TimeoutScope_2 {
 direction TB
- --> Sequence_13
+
 Sequence_13: Test
 state Sequence_13 {
 direction TB
- --> Sequence_11
+
 Sequence_11: Initialize Test
 state Sequence_11 {
 direction TB
@@ -164,7 +164,7 @@ LogMessage_8 --> Sequence_12
 Sequence_12: Execute Test
 state Sequence_12 {
 direction TB
- --> TryCatch_1
+
 TryCatch_1: Execute
 state TryCatch_1 {
 direction TB

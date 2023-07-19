@@ -77,7 +77,7 @@ If another kind of exception occurs, the current transaction can be retried.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_2
+
 Sequence_2: Process
 state Sequence_2 {
 direction TB

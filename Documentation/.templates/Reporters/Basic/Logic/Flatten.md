@@ -122,7 +122,7 @@ Flattens a list of JToken into a DataTable. Uses the Aggregate LINQ function.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: Flatten
 state Sequence_1 {
 direction TB

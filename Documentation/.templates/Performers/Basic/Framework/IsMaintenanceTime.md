@@ -81,11 +81,11 @@ Given a CRON expression for the maintenance schedule, checks whether the current
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: IsMaintenanceTime
 state Sequence_1 {
 direction TB
- --> If_1
+
 If_1: No Boundary?
 state If_1 {
 direction TB

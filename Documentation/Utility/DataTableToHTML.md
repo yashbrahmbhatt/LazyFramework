@@ -112,7 +112,7 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: DataTableToHTML
 state Sequence_1 {
 direction TB
@@ -131,7 +131,7 @@ MultipleAssign_3 --> ForEachRow_1
 ForEachRow_1: Add Table Rows
 state ForEachRow_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Add Row
 state Sequence_2 {
 direction TB

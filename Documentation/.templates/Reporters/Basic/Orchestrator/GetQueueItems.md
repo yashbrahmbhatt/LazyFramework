@@ -119,7 +119,7 @@ Retrieves all queue items for a particular queue id into a list.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: GetQueueItems
 state Sequence_1 {
 direction TB
@@ -130,7 +130,7 @@ MultipleAssign_1 --> ForEach`1_1
 ForEach`1_1: For Each Status
 state ForEach`1_1 {
 direction TB
- --> If_1
+
 If_1: Last Status
 state If_1 {
 direction TB
@@ -149,7 +149,7 @@ If_2 --> InterruptibleDoWhile_1
 InterruptibleDoWhile_1: Loop While 1000 Items Returned
 state InterruptibleDoWhile_1 {
 direction TB
- --> Sequence_6
+
 Sequence_6: Body
 state Sequence_6 {
 direction TB

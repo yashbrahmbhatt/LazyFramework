@@ -137,7 +137,7 @@ Reads all queue items for a single queue within a defined reporting period, writ
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: BasicReporter
 state Sequence_1 {
 direction TB
@@ -148,23 +148,23 @@ InvokeWorkflowFile_1 --> TryCatch_2
 TryCatch_2: Try Reporting
 state TryCatch_2 {
 direction TB
- --> Sequence_12
+
 Sequence_12: Reporting
 state Sequence_12 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Initialize
 state Sequence_2 {
 direction TB
- --> If_1
+
 If_1: Validate Time Frame
 state If_1 {
 direction TB
- --> TryCatch_1
+
 TryCatch_1: Try Parsing CRON
 state TryCatch_1 {
 direction TB
- --> Sequence_5
+
 Sequence_5: Parsing CRON
 state Sequence_5 {
 direction TB

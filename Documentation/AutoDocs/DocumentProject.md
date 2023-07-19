@@ -125,7 +125,7 @@ Class: DocumentProject
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: DocumentProject
 state Sequence_1 {
 direction TB
@@ -136,7 +136,7 @@ DeleteFolderX_1 --> ForEach`1_1
 ForEach`1_1: For Each Workflow
 state ForEach`1_1 {
 direction TB
- --> Sequence_2
+
 Sequence_2: Body
 state Sequence_2 {
 direction TB

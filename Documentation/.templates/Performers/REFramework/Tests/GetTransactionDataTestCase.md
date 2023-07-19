@@ -101,7 +101,7 @@ Please make sure the queue name is configured.
 ```mermaid
 stateDiagram-v2
 
- --> Sequence_1
+
 Sequence_1: GetTransactionDataTestCase
 state Sequence_1 {
 direction TB
