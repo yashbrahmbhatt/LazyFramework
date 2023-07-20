@@ -119,11 +119,9 @@ Takes a screenshot and saves it to a folder.
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - TakeScreenshot
 state Sequence_1 {
 direction TB
-
 If_2: If - Empty File Path?
 state If_2 {
 direction TB
@@ -131,14 +129,15 @@ MultipleAssign_1 : MultipleAssign - Set File Name
 MultipleAssign_3 : MultipleAssign - Set Folder Path
 MultipleAssign_1 --> MultipleAssign_3
 }
+MultipleAssign_3 --> If_2
 FolderExistsX_1 : FolderExistsX - Get Folder Exists
 If_2 --> FolderExistsX_1
-FolderExistsX_1 --> If_1
 If_1: If - Folder Doesn't Exist?
 state If_1 {
 direction TB
 CreateDirectory_1 : CreateDirectory - Create Folder!
 }
+CreateDirectory_1 --> If_1
 MultipleAssign_2 : MultipleAssign - Get Primary Screenshot
 If_1 --> MultipleAssign_2
 InvokeMethod_1 : InvokeMethod - Copy Screen to Graphic
@@ -152,4 +151,5 @@ InvokeMethod_3 --> InvokeMethod_4
 LogMessage_1 : LogMessage - LM -- Complete
 InvokeMethod_4 --> LogMessage_1
 }
+LogMessage_1 --> Sequence_1
 ```

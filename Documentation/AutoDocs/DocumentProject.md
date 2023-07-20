@@ -125,18 +125,15 @@ Class: DocumentProject
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - DocumentProject
 state Sequence_1 {
 direction TB
 MultipleAssign_1 : MultipleAssign - Initialize Vars
 DeleteFolderX_1 : DeleteFolderX - Delete Folder
 MultipleAssign_1 --> DeleteFolderX_1
-DeleteFolderX_1 --> ForEach1_1
 ForEach1_1: ForEach - For Each Workflow
 state ForEach1_1 {
 direction TB
-
 Sequence_2: Sequence - Body
 state Sequence_2 {
 direction TB
@@ -150,6 +147,9 @@ MultipleAssign_2 --> CreateDirectory_1
 WriteTextFile_1 : WriteTextFile - Write Text File
 CreateDirectory_1 --> WriteTextFile_1
 }
+WriteTextFile_1 --> Sequence_2
 }
+Sequence_2 --> ForEach1_1
 }
+ForEach1_1 --> Sequence_1
 ```

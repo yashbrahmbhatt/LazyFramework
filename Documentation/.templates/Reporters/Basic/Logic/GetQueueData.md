@@ -116,7 +116,6 @@ Gets the queue data list and parses it into a table.
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - GetQueueData
 state Sequence_1 {
 direction TB
@@ -132,4 +131,5 @@ InvokeWorkflowFile_2 --> InvokeWorkflowFile_3
 LogMessage_2 : LogMessage - LM -- Complete
 InvokeWorkflowFile_3 --> LogMessage_2
 }
+LogMessage_2 --> Sequence_1
 ```

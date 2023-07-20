@@ -68,10 +68,10 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_2: Sequence - Kill All Processes
 state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - Log message (Kill processes)
 }
+LogMessage_1 --> Sequence_2
 ```

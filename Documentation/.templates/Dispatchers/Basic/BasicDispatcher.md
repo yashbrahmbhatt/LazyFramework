@@ -97,41 +97,38 @@ Reads data from the srouce of work and adds it to a queue.
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - BasicDispatcher
 state Sequence_1 {
 direction TB
-
 TryCatch_1: TryCatch - Try Dispatching
 state TryCatch_1 {
 direction TB
-
 Sequence_2: Sequence - Dispatching
 state Sequence_2 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - LoadConfig.xaml - Invoke Workflow File
-InvokeWorkflowFile_1 --> Switch1_1
 Switch1_1: Switch - TestID?
 state Switch1_1 {
 direction TB
 Throw_1 : Throw - Throw Test Exception
 }
+Throw_1 --> Switch1_1
 LogMessage_1 : LogMessage - LM -- Start
 Switch1_1 --> LogMessage_1
 MultipleAssign_2 : MultipleAssign - Setup Queue Data
 LogMessage_1 --> MultipleAssign_2
-MultipleAssign_2 --> RetryScope_1
 RetryScope_1: RetryScope - Retry - Orchestrator
 state RetryScope_1 {
 direction TB
 AddQueueItem_1 : AddQueueItem - Add Item to Queue
 }
+AddQueueItem_1 --> RetryScope_1
 MultipleAssign_3 : MultipleAssign - ItemsAdded++
 RetryScope_1 --> MultipleAssign_3
 LogMessage_2 : LogMessage - LM -- Complete
 MultipleAssign_3 --> LogMessage_2
 }
-Sequence_2 --> Sequence_3
+LogMessage_2 --> Sequence_2
 Sequence_3: Sequence - Send Exception Email
 state Sequence_3 {
 direction TB
@@ -145,6 +142,9 @@ MultipleAssign_1 --> InvokeWorkflowFile_3
 Rethrow_1 : Rethrow - Rethrow Exception
 InvokeWorkflowFile_3 --> Rethrow_1
 }
+Rethrow_1 --> Sequence_3
 }
+Sequence_3 --> TryCatch_1
 }
+TryCatch_1 --> Sequence_1
 ```

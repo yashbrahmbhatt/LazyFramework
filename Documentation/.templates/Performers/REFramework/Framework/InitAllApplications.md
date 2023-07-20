@@ -67,10 +67,10 @@ Open applications used in the process and do necessary initialization procedures
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_2: Sequence - Initialize All Applications
 state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - Log message (Initialize applications)
 }
+LogMessage_1 --> Sequence_2
 ```

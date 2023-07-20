@@ -118,35 +118,28 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - LoadConfig
 state Sequence_1 {
 direction TB
 LogMessage_4 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize Outputs
 LogMessage_4 --> MultipleAssign_1
-MultipleAssign_1 --> ExcelProcessScopeX_1
 ExcelProcessScopeX_1: ExcelProcessScopeX - Using Excel App
 state ExcelProcessScopeX_1 {
 direction TB
-
 ExcelApplicationCard_1: ExcelApplicationCard - Using Config File
 state ExcelApplicationCard_1 {
 direction TB
-
 ForEachSheetX_1: ForEachSheetX - For Each Sheet
 state ForEachSheetX_1 {
 direction TB
-
 Sequence_2: Sequence - Process Sheet
 state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Processing sheet
-LogMessage_1 --> If_1
 If_1: If - Ignorable Sheet?
 state If_1 {
 direction TB
-
 Sequence_3: Sequence - Skip
 state Sequence_3 {
 direction TB
@@ -154,75 +147,82 @@ LogMessage_2 : LogMessage - LM -- Skip
 Continue_1 : Continue - Skip
 LogMessage_2 --> Continue_1
 }
+Continue_1 --> Sequence_3
 }
-If_1 --> ExcelForEachRowX_1
+Sequence_3 --> If_1
 ExcelForEachRowX_1: ExcelForEachRowX - For Each Row
 state ExcelForEachRowX_1 {
 direction TB
-
 If_3: If - Not Empty Row?
 state If_3 {
 direction TB
-
 Switch1_3: Switch - Sheet Name?
 state Switch1_3 {
 direction TB
 Assign_5 : Assign - Set Default Value
-Assign_5 --> Sequence_11
 Sequence_11: Sequence - Process Assets Row
 state Sequence_11 {
 direction TB
-
 RetryScope_4: RetryScope - Asset Retry
 state RetryScope_4 {
 direction TB
 GetRobotAsset_2 : GetRobotAsset - Get Current Asset
 }
+GetRobotAsset_2 --> RetryScope_4
 Assign_6 : Assign - Set Asset Value
 RetryScope_4 --> Assign_6
 }
-Sequence_11 --> Sequence_12
+Assign_6 --> Sequence_11
 Sequence_12: Sequence - Process TextFiles Row
 state Sequence_12 {
 direction TB
-
 If_4: If - NOT Storage Bucket Resource?
 state If_4 {
 direction TB
-
 Sequence_13: Sequence - Local/Network Resource
 state Sequence_13 {
 direction TB
-
 RetryScope_5: RetryScope - Retry Network/Local
 state RetryScope_5 {
 direction TB
 ReadTextFile_2 : ReadTextFile - Read Local File
 }
+ReadTextFile_2 --> RetryScope_5
 }
-Sequence_13 --> Sequence_14
+RetryScope_5 --> Sequence_13
 Sequence_14: Sequence - Storage Bucket Resource
 state Sequence_14 {
 direction TB
-
 RetryScope_6: RetryScope - Retry Orch
 state RetryScope_6 {
 direction TB
 ReadStorageText_2 : ReadStorageText - Get Storage Text
 }
+ReadStorageText_2 --> RetryScope_6
 }
+RetryScope_6 --> Sequence_14
 }
+Sequence_14 --> If_4
 Assign_7 : Assign - Set TextFiles Value
 If_4 --> Assign_7
 }
+Assign_7 --> Sequence_12
 }
+Sequence_12 --> Switch1_3
 }
+Switch1_3 --> If_3
 }
+If_3 --> ExcelForEachRowX_1
 }
+ExcelForEachRowX_1 --> Sequence_2
 }
+Sequence_2 --> ForEachSheetX_1
 }
+ForEachSheetX_1 --> ExcelApplicationCard_1
 }
+ExcelApplicationCard_1 --> ExcelProcessScopeX_1
 LogMessage_3 : LogMessage - LM -- Complete
 ExcelProcessScopeX_1 --> LogMessage_3
 }
+LogMessage_3 --> Sequence_1
 ```

@@ -121,49 +121,45 @@ A basic template for a test with the expected outcome being success.
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - TakeScreenshotNoPath
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> TimeoutScope_1
 TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
-
 Sequence_5: Sequence - Test
 state Sequence_5 {
 direction TB
-
 Sequence_2: Sequence - Initialize Test
 state Sequence_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Vars
-MultipleAssign_2 --> If_1
 If_1: If - FolderPath Exists?
 state If_1 {
 direction TB
 DeleteFolderX_1 : DeleteFolderX - Delete FolderPath
 }
+DeleteFolderX_1 --> If_1
 }
+If_1 --> Sequence_2
 LogMessage_2 : LogMessage - LM -- Initialization Complete
 Sequence_2 --> LogMessage_2
-LogMessage_2 --> TryCatch_1
 TryCatch_1: TryCatch - Execute Test
 state TryCatch_1 {
 direction TB
-
 Sequence_3: Sequence - ... When
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\TakeScreenshot.xaml - Invoke Workflow File
 }
+InvokeWorkflowFile_1 --> Sequence_3
 MultipleAssign_1 : MultipleAssign - Set TestException
 Sequence_3 --> MultipleAssign_1
 }
+MultipleAssign_1 --> TryCatch_1
 LogMessage_3 : LogMessage - LM -- Test Executed
 TryCatch_1 --> LogMessage_3
-LogMessage_3 --> Sequence_4
 Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
@@ -175,9 +171,13 @@ VerifyExpression_6 --> DeleteFileX_1
 CreateFile_1 : CreateFile - Create placeholder
 DeleteFileX_1 --> CreateFile_1
 }
+CreateFile_1 --> Sequence_4
 }
+Sequence_4 --> Sequence_5
 }
+Sequence_5 --> TimeoutScope_1
 LogMessage_4 : LogMessage - LM -- Complete
 TimeoutScope_1 --> LogMessage_4
 }
+LogMessage_4 --> Sequence_1
 ```

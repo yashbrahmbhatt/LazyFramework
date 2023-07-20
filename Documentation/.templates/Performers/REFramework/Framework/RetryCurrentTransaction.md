@@ -68,15 +68,12 @@ The retrying method is based on the configurations defined in Config.xlsx.
 ```mermaid
 stateDiagram-v2
 
-
 Flowchart_2: Flowchart - Retry Current Transaction
 state Flowchart_2 {
 direction TB
-
 FlowDecision_3: FlowDecision - Retry transaction?
 state FlowDecision_3 {
 direction TB
-
 FlowDecision_2: FlowDecision - Max retries reached?
 state FlowDecision_2 {
 direction TB
@@ -87,7 +84,6 @@ Assign_2 : Assign - Increment TransactionNumber (Local retry)
 Assign_1 --> Assign_2
 LogMessage_2 : LogMessage - Log message (Retry)
 Assign_2 --> LogMessage_2
-LogMessage_2 --> FlowDecision_1
 FlowDecision_1: FlowDecision - Use Orchestrator's retry?
 state FlowDecision_1 {
 direction TB
@@ -95,11 +91,15 @@ Assign_3 : Assign - Increment TransactionNumber (Orchestrator retry)
 Assign_4 : Assign - Increment retry counter
 Assign_3 --> Assign_4
 }
+Assign_4 --> FlowDecision_1
 }
+FlowDecision_1 --> FlowDecision_2
 LogMessage_3 : LogMessage - Log message (No retry)
 FlowDecision_2 --> LogMessage_3
 Assign_5 : Assign - Increment TransactionNumber (No retry)
 LogMessage_3 --> Assign_5
 }
+Assign_5 --> FlowDecision_3
 }
+FlowDecision_3 --> Flowchart_2
 ```

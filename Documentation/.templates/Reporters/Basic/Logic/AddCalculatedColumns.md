@@ -121,7 +121,6 @@ Current Fields:
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - AddCalculatedColumns
 state Sequence_1 {
 direction TB
@@ -130,27 +129,23 @@ AddDataColumn1_2 : AddDataColumn - Add Time Saved
 LogMessage_1 --> AddDataColumn1_2
 AddDataColumn1_3 : AddDataColumn - Add Execution Time
 AddDataColumn1_2 --> AddDataColumn1_3
-AddDataColumn1_3 --> ForEachRow_1
 ForEachRow_1: ForEachRow - For Each Row
 state ForEachRow_1 {
 direction TB
-
 Sequence_6: Sequence - Update Rows
 state Sequence_6 {
 direction TB
-
 If_3: If - Item not completed?
 state If_3 {
 direction TB
 Continue_1 : Continue - Skip Row
 }
+Continue_1 --> If_3
 MultipleAssign_4 : MultipleAssign - Update Execution Time
 If_3 --> MultipleAssign_4
-MultipleAssign_4 --> If_1
 If_1: If - Failed?
 state If_1 {
 direction TB
-
 If_2: If - System Or Business?
 state If_2 {
 direction TB
@@ -158,12 +153,17 @@ MultipleAssign_1 : MultipleAssign - Set System Exception Time Saved
 MultipleAssign_2 : MultipleAssign - Set Business Exception Time Saved
 MultipleAssign_1 --> MultipleAssign_2
 }
+MultipleAssign_2 --> If_2
 MultipleAssign_3 : MultipleAssign - Set Success Time Saved
 If_2 --> MultipleAssign_3
 }
+MultipleAssign_3 --> If_1
 }
+If_1 --> Sequence_6
 }
+Sequence_6 --> ForEachRow_1
 LogMessage_2 : LogMessage - LM -- Complete
 ForEachRow_1 --> LogMessage_2
 }
+LogMessage_2 --> Sequence_1
 ```

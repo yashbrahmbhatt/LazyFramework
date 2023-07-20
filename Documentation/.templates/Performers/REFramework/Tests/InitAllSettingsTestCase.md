@@ -97,24 +97,22 @@ The verification should check if initalization of settings was successful: if th
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - InitAllSettingsTestCase
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - InitAllSettingsTestCase
-LogMessage_1 --> Sequence_2
 Sequence_2: Sequence - ... Given
 state Sequence_2 {
 direction TB
 Comment_1 : Comment - Prerequisities
 }
-Sequence_2 --> Sequence_3
+Comment_1 --> Sequence_2
 Sequence_3: Sequence - ... When
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Invoke InitAllSettings workflow
 }
-Sequence_3 --> Sequence_4
+InvokeWorkflowFile_1 --> Sequence_3
 Sequence_4: Sequence - ... Then
 state Sequence_4 {
 direction TB
@@ -122,5 +120,7 @@ VerifyExpressionWithOperator_1 : VerifyExpressionWithOperator - Verify if Config
 VerifyExpression_1 : VerifyExpression - Verify if setting exists in Config
 VerifyExpressionWithOperator_1 --> VerifyExpression_1
 }
+VerifyExpression_1 --> Sequence_4
 }
+Sequence_4 --> Sequence_1
 ```

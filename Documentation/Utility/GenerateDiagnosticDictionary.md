@@ -101,7 +101,6 @@ Generates a dictinoary that contains diagnostic information in cases of system e
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - GenerateDiagnosticDictionary
 state Sequence_1 {
 direction TB
@@ -109,4 +108,5 @@ LogMessage_1 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Setup Dictionary
 LogMessage_1 --> MultipleAssign_1
 }
+MultipleAssign_1 --> Sequence_1
 ```

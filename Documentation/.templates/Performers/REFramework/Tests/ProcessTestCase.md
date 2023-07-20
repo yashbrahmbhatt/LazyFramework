@@ -100,12 +100,10 @@ The verification should check whether the output of the Process workflow is the 
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - ProcessTestCase
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - ProcessTestCase
-LogMessage_1 --> Sequence_2
 Sequence_2: Sequence - ... Given
 state Sequence_2 {
 direction TB
@@ -117,29 +115,31 @@ InvokeWorkflowFile_3 --> Assign_1
 InvokeWorkflowFile_4 : InvokeWorkflowFile - Invoke GetTransactionData workflow
 Assign_1 --> InvokeWorkflowFile_4
 }
-Sequence_2 --> Sequence_3
+InvokeWorkflowFile_4 --> Sequence_2
 Sequence_3: Sequence - ... When
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Invoke Process workflow
 }
-Sequence_3 --> Sequence_4
+InvokeWorkflowFile_1 --> Sequence_3
 Sequence_4: Sequence - ... Then
 state Sequence_4 {
 direction TB
-
 CommentOut_1: CommentOut - Enable and change as needed
 state CommentOut_1 {
 direction TB
-
 Sequence_5: Sequence - Ignored Activities
 state Sequence_5 {
 direction TB
 VerifyExpressionWithOperator_1 : VerifyExpressionWithOperator - Verify process output
 }
+VerifyExpressionWithOperator_1 --> Sequence_5
 }
+Sequence_5 --> CommentOut_1
 InvokeWorkflowFile_5 : InvokeWorkflowFile - Invoke CloseAllApplications workflow
 CommentOut_1 --> InvokeWorkflowFile_5
 }
+InvokeWorkflowFile_5 --> Sequence_4
 }
+Sequence_4 --> Sequence_1
 ```

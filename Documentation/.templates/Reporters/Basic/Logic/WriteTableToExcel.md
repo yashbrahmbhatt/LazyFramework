@@ -118,28 +118,28 @@ Writes a table to an excel file.
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - WriteTableToExcel
 state Sequence_1 {
 direction TB
 LogMessage_2 : LogMessage - LM -- Start
-LogMessage_2 --> ExcelProcessScopeX_1
 ExcelProcessScopeX_1: ExcelProcessScopeX - Excel
 state ExcelProcessScopeX_1 {
 direction TB
-
 ExcelApplicationCard_1: ExcelApplicationCard - Use File
 state ExcelApplicationCard_1 {
 direction TB
-
 Sequence_2: Sequence - Workflow Analyzer Gives a Warning If I Don't Have This Sequence
 state Sequence_2 {
 direction TB
 WriteRangeX_2 : WriteRangeX - Write Table
 }
+WriteRangeX_2 --> Sequence_2
 }
+Sequence_2 --> ExcelApplicationCard_1
 }
+ExcelApplicationCard_1 --> ExcelProcessScopeX_1
 LogMessage_1 : LogMessage - LM -- Complete
 ExcelProcessScopeX_1 --> LogMessage_1
 }
+LogMessage_1 --> Sequence_1
 ```

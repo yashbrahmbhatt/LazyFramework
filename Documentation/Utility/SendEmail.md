@@ -124,24 +124,19 @@ Sends an email taking a dictionary of data to fill out template subject and body
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - SendEmail
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> ForEach1_1
 ForEach1_1: ForEach - For Each TemplateData Key
 state ForEach1_1 {
 direction TB
-
 Sequence_3: Sequence - Process Key
 state Sequence_3 {
 direction TB
-
 If_1: If - DataTable Object?
 state If_1 {
 direction TB
-
 Sequence_4: Sequence - DataTable Object
 state Sequence_4 {
 direction TB
@@ -149,16 +144,18 @@ InvokeWorkflowFile_1 : InvokeWorkflowFile - Shared\\DataTableToHTML.xaml - Invok
 MultipleAssign_1 : MultipleAssign - Update Templates with DT
 InvokeWorkflowFile_1 --> MultipleAssign_1
 }
+MultipleAssign_1 --> Sequence_4
 MultipleAssign_2 : MultipleAssign - Update Templates
 Sequence_4 --> MultipleAssign_2
 }
+MultipleAssign_2 --> If_1
 }
+If_1 --> Sequence_3
 }
-ForEach1_1 --> RetryScope_1
+Sequence_3 --> ForEach1_1
 RetryScope_1: RetryScope - Retry Mail
 state RetryScope_1 {
 direction TB
-
 Sequence_2: Sequence - Mail
 state Sequence_2 {
 direction TB
@@ -166,8 +163,11 @@ GetRobotCredential_1 : GetRobotCredential - Get Email Creds
 SendMail_1 : SendMail - Send Email
 GetRobotCredential_1 --> SendMail_1
 }
+SendMail_1 --> Sequence_2
 }
+Sequence_2 --> RetryScope_1
 LogMessage_2 : LogMessage - LM -- Sent
 RetryScope_1 --> LogMessage_2
 }
+LogMessage_2 --> Sequence_1
 ```

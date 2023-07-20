@@ -127,44 +127,39 @@ A basic template for a test with the expected outcome being failure.
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - BasicDispatcherFailureTest
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> TimeoutScope_2
 TimeoutScope_2: TimeoutScope - Timed Test
 state TimeoutScope_2 {
 direction TB
-
 Sequence_13: Sequence - Test
 state Sequence_13 {
 direction TB
-
 Sequence_11: Sequence - Initialize Test
 state Sequence_11 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Variables
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Load Test Config
 MultipleAssign_2 --> InvokeWorkflowFile_1
-InvokeWorkflowFile_1 --> If_1
 If_1: If - Exception Screenshots Exists?
 state If_1 {
 direction TB
 DeleteFolderX_1 : DeleteFolderX - Delete Exception Screenshots
 }
+DeleteFolderX_1 --> If_1
 CreateDirectory_1 : CreateDirectory - Create Exception Screenshots
 If_1 --> CreateDirectory_1
 CreateFile_1 : CreateFile - Create Placeholder
 CreateDirectory_1 --> CreateFile_1
 }
+CreateFile_1 --> Sequence_11
 LogMessage_8 : LogMessage - LM -- Initialization Complete
 Sequence_11 --> LogMessage_8
-LogMessage_8 --> Sequence_12
 Sequence_12: Sequence - Execute Test
 state Sequence_12 {
 direction TB
-
 TryCatch_1: TryCatch - Execute
 state TryCatch_1 {
 direction TB
@@ -172,10 +167,11 @@ InvokeWorkflowFile_3 : InvokeWorkflowFile - Run BasicDispatcher
 MultipleAssign_1 : MultipleAssign - Set TestException
 InvokeWorkflowFile_3 --> MultipleAssign_1
 }
+MultipleAssign_1 --> TryCatch_1
 }
+TryCatch_1 --> Sequence_12
 LogMessage_9 : LogMessage - LM -- Test Executed
 Sequence_12 --> LogMessage_9
-LogMessage_9 --> Sequence_8
 Sequence_8: Sequence - Validate Results
 state Sequence_8 {
 direction TB
@@ -184,12 +180,12 @@ GetIMAPMailMessages_2 : GetIMAPMailMessages - Get Emails (IMAP)
 GetRobotCredential_1 --> GetIMAPMailMessages_2
 MultipleAssign_3 : MultipleAssign - Get Exception Screenshot Files
 GetIMAPMailMessages_2 --> MultipleAssign_3
-MultipleAssign_3 --> ForEach1_1
 ForEach1_1: ForEach - Delete Screenshot
 state ForEach1_1 {
 direction TB
 DeleteFileX_1 : DeleteFileX - Delete Screenshot File
 }
+DeleteFileX_1 --> ForEach1_1
 VerifyExpression_8 : VerifyExpression - Verify Exception Screenshot
 ForEach1_1 --> VerifyExpression_8
 VerifyExpression_7 : VerifyExpression - Verify TestException
@@ -197,9 +193,13 @@ VerifyExpression_8 --> VerifyExpression_7
 VerifyExpression_5 : VerifyExpression - Verify EmailCount
 VerifyExpression_7 --> VerifyExpression_5
 }
+VerifyExpression_5 --> Sequence_8
 }
+Sequence_8 --> Sequence_13
 }
+Sequence_13 --> TimeoutScope_2
 LogMessage_5 : LogMessage - LM -- Complete
 TimeoutScope_2 --> LogMessage_5
 }
+LogMessage_5 --> Sequence_1
 ```

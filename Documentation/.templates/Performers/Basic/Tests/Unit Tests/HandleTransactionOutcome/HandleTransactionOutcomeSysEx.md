@@ -134,20 +134,16 @@ A basic template for a test with the expected outcome being success.
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - HandleTransactionOutcomeSysEx
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> TimeoutScope_1
 TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
-
 Sequence_5: Sequence - Test
 state Sequence_5 {
 direction TB
-
 Sequence_2: Sequence - Initialize Test
 state Sequence_2 {
 direction TB
@@ -158,35 +154,35 @@ AddTransactionItem_1 : AddTransactionItem - Add Test Queue Item
 InvokeWorkflowFile_1 --> AddTransactionItem_1
 MultipleAssign_3 : MultipleAssign - Set Data
 AddTransactionItem_1 --> MultipleAssign_3
-MultipleAssign_3 --> If_1
 If_1: If - Exception Screenshots Exists?
 state If_1 {
 direction TB
 DeleteFolderX_1 : DeleteFolderX - Delete Exception Screenshots
 }
+DeleteFolderX_1 --> If_1
 CreateDirectory_1 : CreateDirectory - Create Exception Screenshots
 If_1 --> CreateDirectory_1
 CreateFile_1 : CreateFile - Create Placeholder
 CreateDirectory_1 --> CreateFile_1
 }
+CreateFile_1 --> Sequence_2
 LogMessage_2 : LogMessage - LM -- Initialization Complete
 Sequence_2 --> LogMessage_2
-LogMessage_2 --> TryCatch_1
 TryCatch_1: TryCatch - Execute Test
 state TryCatch_1 {
 direction TB
-
 Sequence_3: Sequence - ... When
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_2 : InvokeWorkflowFile - .templates\\Performers\\Basic\\Framework\\HandleTransactionOutcome.xaml - Invoke Workflow File
 }
+InvokeWorkflowFile_2 --> Sequence_3
 MultipleAssign_1 : MultipleAssign - Set TestException
 Sequence_3 --> MultipleAssign_1
 }
+MultipleAssign_1 --> TryCatch_1
 LogMessage_3 : LogMessage - LM -- Test Executed
 TryCatch_1 --> LogMessage_3
-LogMessage_3 --> Sequence_6
 Sequence_6: Sequence - Validate Results
 state Sequence_6 {
 direction TB
@@ -195,12 +191,12 @@ GetIMAPMailMessages_1 : GetIMAPMailMessages - Get Emails (IMAP)
 GetRobotCredential_1 --> GetIMAPMailMessages_1
 MultipleAssign_4 : MultipleAssign - Get Exception Screenshot Files
 GetIMAPMailMessages_1 --> MultipleAssign_4
-MultipleAssign_4 --> ForEach1_1
 ForEach1_1: ForEach - Delete Screenshot
 state ForEach1_1 {
 direction TB
 DeleteFileX_1 : DeleteFileX - Delete Screenshot File
 }
+DeleteFileX_1 --> ForEach1_1
 GetQueueItems_1 : GetQueueItems - Get Failed or Retried Items
 ForEach1_1 --> GetQueueItems_1
 VerifyExpression_6 : VerifyExpression - Verify TestException
@@ -212,9 +208,13 @@ VerifyExpression_9 --> VerifyExpression_8
 VerifyExpression_7 : VerifyExpression - Verify EmailCount
 VerifyExpression_8 --> VerifyExpression_7
 }
+VerifyExpression_7 --> Sequence_6
 }
+Sequence_6 --> Sequence_5
 }
+Sequence_5 --> TimeoutScope_1
 LogMessage_4 : LogMessage - LM -- Complete
 TimeoutScope_1 --> LogMessage_4
 }
+LogMessage_4 --> Sequence_1
 ```

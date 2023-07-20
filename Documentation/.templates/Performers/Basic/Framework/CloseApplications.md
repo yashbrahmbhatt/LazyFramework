@@ -83,7 +83,6 @@ Close all applications gracefully.
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - CloseApplications
 state Sequence_1 {
 direction TB
@@ -91,4 +90,5 @@ LogMessage_1 : LogMessage - LM -- Start
 LogMessage_2 : LogMessage - LM -- Complete
 LogMessage_1 --> LogMessage_2
 }
+LogMessage_2 --> Sequence_1
 ```

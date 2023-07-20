@@ -41,7 +41,9 @@
       "privateWorkflows": []
     },
     "processOptions": {
-      "ignoredFiles": []
+      "ignoredFiles": [
+        "Tests/AutoDocs/Helper/TraverseWorkflow/SuccessTestCase.xaml"
+      ]
     },
     "fileInfoCollection": [
       {
@@ -311,6 +313,12 @@
         "testCaseId": "9b54a231-c4c5-48e7-9cd9-ed9280cfb3f5",
         "testCaseType": "TestCase",
         "fileName": "Tests\\Utility\\LoadConfig\\LoadConfigSuccess.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "b069808e-65b0-4757-9a6e-241cdc158de2",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\AutoDocs\\Helper\\TraverseWorkflow\\SequenceWithNoNested.xaml"
       }
     ],
     "modernBehavior": true

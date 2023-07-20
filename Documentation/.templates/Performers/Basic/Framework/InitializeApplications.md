@@ -74,7 +74,6 @@ Initialize all applications required for this performer.
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - InitializeApplications
 state Sequence_1 {
 direction TB
@@ -82,4 +81,5 @@ LogMessage_1 : LogMessage - LM -- Start
 LogMessage_2 : LogMessage - LM -- Complete
 LogMessage_1 --> LogMessage_2
 }
+LogMessage_2 --> Sequence_1
 ```

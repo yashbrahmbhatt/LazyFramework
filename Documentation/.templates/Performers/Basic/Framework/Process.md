@@ -91,10 +91,10 @@ Carry out the required steps for this transaction/unit of work.
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - Process
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 }
+LogMessage_1 --> Sequence_1
 ```

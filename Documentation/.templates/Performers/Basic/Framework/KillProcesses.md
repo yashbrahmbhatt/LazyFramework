@@ -92,18 +92,18 @@ Kill input processes by name.
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - KillProcesses
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> ForEach1_1
 ForEach1_1: ForEach - For Each Process
 state ForEach1_1 {
 direction TB
 KillProcess_1 : KillProcess - Kill Current Process
 }
+KillProcess_1 --> ForEach1_1
 LogMessage_2 : LogMessage - LM -- End
 ForEach1_1 --> LogMessage_2
 }
+LogMessage_2 --> Sequence_1
 ```

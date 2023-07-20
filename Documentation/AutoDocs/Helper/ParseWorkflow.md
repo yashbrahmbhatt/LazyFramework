@@ -165,18 +165,15 @@ Class: ParseWorkflow
 ```mermaid
 stateDiagram-v2
 
-
 Sequence_1: Sequence - ParseWorkflow
 state Sequence_1 {
 direction TB
 BuildDataTable_1 : BuildDataTable - Initialize Arguments Table
 MultipleAssign_1 : MultipleAssign - Parse
 BuildDataTable_1 --> MultipleAssign_1
-MultipleAssign_1 --> ForEach1_1
 ForEach1_1: ForEach - Add to Arguments Table
 state ForEach1_1 {
 direction TB
-
 Sequence_2: Sequence - Parse Argument
 state Sequence_2 {
 direction TB
@@ -184,10 +181,13 @@ MultipleAssign_5 : MultipleAssign - Parse Current Argument
 AddDataRow_2 : AddDataRow - Add to ArgumentsTable
 MultipleAssign_5 --> AddDataRow_2
 }
+AddDataRow_2 --> Sequence_2
 }
+Sequence_2 --> ForEach1_1
 InvokeWorkflowFile_1 : InvokeWorkflowFile - AutoDocs\\Helper\\TraverseWorkflow.xaml - Invoke Workflow File
 ForEach1_1 --> InvokeWorkflowFile_1
 MultipleAssign_6 : MultipleAssign - Multiple Assign
 InvokeWorkflowFile_1 --> MultipleAssign_6
 }
+MultipleAssign_6 --> Sequence_1
 ```
