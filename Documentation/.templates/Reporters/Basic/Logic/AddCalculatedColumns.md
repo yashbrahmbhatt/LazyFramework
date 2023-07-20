@@ -15,7 +15,7 @@ Current Fields:
     <b>Namespaces</b>
     </summary>
     
-    - System.Activities
+- System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
 - System.Activities.Validation
@@ -52,7 +52,7 @@ Current Fields:
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.VisualBasic.Core
 - Microsoft.VisualBasic.Forms
@@ -109,7 +109,13 @@ Current Fields:
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_SuccessTimeSaved</td><td>InArgument</td><td>x:Double</td><td>Time saved in minutes for successful queue items.</td></tr><tr><td>in_BusExTimeSaved</td><td>InArgument</td><td>x:Double</td><td>Time saved in minutes for business exception queue items.</td></tr><tr><td>in_SysExTimeSaved</td><td>InArgument</td><td>x:Double</td><td>Time saved in minutes for application exception queue items.</td></tr><tr><td>io_dt_Table</td><td>InOutArgument</td><td>sd:DataTable</td><td>The table to add the calculated columns to.</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_SuccessTimeSaved | InArgument | x:Double | Time saved in minutes for successful queue items. |
+| in_BusExTimeSaved | InArgument | x:Double | Time saved in minutes for business exception queue items. |
+| in_SysExTimeSaved | InArgument | x:Double | Time saved in minutes for application exception queue items. |
+| io_dt_Table | InOutArgument | sd:DataTable | The table to add the calculated columns to. |
+
     
 </details>
 <details>
@@ -117,7 +123,7 @@ Current Fields:
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -126,7 +132,7 @@ Current Fields:
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -138,6 +144,7 @@ Current Fields:
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - AddCalculatedColumns
 state Sequence_1 {
 direction TB
@@ -146,23 +153,27 @@ AddDataColumn1_2 : AddDataColumn - Add Time Saved
 LogMessage_1 --> AddDataColumn1_2
 AddDataColumn1_3 : AddDataColumn - Add Execution Time
 AddDataColumn1_2 --> AddDataColumn1_3
+AddDataColumn1_3 --> ForEachRow_1
 ForEachRow_1: ForEachRow - For Each Row
 state ForEachRow_1 {
 direction TB
+
 Sequence_6: Sequence - Update Rows
 state Sequence_6 {
 direction TB
+
 If_3: If - Item not completed?
 state If_3 {
 direction TB
 Continue_1 : Continue - Skip Row
 }
-Continue_1 --> If_3
 MultipleAssign_4 : MultipleAssign - Update Execution Time
 If_3 --> MultipleAssign_4
+MultipleAssign_4 --> If_1
 If_1: If - Failed?
 state If_1 {
 direction TB
+
 If_2: If - System Or Business?
 state If_2 {
 direction TB
@@ -170,17 +181,12 @@ MultipleAssign_1 : MultipleAssign - Set System Exception Time Saved
 MultipleAssign_2 : MultipleAssign - Set Business Exception Time Saved
 MultipleAssign_1 --> MultipleAssign_2
 }
-MultipleAssign_2 --> If_2
 MultipleAssign_3 : MultipleAssign - Set Success Time Saved
 If_2 --> MultipleAssign_3
 }
-MultipleAssign_3 --> If_1
 }
-If_1 --> Sequence_6
 }
-Sequence_6 --> ForEachRow_1
 LogMessage_2 : LogMessage - LM -- Complete
 ForEachRow_1 --> LogMessage_2
 }
-LogMessage_2 --> Sequence_1
 ```

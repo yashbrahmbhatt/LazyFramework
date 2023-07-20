@@ -11,7 +11,7 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
     <b>Namespaces</b>
     </summary>
     
-    - System
+- System
 - System.Collections.Generic
 - System.Data
 - System.Linq
@@ -28,7 +28,7 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - System
 - System.Activities
 - System.ComponentModel.TypeConverter
@@ -56,7 +56,9 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+
     
 </details>
 <details>
@@ -64,7 +66,7 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -73,7 +75,7 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -85,10 +87,10 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_3: Sequence - Close All Applications
 state Sequence_3 {
 direction TB
 LogMessage_2 : LogMessage - Log message (close applications)
 }
-LogMessage_2 --> Sequence_3
 ```

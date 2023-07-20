@@ -11,7 +11,7 @@ A basic template for a test with the expected outcome being failure.
     <b>Namespaces</b>
     </summary>
     
-    - System.Activities
+- System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
 - System.Activities.Validation
@@ -49,7 +49,7 @@ A basic template for a test with the expected outcome being failure.
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - mscorlib
 - NPOI
@@ -102,7 +102,9 @@ A basic template for a test with the expected outcome being failure.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+
     
 </details>
 <details>
@@ -110,7 +112,7 @@ A basic template for a test with the expected outcome being failure.
     <b>Workflows Used</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\Basic\BasicPerformer.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\Basic\BasicPerformer.xaml
 
     
 </details>
@@ -119,7 +121,7 @@ A basic template for a test with the expected outcome being failure.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -131,51 +133,51 @@ A basic template for a test with the expected outcome being failure.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - FrameworkNoData
 state Sequence_1 {
 direction TB
 LogMessage_4 : LogMessage - LM -- Start
+LogMessage_4 --> TimeoutScope_1
 TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
+
 Sequence_5: Sequence - Test
 state Sequence_5 {
 direction TB
+
 Sequence_2: Sequence - Initialize Test
 state Sequence_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Vars
 }
-MultipleAssign_2 --> Sequence_2
 LogMessage_3 : LogMessage - LM -- Initialization Complete
 Sequence_2 --> LogMessage_3
+LogMessage_3 --> TryCatch_1
 TryCatch_1: TryCatch - Execute Test
 state TryCatch_1 {
 direction TB
+
 Sequence_3: Sequence - ... When
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - .templates\\Performers\\Basic\\BasicPerformer.xaml - Invoke Workflow File
 }
-InvokeWorkflowFile_1 --> Sequence_3
 MultipleAssign_1 : MultipleAssign - Set TestException
 Sequence_3 --> MultipleAssign_1
 }
-MultipleAssign_1 --> TryCatch_1
 LogMessage_2 : LogMessage - LM -- Test Executed
 TryCatch_1 --> LogMessage_2
+LogMessage_2 --> Sequence_4
 Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
 VerifyExpression_5 : VerifyExpression - Verify TestException
 }
-VerifyExpression_5 --> Sequence_4
 }
-Sequence_4 --> Sequence_5
 }
-Sequence_5 --> TimeoutScope_1
 LogMessage_1 : LogMessage - LM -- Complete
 TimeoutScope_1 --> LogMessage_1
 }
-LogMessage_1 --> Sequence_1
 ```

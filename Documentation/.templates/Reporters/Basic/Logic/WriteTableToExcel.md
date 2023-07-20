@@ -11,7 +11,7 @@ Writes a table to an excel file.
     <b>Namespaces</b>
     </summary>
     
-    - System.Activities
+- System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
 - System.Activities.Validation
@@ -50,7 +50,7 @@ Writes a table to an excel file.
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
 - NPOI
@@ -106,7 +106,12 @@ Writes a table to an excel file.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_Path</td><td>InArgument</td><td>x:String</td><td>The path to the file to write to. File must exist already.</td></tr><tr><td>in_SheetName</td><td>InArgument</td><td>x:String</td><td>The name of the sheet to write the table to.</td></tr><tr><td>in_dt_Table</td><td>InArgument</td><td>sd:DataTable</td><td>The datatable to write to a sheet.</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_Path | InArgument | x:String | The path to the file to write to. File must exist already. |
+| in_SheetName | InArgument | x:String | The name of the sheet to write the table to. |
+| in_dt_Table | InArgument | sd:DataTable | The datatable to write to a sheet. |
+
     
 </details>
 <details>
@@ -114,7 +119,7 @@ Writes a table to an excel file.
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -123,7 +128,7 @@ Writes a table to an excel file.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -135,28 +140,28 @@ Writes a table to an excel file.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - WriteTableToExcel
 state Sequence_1 {
 direction TB
 LogMessage_2 : LogMessage - LM -- Start
+LogMessage_2 --> ExcelProcessScopeX_1
 ExcelProcessScopeX_1: ExcelProcessScopeX - Excel
 state ExcelProcessScopeX_1 {
 direction TB
+
 ExcelApplicationCard_1: ExcelApplicationCard - Use File
 state ExcelApplicationCard_1 {
 direction TB
+
 Sequence_2: Sequence - Workflow Analyzer Gives a Warning If I Don't Have This Sequence
 state Sequence_2 {
 direction TB
 WriteRangeX_2 : WriteRangeX - Write Table
 }
-WriteRangeX_2 --> Sequence_2
 }
-Sequence_2 --> ExcelApplicationCard_1
 }
-ExcelApplicationCard_1 --> ExcelProcessScopeX_1
 LogMessage_1 : LogMessage - LM -- Complete
 ExcelProcessScopeX_1 --> LogMessage_1
 }
-LogMessage_1 --> Sequence_1
 ```

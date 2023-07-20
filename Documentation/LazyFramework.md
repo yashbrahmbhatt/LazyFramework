@@ -13,7 +13,14 @@ A different design approach to UiPath Project frameworks that heavily leverage t
     <summary>
     <b>Dependencies</b>
     </summary>
-    <table><tr><th>Name</th><th>Version</th></tr><tr><td>Cronos</td><td>0.7.1</td></tr><tr><td>UiPath.Excel.Activities</td><td>2.20.1</td></tr><tr><td>UiPath.Mail.Activities</td><td>1.20.2</td></tr><tr><td>UiPath.System.Activities</td><td>23.4.3</td></tr><tr><td>UiPath.Testing.Activities</td><td>23.4.1</td></tr></table>
+    | Name | Version |
+|  --- | ---  |
+| Cronos | 0.7.1 |
+| UiPath.Excel.Activities | 2.20.1 |
+| UiPath.Mail.Activities | 1.20.2 |
+| UiPath.System.Activities | 23.4.3 |
+| UiPath.Testing.Activities | 23.4.1 |
+
 
 </details>
 <details>
@@ -21,7 +28,7 @@ A different design approach to UiPath Project frameworks that heavily leverage t
     <b>Entry Points</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\Dispatcher.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Dispatcher.xaml
 
 
 </details>

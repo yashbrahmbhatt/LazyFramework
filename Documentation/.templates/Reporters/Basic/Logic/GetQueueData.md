@@ -11,7 +11,7 @@ Gets the queue data list and parses it into a table.
     <b>Namespaces</b>
     </summary>
     
-    - System.Activities
+- System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
 - System.Activities.Validation
@@ -49,7 +49,7 @@ Gets the queue data list and parses it into a table.
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
 - netstandard
@@ -104,7 +104,16 @@ Gets the queue data list and parses it into a table.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>out_QueueList</td><td>OutArgument</td><td>scg:List(njl:JToken)</td><td>The unformatted list of queue items retrieved, as a List of JToken.</td></tr><tr><td>in_QueueName</td><td>InArgument</td><td>x:String</td><td>The name of the queue to report.</td></tr><tr><td>in_QueueFolder</td><td>InArgument</td><td>x:String</td><td>The path fo the folder that houses the queue to report.</td></tr><tr><td>in_From</td><td>InArgument</td><td>s:DateTime</td><td>The start of the reporting range.</td></tr><tr><td>in_To</td><td>InArgument</td><td>s:DateTime</td><td>The end of the reporting range.</td></tr><tr><td>in_Statuses</td><td>InArgument</td><td>s:String[]</td><td>The statuses to include when retrieving queue items.</td></tr><tr><td>out_dt_QueueTable</td><td>OutArgument</td><td>sd:DataTable</td><td>The queue items retrieved, formatted as a flattened table.</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| out_QueueList | OutArgument | scg:List(njl:JToken) | The unformatted list of queue items retrieved, as a List of JToken. |
+| in_QueueName | InArgument | x:String | The name of the queue to report. |
+| in_QueueFolder | InArgument | x:String | The path fo the folder that houses the queue to report. |
+| in_From | InArgument | s:DateTime | The start of the reporting range. |
+| in_To | InArgument | s:DateTime | The end of the reporting range. |
+| in_Statuses | InArgument | s:String[] | The statuses to include when retrieving queue items. |
+| out_dt_QueueTable | OutArgument | sd:DataTable | The queue items retrieved, formatted as a flattened table. |
+
     
 </details>
 <details>
@@ -112,7 +121,7 @@ Gets the queue data list and parses it into a table.
     <b>Workflows Used</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Orchestrator\GetQueueDefinitionId.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Orchestrator\GetQueueDefinitionId.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Orchestrator\GetQueueItems.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Logic\Flatten.xaml
 
@@ -123,7 +132,7 @@ Gets the queue data list and parses it into a table.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -134,6 +143,7 @@ Gets the queue data list and parses it into a table.
 
 ```mermaid
 stateDiagram-v2
+
 
 Sequence_1: Sequence - GetQueueData
 state Sequence_1 {
@@ -150,5 +160,4 @@ InvokeWorkflowFile_2 --> InvokeWorkflowFile_3
 LogMessage_2 : LogMessage - LM -- Complete
 InvokeWorkflowFile_3 --> LogMessage_2
 }
-LogMessage_2 --> Sequence_1
 ```

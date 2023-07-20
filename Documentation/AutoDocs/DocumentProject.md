@@ -11,7 +11,7 @@ Class: DocumentProject
     <b>Namespaces</b>
     </summary>
     
-    - System.Activities
+- System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
 - System.Activities.Validation
@@ -52,7 +52,7 @@ Class: DocumentProject
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
 - NPOI
@@ -115,7 +115,10 @@ Class: DocumentProject
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>OutputRootFolder</td><td>InArgument</td><td>x:String</td><td></td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| OutputRootFolder | InArgument | x:String |  |
+
     
 </details>
 <details>
@@ -123,9 +126,9 @@ Class: DocumentProject
     <b>Workflows Used</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\AutoDocs\ParseProjectJSON.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\AutoDocs\ParseProjectJSON.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\AutoDocs\ParseWorkflow.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\DataTableToHTML.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\AutoDocs\DataTableToMarkdown.xaml
 
     
 </details>
@@ -134,7 +137,7 @@ Class: DocumentProject
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -146,6 +149,7 @@ Class: DocumentProject
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - DocumentProject
 state Sequence_1 {
 direction TB
@@ -154,9 +158,11 @@ InvokeWorkflowFile_3 : InvokeWorkflowFile - AutoDocs\\ParseProjectJSON.xaml - In
 MultipleAssign_1 --> InvokeWorkflowFile_3
 MultipleAssign_3 : MultipleAssign - Get Test Workflows
 InvokeWorkflowFile_3 --> MultipleAssign_3
+MultipleAssign_3 --> ForEach1_3
 ForEach1_3: ForEach - For Each Test
 state ForEach1_3 {
 direction TB
+
 Sequence_5: Sequence - Parse Test
 state Sequence_5 {
 direction TB
@@ -164,38 +170,35 @@ InvokeWorkflowFile_4 : InvokeWorkflowFile - AutoDocs\\ParseWorkflow.xaml - Invok
 MultipleAssign_4 : MultipleAssign - Add Values to Dictioanry
 InvokeWorkflowFile_4 --> MultipleAssign_4
 }
-MultipleAssign_4 --> Sequence_5
 }
-Sequence_5 --> ForEach1_3
-InvokeWorkflowFile_5 : InvokeWorkflowFile - Utility\\DataTableToHTML.xaml - Invoke Workflow File
-ForEach1_3 --> InvokeWorkflowFile_5
+InvokeWorkflowFile_6 : InvokeWorkflowFile - AutoDocs\\DataTableToMarkdown.xaml - Invoke Workflow File
+ForEach1_3 --> InvokeWorkflowFile_6
 MultipleAssign_5 : MultipleAssign - Get Project Content
-InvokeWorkflowFile_5 --> MultipleAssign_5
+InvokeWorkflowFile_6 --> MultipleAssign_5
 DeleteFolderX_2 : DeleteFolderX - Delete Folder
 MultipleAssign_5 --> DeleteFolderX_2
 CreateDirectory_2 : CreateDirectory - Create Folder
 DeleteFolderX_2 --> CreateDirectory_2
 WriteTextFile_2 : WriteTextFile - Write Project.md
 CreateDirectory_2 --> WriteTextFile_2
+WriteTextFile_2 --> ForEach1_1
 ForEach1_1: ForEach - For Each Workflow
 state ForEach1_1 {
 direction TB
+
 Sequence_2: Sequence - Body
 state Sequence_2 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - ParseWorkflow.xaml - Invoke Workflow File
-InvokeWorkflowFile_2 : InvokeWorkflowFile - Utility\\DataTableToHTML.xaml - Invoke Workflow File
-InvokeWorkflowFile_1 --> InvokeWorkflowFile_2
+InvokeWorkflowFile_7 : InvokeWorkflowFile - AutoDocs\\DataTableToMarkdown.xaml - Invoke Workflow File
+InvokeWorkflowFile_1 --> InvokeWorkflowFile_7
 MultipleAssign_2 : MultipleAssign - Multiple Assign
-InvokeWorkflowFile_2 --> MultipleAssign_2
+InvokeWorkflowFile_7 --> MultipleAssign_2
 CreateDirectory_1 : CreateDirectory - Create Folder
 MultipleAssign_2 --> CreateDirectory_1
 WriteTextFile_1 : WriteTextFile - Write Text File
 CreateDirectory_1 --> WriteTextFile_1
 }
-WriteTextFile_1 --> Sequence_2
 }
-Sequence_2 --> ForEach1_1
 }
-ForEach1_1 --> Sequence_1
 ```

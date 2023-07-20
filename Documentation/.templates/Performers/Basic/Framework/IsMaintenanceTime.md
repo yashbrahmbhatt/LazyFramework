@@ -11,7 +11,7 @@ Given a CRON expression for the maintenance schedule, checks whether the current
     <b>Namespaces</b>
     </summary>
     
-    - GlobalConstantsNamespace
+- GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
 - System.Activities
@@ -30,7 +30,7 @@ Given a CRON expression for the maintenance schedule, checks whether the current
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - NPOI
 - System
@@ -69,7 +69,12 @@ Given a CRON expression for the maintenance schedule, checks whether the current
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_Start</td><td>InArgument</td><td>x:TimeSpan</td><td>The start time of the maintenance period.</td></tr><tr><td>in_End</td><td>InArgument</td><td>x:TimeSpan</td><td>The end time of the maintenance period.</td></tr><tr><td>out_IsMaintenanceTime</td><td>OutArgument</td><td>x:Boolean</td><td>Output boolean as to whether current time is within the maintenance period.</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_Start | InArgument | x:TimeSpan | The start time of the maintenance period. |
+| in_End | InArgument | x:TimeSpan | The end time of the maintenance period. |
+| out_IsMaintenanceTime | OutArgument | x:Boolean | Output boolean as to whether current time is within the maintenance period. |
+
     
 </details>
 <details>
@@ -77,7 +82,7 @@ Given a CRON expression for the maintenance schedule, checks whether the current
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -86,7 +91,7 @@ Given a CRON expression for the maintenance schedule, checks whether the current
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -98,9 +103,11 @@ Given a CRON expression for the maintenance schedule, checks whether the current
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - IsMaintenanceTime
 state Sequence_1 {
 direction TB
+
 If_1: If - No Boundary?
 state If_1 {
 direction TB
@@ -108,9 +115,7 @@ MultipleAssign_1 : MultipleAssign - Set to General Case
 MultipleAssign_2 : MultipleAssign - Set To Boundary Condition
 MultipleAssign_1 --> MultipleAssign_2
 }
-MultipleAssign_2 --> If_1
 LogMessage_1 : LogMessage - LM -- Complete
 If_1 --> LogMessage_1
 }
-LogMessage_1 --> Sequence_1
 ```

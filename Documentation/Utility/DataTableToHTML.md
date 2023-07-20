@@ -11,7 +11,7 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
     <b>Namespaces</b>
     </summary>
     
-    - GlobalConstantsNamespace
+- GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - Microsoft.VisualBasic
 - Microsoft.VisualBasic.Activities
@@ -48,7 +48,7 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
 - NPOI
@@ -100,7 +100,11 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_dt_ToConvert</td><td>InArgument</td><td>sd:DataTable</td><td>The DataTable to convert to HTML.</td></tr><tr><td>out_HTMLTable</td><td>OutArgument</td><td>x:String</td><td>The output HTML.</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_dt_ToConvert | InArgument | sd:DataTable | The DataTable to convert to HTML. |
+| out_HTMLTable | OutArgument | x:String | The output HTML. |
+
     
 </details>
 <details>
@@ -108,7 +112,7 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -117,7 +121,7 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
     <b>Tests</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\DataTableToHTML\DataTableToHTMLSuccess.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\DataTableToHTML\DataTableToHTMLSuccess.xaml
 
     
 </details>
@@ -129,43 +133,43 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - DataTableToHTML
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize
 LogMessage_1 --> MultipleAssign_1
+MultipleAssign_1 --> ForEach1_1
 ForEach1_1: ForEach - Add Header Row
 state ForEach1_1 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Add Header
 }
-MultipleAssign_2 --> ForEach1_1
 MultipleAssign_3 : MultipleAssign - Close Header Row
 ForEach1_1 --> MultipleAssign_3
+MultipleAssign_3 --> ForEachRow_1
 ForEachRow_1: ForEachRow - Add Table Rows
 state ForEachRow_1 {
 direction TB
+
 Sequence_2: Sequence - Add Row
 state Sequence_2 {
 direction TB
 MultipleAssign_4 : MultipleAssign - Open Row
+MultipleAssign_4 --> ForEach1_2
 ForEach1_2: ForEach - Add Columns
 state ForEach1_2 {
 direction TB
 MultipleAssign_5 : MultipleAssign - Add Column
 }
-MultipleAssign_5 --> ForEach1_2
 MultipleAssign_6 : MultipleAssign - Close Row
 ForEach1_2 --> MultipleAssign_6
 }
-MultipleAssign_6 --> Sequence_2
 }
-Sequence_2 --> ForEachRow_1
 MultipleAssign_7 : MultipleAssign - Close Table
 ForEachRow_1 --> MultipleAssign_7
 LogMessage_2 : LogMessage - LM -- Complete
 MultipleAssign_7 --> LogMessage_2
 }
-LogMessage_2 --> Sequence_1
 ```

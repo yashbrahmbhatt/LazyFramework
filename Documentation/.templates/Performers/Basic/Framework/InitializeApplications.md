@@ -11,7 +11,7 @@ Initialize all applications required for this performer.
     <b>Namespaces</b>
     </summary>
     
-    - System
+- System
 - System.Activities
 - System.Activities.Statements
 - System.Collections
@@ -27,7 +27,7 @@ Initialize all applications required for this performer.
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - NPOI
 - System
@@ -62,7 +62,9 @@ Initialize all applications required for this performer.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+
     
 </details>
 <details>
@@ -70,7 +72,7 @@ Initialize all applications required for this performer.
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -79,7 +81,7 @@ Initialize all applications required for this performer.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -91,6 +93,7 @@ Initialize all applications required for this performer.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - InitializeApplications
 state Sequence_1 {
 direction TB
@@ -98,5 +101,4 @@ LogMessage_1 : LogMessage - LM -- Start
 LogMessage_2 : LogMessage - LM -- Complete
 LogMessage_1 --> LogMessage_2
 }
-LogMessage_2 --> Sequence_1
 ```

@@ -11,7 +11,7 @@ A sequence with no nested sequences or other items within it.
     <b>Namespaces</b>
     </summary>
     
-    - System.Activities
+- System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
 - System.Activities.Validation
@@ -42,7 +42,7 @@ A sequence with no nested sequences or other items within it.
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - NPOI
 - System
@@ -77,7 +77,9 @@ A sequence with no nested sequences or other items within it.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+
     
 </details>
 <details>
@@ -85,7 +87,7 @@ A sequence with no nested sequences or other items within it.
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -94,7 +96,7 @@ A sequence with no nested sequences or other items within it.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -106,10 +108,10 @@ A sequence with no nested sequences or other items within it.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - SequenceWithNoNested
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- SequenceWithNoNested
 }
-LogMessage_1 --> Sequence_1
 ```

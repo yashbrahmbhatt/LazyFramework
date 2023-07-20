@@ -5,7 +5,7 @@
     <x:Property Name="io_PreviousActivity" Type="InOutArgument(x:String)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1003,2720</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1632,2245</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -105,7 +105,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TraverseWorkflow" sap:VirtualizedContainerService.HintSize="695,2655" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TraverseWorkflow" sap:VirtualizedContainerService.HintSize="695,2180" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ActivityType" />
       <Variable x:TypeArguments="x:String" Name="ActivityName" />
@@ -184,7 +184,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <If DisplayName="ActivityName Not Empty?" sap:VirtualizedContainerService.HintSize="633,2279" sap2010:WorkflowViewState.IdRef="If_1">
+    <If DisplayName="ActivityName Not Empty?" sap:VirtualizedContainerService.HintSize="633,1804" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">!string.IsNullOrEmpty(ActivityName)</CSharpValue>
@@ -275,7 +275,8 @@ Environment.NewLine + string.Format("{2} : {0} - {1}", ActivityType, ActivityNam
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49" xml:space="preserve">io_Markdown + 
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51" xml:space="preserve">io_Markdown + 
+Environment.NewLine + (string.IsNullOrEmpty(io_PreviousActivity) ? "" : string.Format("{0} --&gt; {1}", io_PreviousActivity, ActivityId)) +
 Environment.NewLine + string.Format("{0}: {1} - {2}", ActivityId, ActivityType, ActivityName) +
 Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment.NewLine + "direction TB"</CSharpValue>
                               </InArgument>
@@ -347,8 +348,7 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50" xml:space="preserve">io_Markdown + Environment.NewLine + "}" + 
-Environment.NewLine + (string.IsNullOrEmpty(io_PreviousActivity) ? "" : string.Format("{0} --&gt; {1}", io_PreviousActivity, ActivityId))</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">io_Markdown + Environment.NewLine + "}"</CSharpValue>
                               </InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>

@@ -11,7 +11,7 @@ Takes a screenshot and saves it to a folder.
     <b>Namespaces</b>
     </summary>
     
-    - GlobalConstantsNamespace
+- GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - Microsoft.VisualBasic
 - Microsoft.VisualBasic.Activities
@@ -51,7 +51,7 @@ Takes a screenshot and saves it to a folder.
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - NPOI
 - System
@@ -107,7 +107,11 @@ Takes a screenshot and saves it to a folder.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_FolderPath</td><td>InArgument</td><td>x:String</td><td>The path to the folder to save screenshots to.</td></tr><tr><td>io_FilePath</td><td>InOutArgument</td><td>x:String</td><td>If specified, overrides the folder path and uses this path for the file name. Otherwise, it just outputs the full path to the screenshot.</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_FolderPath | InArgument | x:String | The path to the folder to save screenshots to. |
+| io_FilePath | InOutArgument | x:String | If specified, overrides the folder path and uses this path for the file name. Otherwise, it just outputs the full path to the screenshot. |
+
     
 </details>
 <details>
@@ -115,7 +119,7 @@ Takes a screenshot and saves it to a folder.
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -124,7 +128,7 @@ Takes a screenshot and saves it to a folder.
     <b>Tests</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\TakeScreenshot\TakeScreenshotNoPath.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\TakeScreenshot\TakeScreenshotNoPath.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\TakeScreenshot\TakeScreenshotPath.xaml
 
     
@@ -137,9 +141,11 @@ Takes a screenshot and saves it to a folder.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - TakeScreenshot
 state Sequence_1 {
 direction TB
+
 If_2: If - Empty File Path?
 state If_2 {
 direction TB
@@ -147,15 +153,14 @@ MultipleAssign_1 : MultipleAssign - Set File Name
 MultipleAssign_3 : MultipleAssign - Set Folder Path
 MultipleAssign_1 --> MultipleAssign_3
 }
-MultipleAssign_3 --> If_2
 FolderExistsX_1 : FolderExistsX - Get Folder Exists
 If_2 --> FolderExistsX_1
+FolderExistsX_1 --> If_1
 If_1: If - Folder Doesn't Exist?
 state If_1 {
 direction TB
 CreateDirectory_1 : CreateDirectory - Create Folder!
 }
-CreateDirectory_1 --> If_1
 MultipleAssign_2 : MultipleAssign - Get Primary Screenshot
 If_1 --> MultipleAssign_2
 InvokeMethod_1 : InvokeMethod - Copy Screen to Graphic
@@ -169,5 +174,4 @@ InvokeMethod_3 --> InvokeMethod_4
 LogMessage_1 : LogMessage - LM -- Complete
 InvokeMethod_4 --> LogMessage_1
 }
-LogMessage_1 --> Sequence_1
 ```

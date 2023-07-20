@@ -11,7 +11,7 @@ A basic template for a test with the expected outcome being success.
     <b>Namespaces</b>
     </summary>
     
-    - System.Activities
+- System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
 - System.Activities.Validation
@@ -51,7 +51,7 @@ A basic template for a test with the expected outcome being success.
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - mscorlib
 - NPOI
@@ -108,7 +108,9 @@ A basic template for a test with the expected outcome being success.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+
     
 </details>
 <details>
@@ -116,7 +118,7 @@ A basic template for a test with the expected outcome being success.
     <b>Workflows Used</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Dispatchers\Basic\BasicDispatcher.xaml
 
     
@@ -126,7 +128,7 @@ A basic template for a test with the expected outcome being success.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -138,16 +140,20 @@ A basic template for a test with the expected outcome being success.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - BasicDispatcherSuccessTest
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
+LogMessage_1 --> TimeoutScope_1
 TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
+
 Sequence_5: Sequence - Test
 state Sequence_5 {
 direction TB
+
 Sequence_6: Sequence - Initialize Test
 state Sequence_6 {
 direction TB
@@ -155,9 +161,9 @@ MultipleAssign_2 : MultipleAssign - Initialize Variables
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Load Test Config
 MultipleAssign_2 --> InvokeWorkflowFile_1
 }
-InvokeWorkflowFile_1 --> Sequence_6
 LogMessage_2 : LogMessage - LM -- Initialization Complete
 Sequence_6 --> LogMessage_2
+LogMessage_2 --> TryCatch_1
 TryCatch_1: TryCatch - Execute
 state TryCatch_1 {
 direction TB
@@ -165,9 +171,9 @@ InvokeWorkflowFile_2 : InvokeWorkflowFile - Run BasicDispatcher
 MultipleAssign_1 : MultipleAssign - Set TestException
 InvokeWorkflowFile_2 --> MultipleAssign_1
 }
-MultipleAssign_1 --> TryCatch_1
 LogMessage_3 : LogMessage - LM -- Test Executed
 TryCatch_1 --> LogMessage_3
+LogMessage_3 --> Sequence_4
 Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
@@ -179,13 +185,9 @@ DeleteQueueItems_2 --> VerifyExpression_6
 VerifyExpression_7 : VerifyExpression - Verify QueueItems Count
 VerifyExpression_6 --> VerifyExpression_7
 }
-VerifyExpression_7 --> Sequence_4
 }
-Sequence_4 --> Sequence_5
 }
-Sequence_5 --> TimeoutScope_1
 LogMessage_4 : LogMessage - LM -- Complete
 TimeoutScope_1 --> LogMessage_4
 }
-LogMessage_4 --> Sequence_1
 ```

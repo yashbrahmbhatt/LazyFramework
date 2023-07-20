@@ -11,7 +11,7 @@ Kill input processes by name.
     <b>Namespaces</b>
     </summary>
     
-    - GlobalConstantsNamespace
+- GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
 - System.Activities
@@ -33,7 +33,7 @@ Kill input processes by name.
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
 - NPOI
@@ -80,7 +80,10 @@ Kill input processes by name.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ProcessesToKill</td><td>InArgument</td><td>s:String[]</td><td>An array of Process Names to kill.</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_ProcessesToKill | InArgument | s:String[] | An array of Process Names to kill. |
+
     
 </details>
 <details>
@@ -88,7 +91,7 @@ Kill input processes by name.
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -97,7 +100,7 @@ Kill input processes by name.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -109,18 +112,18 @@ Kill input processes by name.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - KillProcesses
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
+LogMessage_1 --> ForEach1_1
 ForEach1_1: ForEach - For Each Process
 state ForEach1_1 {
 direction TB
 KillProcess_1 : KillProcess - Kill Current Process
 }
-KillProcess_1 --> ForEach1_1
 LogMessage_2 : LogMessage - LM -- End
 ForEach1_1 --> LogMessage_2
 }
-LogMessage_2 --> Sequence_1
 ```

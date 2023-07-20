@@ -11,7 +11,7 @@ Class: {Class}
     <b>Namespaces</b>
     </summary>
     
-    {Namespaces}
+{Namespaces}
 
 </details>
 <details>
@@ -19,7 +19,7 @@ Class: {Class}
     <b>References</b>
     </summary>
 
-    {References}
+{References}
 
 </details>
 <details>
@@ -34,7 +34,7 @@ Class: {Class}
     <b>Workflows Used</b>
     </summary>
 
-    {WorkflowsUsed}
+{WorkflowsUsed}
     
 </details>
 <details>
@@ -42,7 +42,7 @@ Class: {Class}
     <b>Tests</b>
     </summary>
 
-    {Tests}
+{Tests}
     
 </details>
 

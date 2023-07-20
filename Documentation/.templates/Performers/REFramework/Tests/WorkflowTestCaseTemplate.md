@@ -12,7 +12,7 @@ Create a new test workflow by copying and renaming this file.
     <b>Namespaces</b>
     </summary>
     
-    - System
+- System
 - System.Activities
 - System.Activities.DynamicUpdate
 - System.Activities.Statements
@@ -39,7 +39,7 @@ Create a new test workflow by copying and renaming this file.
     <b>References</b>
     </summary>
 
-    - Microsoft.Bcl.AsyncInterfaces
+- Microsoft.Bcl.AsyncInterfaces
 - Microsoft.CSharp
 - System
 - System.Activities
@@ -72,7 +72,9 @@ Create a new test workflow by copying and renaming this file.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+
     
 </details>
 <details>
@@ -80,7 +82,7 @@ Create a new test workflow by copying and renaming this file.
     <b>Workflows Used</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\InitAllSettings.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\InitAllSettings.xaml
 
     
 </details>
@@ -89,7 +91,7 @@ Create a new test workflow by copying and renaming this file.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -101,38 +103,38 @@ Create a new test workflow by copying and renaming this file.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_2: Sequence - Test Template
 state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - Test Template
+LogMessage_1 --> Sequence_3
 Sequence_3: Sequence - ... Given
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_2 : InvokeWorkflowFile - Invoke InitAllSettings workflow
 }
-InvokeWorkflowFile_2 --> Sequence_3
+Sequence_3 --> Sequence_4
 Sequence_4: Sequence - ... When
 state Sequence_4 {
 direction TB
 Comment_1 : Comment - Actions to be performed
 }
-Comment_1 --> Sequence_4
+Sequence_4 --> Sequence_6
 Sequence_6: Sequence - ... Then
 state Sequence_6 {
 direction TB
+
 CommentOut_1: CommentOut - Enable and change as needed
 state CommentOut_1 {
 direction TB
+
 Sequence_5: Sequence - Ignored Activities
 state Sequence_5 {
 direction TB
 VerifyControlAttribute_1 : VerifyControlAttribute - Verify activity output
 }
-VerifyControlAttribute_1 --> Sequence_5
 }
-Sequence_5 --> CommentOut_1
 }
-CommentOut_1 --> Sequence_6
 }
-Sequence_6 --> Sequence_2
 ```

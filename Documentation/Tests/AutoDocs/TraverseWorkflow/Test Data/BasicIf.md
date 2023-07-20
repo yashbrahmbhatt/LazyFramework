@@ -11,7 +11,7 @@ Class: If
     <b>Namespaces</b>
     </summary>
     
-    - System.Activities
+- System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
 - System.Activities.Validation
@@ -42,7 +42,7 @@ Class: If
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - System
 - System.Activities
@@ -68,7 +68,9 @@ Class: If
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+
     
 </details>
 <details>
@@ -76,7 +78,7 @@ Class: If
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -85,7 +87,7 @@ Class: If
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>

@@ -11,7 +11,7 @@ Handles the outcome of a transaction by updating the queue item status, as well 
     <b>Namespaces</b>
     </summary>
     
-    - GlobalConstantsNamespace
+- GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
 - System.Activities
@@ -33,7 +33,7 @@ Handles the outcome of a transaction by updating the queue item status, as well 
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
 - NPOI
@@ -83,7 +83,15 @@ Handles the outcome of a transaction by updating the queue item status, as well 
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_SystemException</td><td>InArgument</td><td>s:Exception</td><td>The System.Exception object within the Process state.</td></tr><tr><td>in_BusinessException</td><td>InArgument</td><td>ui:BusinessRuleException</td><td>The BusinessRuleException object within the Process state.</td></tr><tr><td>in_TransactionItem</td><td>InArgument</td><td>ui:QueueItem</td><td>The transaction item to update the status for.</td></tr><tr><td>in_Data</td><td>InArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>The dictionary containing the input data and any values added while processing the transaction.</td></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary(x:String, x:String)</td><td>The Config dictionary loaded during the first run.</td></tr><tr><td>in_TextFiles</td><td>InArgument</td><td>scg:Dictionary(x:String, x:String)</td><td>The TextFiles dictionary loaded during the first run.</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_SystemException | InArgument | s:Exception | The System.Exception object within the Process state. |
+| in_BusinessException | InArgument | ui:BusinessRuleException | The BusinessRuleException object within the Process state. |
+| in_TransactionItem | InArgument | ui:QueueItem | The transaction item to update the status for. |
+| in_Data | InArgument | scg:Dictionary(x:String, x:Object) | The dictionary containing the input data and any values added while processing the transaction. |
+| in_Config | InArgument | scg:Dictionary(x:String, x:String) | The Config dictionary loaded during the first run. |
+| in_TextFiles | InArgument | scg:Dictionary(x:String, x:String) | The TextFiles dictionary loaded during the first run. |
+
     
 </details>
 <details>
@@ -91,7 +99,7 @@ Handles the outcome of a transaction by updating the queue item status, as well 
     <b>Workflows Used</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\TakeScreenshot.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\TakeScreenshot.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\GenerateDiagnosticDictionary.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\SendEmail.xaml
 
@@ -102,7 +110,7 @@ Handles the outcome of a transaction by updating the queue item status, as well 
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -114,28 +122,33 @@ Handles the outcome of a transaction by updating the queue item status, as well 
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - HandleTransactionOutcome
 state Sequence_1 {
 direction TB
 LogMessage_5 : LogMessage - LM -- Start
+LogMessage_5 --> IfElseIf_1
 IfElseIf_1: IfElseIf - Outcome?
 state IfElseIf_1 {
 direction TB
+
 Sequence_2: Sequence - Handle System Exception
 state Sequence_2 {
 direction TB
 LogMessage_3 : LogMessage - LM -- SE Start
+LogMessage_3 --> RetryScope_1
 RetryScope_1: RetryScope - Retry - Failed
 state RetryScope_1 {
 direction TB
 SetTransactionStatus_1 : SetTransactionStatus - Set Transaction to Failed (System)
 }
-SetTransactionStatus_1 --> RetryScope_1
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Take Screenshot
 RetryScope_1 --> InvokeWorkflowFile_1
+InvokeWorkflowFile_1 --> If_1
 If_1: If - Max Retries Reached?
 state If_1 {
 direction TB
+
 Sequence_5: Sequence - Handle Max Retries Reached
 state Sequence_5 {
 direction TB
@@ -147,21 +160,19 @@ InvokeWorkflowFile_2 --> MultipleAssign_1
 InvokeWorkflowFile_3 : InvokeWorkflowFile - Send Email (SE)
 MultipleAssign_1 --> InvokeWorkflowFile_3
 }
-InvokeWorkflowFile_3 --> Sequence_5
 }
-Sequence_5 --> If_1
 }
-If_1 --> Sequence_2
+Sequence_2 --> Sequence_3
 Sequence_3: Sequence - Handle Business Exception
 state Sequence_3 {
 direction TB
 LogMessage_2 : LogMessage - LM -- BRE Start
+LogMessage_2 --> RetryScope_2
 RetryScope_2: RetryScope - Retry - Business Exception
 state RetryScope_2 {
 direction TB
 SetTransactionStatus_3 : SetTransactionStatus - Set Transaction to Failed (Business)
 }
-SetTransactionStatus_3 --> RetryScope_2
 InvokeWorkflowFile_4 : InvokeWorkflowFile - Generate Diagnostic (BRE)
 RetryScope_2 --> InvokeWorkflowFile_4
 MultipleAssign_2 : MultipleAssign - Update TemplateData (BRE)
@@ -169,23 +180,20 @@ InvokeWorkflowFile_4 --> MultipleAssign_2
 InvokeWorkflowFile_5 : InvokeWorkflowFile - Send Email (BRE)
 MultipleAssign_2 --> InvokeWorkflowFile_5
 }
-InvokeWorkflowFile_5 --> Sequence_3
+Sequence_3 --> Sequence_4
 Sequence_4: Sequence - Handle Success
 state Sequence_4 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Success Start
+LogMessage_1 --> RetryScope_3
 RetryScope_3: RetryScope - Retry - Successful
 state RetryScope_3 {
 direction TB
 SetTransactionStatus_4 : SetTransactionStatus - Set Transaction to Failed (Successful)
 }
-SetTransactionStatus_4 --> RetryScope_3
 }
-RetryScope_3 --> Sequence_4
 }
-Sequence_4 --> IfElseIf_1
 LogMessage_6 : LogMessage - LM -- Completed
 IfElseIf_1 --> LogMessage_6
 }
-LogMessage_6 --> Sequence_1
 ```

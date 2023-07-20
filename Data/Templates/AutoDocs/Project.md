@@ -21,6 +21,6 @@ Language: {Language}
     <b>Entry Points</b>
     </summary>
 
-    {EntryPoints}
+{EntryPoints}
 
 </details>

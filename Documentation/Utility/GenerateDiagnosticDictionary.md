@@ -11,7 +11,7 @@ Generates a dictinoary that contains diagnostic information in cases of system e
     <b>Namespaces</b>
     </summary>
     
-    - System.Activities
+- System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
 - System.Activities.Validation
@@ -44,7 +44,7 @@ Generates a dictinoary that contains diagnostic information in cases of system e
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - NPOI
 - System
@@ -89,7 +89,11 @@ Generates a dictinoary that contains diagnostic information in cases of system e
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_Exception</td><td>InArgument</td><td>s:Exception</td><td>The exception to use to generate diagnostics.</td></tr><tr><td>out_TemplateData</td><td>OutArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>A dictionary with the diagnostic data filled in.</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_Exception | InArgument | s:Exception | The exception to use to generate diagnostics. |
+| out_TemplateData | OutArgument | scg:Dictionary(x:String, x:Object) | A dictionary with the diagnostic data filled in. |
+
     
 </details>
 <details>
@@ -97,7 +101,7 @@ Generates a dictinoary that contains diagnostic information in cases of system e
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -106,7 +110,7 @@ Generates a dictinoary that contains diagnostic information in cases of system e
     <b>Tests</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\GenerateDiagnosticDictionary\GenerateDiagnosticDictionarySuccess.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\GenerateDiagnosticDictionary\GenerateDiagnosticDictionarySuccess.xaml
 
     
 </details>
@@ -118,6 +122,7 @@ Generates a dictinoary that contains diagnostic information in cases of system e
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - GenerateDiagnosticDictionary
 state Sequence_1 {
 direction TB
@@ -125,5 +130,4 @@ LogMessage_1 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Setup Dictionary
 LogMessage_1 --> MultipleAssign_1
 }
-MultipleAssign_1 --> Sequence_1
 ```

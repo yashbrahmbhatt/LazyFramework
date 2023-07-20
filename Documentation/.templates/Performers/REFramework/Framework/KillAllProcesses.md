@@ -12,7 +12,7 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
     <b>Namespaces</b>
     </summary>
     
-    - System
+- System
 - System.Collections.Generic
 - System.Data
 - System.Linq
@@ -29,7 +29,7 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - System
 - System.Activities
 - System.ComponentModel.TypeConverter
@@ -56,7 +56,9 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+
     
 </details>
 <details>
@@ -64,7 +66,7 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -73,7 +75,7 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -85,10 +87,10 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_2: Sequence - Kill All Processes
 state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - Log message (Kill processes)
 }
-LogMessage_1 --> Sequence_2
 ```

@@ -12,7 +12,7 @@ The verification should check whether the status file or report built after the 
     <b>Namespaces</b>
     </summary>
     
-    - Microsoft.VisualBasic
+- Microsoft.VisualBasic
 - Microsoft.VisualBasic.Activities
 - System
 - System.Activities
@@ -53,7 +53,7 @@ The verification should check whether the status file or report built after the 
     <b>References</b>
     </summary>
 
-    - Microsoft.Bcl.AsyncInterfaces
+- Microsoft.Bcl.AsyncInterfaces
 - Microsoft.CSharp
 - Microsoft.VisualBasic
 - PresentationCore
@@ -94,7 +94,9 @@ The verification should check whether the status file or report built after the 
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+
     
 </details>
 <details>
@@ -102,7 +104,7 @@ The verification should check whether the status file or report built after the 
     <b>Workflows Used</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\Main.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Main.xaml
 
     
 </details>
@@ -111,7 +113,7 @@ The verification should check whether the status file or report built after the 
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -123,22 +125,24 @@ The verification should check whether the status file or report built after the 
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - MainTestCase
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - MainTestCase
+LogMessage_1 --> Sequence_2
 Sequence_2: Sequence - ... Given
 state Sequence_2 {
 direction TB
 Comment_1 : Comment - Prerequisites
 }
-Comment_1 --> Sequence_2
+Sequence_2 --> Sequence_3
 Sequence_3: Sequence - ... When
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Invoke Main workflow
 }
-InvokeWorkflowFile_1 --> Sequence_3
+Sequence_3 --> Sequence_4
 Sequence_4: Sequence - ... Then
 state Sequence_4 {
 direction TB
@@ -148,7 +152,5 @@ ReadRange_1 --> ReadRange_2
 VerifyExpressionWithOperator_1 : VerifyExpressionWithOperator - Verify if result data count matches expected data count
 ReadRange_2 --> VerifyExpressionWithOperator_1
 }
-VerifyExpressionWithOperator_1 --> Sequence_4
 }
-Sequence_4 --> Sequence_1
 ```

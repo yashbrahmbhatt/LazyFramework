@@ -11,7 +11,7 @@ Class: ParseProjectJSON
     <b>Namespaces</b>
     </summary>
     
-    - System.Activities
+- System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
 - System.Activities.Validation
@@ -52,7 +52,7 @@ Class: ParseProjectJSON
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
 - netstandard
@@ -114,7 +114,19 @@ Class: ParseProjectJSON
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ProjectJSONPath</td><td>InArgument</td><td>x:String</td><td></td></tr><tr><td>out_Name</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_Description</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_Dependencies</td><td>OutArgument</td><td>sd:DataTable</td><td></td></tr><tr><td>out_FileInfoCollection</td><td>OutArgument</td><td>sd:DataTable</td><td></td></tr><tr><td>out_EntryPoints</td><td>OutArgument</td><td>scg:IEnumerable(x:String)</td><td></td></tr><tr><td>out_Language</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_ProjectVersion</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_StudioVersion</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_Type</td><td>OutArgument</td><td>x:String</td><td></td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_ProjectJSONPath | InArgument | x:String |  |
+| out_Name | OutArgument | x:String |  |
+| out_Description | OutArgument | x:String |  |
+| out_Dependencies | OutArgument | sd:DataTable |  |
+| out_FileInfoCollection | OutArgument | sd:DataTable |  |
+| out_EntryPoints | OutArgument | scg:IEnumerable(x:String) |  |
+| out_Language | OutArgument | x:String |  |
+| out_ProjectVersion | OutArgument | x:String |  |
+| out_StudioVersion | OutArgument | x:String |  |
+| out_Type | OutArgument | x:String |  |
+
     
 </details>
 <details>
@@ -122,7 +134,7 @@ Class: ParseProjectJSON
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -131,7 +143,7 @@ Class: ParseProjectJSON
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -143,20 +155,20 @@ Class: ParseProjectJSON
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - ParseProjectJSON
 state Sequence_1 {
 direction TB
 BuildDataTable_2 : BuildDataTable - Build Dependencies Table
 MultipleAssign_1 : MultipleAssign - Parse File
 BuildDataTable_2 --> MultipleAssign_1
+MultipleAssign_1 --> ForEach1_1
 ForEach1_1: ForEach - For Each DependencyArray
 state ForEach1_1 {
 direction TB
 AddDataRow_2 : AddDataRow - Add Row
 }
-AddDataRow_2 --> ForEach1_1
 WriteLine_1 : WriteLine - Write Line
 ForEach1_1 --> WriteLine_1
 }
-WriteLine_1 --> Sequence_1
 ```

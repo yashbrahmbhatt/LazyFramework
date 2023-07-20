@@ -11,7 +11,7 @@ Sends an email taking a dictionary of data to fill out template subject and body
     <b>Namespaces</b>
     </summary>
     
-    - GlobalConstantsNamespace
+- GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - Microsoft.VisualBasic
 - Microsoft.VisualBasic.Activities
@@ -52,7 +52,7 @@ Sends an email taking a dictionary of data to fill out template subject and body
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
 - NPOI
@@ -112,7 +112,19 @@ Sends an email taking a dictionary of data to fill out template subject and body
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_To</td><td>InArgument</td><td>x:String</td><td>Who to send the email to.</td></tr><tr><td>in_Subject</td><td>InArgument</td><td>x:String</td><td>The templated subject of the email to send.</td></tr><tr><td>in_Body</td><td>InArgument</td><td>x:String</td><td>The templated body of the email to send in HTML format.</td></tr><tr><td>in_Attachments</td><td>InArgument</td><td>scg:IEnumerable(x:String)</td><td>An array of file paths to include as attachments in the email.</td></tr><tr><td>in_Port</td><td>InArgument</td><td>x:Int32</td><td>The SMTP port to use when sending emails.</td></tr><tr><td>in_Server</td><td>InArgument</td><td>x:String</td><td>The SMTP server to use for sending emails.</td></tr><tr><td>in_CredentialFolder</td><td>InArgument</td><td>x:String</td><td>The name of the Orchestrator folder that holds the credential asset for authenticating to the SMTP server.</td></tr><tr><td>in_CredentialName</td><td>InArgument</td><td>x:String</td><td>The name of the credential asset for authenticating to the SMTP server.</td></tr><tr><td>in_CC</td><td>InArgument</td><td>x:String</td><td>Who to CC on the email.</td></tr><tr><td>in_TemplateData</td><td>InArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>A dictionary of variables to replace in the template. Keys must match the value in the template.</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_To | InArgument | x:String | Who to send the email to. |
+| in_Subject | InArgument | x:String | The templated subject of the email to send. |
+| in_Body | InArgument | x:String | The templated body of the email to send in HTML format. |
+| in_Attachments | InArgument | scg:IEnumerable(x:String) | An array of file paths to include as attachments in the email. |
+| in_Port | InArgument | x:Int32 | The SMTP port to use when sending emails. |
+| in_Server | InArgument | x:String | The SMTP server to use for sending emails. |
+| in_CredentialFolder | InArgument | x:String | The name of the Orchestrator folder that holds the credential asset for authenticating to the SMTP server. |
+| in_CredentialName | InArgument | x:String | The name of the credential asset for authenticating to the SMTP server. |
+| in_CC | InArgument | x:String | Who to CC on the email. |
+| in_TemplateData | InArgument | scg:Dictionary(x:String, x:Object) | A dictionary of variables to replace in the template. Keys must match the value in the template. |
+
     
 </details>
 <details>
@@ -120,7 +132,7 @@ Sends an email taking a dictionary of data to fill out template subject and body
     <b>Workflows Used</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\DataTableToHTML.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\DataTableToHTML.xaml
 
     
 </details>
@@ -129,7 +141,7 @@ Sends an email taking a dictionary of data to fill out template subject and body
     <b>Tests</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\SendEmail\SendEmailSuccess.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\SendEmail\SendEmailSuccess.xaml
 
     
 </details>
@@ -141,19 +153,24 @@ Sends an email taking a dictionary of data to fill out template subject and body
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - SendEmail
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
+LogMessage_1 --> ForEach1_1
 ForEach1_1: ForEach - For Each TemplateData Key
 state ForEach1_1 {
 direction TB
+
 Sequence_3: Sequence - Process Key
 state Sequence_3 {
 direction TB
+
 If_1: If - DataTable Object?
 state If_1 {
 direction TB
+
 Sequence_4: Sequence - DataTable Object
 state Sequence_4 {
 direction TB
@@ -161,18 +178,16 @@ InvokeWorkflowFile_1 : InvokeWorkflowFile - Shared\\DataTableToHTML.xaml - Invok
 MultipleAssign_1 : MultipleAssign - Update Templates with DT
 InvokeWorkflowFile_1 --> MultipleAssign_1
 }
-MultipleAssign_1 --> Sequence_4
 MultipleAssign_2 : MultipleAssign - Update Templates
 Sequence_4 --> MultipleAssign_2
 }
-MultipleAssign_2 --> If_1
 }
-If_1 --> Sequence_3
 }
-Sequence_3 --> ForEach1_1
+ForEach1_1 --> RetryScope_1
 RetryScope_1: RetryScope - Retry Mail
 state RetryScope_1 {
 direction TB
+
 Sequence_2: Sequence - Mail
 state Sequence_2 {
 direction TB
@@ -180,11 +195,8 @@ GetRobotCredential_1 : GetRobotCredential - Get Email Creds
 SendMail_1 : SendMail - Send Email
 GetRobotCredential_1 --> SendMail_1
 }
-SendMail_1 --> Sequence_2
 }
-Sequence_2 --> RetryScope_1
 LogMessage_2 : LogMessage - LM -- Sent
 RetryScope_1 --> LogMessage_2
 }
-LogMessage_2 --> Sequence_1
 ```

@@ -11,7 +11,7 @@ Reads data from the srouce of work and adds it to a queue.
     <b>Namespaces</b>
     </summary>
     
-    - GlobalConstantsNamespace
+- GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
 - System.Activities
@@ -33,7 +33,7 @@ Reads data from the srouce of work and adds it to a queue.
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
 - NPOI
@@ -85,7 +85,12 @@ Reads data from the srouce of work and adds it to a queue.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ConfigPath</td><td>InArgument</td><td>x:String</td><td>The path to the config file to use to load variables and resources.</td></tr><tr><td>in_IgnoreSheets</td><td>InArgument</td><td>s:String[]</td><td>A list of the sheets to ignore loading from the config.</td></tr><tr><td>in_TestID</td><td>InArgument</td><td>x:String</td><td>Used to modify the workflow in order to test different scenarios. Only used to test exception handling in this workflow. Leave as null for production use.</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_ConfigPath | InArgument | x:String | The path to the config file to use to load variables and resources. |
+| in_IgnoreSheets | InArgument | s:String[] | A list of the sheets to ignore loading from the config. |
+| in_TestID | InArgument | x:String | Used to modify the workflow in order to test different scenarios. Only used to test exception handling in this workflow. Leave as null for production use. |
+
     
 </details>
 <details>
@@ -93,7 +98,7 @@ Reads data from the srouce of work and adds it to a queue.
     <b>Workflows Used</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\TakeScreenshot.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\GenerateDiagnosticDictionary.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\SendEmail.xaml
@@ -105,7 +110,7 @@ Reads data from the srouce of work and adds it to a queue.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -117,38 +122,41 @@ Reads data from the srouce of work and adds it to a queue.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - BasicDispatcher
 state Sequence_1 {
 direction TB
+
 TryCatch_1: TryCatch - Try Dispatching
 state TryCatch_1 {
 direction TB
+
 Sequence_2: Sequence - Dispatching
 state Sequence_2 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - LoadConfig.xaml - Invoke Workflow File
+InvokeWorkflowFile_1 --> Switch1_1
 Switch1_1: Switch - TestID?
 state Switch1_1 {
 direction TB
 Throw_1 : Throw - Throw Test Exception
 }
-Throw_1 --> Switch1_1
 LogMessage_1 : LogMessage - LM -- Start
 Switch1_1 --> LogMessage_1
 MultipleAssign_2 : MultipleAssign - Setup Queue Data
 LogMessage_1 --> MultipleAssign_2
+MultipleAssign_2 --> RetryScope_1
 RetryScope_1: RetryScope - Retry - Orchestrator
 state RetryScope_1 {
 direction TB
 AddQueueItem_1 : AddQueueItem - Add Item to Queue
 }
-AddQueueItem_1 --> RetryScope_1
 MultipleAssign_3 : MultipleAssign - ItemsAdded++
 RetryScope_1 --> MultipleAssign_3
 LogMessage_2 : LogMessage - LM -- Complete
 MultipleAssign_3 --> LogMessage_2
 }
-LogMessage_2 --> Sequence_2
+Sequence_2 --> Sequence_3
 Sequence_3: Sequence - Send Exception Email
 state Sequence_3 {
 direction TB
@@ -162,9 +170,6 @@ MultipleAssign_1 --> InvokeWorkflowFile_3
 Rethrow_1 : Rethrow - Rethrow Exception
 InvokeWorkflowFile_3 --> Rethrow_1
 }
-Rethrow_1 --> Sequence_3
 }
-Sequence_3 --> TryCatch_1
 }
-TryCatch_1 --> Sequence_1
 ```

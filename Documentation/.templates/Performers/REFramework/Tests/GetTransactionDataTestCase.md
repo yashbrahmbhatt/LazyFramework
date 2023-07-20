@@ -13,7 +13,7 @@ Please make sure the queue name is configured.
     <b>Namespaces</b>
     </summary>
     
-    - Microsoft.VisualBasic
+- Microsoft.VisualBasic
 - Microsoft.VisualBasic.Activities
 - System
 - System.Activities
@@ -49,7 +49,7 @@ Please make sure the queue name is configured.
     <b>References</b>
     </summary>
 
-    - Microsoft.Bcl.AsyncInterfaces
+- Microsoft.Bcl.AsyncInterfaces
 - Microsoft.CSharp
 - Microsoft.VisualBasic
 - PresentationCore
@@ -89,7 +89,9 @@ Please make sure the queue name is configured.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+
     
 </details>
 <details>
@@ -97,7 +99,7 @@ Please make sure the queue name is configured.
     <b>Workflows Used</b>
     </summary>
 
-    - C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\InitAllSettings.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\InitAllSettings.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\GetTransactionData.xaml
 
     
@@ -107,7 +109,7 @@ Please make sure the queue name is configured.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -119,10 +121,12 @@ Please make sure the queue name is configured.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - GetTransactionDataTestCase
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - GetTransactionDataTestCase
+LogMessage_1 --> Sequence_2
 Sequence_2: Sequence - ... Given
 state Sequence_2 {
 direction TB
@@ -130,25 +134,23 @@ InvokeWorkflowFile_1 : InvokeWorkflowFile - Invoke InitAllSettings workflow
 Assign_1 : Assign - Assign TransactionNumber
 InvokeWorkflowFile_1 --> Assign_1
 }
-Assign_1 --> Sequence_2
+Sequence_2 --> Sequence_4
 Sequence_4: Sequence - ... When
 state Sequence_4 {
 direction TB
 InvokeWorkflowFile_2 : InvokeWorkflowFile - Invoke GetTransactionData workflow
 }
-InvokeWorkflowFile_2 --> Sequence_4
+Sequence_4 --> Sequence_3
 Sequence_3: Sequence - ... Then
 state Sequence_3 {
 direction TB
 VerifyExpression_1 : VerifyExpression - Verify transaction item was retrieved
+VerifyExpression_1 --> If_1
 If_1: If - If transaction item is not null
 state If_1 {
 direction TB
 SetTransactionProgress_1 : SetTransactionProgress - Set transaction item progress to tested
 }
-SetTransactionProgress_1 --> If_1
 }
-If_1 --> Sequence_3
 }
-Sequence_3 --> Sequence_1
 ```

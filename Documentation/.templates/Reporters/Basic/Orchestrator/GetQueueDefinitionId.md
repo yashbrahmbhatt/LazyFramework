@@ -11,7 +11,7 @@ Gets the queue definition based on the queue folder and name.
     <b>Namespaces</b>
     </summary>
     
-    - System.Activities
+- System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
 - System.Activities.Validation
@@ -51,7 +51,7 @@ Gets the queue definition based on the queue folder and name.
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
 - netstandard
@@ -107,7 +107,12 @@ Gets the queue definition based on the queue folder and name.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_QueueName</td><td>InArgument</td><td>x:String</td><td>The name of the queue to get the id for.</td></tr><tr><td>in_QueueFolder</td><td>InArgument</td><td>x:String</td><td>The folder that houses the queue to get the id for.</td></tr><tr><td>out_Id</td><td>OutArgument</td><td>x:Int32</td><td>The id retrieved.</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_QueueName | InArgument | x:String | The name of the queue to get the id for. |
+| in_QueueFolder | InArgument | x:String | The folder that houses the queue to get the id for. |
+| out_Id | OutArgument | x:Int32 | The id retrieved. |
+
     
 </details>
 <details>
@@ -115,7 +120,7 @@ Gets the queue definition based on the queue folder and name.
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -124,7 +129,7 @@ Gets the queue definition based on the queue folder and name.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -136,18 +141,20 @@ Gets the queue definition based on the queue folder and name.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - GetQueueDefinitionId
 state Sequence_1 {
 direction TB
 OrchestratorHttpRequest_1 : OrchestratorHttpRequest - Orchestrator API Call
+OrchestratorHttpRequest_1 --> If_1
 If_1: If - Status Not 2xx?
 state If_1 {
 direction TB
 Throw_1 : Throw - Throw Orchestrator Invalid Status
 }
-Throw_1 --> If_1
 MultipleAssign_1 : MultipleAssign - Parse Response
 If_1 --> MultipleAssign_1
+MultipleAssign_1 --> If_2
 If_2: If - Validate ID Count
 state If_2 {
 direction TB
@@ -155,9 +162,7 @@ MultipleAssign_2 : MultipleAssign - Set Output
 Throw_2 : Throw - Throw CouldNotFind
 MultipleAssign_2 --> Throw_2
 }
-Throw_2 --> If_2
 LogMessage_1 : LogMessage - LM -- Complete
 If_2 --> LogMessage_1
 }
-LogMessage_1 --> Sequence_1
 ```

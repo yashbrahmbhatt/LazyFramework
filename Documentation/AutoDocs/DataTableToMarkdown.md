@@ -1,7 +1,7 @@
-# SuccessTestCase (2)
-Class: SuccessTestCase
+# DataTableToMarkdown
+Class: DataTableToMarkdown
 
-A basic template for a test with the expected outcome being success.
+Convert a DataTable into Markdown. Uses only .ToString for all data types so transform the column to string first for different formatting.
 
 <hr />
 
@@ -11,37 +11,35 @@ A basic template for a test with the expected outcome being success.
     <b>Namespaces</b>
     </summary>
     
-- System.Activities
-- System.Activities.Statements
-- System.Activities.Expressions
-- System.Activities.Validation
-- System.Activities.XamlIntegration
+- GlobalConstantsNamespace
+- GlobalVariablesNamespace
 - Microsoft.VisualBasic
 - Microsoft.VisualBasic.Activities
 - System
+- System.Activities
+- System.Activities.Expressions
+- System.Activities.Statements
+- System.Activities.Validation
+- System.Activities.XamlIntegration
 - System.Collections
 - System.Collections.Generic
+- System.Collections.ObjectModel
+- System.ComponentModel
 - System.Data
 - System.Diagnostics
-- System.Drawing
-- System.IO
 - System.Linq
+- System.Linq.Expressions
 - System.Net.Mail
-- System.Xml
+- System.Reflection
+- System.Runtime.Serialization
 - System.Text
+- System.Windows.Markup
+- System.Xml
 - System.Xml.Linq
+- System.Xml.Serialization
 - UiPath.Core
 - UiPath.Core.Activities
-- System.Windows.Markup
-- System.Collections.ObjectModel
-- System.Runtime.Serialization
-- System.Reflection
-- System.Linq.Expressions
-- UiPath.Testing.Activities
-- UiPath.Shared.Activities
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
-- System.Activities.Runtime.Collections
+- UiPath.DataTableUtilities
 
 
 </details>
@@ -52,19 +50,21 @@ A basic template for a test with the expected outcome being success.
 
 - Microsoft.CSharp
 - Microsoft.VisualBasic
-- mscorlib
+- Microsoft.Win32.Primitives
 - NPOI
-- PresentationCore
 - PresentationFramework
 - System
 - System.Activities
 - System.ComponentModel
+- System.ComponentModel.EventBasedAsync
+- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
 - System.Core
 - System.Data
-- System.Drawing
+- System.Data.Common
+- System.Data.SqlClient
 - System.Linq
 - System.Linq.Expressions
 - System.Memory
@@ -74,6 +74,7 @@ A basic template for a test with the expected outcome being success.
 - System.Private.DataContractSerialization
 - System.Private.ServiceModel
 - System.Private.Uri
+- System.Private.Xml
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions
@@ -86,14 +87,15 @@ A basic template for a test with the expected outcome being success.
 - System.Xaml
 - System.Xml
 - System.Xml.Linq
-- UiPath.Excel
-- UiPath.Excel.Activities
-- UiPath.Mail.Activities
 - UiPath.Studio.Constants
 - UiPath.System.Activities
-- UiPath.Testing.Activities
+- UiPath.System.Activities.Design
+- UiPath.System.Activities.ViewModels
 - UiPath.Workflow
 - WindowsBase
+- System.Linq.Parallel
+- System.Collections.Immutable
+- System.Linq.Queryable
 
 
 </details>
@@ -103,6 +105,8 @@ A basic template for a test with the expected outcome being success.
     </summary>
     | Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
+| in_dt_ToConvert | InArgument | sd:DataTable | The DataTable to convert to HTML. |
+| out_Markdown | OutArgument | x:String | The output markdown. |
 
     
 </details>
@@ -133,50 +137,40 @@ A basic template for a test with the expected outcome being success.
 stateDiagram-v2
 
 
-Sequence_1: Sequence - SuccessTestCase
+Sequence_1: Sequence - DataTableToMarkdown
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> TimeoutScope_1
-TimeoutScope_1: TimeoutScope - Timed Test
-state TimeoutScope_1 {
+MultipleAssign_1 : MultipleAssign - Initialize
+LogMessage_1 --> MultipleAssign_1
+MultipleAssign_1 --> ForEach1_1
+ForEach1_1: ForEach - Add Header Row
+state ForEach1_1 {
+direction TB
+MultipleAssign_2 : MultipleAssign - Add Header
+}
+MultipleAssign_3 : MultipleAssign - Close Header Row
+ForEach1_1 --> MultipleAssign_3
+MultipleAssign_3 --> ForEachRow_1
+ForEachRow_1: ForEachRow - Add Table Rows
+state ForEachRow_1 {
 direction TB
 
-Sequence_5: Sequence - Test
-state Sequence_5 {
-direction TB
-
-Sequence_2: Sequence - Initialize Test
+Sequence_2: Sequence - Add Row
 state Sequence_2 {
 direction TB
-Placeholder_1 : Placeholder - Init Placeholder
-}
-LogMessage_2 : LogMessage - LM -- Initialization Complete
-Sequence_2 --> LogMessage_2
-LogMessage_2 --> TryCatch_1
-TryCatch_1: TryCatch - Execute Test
-state TryCatch_1 {
+MultipleAssign_4 : MultipleAssign - Open Row
+MultipleAssign_4 --> ForEach1_2
+ForEach1_2: ForEach - Add Columns
+state ForEach1_2 {
 direction TB
-
-Sequence_3: Sequence - ... When
-state Sequence_3 {
-direction TB
-Placeholder_2 : Placeholder - Execute Placeholder
+MultipleAssign_5 : MultipleAssign - Add Column
 }
-MultipleAssign_1 : MultipleAssign - Set TestException
-Sequence_3 --> MultipleAssign_1
-}
-LogMessage_3 : LogMessage - LM -- Test Executed
-TryCatch_1 --> LogMessage_3
-LogMessage_3 --> Sequence_4
-Sequence_4: Sequence - Validate Results
-state Sequence_4 {
-direction TB
-VerifyExpression_5 : VerifyExpression - Verify TextException
+MultipleAssign_6 : MultipleAssign - Close Row
+ForEach1_2 --> MultipleAssign_6
 }
 }
-}
-LogMessage_4 : LogMessage - LM -- Complete
-TimeoutScope_1 --> LogMessage_4
+LogMessage_2 : LogMessage - LM -- Complete
+ForEachRow_1 --> LogMessage_2
 }
 ```

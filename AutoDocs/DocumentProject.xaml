@@ -126,7 +126,7 @@
       <Variable x:TypeArguments="scg:Dictionary(x:String, scg:IEnumerable(x:String))" Name="WorkflowsInTest" />
       <Variable x:TypeArguments="x:String" Name="ProjectContent" />
       <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="EntryPoints" />
-      <Variable x:TypeArguments="x:String" Name="DependenciesHTML" />
+      <Variable x:TypeArguments="x:String" Name="DependenciesMarkdown" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -365,13 +365,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\\DataTableToHTML.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="499,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Utility\\DataTableToHTML.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AutoDocs\\DataTableToMarkdown.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="499,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="AutoDocs\\DataTableToMarkdown.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_ToConvert">
-          <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">dt_Dependencies</CSharpValue>
+          <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">dt_Dependencies</CSharpValue>
         </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_HTMLTable">
-          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_38">DependenciesHTML</CSharpReference>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Markdown">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_39">DependenciesMarkdown</CSharpReference>
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
@@ -392,7 +392,7 @@
 .Replace("{Type}", ProjectType)
 .Replace("{Version}", ProjectVersion)
 .Replace("{StudioVersion}", StudioVersion)
-.Replace("{Dependencies}", DependenciesHTML)
+.Replace("{Dependencies}", DependenciesMarkdown)
 .Replace("{EntryPoints}", string.Join(Environment.NewLine, EntryPoints.Select(x =&gt; "- " + x)) + Environment.NewLine)
 .Replace("{Language}", ProjectLanguage)</CSharpValue>
               </InArgument>
@@ -456,7 +456,7 @@
               <Variable x:TypeArguments="x:String" Name="OutputFilePath" />
               <Variable x:TypeArguments="x:String" Name="OutputFolderPath" />
               <Variable x:TypeArguments="sd:DataTable" Name="dt_Arguments" />
-              <Variable x:TypeArguments="x:String" Name="ArgumentsHTML" />
+              <Variable x:TypeArguments="x:String" Name="ArgumentsMarkdown" />
               <Variable x:TypeArguments="x:String" Name="FileContent" />
               <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="WorkflowsUsed" />
             </Sequence.Variables>
@@ -497,13 +497,13 @@
                 </OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\\DataTableToHTML.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="423,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utility\\DataTableToHTML.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AutoDocs\\DataTableToMarkdown.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="423,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="AutoDocs\\DataTableToMarkdown.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_ToConvert">
-                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">dt_Arguments</CSharpValue>
+                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">dt_Arguments</CSharpValue>
                 </InArgument>
-                <OutArgument x:TypeArguments="x:String" x:Key="out_HTMLTable">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_18">ArgumentsHTML</CSharpReference>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_Markdown">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_40">ArgumentsMarkdown</CSharpReference>
                 </OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
@@ -547,7 +547,7 @@
 .Replace("{Description}", WorkflowDescription)
 .Replace("{Namespaces}", string.Join(Environment.NewLine, Namespaces.Select(n =&gt; "- " + n)) + Environment.NewLine)
 .Replace("{References}", string.Join(Environment.NewLine, References.Select(n =&gt; "- " + n)) + Environment.NewLine)
-.Replace("{Arguments}", ArgumentsHTML)
+.Replace("{Arguments}", ArgumentsMarkdown)
 .Replace("{Outline}", Outline)
 .Replace("{WorkflowName}", WorkflowName)
 .Replace("{WorkflowsUsed}", string.Join(Environment.NewLine, WorkflowsUsed.Select(n =&gt; "- " + n)) + Environment.NewLine)

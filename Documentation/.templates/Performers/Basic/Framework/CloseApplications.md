@@ -11,7 +11,7 @@ Close all applications gracefully.
     <b>Namespaces</b>
     </summary>
     
-    - GlobalConstantsNamespace
+- GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
 - System.Activities
@@ -31,7 +31,7 @@ Close all applications gracefully.
     <b>References</b>
     </summary>
 
-    - Microsoft.CSharp
+- Microsoft.CSharp
 - Microsoft.VisualBasic
 - NPOI
 - System
@@ -71,7 +71,9 @@ Close all applications gracefully.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+
     
 </details>
 <details>
@@ -79,7 +81,7 @@ Close all applications gracefully.
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -88,7 +90,7 @@ Close all applications gracefully.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -100,6 +102,7 @@ Close all applications gracefully.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_1: Sequence - CloseApplications
 state Sequence_1 {
 direction TB
@@ -107,5 +110,4 @@ LogMessage_1 : LogMessage - LM -- Start
 LogMessage_2 : LogMessage - LM -- Complete
 LogMessage_1 --> LogMessage_2
 }
-LogMessage_2 --> Sequence_1
 ```

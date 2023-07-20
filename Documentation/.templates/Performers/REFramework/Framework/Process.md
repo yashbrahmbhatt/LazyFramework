@@ -14,7 +14,7 @@ If another kind of exception occurs, the current transaction can be retried.
     <b>Namespaces</b>
     </summary>
     
-    - System
+- System
 - System.Collections.Generic
 - System.Data
 - System.Linq
@@ -36,7 +36,7 @@ If another kind of exception occurs, the current transaction can be retried.
     <b>References</b>
     </summary>
 
-    - Microsoft.Bcl.AsyncInterfaces
+- Microsoft.Bcl.AsyncInterfaces
 - Microsoft.CSharp
 - System
 - System.Activities
@@ -65,7 +65,11 @@ If another kind of exception occurs, the current transaction can be retried.
     <summary>
     <b>Arguments</b>
     </summary>
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_TransactionItem</td><td>InArgument</td><td>ui:QueueItem</td><td>Transaction item to be processed.</td></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr></table>
+    | Name | Direction | Type | Description |
+|  --- | --- | --- | ---  |
+| in_TransactionItem | InArgument | ui:QueueItem | Transaction item to be processed. |
+| in_Config | InArgument | scg:Dictionary(x:String, x:Object) | Dictionary structure to store configuration data of the process (settings, constants and assets). |
+
     
 </details>
 <details>
@@ -73,7 +77,7 @@ If another kind of exception occurs, the current transaction can be retried.
     <b>Workflows Used</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -82,7 +86,7 @@ If another kind of exception occurs, the current transaction can be retried.
     <b>Tests</b>
     </summary>
 
-    
+
 
     
 </details>
@@ -94,6 +98,7 @@ If another kind of exception occurs, the current transaction can be retried.
 ```mermaid
 stateDiagram-v2
 
+
 Sequence_2: Sequence - Process
 state Sequence_2 {
 direction TB
@@ -101,5 +106,4 @@ LogMessage_1 : LogMessage - Log Message Process Start
 Comment_1 : Comment - Comment (placeholder)
 LogMessage_1 --> Comment_1
 }
-Comment_1 --> Sequence_2
 ```
