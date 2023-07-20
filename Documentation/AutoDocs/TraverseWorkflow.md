@@ -175,6 +175,7 @@ Sequence_6: Sequence - Default
 state Sequence_6 {
 direction TB
 MultipleAssign_4 : MultipleAssign - Multiple Assign
+MultipleAssign_6 : MultipleAssign - Multiple Assign
 
 ForEach1_3: ForEach - Recurse
 state ForEach1_3 {
@@ -183,8 +184,8 @@ direction TB
 Sequence_7: Sequence - Body
 state Sequence_7 {
 direction TB
-MultipleAssign_6 : MultipleAssign - Multiple Assign
 InvokeWorkflowFile_2 : InvokeWorkflowFile - AutoDocs\\Helper\\TraverseWorkflow.xaml - Invoke Workflow File
+MultipleAssign_7 : MultipleAssign - Multiple Assign
 }
 }
 MultipleAssign_5 : MultipleAssign - Multiple Assign
