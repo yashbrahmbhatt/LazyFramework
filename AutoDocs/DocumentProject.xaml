@@ -6,7 +6,7 @@
     <InArgument x:TypeArguments="x:String" />
   </this:DocumentProject.OutputRootFolder>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1005,706</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1238,1039.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -103,7 +103,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DocumentProject" sap:VirtualizedContainerService.HintSize="485,641" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DocumentProject" sap:VirtualizedContainerService.HintSize="484.6666666666667,797.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ProjectFolder" />
       <Variable x:TypeArguments="s:String[]" Name="WorkflowFiles" />
@@ -112,13 +112,22 @@
       <Variable x:TypeArguments="x:String" Name="WorkflowTemplatePath" />
       <Variable x:TypeArguments="x:String" Name="ProjectTemplatePath" />
       <Variable x:TypeArguments="x:String" Name="WorkflowTemplate" />
+      <Variable x:TypeArguments="x:String" Name="ProjectName" />
+      <Variable x:TypeArguments="x:String" Name="ProjectDescription" />
+      <Variable x:TypeArguments="sd:DataTable" Name="ProjectDependencies" />
+      <Variable x:TypeArguments="sd:DataTable" Name="FileInfoCollection" />
+      <Variable x:TypeArguments="sd:DataTable" Name="EntryPoints" />
+      <Variable x:TypeArguments="x:String" Name="ProjectLanguage" />
+      <Variable x:TypeArguments="x:String" Name="ProjectVersion" />
+      <Variable x:TypeArguments="x:String" Name="StudioVersion" />
+      <Variable x:TypeArguments="x:String" Name="ProjectType" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Initialize Vars" sap:VirtualizedContainerService.HintSize="423,318" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Initialize Vars" sap:VirtualizedContainerService.HintSize="422.6666666666667,315.3333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -220,20 +229,54 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Recursive="True">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AutoDocs\\ParseProjectJSON.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="AutoDocs\\ParseProjectJSON.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ProjectJSONPath">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">ProjectJSONPath</CSharpValue>
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Name">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_28">ProjectName</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Description">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_27">ProjectDescription</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_Dependencies">
+          <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_26">ProjectDependencies</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_FileInfoCollection">
+          <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_25">FileInfoCollection</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_EntryPoints">
+          <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_24">EntryPoints</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Language">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_23">ProjectLanguage</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ProjectVersion">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_22">ProjectVersion</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_StudioVersion">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_21">StudioVersion</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Type">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_20">ProjectType</CSharpReference>
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="422.6666666666667,82" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Recursive="True">
       <ui:DeleteFolderX.Path>
         <InArgument x:TypeArguments="x:String">
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">OutputRootFolder</CSharpValue>
         </InArgument>
       </ui:DeleteFolderX.Path>
     </ui:DeleteFolderX>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Workflow" sap:VirtualizedContainerService.HintSize="423,52" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Workflow" sap:VirtualizedContainerService.HintSize="422.6666666666667,54" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="WorkflowFile" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="465,822" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="464.6666666666667,824" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:List(x:String)" Name="References" />
               <Variable x:TypeArguments="x:String" Name="DocumentClass" />
@@ -252,7 +295,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AutoDocs\\Helper\\ParseWorkflow.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="423,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="AutoDocs\\Helper\\ParseWorkflow.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AutoDocs\\Helper\\ParseWorkflow.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="AutoDocs\\ParseWorkflow.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">
                   <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">WorkflowFile</CSharpValue>

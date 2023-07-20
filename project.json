@@ -1,6 +1,5 @@
 {
   "name": "LazyFramework",
-  "projectId": "3971c12b-df8e-4a81-a95a-5eac0491c45a",
   "description": "A different design approach to UiPath Project frameworks that heavily leverage templates.",
   "main": "Dispatcher.xaml",
   "dependencies": {
