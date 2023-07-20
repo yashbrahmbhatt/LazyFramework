@@ -114,9 +114,7 @@ state If_1 {
 direction TB
 MultipleAssign_1 : MultipleAssign - Set to General Case
 MultipleAssign_2 : MultipleAssign - Set To Boundary Condition
-MultipleAssign_1 --> MultipleAssign_2
 }
 LogMessage_1 : LogMessage - LM -- Complete
-If_1 --> LogMessage_1
 }
 ```

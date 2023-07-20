@@ -156,10 +156,8 @@ state Sequence_1 {
 direction TB
 MultipleAssign_1 : MultipleAssign - Initialize Vars
 InvokeWorkflowFile_3 : InvokeWorkflowFile - AutoDocs\\ParseProjectJSON.xaml - Invoke Workflow File
-MultipleAssign_1 --> InvokeWorkflowFile_3
 MultipleAssign_3 : MultipleAssign - Get Test Workflows
-InvokeWorkflowFile_3 --> MultipleAssign_3
-MultipleAssign_3 --> ForEach1_3
+
 ForEach1_3: ForEach - For Each Test
 state ForEach1_3 {
 direction TB
@@ -169,20 +167,14 @@ state Sequence_5 {
 direction TB
 InvokeWorkflowFile_4 : InvokeWorkflowFile - AutoDocs\\ParseWorkflow.xaml - Invoke Workflow File
 MultipleAssign_4 : MultipleAssign - Add Values to Dictioanry
-InvokeWorkflowFile_4 --> MultipleAssign_4
 }
 }
 InvokeWorkflowFile_6 : InvokeWorkflowFile - AutoDocs\\DataTableToMarkdown.xaml - Invoke Workflow File
-ForEach1_3 --> InvokeWorkflowFile_6
 MultipleAssign_5 : MultipleAssign - Get Project Content
-InvokeWorkflowFile_6 --> MultipleAssign_5
 DeleteFolderX_2 : DeleteFolderX - Delete Folder
-MultipleAssign_5 --> DeleteFolderX_2
 CreateDirectory_2 : CreateDirectory - Create Folder
-DeleteFolderX_2 --> CreateDirectory_2
 WriteTextFile_2 : WriteTextFile - Write Project.md
-CreateDirectory_2 --> WriteTextFile_2
-WriteTextFile_2 --> ForEach1_1
+
 ForEach1_1: ForEach - For Each Workflow
 state ForEach1_1 {
 direction TB
@@ -192,13 +184,9 @@ state Sequence_2 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - ParseWorkflow.xaml - Invoke Workflow File
 InvokeWorkflowFile_7 : InvokeWorkflowFile - AutoDocs\\DataTableToMarkdown.xaml - Invoke Workflow File
-InvokeWorkflowFile_1 --> InvokeWorkflowFile_7
 MultipleAssign_2 : MultipleAssign - Multiple Assign
-InvokeWorkflowFile_7 --> MultipleAssign_2
 CreateDirectory_1 : CreateDirectory - Create Folder
-MultipleAssign_2 --> CreateDirectory_1
 WriteTextFile_1 : WriteTextFile - Write Text File
-CreateDirectory_1 --> WriteTextFile_1
 }
 }
 }

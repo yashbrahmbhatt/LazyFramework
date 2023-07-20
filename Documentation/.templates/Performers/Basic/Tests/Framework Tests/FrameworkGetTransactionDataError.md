@@ -154,7 +154,7 @@ Sequence_1: Sequence - FrameworkGetTransactionDataError
 state Sequence_1 {
 direction TB
 LogMessage_4 : LogMessage - LM -- Start
-LogMessage_4 --> TimeoutScope_1
+
 TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
@@ -168,21 +168,17 @@ state Sequence_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Vars
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Load Config
-MultipleAssign_2 --> InvokeWorkflowFile_1
-InvokeWorkflowFile_1 --> If_1
+
 If_1: If - Exception Screenshots Exists?
 state If_1 {
 direction TB
 DeleteFolderX_1 : DeleteFolderX - Delete Exception Screenshots
 }
 CreateDirectory_1 : CreateDirectory - Create Exception Screenshots
-If_1 --> CreateDirectory_1
 CreateFile_1 : CreateFile - Create Placeholder
-CreateDirectory_1 --> CreateFile_1
 }
 LogMessage_3 : LogMessage - LM -- Initialization Complete
-Sequence_2 --> LogMessage_3
-LogMessage_3 --> TryCatch_1
+
 TryCatch_1: TryCatch - Execute Test
 state TryCatch_1 {
 direction TB
@@ -193,35 +189,27 @@ direction TB
 InvokeWorkflowFile_2 : InvokeWorkflowFile - .templates\\Performers\\Basic\\BasicPerformer.xaml - Invoke Workflow File
 }
 MultipleAssign_1 : MultipleAssign - Set TestException
-Sequence_3 --> MultipleAssign_1
 }
 LogMessage_2 : LogMessage - LM -- Test Executed
-TryCatch_1 --> LogMessage_2
-LogMessage_2 --> Sequence_4
+
 Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
 GetRobotCredential_1 : GetRobotCredential - Get Email Credentials
 GetIMAPMailMessages_1 : GetIMAPMailMessages - Get Emails (IMAP)
-GetRobotCredential_1 --> GetIMAPMailMessages_1
 MultipleAssign_3 : MultipleAssign - Get Exception Screenshot Files
-GetIMAPMailMessages_1 --> MultipleAssign_3
-MultipleAssign_3 --> ForEach1_1
+
 ForEach1_1: ForEach - Delete Screenshot
 state ForEach1_1 {
 direction TB
 DeleteFileX_1 : DeleteFileX - Delete Screenshot File
 }
 VerifyExpression_6 : VerifyExpression - Verify TestException
-ForEach1_1 --> VerifyExpression_6
 VerifyExpression_7 : VerifyExpression - Verify Exception Screenshot
-VerifyExpression_6 --> VerifyExpression_7
 VerifyExpression_8 : VerifyExpression - Verify EmailCount
-VerifyExpression_7 --> VerifyExpression_8
 }
 }
 }
 LogMessage_1 : LogMessage - LM -- Complete
-TimeoutScope_1 --> LogMessage_1
 }
 ```

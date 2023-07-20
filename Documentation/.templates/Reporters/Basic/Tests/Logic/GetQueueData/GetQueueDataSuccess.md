@@ -157,7 +157,7 @@ Sequence_1: Sequence - GetQueueDataSuccess
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> TimeoutScope_1
+
 TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
@@ -171,11 +171,9 @@ state Sequence_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Vars
 InvokeWorkflowFile_2 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
-MultipleAssign_2 --> InvokeWorkflowFile_2
 }
 LogMessage_2 : LogMessage - LM -- Initialization Complete
-Sequence_2 --> LogMessage_2
-LogMessage_2 --> TryCatch_1
+
 TryCatch_1: TryCatch - Execute Test
 state TryCatch_1 {
 direction TB
@@ -186,23 +184,18 @@ direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - .templates\\Reporters\\Basic\\Logic\\GetQueueData.xaml - Invoke Workflow File
 }
 MultipleAssign_1 : MultipleAssign - Set TestException
-Sequence_3 --> MultipleAssign_1
 }
 LogMessage_3 : LogMessage - LM -- Test Executed
-TryCatch_1 --> LogMessage_3
-LogMessage_3 --> Sequence_4
+
 Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
 VerifyExpression_5 : VerifyExpression - Verify TextException
 VerifyExpression_6 : VerifyExpression - Verify QueueTable Rows > 0
-VerifyExpression_5 --> VerifyExpression_6
 VerifyExpression_7 : VerifyExpression - Verify Matching List and Table
-VerifyExpression_6 --> VerifyExpression_7
 }
 }
 }
 LogMessage_4 : LogMessage - LM -- Complete
-TimeoutScope_1 --> LogMessage_4
 }
 ```

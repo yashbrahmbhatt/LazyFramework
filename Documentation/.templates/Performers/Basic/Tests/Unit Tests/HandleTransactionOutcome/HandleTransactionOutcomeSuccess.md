@@ -154,7 +154,7 @@ Sequence_1: Sequence - HandleTransactionOutcomeSuccess
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> TimeoutScope_1
+
 TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
@@ -168,15 +168,11 @@ state Sequence_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Vars
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Load Config
-MultipleAssign_2 --> InvokeWorkflowFile_1
 AddTransactionItem_1 : AddTransactionItem - Add Test Queue Item
-InvokeWorkflowFile_1 --> AddTransactionItem_1
 MultipleAssign_3 : MultipleAssign - Set Data
-AddTransactionItem_1 --> MultipleAssign_3
 }
 LogMessage_2 : LogMessage - LM -- Initialization Complete
-Sequence_2 --> LogMessage_2
-LogMessage_2 --> TryCatch_1
+
 TryCatch_1: TryCatch - Execute Test
 state TryCatch_1 {
 direction TB
@@ -187,23 +183,18 @@ direction TB
 InvokeWorkflowFile_2 : InvokeWorkflowFile - .templates\\Performers\\Basic\\Framework\\HandleTransactionOutcome.xaml - Invoke Workflow File
 }
 MultipleAssign_1 : MultipleAssign - Set TestException
-Sequence_3 --> MultipleAssign_1
 }
 LogMessage_3 : LogMessage - LM -- Test Executed
-TryCatch_1 --> LogMessage_3
-LogMessage_3 --> Sequence_6
+
 Sequence_6: Sequence - Validate Results
 state Sequence_6 {
 direction TB
 GetQueueItems_1 : GetQueueItems - Get Successful Items
 VerifyExpression_6 : VerifyExpression - Verify TestException
-GetQueueItems_1 --> VerifyExpression_6
 VerifyExpression_8 : VerifyExpression - Verify Transaction Status
-VerifyExpression_6 --> VerifyExpression_8
 }
 }
 }
 LogMessage_4 : LogMessage - LM -- Complete
-TimeoutScope_1 --> LogMessage_4
 }
 ```

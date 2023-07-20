@@ -148,7 +148,7 @@ Sequence_1: Sequence - LoadConfigSuccess
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> TimeoutScope_1
+
 TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
@@ -163,8 +163,7 @@ direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Vars
 }
 LogMessage_2 : LogMessage - LM -- Initialization Complete
-Sequence_2 --> LogMessage_2
-LogMessage_2 --> TryCatch_1
+
 TryCatch_1: TryCatch - Execute Test
 state TryCatch_1 {
 direction TB
@@ -175,29 +174,21 @@ direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
 }
 MultipleAssign_1 : MultipleAssign - Set TestException
-Sequence_3 --> MultipleAssign_1
 }
 LogMessage_3 : LogMessage - LM -- Test Executed
-TryCatch_1 --> LogMessage_3
-LogMessage_3 --> Sequence_4
+
 Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
 VerifyExpression_5 : VerifyExpression - Verify TextException
 VerifyExpression_6 : VerifyExpression - Verify Non-IgnoreSheets Values Loaded
-VerifyExpression_5 --> VerifyExpression_6
 VerifyExpression_7 : VerifyExpression - Verify IgnoreSheets Values Not Loaded
-VerifyExpression_6 --> VerifyExpression_7
 VerifyExpression_8 : VerifyExpression - Verify Asset Loaded
-VerifyExpression_7 --> VerifyExpression_8
 VerifyExpression_9 : VerifyExpression - Verify Local File Loaded
-VerifyExpression_8 --> VerifyExpression_9
 VerifyExpression_10 : VerifyExpression - Verify Storage Bucket File Loaded
-VerifyExpression_9 --> VerifyExpression_10
 }
 }
 }
 LogMessage_4 : LogMessage - LM -- Complete
-TimeoutScope_1 --> LogMessage_4
 }
 ```

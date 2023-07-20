@@ -150,8 +150,6 @@ state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 InvokeCode_3 : InvokeCode - Flatten List
-LogMessage_1 --> InvokeCode_3
 LogMessage_2 : LogMessage - LM -- Complete
-InvokeCode_3 --> LogMessage_2
 }
 ```

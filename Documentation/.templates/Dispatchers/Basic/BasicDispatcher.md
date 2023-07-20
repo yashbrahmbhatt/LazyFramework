@@ -136,40 +136,32 @@ Sequence_2: Sequence - Dispatching
 state Sequence_2 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - LoadConfig.xaml - Invoke Workflow File
-InvokeWorkflowFile_1 --> Switch1_1
+
 Switch1_1: Switch - TestID?
 state Switch1_1 {
 direction TB
 Throw_1 : Throw - Throw Test Exception
 }
 LogMessage_1 : LogMessage - LM -- Start
-Switch1_1 --> LogMessage_1
 MultipleAssign_2 : MultipleAssign - Setup Queue Data
-LogMessage_1 --> MultipleAssign_2
-MultipleAssign_2 --> RetryScope_1
+
 RetryScope_1: RetryScope - Retry - Orchestrator
 state RetryScope_1 {
 direction TB
 AddQueueItem_1 : AddQueueItem - Add Item to Queue
 }
 MultipleAssign_3 : MultipleAssign - ItemsAdded++
-RetryScope_1 --> MultipleAssign_3
 LogMessage_2 : LogMessage - LM -- Complete
-MultipleAssign_3 --> LogMessage_2
 }
-Sequence_2 --> Sequence_3
+
 Sequence_3: Sequence - Send Exception Email
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_4 : InvokeWorkflowFile - Utility\\TakeScreenshot.xaml - Invoke Workflow File
 InvokeWorkflowFile_2 : InvokeWorkflowFile - GenerateDiagnosticDictionary.xaml - Invoke Workflow File
-InvokeWorkflowFile_4 --> InvokeWorkflowFile_2
 MultipleAssign_1 : MultipleAssign - Add Keys to Template Data
-InvokeWorkflowFile_2 --> MultipleAssign_1
 InvokeWorkflowFile_3 : InvokeWorkflowFile - SendEmail.xaml - Invoke Workflow File
-MultipleAssign_1 --> InvokeWorkflowFile_3
 Rethrow_1 : Rethrow - Rethrow Exception
-InvokeWorkflowFile_3 --> Rethrow_1
 }
 }
 }

@@ -129,25 +129,22 @@ Sequence_1: Sequence - ProcessTestCase
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - ProcessTestCase
-LogMessage_1 --> Sequence_2
+
 Sequence_2: Sequence - ... Given
 state Sequence_2 {
 direction TB
 InvokeWorkflowFile_2 : InvokeWorkflowFile - Invoke InitAllSettings workflow
 InvokeWorkflowFile_3 : InvokeWorkflowFile - Invoke InitAllApplications workflow
-InvokeWorkflowFile_2 --> InvokeWorkflowFile_3
 Assign_1 : Assign - Assign TransactionNumber
-InvokeWorkflowFile_3 --> Assign_1
 InvokeWorkflowFile_4 : InvokeWorkflowFile - Invoke GetTransactionData workflow
-Assign_1 --> InvokeWorkflowFile_4
 }
-Sequence_2 --> Sequence_3
+
 Sequence_3: Sequence - ... When
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Invoke Process workflow
 }
-Sequence_3 --> Sequence_4
+
 Sequence_4: Sequence - ... Then
 state Sequence_4 {
 direction TB
@@ -163,7 +160,6 @@ VerifyExpressionWithOperator_1 : VerifyExpressionWithOperator - Verify process o
 }
 }
 InvokeWorkflowFile_5 : InvokeWorkflowFile - Invoke CloseAllApplications workflow
-CommentOut_1 --> InvokeWorkflowFile_5
 }
 }
 ```

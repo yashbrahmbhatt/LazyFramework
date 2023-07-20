@@ -156,7 +156,7 @@ Sequence_1: Sequence - TraverseWorkflow
 state Sequence_1 {
 direction TB
 MultipleAssign_1 : MultipleAssign - Parse Element
-MultipleAssign_1 --> If_1
+
 If_1: If - ActivityName Not Empty?
 state If_1 {
 direction TB
@@ -166,7 +166,7 @@ If_2: If - Activity Has No Children?
 state If_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Update Markdown for Single Element
-MultipleAssign_2 --> Switch1_1
+
 Switch1_1: Switch - Switch
 state Switch1_1 {
 direction TB
@@ -175,7 +175,7 @@ Sequence_6: Sequence - Default
 state Sequence_6 {
 direction TB
 MultipleAssign_4 : MultipleAssign - Multiple Assign
-MultipleAssign_4 --> ForEach1_3
+
 ForEach1_3: ForEach - Recurse
 state ForEach1_3 {
 direction TB
@@ -183,15 +183,15 @@ direction TB
 Sequence_7: Sequence - Body
 state Sequence_7 {
 direction TB
+MultipleAssign_6 : MultipleAssign - Multiple Assign
 InvokeWorkflowFile_2 : InvokeWorkflowFile - AutoDocs\\Helper\\TraverseWorkflow.xaml - Invoke Workflow File
 }
 }
 MultipleAssign_5 : MultipleAssign - Multiple Assign
-ForEach1_3 --> MultipleAssign_5
 }
 }
 }
-If_2 --> ForEach1_1
+
 ForEach1_1: ForEach - Recurse
 state ForEach1_1 {
 direction TB

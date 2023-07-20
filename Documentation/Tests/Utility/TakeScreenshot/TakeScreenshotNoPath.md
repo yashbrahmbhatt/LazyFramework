@@ -146,7 +146,7 @@ Sequence_1: Sequence - TakeScreenshotNoPath
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> TimeoutScope_1
+
 TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
@@ -159,7 +159,7 @@ Sequence_2: Sequence - Initialize Test
 state Sequence_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Vars
-MultipleAssign_2 --> If_1
+
 If_1: If - FolderPath Exists?
 state If_1 {
 direction TB
@@ -167,8 +167,7 @@ DeleteFolderX_1 : DeleteFolderX - Delete FolderPath
 }
 }
 LogMessage_2 : LogMessage - LM -- Initialization Complete
-Sequence_2 --> LogMessage_2
-LogMessage_2 --> TryCatch_1
+
 TryCatch_1: TryCatch - Execute Test
 state TryCatch_1 {
 direction TB
@@ -179,25 +178,19 @@ direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\TakeScreenshot.xaml - Invoke Workflow File
 }
 MultipleAssign_1 : MultipleAssign - Set TestException
-Sequence_3 --> MultipleAssign_1
 }
 LogMessage_3 : LogMessage - LM -- Test Executed
-TryCatch_1 --> LogMessage_3
-LogMessage_3 --> Sequence_4
+
 Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
 VerifyExpression_5 : VerifyExpression - Verify TextException
 VerifyExpression_6 : VerifyExpression - Verify FilePath Exists
-VerifyExpression_5 --> VerifyExpression_6
 DeleteFileX_1 : DeleteFileX - Delete Screenshot
-VerifyExpression_6 --> DeleteFileX_1
 CreateFile_1 : CreateFile - Create placeholder
-DeleteFileX_1 --> CreateFile_1
 }
 }
 }
 LogMessage_4 : LogMessage - LM -- Complete
-TimeoutScope_1 --> LogMessage_4
 }
 ```

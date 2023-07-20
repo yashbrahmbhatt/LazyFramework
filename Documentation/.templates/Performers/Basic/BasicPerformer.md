@@ -165,37 +165,30 @@ state Sequence_19 {
 direction TB
 LogMessage_11 : LogMessage - LM -- Screen
 InvokeWorkflowFile_19 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
-LogMessage_11 --> InvokeWorkflowFile_19
 }
 }
-If_5 --> Switch1_1
+
 Switch1_1: Switch - @Test Variations - Initialization
 state Switch1_1 {
 direction TB
 MultipleAssign_21 : MultipleAssign - Update Maintenance Times
 Throw_1 : Throw - Throw InitializationError
-MultipleAssign_21 --> Throw_1
 }
 LogMessage_12 : LogMessage - LM -- Initializing
-Switch1_1 --> LogMessage_12
 MultipleAssign_12 : MultipleAssign - Reset System Exception
-LogMessage_12 --> MultipleAssign_12
-MultipleAssign_12 --> TryCatch_7
+
 TryCatch_7: TryCatch - Try Close, Catch Kill (Initialization)
 state TryCatch_7 {
 direction TB
 InvokeWorkflowFile_21 : InvokeWorkflowFile - Close Applications (Initialization)
 InvokeWorkflowFile_22 : InvokeWorkflowFile - Kill Processes (Initialization)
-InvokeWorkflowFile_21 --> InvokeWorkflowFile_22
 }
 InvokeWorkflowFile_23 : InvokeWorkflowFile - Init All Applications
-TryCatch_7 --> InvokeWorkflowFile_23
 }
 }
 MultipleAssign_13 : MultipleAssign - Set Framework Exception (Initialization)
-RetryScope_4 --> MultipleAssign_13
 }
-TryCatch_8 --> Transition_18
+
 Transition_18: Transition - Success
 state Transition_18 {
 direction TB
@@ -212,17 +205,15 @@ Sequence_17: Sequence - Get Transaction
 state Sequence_17 {
 direction TB
 LogMessage_13 : LogMessage - LM -- Get Next Transaction
-LogMessage_13 --> Switch1_2
+
 Switch1_2: Switch - @Test Variations - Get Transaction Data
 state Switch1_2 {
 direction TB
 Throw_4 : Throw - Throw GetTransactionData Error
 }
 ShouldStop_2 : ShouldStop - Stop Requested?
-Switch1_2 --> ShouldStop_2
 InvokeWorkflowFile_24 : InvokeWorkflowFile - Is Maintenance Time?
-ShouldStop_2 --> InvokeWorkflowFile_24
-InvokeWorkflowFile_24 --> IfElseIf_2
+
 IfElseIf_2: IfElseIf - Stop Requested/Maintenance Window/Success?
 state IfElseIf_2 {
 direction TB
@@ -238,9 +229,8 @@ GetQueueItem_3 : GetQueueItem - Get Next Transaction
 }
 }
 MultipleAssign_14 : MultipleAssign - Set Framework Exception (Get Transaction Data)
-Sequence_17 --> MultipleAssign_14
 }
-TryCatch_9 --> Transition_11
+
 Transition_11: Transition - Error - Get Transaction Data
 state Transition_11 {
 direction TB
@@ -253,7 +243,7 @@ Sequence_23: Sequence - End Process
 state Sequence_23 {
 direction TB
 LogMessage_16 : LogMessage - LM -- Start End
-LogMessage_16 --> If_6
+
 If_6: If - Framework Exception?
 state If_6 {
 direction TB
@@ -263,24 +253,19 @@ state Sequence_18 {
 direction TB
 LogMessage_17 : LogMessage - LM -- Framework Exception
 InvokeWorkflowFile_25 : InvokeWorkflowFile - Take Screenshot
-LogMessage_17 --> InvokeWorkflowFile_25
 InvokeWorkflowFile_26 : InvokeWorkflowFile - Generate Diagnostic
-InvokeWorkflowFile_25 --> InvokeWorkflowFile_26
 MultipleAssign_15 : MultipleAssign - Set Variables
-InvokeWorkflowFile_26 --> MultipleAssign_15
 InvokeWorkflowFile_27 : InvokeWorkflowFile - Send Email
-MultipleAssign_15 --> InvokeWorkflowFile_27
 }
 }
-If_6 --> TryCatch_10
+
 TryCatch_10: TryCatch - Try Close, Catch Kill (End)
 state TryCatch_10 {
 direction TB
 InvokeWorkflowFile_28 : InvokeWorkflowFile - Close Applications (End)
 InvokeWorkflowFile_29 : InvokeWorkflowFile - Kill Processes (End)
-InvokeWorkflowFile_28 --> InvokeWorkflowFile_29
 }
-TryCatch_10 --> If_7
+
 If_7: If - Rethrow?
 state If_7 {
 direction TB
@@ -306,20 +291,18 @@ Sequence_24: Sequence - Process Transaction
 state Sequence_24 {
 direction TB
 MultipleAssign_16 : MultipleAssign - Initialize State Variables
-MultipleAssign_16 --> Switch1_3
+
 Switch1_3: Switch - @Test Variations - Process
 state Switch1_3 {
 direction TB
 Throw_5 : Throw - Throw GetTransactionData Error
 }
 InvokeWorkflowFile_30 : InvokeWorkflowFile - Perform Transaction
-Switch1_3 --> InvokeWorkflowFile_30
 }
 MultipleAssign_17 : MultipleAssign - Set BusinessException
-Sequence_24 --> MultipleAssign_17
 MultipleAssign_18 : MultipleAssign - Set SystemException
 MultipleAssign_17 --> MultipleAssign_18
-MultipleAssign_18 --> TryCatch_11
+
 TryCatch_11: TryCatch - Try Setting Transaction Status
 state TryCatch_11 {
 direction TB
@@ -331,11 +314,9 @@ direction TB
 Throw_7 : Throw - Throw GetTransactionData Error
 }
 MultipleAssign_19 : MultipleAssign - Set FrameworkException (Process)
-Switch1_4 --> MultipleAssign_19
 }
 }
 Transition_12 : Transition - Error - Framework
-TryCatch_12 --> Transition_12
 Transition_12 --> Transition_13
 Transition_13: Transition - Success/BRE
 state Transition_13 {
@@ -364,7 +345,6 @@ state Sequence_25 {
 direction TB
 MultipleAssign_22 : MultipleAssign - Set FrameworkException to Max Consecutive
 LogMessage_19 : LogMessage - LM -- Max Consecutive
-MultipleAssign_22 --> LogMessage_19
 }
 }
 }

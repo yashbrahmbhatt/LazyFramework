@@ -142,7 +142,7 @@ Sequence_1: Sequence - GetQueueDefinitionIdError
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> TimeoutScope_1
+
 TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
@@ -156,11 +156,9 @@ state Sequence_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Vars
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
-MultipleAssign_2 --> InvokeWorkflowFile_1
 }
 LogMessage_2 : LogMessage - LM -- Initialization Complete
-Sequence_2 --> LogMessage_2
-LogMessage_2 --> TryCatch_1
+
 TryCatch_1: TryCatch - Execute Test
 state TryCatch_1 {
 direction TB
@@ -171,11 +169,9 @@ direction TB
 InvokeWorkflowFile_2 : InvokeWorkflowFile - .templates\\Reporters\\Basic\\Orchestrator\\GetQueueDefinitionId.xaml - Invoke Workflow File
 }
 MultipleAssign_1 : MultipleAssign - Set TestException
-Sequence_3 --> MultipleAssign_1
 }
 LogMessage_3 : LogMessage - LM -- Test Executed
-TryCatch_1 --> LogMessage_3
-LogMessage_3 --> Sequence_4
+
 Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
@@ -184,6 +180,5 @@ VerifyExpression_5 : VerifyExpression - Verify TextException
 }
 }
 LogMessage_4 : LogMessage - LM -- Complete
-TimeoutScope_1 --> LogMessage_4
 }
 ```

@@ -109,6 +109,5 @@ state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 LogMessage_2 : LogMessage - LM -- Complete
-LogMessage_1 --> LogMessage_2
 }
 ```

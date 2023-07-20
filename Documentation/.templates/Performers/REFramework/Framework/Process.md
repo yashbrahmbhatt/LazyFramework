@@ -105,6 +105,5 @@ state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - Log Message Process Start
 Comment_1 : Comment - Comment (placeholder)
-LogMessage_1 --> Comment_1
 }
 ```

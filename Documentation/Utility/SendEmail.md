@@ -159,7 +159,7 @@ Sequence_1: Sequence - SendEmail
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-LogMessage_1 --> ForEach1_1
+
 ForEach1_1: ForEach - For Each TemplateData Key
 state ForEach1_1 {
 direction TB
@@ -177,14 +177,12 @@ state Sequence_4 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Shared\\DataTableToHTML.xaml - Invoke Workflow File
 MultipleAssign_1 : MultipleAssign - Update Templates with DT
-InvokeWorkflowFile_1 --> MultipleAssign_1
 }
 MultipleAssign_2 : MultipleAssign - Update Templates
-Sequence_4 --> MultipleAssign_2
 }
 }
 }
-ForEach1_1 --> RetryScope_1
+
 RetryScope_1: RetryScope - Retry Mail
 state RetryScope_1 {
 direction TB
@@ -194,10 +192,8 @@ state Sequence_2 {
 direction TB
 GetRobotCredential_1 : GetRobotCredential - Get Email Creds
 SendMail_1 : SendMail - Send Email
-GetRobotCredential_1 --> SendMail_1
 }
 }
 LogMessage_2 : LogMessage - LM -- Sent
-RetryScope_1 --> LogMessage_2
 }
 ```

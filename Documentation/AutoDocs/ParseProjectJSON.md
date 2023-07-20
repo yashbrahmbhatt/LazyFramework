@@ -162,14 +162,12 @@ state Sequence_1 {
 direction TB
 BuildDataTable_2 : BuildDataTable - Build Dependencies Table
 MultipleAssign_1 : MultipleAssign - Parse File
-BuildDataTable_2 --> MultipleAssign_1
-MultipleAssign_1 --> ForEach1_1
+
 ForEach1_1: ForEach - For Each DependencyArray
 state ForEach1_1 {
 direction TB
 AddDataRow_2 : AddDataRow - Add Row
 }
 WriteLine_1 : WriteLine - Write Line
-ForEach1_1 --> WriteLine_1
 }
 ```

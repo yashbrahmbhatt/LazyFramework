@@ -148,8 +148,7 @@ state Sequence_1 {
 direction TB
 LogMessage_4 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize Outputs
-LogMessage_4 --> MultipleAssign_1
-MultipleAssign_1 --> ExcelProcessScopeX_1
+
 ExcelProcessScopeX_1: ExcelProcessScopeX - Using Excel App
 state ExcelProcessScopeX_1 {
 direction TB
@@ -166,7 +165,7 @@ Sequence_2: Sequence - Process Sheet
 state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Processing sheet
-LogMessage_1 --> If_1
+
 If_1: If - Ignorable Sheet?
 state If_1 {
 direction TB
@@ -176,10 +175,9 @@ state Sequence_3 {
 direction TB
 LogMessage_2 : LogMessage - LM -- Skip
 Continue_1 : Continue - Skip
-LogMessage_2 --> Continue_1
 }
 }
-If_1 --> ExcelForEachRowX_1
+
 ExcelForEachRowX_1: ExcelForEachRowX - For Each Row
 state ExcelForEachRowX_1 {
 direction TB
@@ -192,7 +190,7 @@ Switch1_3: Switch - Sheet Name?
 state Switch1_3 {
 direction TB
 Assign_5 : Assign - Set Default Value
-Assign_5 --> Sequence_11
+
 Sequence_11: Sequence - Process Assets Row
 state Sequence_11 {
 direction TB
@@ -203,9 +201,8 @@ direction TB
 GetRobotAsset_2 : GetRobotAsset - Get Current Asset
 }
 Assign_6 : Assign - Set Asset Value
-RetryScope_4 --> Assign_6
 }
-Sequence_11 --> Sequence_12
+
 Sequence_12: Sequence - Process TextFiles Row
 state Sequence_12 {
 direction TB
@@ -224,7 +221,7 @@ direction TB
 ReadTextFile_2 : ReadTextFile - Read Local File
 }
 }
-Sequence_13 --> Sequence_14
+
 Sequence_14: Sequence - Storage Bucket Resource
 state Sequence_14 {
 direction TB
@@ -237,7 +234,6 @@ ReadStorageText_2 : ReadStorageText - Get Storage Text
 }
 }
 Assign_7 : Assign - Set TextFiles Value
-If_4 --> Assign_7
 }
 }
 }
@@ -247,6 +243,5 @@ If_4 --> Assign_7
 }
 }
 LogMessage_3 : LogMessage - LM -- Complete
-ExcelProcessScopeX_1 --> LogMessage_3
 }
 ```

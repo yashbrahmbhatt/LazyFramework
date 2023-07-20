@@ -128,7 +128,7 @@ Sequence_1: Sequence - HandleTransactionOutcome
 state Sequence_1 {
 direction TB
 LogMessage_5 : LogMessage - LM -- Start
-LogMessage_5 --> IfElseIf_1
+
 IfElseIf_1: IfElseIf - Outcome?
 state IfElseIf_1 {
 direction TB
@@ -137,15 +137,14 @@ Sequence_2: Sequence - Handle System Exception
 state Sequence_2 {
 direction TB
 LogMessage_3 : LogMessage - LM -- SE Start
-LogMessage_3 --> RetryScope_1
+
 RetryScope_1: RetryScope - Retry - Failed
 state RetryScope_1 {
 direction TB
 SetTransactionStatus_1 : SetTransactionStatus - Set Transaction to Failed (System)
 }
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Take Screenshot
-RetryScope_1 --> InvokeWorkflowFile_1
-InvokeWorkflowFile_1 --> If_1
+
 If_1: If - Max Retries Reached?
 state If_1 {
 direction TB
@@ -155,11 +154,8 @@ state Sequence_5 {
 direction TB
 LogMessage_4 : LogMessage - LM -- Sending Email (System)
 InvokeWorkflowFile_2 : InvokeWorkflowFile - Generate Diagnostic (SE)
-LogMessage_4 --> InvokeWorkflowFile_2
 MultipleAssign_1 : MultipleAssign - Update TemplateData (SE)
-InvokeWorkflowFile_2 --> MultipleAssign_1
 InvokeWorkflowFile_3 : InvokeWorkflowFile - Send Email (SE)
-MultipleAssign_1 --> InvokeWorkflowFile_3
 }
 }
 }
@@ -168,25 +164,22 @@ Sequence_3: Sequence - Handle Business Exception
 state Sequence_3 {
 direction TB
 LogMessage_2 : LogMessage - LM -- BRE Start
-LogMessage_2 --> RetryScope_2
+
 RetryScope_2: RetryScope - Retry - Business Exception
 state RetryScope_2 {
 direction TB
 SetTransactionStatus_3 : SetTransactionStatus - Set Transaction to Failed (Business)
 }
 InvokeWorkflowFile_4 : InvokeWorkflowFile - Generate Diagnostic (BRE)
-RetryScope_2 --> InvokeWorkflowFile_4
 MultipleAssign_2 : MultipleAssign - Update TemplateData (BRE)
-InvokeWorkflowFile_4 --> MultipleAssign_2
 InvokeWorkflowFile_5 : InvokeWorkflowFile - Send Email (BRE)
-MultipleAssign_2 --> InvokeWorkflowFile_5
 }
 Sequence_3 --> Sequence_4
 Sequence_4: Sequence - Handle Success
 state Sequence_4 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Success Start
-LogMessage_1 --> RetryScope_3
+
 RetryScope_3: RetryScope - Retry - Successful
 state RetryScope_3 {
 direction TB
@@ -195,6 +188,5 @@ SetTransactionStatus_4 : SetTransactionStatus - Set Transaction to Failed (Succe
 }
 }
 LogMessage_6 : LogMessage - LM -- Completed
-IfElseIf_1 --> LogMessage_6
 }
 ```

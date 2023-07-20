@@ -109,19 +109,19 @@ Sequence_2: Sequence - Test Template
 state Sequence_2 {
 direction TB
 LogMessage_1 : LogMessage - Log Message - Test Template
-LogMessage_1 --> Sequence_3
+
 Sequence_3: Sequence - ... Given
 state Sequence_3 {
 direction TB
 InvokeWorkflowFile_2 : InvokeWorkflowFile - Invoke InitAllSettings workflow
 }
-Sequence_3 --> Sequence_4
+
 Sequence_4: Sequence - ... When
 state Sequence_4 {
 direction TB
 Comment_1 : Comment - Actions to be performed
 }
-Sequence_4 --> Sequence_6
+
 Sequence_6: Sequence - ... Then
 state Sequence_6 {
 direction TB
