@@ -10,7 +10,7 @@ Open applications used in the process and do necessary initialization procedures
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System
 - System.Collections.Generic
 - System.Data
@@ -55,7 +55,6 @@ Open applications used in the process and do necessary initialization procedures
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td></td></tr></table>
     
 </details>

@@ -10,7 +10,7 @@ Initialize all applications required for this performer.
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System
 - System.Activities
 - System.Activities.Statements
@@ -62,7 +62,6 @@ Initialize all applications required for this performer.
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
     
 </details>

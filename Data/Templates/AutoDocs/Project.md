@@ -13,7 +13,6 @@ Language: {Language}
     <summary>
     <b>Dependencies</b>
     </summary>
-
     {Dependencies}
 
 </details>

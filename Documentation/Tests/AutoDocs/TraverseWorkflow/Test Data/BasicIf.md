@@ -10,7 +10,7 @@ Class: If
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -68,7 +68,6 @@ Class: If
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
     
 </details>

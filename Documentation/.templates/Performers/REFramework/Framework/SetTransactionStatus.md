@@ -22,7 +22,7 @@ At the end, io_TransactionNumber is incremented, which makes the framework get t
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
@@ -91,7 +91,6 @@ At the end, io_TransactionNumber is incremented, which makes the framework get t
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_BusinessException</td><td>InArgument</td><td>ui:BusinessRuleException</td><td>Exception variable that is used during transitions between states and represents a situation that does not conform to the rules of the process being automated.</td></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr><tr><td>in_TransactionItem</td><td>InArgument</td><td>ui:QueueItem</td><td>Transaction item to be processed.</td></tr><tr><td>io_RetryNumber</td><td>InOutArgument</td><td>x:Int32</td><td>Used to control the number of attempts of retrying the transaction processing in case of system exceptions.</td></tr><tr><td>io_TransactionNumber</td><td>InOutArgument</td><td>x:Int32</td><td>Sequential counter of transaction items.</td></tr><tr><td>in_TransactionField1</td><td>InArgument</td><td>x:String</td><td>Optionally used to include additional information about the transaction item.</td></tr><tr><td>in_TransactionField2</td><td>InArgument</td><td>x:String</td><td>Optionally used to include additional information about the transaction item.</td></tr><tr><td>in_TransactionID</td><td>InArgument</td><td>x:String</td><td>Used for information and logging purposes. Ideally, the ID should be unique for each transaction. </td></tr><tr><td>in_SystemException</td><td>InArgument</td><td>s:Exception</td><td>Used during transitions between states to represent exceptions other than business exceptions.</td></tr><tr><td>io_ConsecutiveSystemExceptions</td><td>InOutArgument</td><td>x:Int32</td><td>Used to control the number of consecutive system exceptions.</td></tr></table>
     
 </details>

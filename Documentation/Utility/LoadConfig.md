@@ -10,7 +10,7 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - Microsoft.VisualBasic
@@ -106,7 +106,6 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ConfigPath</td><td>InArgument</td><td>x:String</td><td>The path to the config file to read.</td></tr><tr><td>in_IgnoreSheets</td><td>InArgument</td><td>s:String[]</td><td>An array of sheet names to ignore loading into the config variable.</td></tr><tr><td>out_Config</td><td>OutArgument</td><td>scg:Dictionary(x:String, x:String)</td><td>The loaded config dictionary.</td></tr><tr><td>out_TextFiles</td><td>OutArgument</td><td>scg:Dictionary(x:String, x:String)</td><td>The loaded dictionary of text resources.</td></tr></table>
     
 </details>

@@ -11,7 +11,7 @@ Create a new test workflow by copying and renaming this file.
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System
 - System.Activities
 - System.Activities.DynamicUpdate
@@ -72,7 +72,6 @@ Create a new test workflow by copying and renaming this file.
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
     
 </details>

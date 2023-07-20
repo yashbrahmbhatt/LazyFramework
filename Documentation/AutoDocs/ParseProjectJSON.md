@@ -10,7 +10,7 @@ Class: ParseProjectJSON
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -114,7 +114,6 @@ Class: ParseProjectJSON
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ProjectJSONPath</td><td>InArgument</td><td>x:String</td><td></td></tr><tr><td>out_Name</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_Description</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_Dependencies</td><td>OutArgument</td><td>sd:DataTable</td><td></td></tr><tr><td>out_FileInfoCollection</td><td>OutArgument</td><td>sd:DataTable</td><td></td></tr><tr><td>out_EntryPoints</td><td>OutArgument</td><td>scg:IEnumerable(x:String)</td><td></td></tr><tr><td>out_Language</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_ProjectVersion</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_StudioVersion</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_Type</td><td>OutArgument</td><td>x:String</td><td></td></tr></table>
     
 </details>

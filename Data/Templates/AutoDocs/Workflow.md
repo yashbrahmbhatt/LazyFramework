@@ -10,7 +10,7 @@ Class: {Class}
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     {Namespaces}
 
 </details>
@@ -26,7 +26,6 @@ Class: {Class}
     <summary>
     <b>Arguments</b>
     </summary>
-
     {Arguments}
     
 </details>

@@ -10,7 +10,7 @@ Helper to create test data in a queue to test the reporter.
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -91,7 +91,6 @@ Helper to create test data in a queue to test the reporter.
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ConfigPath</td><td>InArgument</td><td>x:String</td><td>Path to the config file to load.</td></tr></table>
     
 </details>

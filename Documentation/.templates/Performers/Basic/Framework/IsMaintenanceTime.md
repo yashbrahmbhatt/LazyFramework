@@ -10,7 +10,7 @@ Given a CRON expression for the maintenance schedule, checks whether the current
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
@@ -69,7 +69,6 @@ Given a CRON expression for the maintenance schedule, checks whether the current
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_Start</td><td>InArgument</td><td>x:TimeSpan</td><td>The start time of the maintenance period.</td></tr><tr><td>in_End</td><td>InArgument</td><td>x:TimeSpan</td><td>The end time of the maintenance period.</td></tr><tr><td>out_IsMaintenanceTime</td><td>OutArgument</td><td>x:Boolean</td><td>Output boolean as to whether current time is within the maintenance period.</td></tr></table>
     
 </details>

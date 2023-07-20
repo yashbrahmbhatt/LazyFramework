@@ -10,7 +10,7 @@ Retrieves all queue items for a particular queue id into a list.
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -107,7 +107,6 @@ Retrieves all queue items for a particular queue id into a list.
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_QueueId</td><td>InArgument</td><td>x:Int32</td><td>The ID of the queue to get queue items for.</td></tr><tr><td>in_From</td><td>InArgument</td><td>s:DateTime</td><td>The start of the reporting range.</td></tr><tr><td>in_To</td><td>InArgument</td><td>s:DateTime</td><td>The end of the reporting period.</td></tr><tr><td>in_Statuses</td><td>InArgument</td><td>s:String[]</td><td>A list of the statuses to include in the output queue items list.</td></tr><tr><td>out_QueueItems</td><td>OutArgument</td><td>scg:List(njl:JToken)</td><td>The list of queue items retrieved.</td></tr></table>
     
 </details>

@@ -11,7 +11,7 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System
 - System.Collections.Generic
 - System.Data
@@ -56,7 +56,6 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
     
 </details>

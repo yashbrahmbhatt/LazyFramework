@@ -10,7 +10,7 @@ A sequence with no nested sequences or other items within it.
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -77,7 +77,6 @@ A sequence with no nested sequences or other items within it.
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
     
 </details>

@@ -10,7 +10,7 @@ Class: ParseWorkflow
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -125,7 +125,6 @@ Class: ParseWorkflow
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_FilePath</td><td>InArgument</td><td>x:String</td><td></td></tr><tr><td>out_Document</td><td>OutArgument</td><td>sxl:XDocument</td><td></td></tr><tr><td>out_Namespaces</td><td>OutArgument</td><td>scg:List(x:String)</td><td></td></tr><tr><td>out_References</td><td>OutArgument</td><td>scg:List(x:String)</td><td></td></tr><tr><td>out_DocumentClass</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_WorkflowName</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_WorkflowDescription</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_OutlineMarkdown</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_dt_Arguments</td><td>OutArgument</td><td>sd:DataTable</td><td></td></tr><tr><td>out_WorkflowsUsed</td><td>OutArgument</td><td>scg:IEnumerable(x:String)</td><td></td></tr></table>
     
 </details>

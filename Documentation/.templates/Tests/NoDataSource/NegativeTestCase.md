@@ -10,7 +10,7 @@ A basic template for a test with the expected outcome being failure.
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -100,7 +100,6 @@ A basic template for a test with the expected outcome being failure.
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
     
 </details>

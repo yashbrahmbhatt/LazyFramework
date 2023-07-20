@@ -12,7 +12,7 @@ Asset values overwrite settings and constant values if they are defined with the
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System
 - System.Activities
 - System.Activities.DynamicUpdate
@@ -79,7 +79,6 @@ Asset values overwrite settings and constant values if they are defined with the
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>out_Config</td><td>OutArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr><tr><td>in_ConfigFile</td><td>InArgument</td><td>x:String</td><td>Path to the configuration file that defines settings, constants and assets.</td></tr><tr><td>in_ConfigSheets</td><td>InArgument</td><td>s:String[]</td><td>Names of the sheets corresponding to settings and constants in the configuration file.</td></tr></table>
     
 </details>

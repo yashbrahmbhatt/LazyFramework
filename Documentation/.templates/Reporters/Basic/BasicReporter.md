@@ -10,7 +10,7 @@ Reads all queue items for a single queue within a defined reporting period, writ
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System
 - System.Activities
 - System.Activities.Statements
@@ -125,7 +125,6 @@ Reads all queue items for a single queue within a defined reporting period, writ
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_OutputFolder</td><td>InArgument</td><td>x:String</td><td>If defined, the process will also copy the report generated to this folder.</td></tr><tr><td>in_CRON</td><td>InArgument</td><td>x:String</td><td>A CRON expression to determine what the reporting period is. This should match the CRON expression used in the trigger for this Entry Point for most cases.</td></tr><tr><td>in_From</td><td>InArgument</td><td>s:DateTime</td><td>If defined, overrides the start of the reporting period to this value. in_To must also be defined if using this overload.</td></tr><tr><td>in_To</td><td>InArgument</td><td>s:DateTime</td><td>If defined, overrides the end of the reporting period to this value. in_From must also be defined if using this overload.</td></tr><tr><td>in_ConfigPath</td><td>InArgument</td><td>x:String</td><td>The path to the config file to load for this process.</td></tr><tr><td>in_IgnoreSheets</td><td>InArgument</td><td>s:String[]</td><td>A list of the sheets to ignore loading into the Config.</td></tr></table>
     
 </details>

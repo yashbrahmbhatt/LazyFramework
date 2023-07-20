@@ -13,7 +13,7 @@ Class: Performer
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
@@ -91,7 +91,6 @@ Class: Performer
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ConfigPath</td><td>InArgument</td><td>x:String</td><td>The path to the config file to use to load variables and resources.</td></tr><tr><td>in_IgnoreSheets</td><td>InArgument</td><td>s:String[]</td><td>A list of sheet names to ignore when loading the config file.</td></tr><tr><td>in_TestID</td><td>InArgument</td><td>x:String</td><td>Used to modify the workflow in order to test different scenarios. Only used to test exception handling in this workflow. Leave as null for production use.</td></tr></table>
     
 </details>

@@ -12,7 +12,7 @@ Please make sure the queue name is configured.
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - Microsoft.VisualBasic
 - Microsoft.VisualBasic.Activities
 - System
@@ -89,7 +89,6 @@ Please make sure the queue name is configured.
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
     
 </details>

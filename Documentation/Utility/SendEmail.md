@@ -10,7 +10,7 @@ Sends an email taking a dictionary of data to fill out template subject and body
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - Microsoft.VisualBasic
@@ -112,7 +112,6 @@ Sends an email taking a dictionary of data to fill out template subject and body
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_To</td><td>InArgument</td><td>x:String</td><td>Who to send the email to.</td></tr><tr><td>in_Subject</td><td>InArgument</td><td>x:String</td><td>The templated subject of the email to send.</td></tr><tr><td>in_Body</td><td>InArgument</td><td>x:String</td><td>The templated body of the email to send in HTML format.</td></tr><tr><td>in_Attachments</td><td>InArgument</td><td>scg:IEnumerable(x:String)</td><td>An array of file paths to include as attachments in the email.</td></tr><tr><td>in_Port</td><td>InArgument</td><td>x:Int32</td><td>The SMTP port to use when sending emails.</td></tr><tr><td>in_Server</td><td>InArgument</td><td>x:String</td><td>The SMTP server to use for sending emails.</td></tr><tr><td>in_CredentialFolder</td><td>InArgument</td><td>x:String</td><td>The name of the Orchestrator folder that holds the credential asset for authenticating to the SMTP server.</td></tr><tr><td>in_CredentialName</td><td>InArgument</td><td>x:String</td><td>The name of the credential asset for authenticating to the SMTP server.</td></tr><tr><td>in_CC</td><td>InArgument</td><td>x:String</td><td>Who to CC on the email.</td></tr><tr><td>in_TemplateData</td><td>InArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>A dictionary of variables to replace in the template. Keys must match the value in the template.</td></tr></table>
     
 </details>

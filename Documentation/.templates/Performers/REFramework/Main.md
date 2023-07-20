@@ -12,7 +12,7 @@ Class: Main
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
@@ -87,7 +87,6 @@ Class: Main
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_OrchestratorQueueName</td><td>InArgument</td><td>x:String</td><td>Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file.</td></tr><tr><td>in_OrchestratorQueueFolder</td><td>InArgument</td><td>x:String</td><td>Allows the Orchestrator folder name where the queue is created to be passed as an argument, instead of only being defined in the configuration file.</td></tr></table>
     
 </details>

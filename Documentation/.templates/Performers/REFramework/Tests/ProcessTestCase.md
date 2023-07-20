@@ -11,7 +11,7 @@ The verification should check whether the output of the Process workflow is the 
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - Microsoft.VisualBasic
 - Microsoft.VisualBasic.Activities
 - System
@@ -88,7 +88,6 @@ The verification should check whether the output of the Process workflow is the 
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
     
 </details>

@@ -10,7 +10,7 @@ Handles the outcome of a transaction by updating the queue item status, as well 
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
@@ -83,7 +83,6 @@ Handles the outcome of a transaction by updating the queue item status, as well 
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_SystemException</td><td>InArgument</td><td>s:Exception</td><td>The System.Exception object within the Process state.</td></tr><tr><td>in_BusinessException</td><td>InArgument</td><td>ui:BusinessRuleException</td><td>The BusinessRuleException object within the Process state.</td></tr><tr><td>in_TransactionItem</td><td>InArgument</td><td>ui:QueueItem</td><td>The transaction item to update the status for.</td></tr><tr><td>in_Data</td><td>InArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>The dictionary containing the input data and any values added while processing the transaction.</td></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary(x:String, x:String)</td><td>The Config dictionary loaded during the first run.</td></tr><tr><td>in_TextFiles</td><td>InArgument</td><td>scg:Dictionary(x:String, x:String)</td><td>The TextFiles dictionary loaded during the first run.</td></tr></table>
     
 </details>

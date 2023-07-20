@@ -10,7 +10,7 @@ Class: DocumentProject
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -115,7 +115,6 @@ Class: DocumentProject
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>OutputRootFolder</td><td>InArgument</td><td>x:String</td><td></td></tr></table>
     
 </details>

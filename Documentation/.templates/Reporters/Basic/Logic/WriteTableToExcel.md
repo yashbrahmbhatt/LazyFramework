@@ -10,7 +10,7 @@ Writes a table to an excel file.
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -106,7 +106,6 @@ Writes a table to an excel file.
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_Path</td><td>InArgument</td><td>x:String</td><td>The path to the file to write to. File must exist already.</td></tr><tr><td>in_SheetName</td><td>InArgument</td><td>x:String</td><td>The name of the sheet to write the table to.</td></tr><tr><td>in_dt_Table</td><td>InArgument</td><td>sd:DataTable</td><td>The datatable to write to a sheet.</td></tr></table>
     
 </details>

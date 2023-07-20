@@ -10,7 +10,7 @@ Generates a dictinoary that contains diagnostic information in cases of system e
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -89,7 +89,6 @@ Generates a dictinoary that contains diagnostic information in cases of system e
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_Exception</td><td>InArgument</td><td>s:Exception</td><td>The exception to use to generate diagnostics.</td></tr><tr><td>out_TemplateData</td><td>OutArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>A dictionary with the diagnostic data filled in.</td></tr></table>
     
 </details>

@@ -10,7 +10,7 @@ Takes a screenshot and saves it to a folder.
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - Microsoft.VisualBasic
@@ -107,7 +107,6 @@ Takes a screenshot and saves it to a folder.
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_FolderPath</td><td>InArgument</td><td>x:String</td><td>The path to the folder to save screenshots to.</td></tr><tr><td>io_FilePath</td><td>InOutArgument</td><td>x:String</td><td>If specified, overrides the folder path and uses this path for the file name. Otherwise, it just outputs the full path to the screenshot.</td></tr></table>
     
 </details>

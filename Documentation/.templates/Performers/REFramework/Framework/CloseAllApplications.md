@@ -10,7 +10,7 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System
 - System.Collections.Generic
 - System.Data
@@ -56,7 +56,6 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
     
 </details>

@@ -10,7 +10,7 @@ Kill input processes by name.
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - GlobalConstantsNamespace
 - GlobalVariablesNamespace
 - System
@@ -80,7 +80,6 @@ Kill input processes by name.
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ProcessesToKill</td><td>InArgument</td><td>s:String[]</td><td>An array of Process Names to kill.</td></tr></table>
     
 </details>

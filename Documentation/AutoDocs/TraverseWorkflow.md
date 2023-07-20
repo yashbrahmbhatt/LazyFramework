@@ -10,7 +10,7 @@ Class: TraverseWorkflow
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -116,7 +116,6 @@ Class: TraverseWorkflow
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_XElement</td><td>InArgument</td><td>sxl:XElement</td><td></td></tr><tr><td>io_Markdown</td><td>InOutArgument</td><td>x:String</td><td></td></tr><tr><td>io_PreviousActivity</td><td>InOutArgument</td><td>x:String</td><td></td></tr></table>
     
 </details>

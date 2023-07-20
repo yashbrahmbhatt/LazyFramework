@@ -10,7 +10,7 @@ Gets the queue definition based on the queue folder and name.
     <summary>
     <b>Namespaces</b>
     </summary>
-
+    
     - System.Activities
 - System.Activities.Statements
 - System.Activities.Expressions
@@ -107,7 +107,6 @@ Gets the queue definition based on the queue folder and name.
     <summary>
     <b>Arguments</b>
     </summary>
-
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_QueueName</td><td>InArgument</td><td>x:String</td><td>The name of the queue to get the id for.</td></tr><tr><td>in_QueueFolder</td><td>InArgument</td><td>x:String</td><td>The folder that houses the queue to get the id for.</td></tr><tr><td>out_Id</td><td>OutArgument</td><td>x:Int32</td><td>The id retrieved.</td></tr></table>
     
 </details>
