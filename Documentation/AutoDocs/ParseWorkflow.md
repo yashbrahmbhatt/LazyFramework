@@ -125,7 +125,8 @@ Class: ParseWorkflow
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_FilePath | InArgument | x:String |  |
 | out_Document | OutArgument | sxl:XDocument |  |

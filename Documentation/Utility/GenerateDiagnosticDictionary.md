@@ -89,7 +89,8 @@ Generates a dictinoary that contains diagnostic information in cases of system e
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_Exception | InArgument | s:Exception | The exception to use to generate diagnostics. |
 | out_TemplateData | OutArgument | scg:Dictionary(x:String, x:Object) | A dictionary with the diagnostic data filled in. |

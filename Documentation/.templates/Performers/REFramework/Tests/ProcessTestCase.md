@@ -88,7 +88,8 @@ The verification should check whether the output of the Process workflow is the 
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 
     

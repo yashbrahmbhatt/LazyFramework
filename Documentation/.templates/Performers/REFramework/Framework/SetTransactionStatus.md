@@ -91,7 +91,8 @@ At the end, io_TransactionNumber is incremented, which makes the framework get t
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_BusinessException | InArgument | ui:BusinessRuleException | Exception variable that is used during transitions between states and represents a situation that does not conform to the rules of the process being automated. |
 | in_Config | InArgument | scg:Dictionary(x:String, x:Object) | Dictionary structure to store configuration data of the process (settings, constants and assets). |

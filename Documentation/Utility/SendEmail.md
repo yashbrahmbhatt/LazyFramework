@@ -112,7 +112,8 @@ Sends an email taking a dictionary of data to fill out template subject and body
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_To | InArgument | x:String | Who to send the email to. |
 | in_Subject | InArgument | x:String | The templated subject of the email to send. |

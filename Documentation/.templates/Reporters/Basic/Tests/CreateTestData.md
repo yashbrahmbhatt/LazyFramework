@@ -91,7 +91,8 @@ Helper to create test data in a queue to test the reporter.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_ConfigPath | InArgument | x:String | Path to the config file to load. |
 

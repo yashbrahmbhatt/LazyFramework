@@ -77,7 +77,8 @@ A sequence with no nested sequences or other items within it.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 
     

@@ -79,7 +79,8 @@ Carry out the required steps for this transaction/unit of work.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | io_Data | InOutArgument | scg:Dictionary(x:String, x:Object) | The transaction data to be used to perform the process. |
 | in_Reference | InArgument | x:String | The reference of the queue item being processed. |

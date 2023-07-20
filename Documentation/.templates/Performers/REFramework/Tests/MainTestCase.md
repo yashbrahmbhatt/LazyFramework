@@ -94,7 +94,8 @@ The verification should check whether the status file or report built after the 
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 
     

@@ -107,7 +107,8 @@ Gets the queue definition based on the queue folder and name.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_QueueName | InArgument | x:String | The name of the queue to get the id for. |
 | in_QueueFolder | InArgument | x:String | The folder that houses the queue to get the id for. |

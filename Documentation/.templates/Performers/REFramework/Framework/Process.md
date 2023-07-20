@@ -65,7 +65,8 @@ If another kind of exception occurs, the current transaction can be retried.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_TransactionItem | InArgument | ui:QueueItem | Transaction item to be processed. |
 | in_Config | InArgument | scg:Dictionary(x:String, x:Object) | Dictionary structure to store configuration data of the process (settings, constants and assets). |

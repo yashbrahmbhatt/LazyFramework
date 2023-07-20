@@ -87,7 +87,8 @@ Class: Main
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_OrchestratorQueueName | InArgument | x:String | Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file. |
 | in_OrchestratorQueueFolder | InArgument | x:String | Allows the Orchestrator folder name where the queue is created to be passed as an argument, instead of only being defined in the configuration file. |

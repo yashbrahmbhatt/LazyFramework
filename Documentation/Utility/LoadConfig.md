@@ -106,7 +106,8 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_ConfigPath | InArgument | x:String | The path to the config file to read. |
 | in_IgnoreSheets | InArgument | s:String[] | An array of sheet names to ignore loading into the config variable. |

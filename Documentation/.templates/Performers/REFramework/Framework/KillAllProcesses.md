@@ -56,7 +56,8 @@ Note that killing processes might have undesirable outcomes, such as losing unsa
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 
     

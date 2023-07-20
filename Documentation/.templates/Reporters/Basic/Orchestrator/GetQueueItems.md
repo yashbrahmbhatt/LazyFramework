@@ -107,7 +107,8 @@ Retrieves all queue items for a particular queue id into a list.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_QueueId | InArgument | x:Int32 | The ID of the queue to get queue items for. |
 | in_From | InArgument | s:DateTime | The start of the reporting range. |

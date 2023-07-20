@@ -26,7 +26,8 @@ Class: {Class}
     <summary>
     <b>Arguments</b>
     </summary>
-    {Arguments}
+
+{Arguments}
     
 </details>
 <details>

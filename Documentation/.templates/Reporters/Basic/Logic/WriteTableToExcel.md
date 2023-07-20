@@ -106,7 +106,8 @@ Writes a table to an excel file.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_Path | InArgument | x:String | The path to the file to write to. File must exist already. |
 | in_SheetName | InArgument | x:String | The name of the sheet to write the table to. |

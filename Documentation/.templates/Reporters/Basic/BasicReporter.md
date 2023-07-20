@@ -125,7 +125,8 @@ Reads all queue items for a single queue within a defined reporting period, writ
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_OutputFolder | InArgument | x:String | If defined, the process will also copy the report generated to this folder. |
 | in_CRON | InArgument | x:String | A CRON expression to determine what the reporting period is. This should match the CRON expression used in the trigger for this Entry Point for most cases. |

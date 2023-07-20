@@ -13,7 +13,8 @@ A different design approach to UiPath Project frameworks that heavily leverage t
     <summary>
     <b>Dependencies</b>
     </summary>
-    | Name | Version |
+
+| Name | Version |
 |  --- | ---  |
 | Cronos | 0.7.1 |
 | UiPath.Excel.Activities | 2.20.1 |

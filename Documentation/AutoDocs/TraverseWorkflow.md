@@ -116,7 +116,8 @@ Class: TraverseWorkflow
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_XElement | InArgument | sxl:XElement |  |
 | io_Markdown | InOutArgument | x:String |  |

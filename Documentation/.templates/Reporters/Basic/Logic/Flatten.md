@@ -110,7 +110,8 @@ Flattens a list of JToken into a DataTable. Uses the Aggregate LINQ function.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_List | InArgument | scg:List(njl:JToken) | The list of JTokens to flatten. |
 | out_dt_Table | OutArgument | sd:DataTable | The flattened object as a DataTable. |

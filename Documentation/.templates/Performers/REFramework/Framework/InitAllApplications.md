@@ -55,7 +55,8 @@ Open applications used in the process and do necessary initialization procedures
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_Config | InArgument | scg:Dictionary(x:String, x:Object) |  |
 

@@ -56,7 +56,8 @@ Do the necessary procedures for ending the process (e.g., logout) and close the 
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 
     

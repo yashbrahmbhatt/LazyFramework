@@ -115,7 +115,8 @@ Class: DocumentProject
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | OutputRootFolder | InArgument | x:String |  |
 

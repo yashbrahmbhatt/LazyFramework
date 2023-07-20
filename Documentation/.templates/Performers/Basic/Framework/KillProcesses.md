@@ -80,7 +80,8 @@ Kill input processes by name.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_ProcessesToKill | InArgument | s:String[] | An array of Process Names to kill. |
 

@@ -109,7 +109,8 @@ Current Fields:
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_SuccessTimeSaved | InArgument | x:Double | Time saved in minutes for successful queue items. |
 | in_BusExTimeSaved | InArgument | x:Double | Time saved in minutes for business exception queue items. |

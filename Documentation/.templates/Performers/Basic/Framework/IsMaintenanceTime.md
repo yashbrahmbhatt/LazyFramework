@@ -69,7 +69,8 @@ Given a CRON expression for the maintenance schedule, checks whether the current
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_Start | InArgument | x:TimeSpan | The start time of the maintenance period. |
 | in_End | InArgument | x:TimeSpan | The end time of the maintenance period. |

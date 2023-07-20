@@ -91,7 +91,8 @@ Class: Performer
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_ConfigPath | InArgument | x:String | The path to the config file to use to load variables and resources. |
 | in_IgnoreSheets | InArgument | s:String[] | A list of sheet names to ignore when loading the config file. |

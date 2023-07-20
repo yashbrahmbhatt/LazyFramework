@@ -56,7 +56,8 @@ The retrying method is based on the configurations defined in Config.xlsx.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_Config | InArgument | scg:Dictionary(x:String, x:Object) | Dictionary structure to store configuration data of the process (settings, constants and assets). |
 | io_RetryNumber | InOutArgument | x:Int32 | Used to control the number of attempts of retrying the transaction processing in case of system exceptions. |

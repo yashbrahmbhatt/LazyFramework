@@ -103,7 +103,8 @@ Convert a DataTable into Markdown. Uses only .ToString for all data types so tra
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_dt_ToConvert | InArgument | sd:DataTable | The DataTable to convert to HTML. |
 | out_Markdown | OutArgument | x:String | The output markdown. |

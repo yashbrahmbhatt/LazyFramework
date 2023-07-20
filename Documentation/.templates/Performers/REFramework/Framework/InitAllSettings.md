@@ -79,7 +79,8 @@ Asset values overwrite settings and constant values if they are defined with the
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | out_Config | OutArgument | scg:Dictionary(x:String, x:Object) | Dictionary structure to store configuration data of the process (settings, constants and assets). |
 | in_ConfigFile | InArgument | x:String | Path to the configuration file that defines settings, constants and assets. |

@@ -114,7 +114,8 @@ Class: ParseProjectJSON
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_ProjectJSONPath | InArgument | x:String |  |
 | out_Name | OutArgument | x:String |  |

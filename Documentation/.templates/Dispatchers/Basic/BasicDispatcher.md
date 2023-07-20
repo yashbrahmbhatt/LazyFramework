@@ -85,7 +85,8 @@ Reads data from the srouce of work and adds it to a queue.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_ConfigPath | InArgument | x:String | The path to the config file to use to load variables and resources. |
 | in_IgnoreSheets | InArgument | s:String[] | A list of the sheets to ignore loading from the config. |

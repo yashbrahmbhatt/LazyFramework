@@ -104,7 +104,8 @@ Gets the queue data list and parses it into a table.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | out_QueueList | OutArgument | scg:List(njl:JToken) | The unformatted list of queue items retrieved, as a List of JToken. |
 | in_QueueName | InArgument | x:String | The name of the queue to report. |

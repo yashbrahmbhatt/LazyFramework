@@ -85,7 +85,8 @@ The verification should check if initalization of settings was successful: if th
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 
     

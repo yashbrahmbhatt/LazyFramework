@@ -107,7 +107,8 @@ Takes a screenshot and saves it to a folder.
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_FolderPath | InArgument | x:String | The path to the folder to save screenshots to. |
 | io_FilePath | InOutArgument | x:String | If specified, overrides the folder path and uses this path for the file name. Otherwise, it just outputs the full path to the screenshot. |

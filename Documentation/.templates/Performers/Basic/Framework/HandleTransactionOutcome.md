@@ -83,7 +83,8 @@ Handles the outcome of a transaction by updating the queue item status, as well 
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_SystemException | InArgument | s:Exception | The System.Exception object within the Process state. |
 | in_BusinessException | InArgument | ui:BusinessRuleException | The BusinessRuleException object within the Process state. |

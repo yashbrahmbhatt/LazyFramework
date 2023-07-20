@@ -100,7 +100,8 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
     <summary>
     <b>Arguments</b>
     </summary>
-    | Name | Direction | Type | Description |
+
+| Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
 | in_dt_ToConvert | InArgument | sd:DataTable | The DataTable to convert to HTML. |
 | out_HTMLTable | OutArgument | x:String | The output HTML. |
