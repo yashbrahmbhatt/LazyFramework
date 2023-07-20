@@ -76,14 +76,15 @@ Do you not like job security?
 <hr />
 
 # Usage
-You essentially just copy subfolders under Dispatcher, Performer, or Reporter templates into the root directory of the project. This saves you some time instead of manually creating those workflows from the templates through Studio since the copied files are not considered templates. 
+This is a Project Template, meaning that after you clone this repo, you will have to publish, and then create a new project from the published template before coding for your automation.
 
-The first thing you will need to do is update all of the Invoke Workflow activities within your module to the path you copied it to. This is because they currently point to the files in the .templates folder, which shouldn't be altered.
+Once your Project is set up, you essentially just copy modules from the .templates folder into the root directory of the project based on your needs. This saves you some time instead of manually creating those workflows from the templates through Studio one by one. 
 
-Next, copy any Data templates you may need for your modules including Config files and template files. Update them to your development environment, and voila!
+Once you've copied a module, you will need to do is update all of the Invoke Workflow activities within the module to the path you copied it to. This is because they currently point to the files in the .templates folder, and the .templates folder shouldn't really be modified unless you want to make a change to the template.
+
+Next, copy any Data templates you may need for your modules including Config files, template files, and update values to your development environment (Assets, Paths, etc.) and voila!
 
 You should be good to go.
-
 
 <hr />
 
