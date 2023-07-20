@@ -30,6 +30,22 @@ Class: {Class}
     {Arguments}
     
 </details>
+<details>
+    <summary>
+    <b>Workflows Used</b>
+    </summary>
+
+    {WorkflowsUsed}
+    
+</details>
+<details>
+    <summary>
+    <b>Tests</b>
+    </summary>
+
+    {Tests}
+    
+</details>
 
 <hr />
 

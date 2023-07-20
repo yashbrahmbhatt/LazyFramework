@@ -111,6 +111,24 @@ Gets the queue definition based on the queue folder and name.
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_QueueName</td><td>InArgument</td><td>x:String</td><td>The name of the queue to get the id for.</td></tr><tr><td>in_QueueFolder</td><td>InArgument</td><td>x:String</td><td>The folder that houses the queue to get the id for.</td></tr><tr><td>out_Id</td><td>OutArgument</td><td>x:Int32</td><td>The id retrieved.</td></tr></table>
     
 </details>
+<details>
+    <summary>
+    <b>Workflows Used</b>
+    </summary>
+
+    
+
+    
+</details>
+<details>
+    <summary>
+    <b>Tests</b>
+    </summary>
+
+    
+
+    
+</details>
 
 <hr />
 

@@ -108,6 +108,26 @@ Gets the queue data list and parses it into a table.
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>out_QueueList</td><td>OutArgument</td><td>scg:List(njl:JToken)</td><td>The unformatted list of queue items retrieved, as a List of JToken.</td></tr><tr><td>in_QueueName</td><td>InArgument</td><td>x:String</td><td>The name of the queue to report.</td></tr><tr><td>in_QueueFolder</td><td>InArgument</td><td>x:String</td><td>The path fo the folder that houses the queue to report.</td></tr><tr><td>in_From</td><td>InArgument</td><td>s:DateTime</td><td>The start of the reporting range.</td></tr><tr><td>in_To</td><td>InArgument</td><td>s:DateTime</td><td>The end of the reporting range.</td></tr><tr><td>in_Statuses</td><td>InArgument</td><td>s:String[]</td><td>The statuses to include when retrieving queue items.</td></tr><tr><td>out_dt_QueueTable</td><td>OutArgument</td><td>sd:DataTable</td><td>The queue items retrieved, formatted as a flattened table.</td></tr></table>
     
 </details>
+<details>
+    <summary>
+    <b>Workflows Used</b>
+    </summary>
+
+    - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Orchestrator\GetQueueDefinitionId.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Orchestrator\GetQueueItems.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Logic\Flatten.xaml
+
+    
+</details>
+<details>
+    <summary>
+    <b>Tests</b>
+    </summary>
+
+    
+
+    
+</details>
 
 <hr />
 

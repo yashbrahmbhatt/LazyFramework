@@ -91,6 +91,31 @@ Class: Main
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_OrchestratorQueueName</td><td>InArgument</td><td>x:String</td><td>Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file.</td></tr><tr><td>in_OrchestratorQueueFolder</td><td>InArgument</td><td>x:String</td><td>Allows the Orchestrator folder name where the queue is created to be passed as an argument, instead of only being defined in the configuration file.</td></tr></table>
     
 </details>
+<details>
+    <summary>
+    <b>Workflows Used</b>
+    </summary>
+
+    - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\InitAllSettings.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\KillAllProcesses.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\InitAllApplications.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\GetTransactionData.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\CloseAllApplications.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\KillAllProcesses.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\Process.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\SetTransactionStatus.xaml
+
+    
+</details>
+<details>
+    <summary>
+    <b>Tests</b>
+    </summary>
+
+    
+
+    
+</details>
 
 <hr />
 

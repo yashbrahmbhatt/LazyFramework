@@ -1,11 +1,7 @@
-# AddCalculatedColumns
-Class: AddCalculatedColumns
+# ParseProjectJSON
+Class: ParseProjectJSON
 
-Adds calculated columns for all queue items.
 
-Current Fields:
-- Time Saved
-- Execution Time
 
 <hr />
 
@@ -39,11 +35,15 @@ Current Fields:
 - GlobalVariablesNamespace
 - GlobalConstantsNamespace
 - System.Reflection
-- System.ComponentModel
-- System.Runtime.Serialization
-- System.Xml.Serialization
-- UiPath.DataTableUtilities
 - System.IO
+- Newtonsoft.Json
+- Newtonsoft.Json.Linq
+- System.Dynamic
+- System.ComponentModel
+- System.Collections.Specialized
+- System.Runtime.Serialization
+- System.Linq.Expressions
+- System.Xml.Serialization
 
 
 </details>
@@ -54,15 +54,17 @@ Current Fields:
 
     - Microsoft.CSharp
 - Microsoft.VisualBasic
-- Microsoft.VisualBasic.Core
-- Microsoft.VisualBasic.Forms
 - Microsoft.Win32.Primitives
+- netstandard
+- Newtonsoft.Json
 - NPOI
 - PresentationFramework
 - System
 - System.Activities
-- System.CodeDom
 - System.Collections
+- System.Collections.Immutable
+- System.Collections.NonGeneric
+- System.Collections.Specialized
 - System.ComponentModel
 - System.ComponentModel.EventBasedAsync
 - System.ComponentModel.Primitives
@@ -78,6 +80,9 @@ Current Fields:
 - System.IO.FileSystem.Watcher
 - System.IO.Packaging
 - System.Linq
+- System.Linq.Expressions
+- System.Linq.Parallel
+- System.Linq.Queryable
 - System.Memory
 - System.Memory.Data
 - System.ObjectModel
@@ -110,7 +115,7 @@ Current Fields:
     <b>Arguments</b>
     </summary>
 
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_SuccessTimeSaved</td><td>InArgument</td><td>x:Double</td><td>Time saved in minutes for successful queue items.</td></tr><tr><td>in_BusExTimeSaved</td><td>InArgument</td><td>x:Double</td><td>Time saved in minutes for business exception queue items.</td></tr><tr><td>in_SysExTimeSaved</td><td>InArgument</td><td>x:Double</td><td>Time saved in minutes for application exception queue items.</td></tr><tr><td>io_dt_Table</td><td>InOutArgument</td><td>sd:DataTable</td><td>The table to add the calculated columns to.</td></tr></table>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_ProjectJSONPath</td><td>InArgument</td><td>x:String</td><td></td></tr><tr><td>out_Name</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_Description</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_Dependencies</td><td>OutArgument</td><td>sd:DataTable</td><td></td></tr><tr><td>out_FileInfoCollection</td><td>OutArgument</td><td>sd:DataTable</td><td></td></tr><tr><td>out_EntryPoints</td><td>OutArgument</td><td>scg:IEnumerable(x:String)</td><td></td></tr><tr><td>out_Language</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_ProjectVersion</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_StudioVersion</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_Type</td><td>OutArgument</td><td>x:String</td><td></td></tr></table>
     
 </details>
 <details>
@@ -139,49 +144,20 @@ Current Fields:
 ```mermaid
 stateDiagram-v2
 
-Sequence_1: Sequence - AddCalculatedColumns
+Sequence_1: Sequence - ParseProjectJSON
 state Sequence_1 {
 direction TB
-LogMessage_1 : LogMessage - LM -- Start
-AddDataColumn1_2 : AddDataColumn - Add Time Saved
-LogMessage_1 --> AddDataColumn1_2
-AddDataColumn1_3 : AddDataColumn - Add Execution Time
-AddDataColumn1_2 --> AddDataColumn1_3
-ForEachRow_1: ForEachRow - For Each Row
-state ForEachRow_1 {
+BuildDataTable_2 : BuildDataTable - Build Dependencies Table
+MultipleAssign_1 : MultipleAssign - Parse File
+BuildDataTable_2 --> MultipleAssign_1
+ForEach1_1: ForEach - For Each DependencyArray
+state ForEach1_1 {
 direction TB
-Sequence_6: Sequence - Update Rows
-state Sequence_6 {
-direction TB
-If_3: If - Item not completed?
-state If_3 {
-direction TB
-Continue_1 : Continue - Skip Row
+AddDataRow_2 : AddDataRow - Add Row
 }
-Continue_1 --> If_3
-MultipleAssign_4 : MultipleAssign - Update Execution Time
-If_3 --> MultipleAssign_4
-If_1: If - Failed?
-state If_1 {
-direction TB
-If_2: If - System Or Business?
-state If_2 {
-direction TB
-MultipleAssign_1 : MultipleAssign - Set System Exception Time Saved
-MultipleAssign_2 : MultipleAssign - Set Business Exception Time Saved
-MultipleAssign_1 --> MultipleAssign_2
+AddDataRow_2 --> ForEach1_1
+WriteLine_1 : WriteLine - Write Line
+ForEach1_1 --> WriteLine_1
 }
-MultipleAssign_2 --> If_2
-MultipleAssign_3 : MultipleAssign - Set Success Time Saved
-If_2 --> MultipleAssign_3
-}
-MultipleAssign_3 --> If_1
-}
-If_1 --> Sequence_6
-}
-Sequence_6 --> ForEachRow_1
-LogMessage_2 : LogMessage - LM -- Complete
-ForEachRow_1 --> LogMessage_2
-}
-LogMessage_2 --> Sequence_1
+WriteLine_1 --> Sequence_1
 ```

@@ -74,6 +74,24 @@ If there are multiple transactions, use the argument in_TransactionNumber as an 
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_TransactionNumber</td><td>InArgument</td><td>x:Int32</td><td>Sequential counter of transaction items.</td></tr><tr><td>in_Config</td><td>InArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>Dictionary structure to store configuration data of the process (settings, constants and assets).</td></tr><tr><td>out_TransactionItem</td><td>OutArgument</td><td>ui:QueueItem</td><td>Transaction item to be processed.</td></tr><tr><td>out_TransactionField1</td><td>OutArgument</td><td>x:String</td><td>Allow the optional addition of information about the transaction item.</td></tr><tr><td>out_TransactionField2</td><td>OutArgument</td><td>x:String</td><td>Allow the optional addition of information about the transaction item.</td></tr><tr><td>out_TransactionID</td><td>OutArgument</td><td>x:String</td><td>Transaction ID used for information and logging purposes. Ideally, the ID should be unique for each transaction. </td></tr><tr><td>io_dt_TransactionData</td><td>InOutArgument</td><td>sd:DataTable</td><td>This variable can be used in case transactions are stored in a DataTable (for example, after being retrieved from a spreadsheet).</td></tr></table>
     
 </details>
+<details>
+    <summary>
+    <b>Workflows Used</b>
+    </summary>
+
+    
+
+    
+</details>
+<details>
+    <summary>
+    <b>Tests</b>
+    </summary>
+
+    
+
+    
+</details>
 
 <hr />
 

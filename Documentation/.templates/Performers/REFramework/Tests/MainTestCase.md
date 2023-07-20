@@ -98,6 +98,24 @@ The verification should check whether the status file or report built after the 
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
     
 </details>
+<details>
+    <summary>
+    <b>Workflows Used</b>
+    </summary>
+
+    - C:\Users\eyash\Documents\UiPath\LazyFramework\Main.xaml
+
+    
+</details>
+<details>
+    <summary>
+    <b>Tests</b>
+    </summary>
+
+    
+
+    
+</details>
 
 <hr />
 

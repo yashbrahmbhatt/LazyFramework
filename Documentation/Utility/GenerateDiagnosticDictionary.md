@@ -93,6 +93,24 @@ Generates a dictinoary that contains diagnostic information in cases of system e
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_Exception</td><td>InArgument</td><td>s:Exception</td><td>The exception to use to generate diagnostics.</td></tr><tr><td>out_TemplateData</td><td>OutArgument</td><td>scg:Dictionary(x:String, x:Object)</td><td>A dictionary with the diagnostic data filled in.</td></tr></table>
     
 </details>
+<details>
+    <summary>
+    <b>Workflows Used</b>
+    </summary>
+
+    
+
+    
+</details>
+<details>
+    <summary>
+    <b>Tests</b>
+    </summary>
+
+    - C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\GenerateDiagnosticDictionary\GenerateDiagnosticDictionarySuccess.xaml
+
+    
+</details>
 
 <hr />
 

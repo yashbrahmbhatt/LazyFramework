@@ -57,18 +57,27 @@ Class: ParseWorkflow
 
     - Microsoft.CSharp
 - Microsoft.VisualBasic
+- Microsoft.Win32.Primitives
+- netstandard
 - Newtonsoft.Json
 - NPOI
+- PresentationFramework
 - System
 - System.Activities
+- System.Collections
 - System.Collections.Immutable
+- System.Collections.NonGeneric
+- System.Collections.Specialized
 - System.ComponentModel
+- System.ComponentModel.EventBasedAsync
+- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
 - System.Core
 - System.Data
 - System.Data.Common
+- System.Data.SqlClient
 - System.IO.FileSystem.AccessControl
 - System.IO.FileSystem.DriveInfo
 - System.IO.FileSystem.Watcher
@@ -82,13 +91,19 @@ Class: ParseWorkflow
 - System.ObjectModel
 - System.Private.CoreLib
 - System.Private.DataContractSerialization
+- System.Private.ServiceModel
 - System.Private.Uri
 - System.Private.Xml
 - System.Private.Xml.Linq
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions
+- System.Runtime.CompilerServices.Unsafe
+- System.Runtime.CompilerServices.VisualC
+- System.Runtime.InteropServices
 - System.Runtime.Serialization
+- System.Runtime.Serialization.Formatters
+- System.Runtime.Serialization.Primitives
 - System.Security.Permissions
 - System.ServiceModel
 - System.ServiceModel.Activities
@@ -99,53 +114,10 @@ Class: ParseWorkflow
 - UiPath.Platform
 - UiPath.Studio.Constants
 - UiPath.System.Activities
-- UiPath.Workflow
-- System.Private.ServiceModel
-- System.Collections
-- netstandard
-- System.ComponentModel.EventBasedAsync
-- PresentationFramework
-- WindowsBase
-- Microsoft.Win32.Primitives
-- System.ComponentModel.Primitives
-- System.Runtime.Serialization.Formatters
-- System.Runtime.Serialization.Primitives
-- System.Data.SqlClient
 - UiPath.System.Activities.Design
 - UiPath.System.Activities.ViewModels
-- System.Runtime.CompilerServices.VisualC
-- System.Runtime.CompilerServices.Unsafe
-- System.Runtime.InteropServices
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#194-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#207-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#208-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#210-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#211-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#218-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#222-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#223-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#224-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#225-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#226-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#227-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#228-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#233-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#234-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#236-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#240-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#241-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#242-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#243-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#244-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#245-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#246-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#253-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#254-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#255-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#256-0
-- ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#276-0
-- System.Collections.Specialized
-- System.Collections.NonGeneric
+- UiPath.Workflow
+- WindowsBase
 
 
 </details>
@@ -154,7 +126,25 @@ Class: ParseWorkflow
     <b>Arguments</b>
     </summary>
 
-    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_FilePath</td><td>InArgument</td><td>x:String</td><td></td></tr><tr><td>out_Document</td><td>OutArgument</td><td>sxl:XDocument</td><td></td></tr><tr><td>out_Namespaces</td><td>OutArgument</td><td>scg:List(x:String)</td><td></td></tr><tr><td>out_References</td><td>OutArgument</td><td>scg:List(x:String)</td><td></td></tr><tr><td>out_DocumentClass</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_WorkflowName</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_WorkflowDescription</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_OutlineMarkdown</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_dt_Arguments</td><td>OutArgument</td><td>sd:DataTable</td><td></td></tr></table>
+    <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_FilePath</td><td>InArgument</td><td>x:String</td><td></td></tr><tr><td>out_Document</td><td>OutArgument</td><td>sxl:XDocument</td><td></td></tr><tr><td>out_Namespaces</td><td>OutArgument</td><td>scg:List(x:String)</td><td></td></tr><tr><td>out_References</td><td>OutArgument</td><td>scg:List(x:String)</td><td></td></tr><tr><td>out_DocumentClass</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_WorkflowName</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_WorkflowDescription</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_OutlineMarkdown</td><td>OutArgument</td><td>x:String</td><td></td></tr><tr><td>out_dt_Arguments</td><td>OutArgument</td><td>sd:DataTable</td><td></td></tr><tr><td>out_WorkflowsUsed</td><td>OutArgument</td><td>scg:IEnumerable(x:String)</td><td></td></tr></table>
+    
+</details>
+<details>
+    <summary>
+    <b>Workflows Used</b>
+    </summary>
+
+    - C:\Users\eyash\Documents\UiPath\LazyFramework\AutoDocs\TraverseWorkflow.xaml
+
+    
+</details>
+<details>
+    <summary>
+    <b>Tests</b>
+    </summary>
+
+    
+
     
 </details>
 
@@ -171,6 +161,8 @@ direction TB
 BuildDataTable_1 : BuildDataTable - Initialize Arguments Table
 MultipleAssign_1 : MultipleAssign - Parse
 BuildDataTable_1 --> MultipleAssign_1
+WriteLine_1 : WriteLine - Write Line
+MultipleAssign_1 --> WriteLine_1
 ForEach1_1: ForEach - Add to Arguments Table
 state ForEach1_1 {
 direction TB

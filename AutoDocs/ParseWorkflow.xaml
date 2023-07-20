@@ -9,16 +9,15 @@
     <x:Property Name="out_WorkflowDescription" Type="OutArgument(x:String)" />
     <x:Property Name="out_OutlineMarkdown" Type="OutArgument(x:String)" />
     <x:Property Name="out_dt_Arguments" Type="OutArgument(sd:DataTable)" />
-    <x:Property Name="out_WorkflowsUsed" Type="InArgument(x:String)" />
-    <x:Property Name="out_UsedInWorkflows" Type="InArgument(x:String)" />
+    <x:Property Name="out_WorkflowsUsed" Type="OutArgument(scg:IEnumerable(x:String))" />
   </x:Members>
   <this:ParseWorkflow.in_FilePath>
     <InArgument x:TypeArguments="x:String">
-      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_89">@"C:\Users\yash.brahmbhatt\Documents\UiPath\Internal\LazyFramework\.templates\Performers\Basic\BasicPerformer.xaml"</CSharpValue>
+      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_98">@"C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\Basic\BasicPerformer.xaml"</CSharpValue>
     </InArgument>
   </this:ParseWorkflow.in_FilePath>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>884,1042</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1632,1172</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -64,18 +63,27 @@
     <sco:Collection x:TypeArguments="AssemblyReference">
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
       <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
       <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
       <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
       <AssemblyReference>System.Console</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
       <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
@@ -89,13 +97,19 @@
       <AssemblyReference>System.ObjectModel</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
       <AssemblyReference>System.Private.Xml</AssemblyReference>
       <AssemblyReference>System.Private.Xml.Linq</AssemblyReference>
       <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.CompilerServices.Unsafe</AssemblyReference>
+      <AssemblyReference>System.Runtime.CompilerServices.VisualC</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
       <AssemblyReference>System.Security.Permissions</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
@@ -106,56 +120,13 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Workflow</AssemblyReference>
-      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Collections</AssemblyReference>
-      <AssemblyReference>netstandard</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
-      <AssemblyReference>PresentationFramework</AssemblyReference>
-      <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
-      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
-      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
-      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
-      <AssemblyReference>System.Runtime.CompilerServices.VisualC</AssemblyReference>
-      <AssemblyReference>System.Runtime.CompilerServices.Unsafe</AssemblyReference>
-      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#194-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#207-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#208-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#210-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#211-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#218-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#222-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#223-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#224-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#225-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#226-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#227-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#228-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#233-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#234-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#236-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#240-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#241-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#242-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#243-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#244-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#245-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#246-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#253-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#254-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#255-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#256-0</AssemblyReference>
-      <AssemblyReference>ℛ*6b3cf076-fd2c-4bf1-9bfb-4193a6a2d4b8#276-0</AssemblyReference>
-      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
-      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ParseWorkflow" sap:VirtualizedContainerService.HintSize="484.6666666666667,977.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ParseWorkflow" sap:VirtualizedContainerService.HintSize="485,1107" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IEnumerable(sxl:XElement)" Name="ArgumentElements" />
       <Variable x:TypeArguments="sxl:XElement" Name="RootElement" />
@@ -179,21 +150,20 @@
           <Literal x:TypeArguments="x:String" Value="" />
         </Variable.Default>
       </Variable>
-      <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="WorkflowsUsedTokens" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BuildDataTable DisplayName="Initialize Arguments Table" sap:VirtualizedContainerService.HintSize="422.6666666666667,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Direction&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Type&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Description&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+    <ui:BuildDataTable DisplayName="Initialize Arguments Table" sap:VirtualizedContainerService.HintSize="423,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Direction&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Type&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Description&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
       <ui:BuildDataTable.DataTable>
         <OutArgument x:TypeArguments="sd:DataTable">
           <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">out_dt_Arguments</CSharpReference>
         </OutArgument>
       </ui:BuildDataTable.DataTable>
     </ui:BuildDataTable>
-    <ui:MultipleAssign DisplayName="Parse" sap:VirtualizedContainerService.HintSize="422.6666666666667,376.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Parse" sap:VirtualizedContainerService.HintSize="423,380" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -307,19 +277,24 @@
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">
-                <CSharpReference x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_44">WorkflowsUsedTokens</CSharpReference>
+                <CSharpReference x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_48">out_WorkflowsUsed</CSharpReference>
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="scg:IEnumerable(x:String)">
-                <CSharpValue x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_94">out_Document.Descendants("InvokeWorkflowFile").Select(d =&gt; d.Attributes().First(a =&gt; a.Name.LocalName == "WorkflowFileName").Value)</CSharpValue>
+                <CSharpValue x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_107">out_Document.Descendants().Where(d =&gt; d.Name.LocalName == "InvokeWorkflowFile").Select(d =&gt; Path.Combine(Directory.GetCurrentDirectory(),d.Attributes().First(a =&gt; a.Name.LocalName == "WorkflowFileName").Value.Replace("\\\\", "\\"))).Distinct()</CSharpValue>
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="Add to Arguments Table" sap:VirtualizedContainerService.HintSize="422.6666666666667,54" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="423,90" sap2010:WorkflowViewState.IdRef="WriteLine_1">
+      <InArgument x:TypeArguments="x:String">
+        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_101">out_WorkflowsUsed.Count().ToString()</CSharpValue>
+      </InArgument>
+    </WriteLine>
+    <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="Add to Arguments Table" sap:VirtualizedContainerService.HintSize="423,52" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="sxl:XElement">
           <ActivityAction.Argument>
@@ -450,7 +425,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AutoDocs\\Helper\\TraverseWorkflow.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="AutoDocs\\TraverseWorkflow.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AutoDocs\\Helper\\TraverseWorkflow.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="423,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="AutoDocs\\TraverseWorkflow.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="sxl:XElement" x:Key="in_XElement">
           <CSharpValue x:TypeArguments="sxl:XElement" sap2010:WorkflowViewState.IdRef="CSharpValue`1_67">out_Document.Root</CSharpValue>
@@ -463,7 +438,7 @@
         </InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="422.6666666666667,100.66666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">

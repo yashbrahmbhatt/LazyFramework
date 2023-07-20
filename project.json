@@ -1,5 +1,6 @@
 {
   "name": "LazyFramework",
+  "projectId": "7c715e38-dc49-4ac2-87b1-7de4d3e7b07d",
   "description": "A different design approach to UiPath Project frameworks that heavily leverage templates.",
   "main": "Dispatcher.xaml",
   "dependencies": {
@@ -314,10 +315,10 @@
         "fileName": "Tests\\Utility\\LoadConfig\\LoadConfigSuccess.xaml"
       },
       {
-        "editingStatus": "Publishable",
-        "testCaseId": "b069808e-65b0-4757-9a6e-241cdc158de2",
+        "editingStatus": "InProgress",
+        "testCaseId": "eb0c377b-6aed-47a1-9a75-180e1029d001",
         "testCaseType": "TestCase",
-        "fileName": "Tests\\AutoDocs\\Helper\\TraverseWorkflow\\SequenceWithNoNested.xaml"
+        "fileName": "Tests\\AutoDocs\\TraverseWorkflow\\SuccessTestCase.xaml"
       }
     ],
     "modernBehavior": true

@@ -53,68 +53,62 @@ Class: TraverseWorkflow
     </summary>
 
     - Microsoft.CSharp
+- Microsoft.VisualBasic
+- Microsoft.Win32.Primitives
+- netstandard
+- Newtonsoft.Json
+- NPOI
+- PresentationFramework
 - System
-- System.Linq
-- System.Core
 - System.Activities
+- System.Collections
+- System.Collections.Immutable
+- System.Collections.NonGeneric
+- System.Collections.Specialized
+- System.ComponentModel
+- System.ComponentModel.EventBasedAsync
+- System.ComponentModel.Primitives
+- System.ComponentModel.TypeConverter
+- System.Configuration.ConfigurationManager
+- System.Console
+- System.Core
 - System.Data
 - System.Data.Common
+- System.IO.FileSystem.AccessControl
+- System.IO.FileSystem.DriveInfo
+- System.IO.FileSystem.Watcher
+- System.IO.Packaging
+- System.Linq
+- System.Linq.Expressions
+- System.Linq.Parallel
+- System.Linq.Queryable
+- System.Memory
+- System.Memory.Data
+- System.ObjectModel
+- System.Private.CoreLib
+- System.Private.DataContractSerialization
+- System.Private.ServiceModel
+- System.Private.Uri
+- System.Private.Xml
+- System.Private.Xml.Linq
+- System.Reflection.DispatchProxy
+- System.Reflection.Metadata
+- System.Reflection.TypeExtensions
 - System.Runtime.Serialization
+- System.Runtime.Serialization.Formatters
+- System.Runtime.Serialization.Primitives
+- System.Security.Permissions
 - System.ServiceModel
 - System.ServiceModel.Activities
 - System.Xaml
-- System.Activities
-- Microsoft.VisualBasic
-- System.Private.CoreLib
-- System.Data
-- System
-- System.Core
 - System.Xml
 - System.Xml.Linq
-- System.Xaml
-- UiPath.System.Activities
-- UiPath.UiAutomation.Activities
 - UiPath.Studio.Constants
-- System.Reflection.DispatchProxy
-- System.Reflection.TypeExtensions
-- System.ObjectModel
-- System.Reflection.Metadata
-- System.Private.Xml.Linq
-- System.Private.Xml
-- UiPath.Workflow
-- System.Private.DataContractSerialization
-- System.Linq.Expressions
-- System.Linq.Parallel
-- System.Collections.Immutable
-- System.Linq.Queryable
-- NPOI
-- System.Memory.Data
-- System.ComponentModel.TypeConverter
-- System.Console
-- System.Configuration.ConfigurationManager
-- System.Security.Permissions
-- System.ComponentModel
-- System.Memory
-- System.Private.Uri
-- System.IO.FileSystem.Watcher
-- System.IO.Packaging
-- System.IO.FileSystem.AccessControl
-- System.IO.FileSystem.DriveInfo
-- System.Private.ServiceModel
-- System.Collections
-- netstandard
-- Newtonsoft.Json
-- System.ComponentModel.EventBasedAsync
-- PresentationFramework
-- WindowsBase
-- Microsoft.Win32.Primitives
-- System.ComponentModel.Primitives
-- System.Collections.Specialized
-- System.Collections.NonGeneric
-- System.Runtime.Serialization.Formatters
-- System.Runtime.Serialization.Primitives
+- UiPath.System.Activities
 - UiPath.System.Activities.Design
 - UiPath.System.Activities.ViewModels
+- UiPath.Workflow
+- WindowsBase
 
 
 </details>
@@ -124,6 +118,24 @@ Class: TraverseWorkflow
     </summary>
 
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_XElement</td><td>InArgument</td><td>sxl:XElement</td><td></td></tr><tr><td>io_Markdown</td><td>InOutArgument</td><td>x:String</td><td></td></tr><tr><td>io_PreviousActivity</td><td>InOutArgument</td><td>x:String</td><td></td></tr></table>
+    
+</details>
+<details>
+    <summary>
+    <b>Workflows Used</b>
+    </summary>
+
+    - C:\Users\eyash\Documents\UiPath\LazyFramework\AutoDocs\TraverseWorkflow.xaml
+
+    
+</details>
+<details>
+    <summary>
+    <b>Tests</b>
+    </summary>
+
+    
+
     
 </details>
 

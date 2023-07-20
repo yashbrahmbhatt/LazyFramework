@@ -91,6 +91,26 @@ The verification should check if after opening the applications, the expected st
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></table>
     
 </details>
+<details>
+    <summary>
+    <b>Workflows Used</b>
+    </summary>
+
+    - C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\InitAllSettings.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Framework/InitAllApplications.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\CloseAllApplications.xaml
+
+    
+</details>
+<details>
+    <summary>
+    <b>Tests</b>
+    </summary>
+
+    
+
+    
+</details>
 
 <hr />
 

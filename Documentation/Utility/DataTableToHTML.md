@@ -104,6 +104,24 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
     <table><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr><tr><td>in_dt_ToConvert</td><td>InArgument</td><td>sd:DataTable</td><td>The DataTable to convert to HTML.</td></tr><tr><td>out_HTMLTable</td><td>OutArgument</td><td>x:String</td><td>The output HTML.</td></tr></table>
     
 </details>
+<details>
+    <summary>
+    <b>Workflows Used</b>
+    </summary>
+
+    
+
+    
+</details>
+<details>
+    <summary>
+    <b>Tests</b>
+    </summary>
+
+    - C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\DataTableToHTML\DataTableToHTMLSuccess.xaml
+
+    
+</details>
 
 <hr />
 
