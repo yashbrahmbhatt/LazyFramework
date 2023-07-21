@@ -15,7 +15,7 @@
     </InArgument>
   </this:Performer.in_TestID>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>920,1408</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>920,1465</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -86,7 +86,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="[Process Name]&#xA;[Author]&#xA;&#xA;[Description of work done for each transaction]" DisplayName="Performer" sap:VirtualizedContainerService.HintSize="930,1343" sap2010:WorkflowViewState.IdRef="Sequence_27">
+  <Sequence sap2010:Annotation.AnnotationText="[Process Name]&#xA;[Author]&#xA;&#xA;[Description of work done for each transaction]" DisplayName="Performer" sap:VirtualizedContainerService.HintSize="930,1400" sap2010:WorkflowViewState.IdRef="Sequence_27">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Config">
         <Variable.Default>
@@ -101,11 +101,12 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Initialize Settings" sap:VirtualizedContainerService.HintSize="868,405" sap2010:WorkflowViewState.IdRef="Sequence_28">
+    <Sequence sap2010:Annotation.AnnotationText="Initialize Settings. This is outside of the state machine because if this fails, we're probably going to fail when sending the email anyways. Let's just fail faster :)" DisplayName="Initialize Settings" sap:VirtualizedContainerService.HintSize="868,462" sap2010:WorkflowViewState.IdRef="Sequence_28">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:LogMessage DisplayName="LM: Screen" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info">
