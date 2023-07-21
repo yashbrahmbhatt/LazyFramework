@@ -221,8 +221,8 @@ This is used to keep track of features to be implemented and what has been accom
 - [x] Import REFramework - Yash brahmbhatt 16/7/2023
 - [x] Add Tests for all modules so far - Yash Brahmbhatt 19/07/2023
 - [x] Add Auto-Documentation Module - Yash Brahmbhatt 18/07/2023
-- [ ] <b>Add Support for Mermaid Diagrams in AutoDocs</b>
-- [ ] Create ApplicationDispatcher*
+- [x] Add Support for Mermaid Diagrams in AutoDocs - Yash Brahmbhatt 21-07-2023 * Not all activities are currently supported.
+- [ ] <b>Create ApplicationDispatcher</b>
 - [ ] Create Tasker
 - [ ] Create ExcelDispatcher
 - [ ] Create FileDispatcher
@@ -231,9 +231,6 @@ This is used to keep track of features to be implemented and what has been accom
 - [ ] Create Classifier (DU)
 
 ### Framework Changes
-- [ ] Add support for Windows - Legacy type projects*
-- [ ] Add support for VB*
-- [ ] Finish porting over modules and workflows to the 'hardtyped' branch for upcoming support for coded workflows/source C# files.
 - [ ] <b>Add a 'Mapping' sheet to the Configs that read an excel file into a DataSet with each sheet being a named DataTable within it.</b>
 
 <br />
