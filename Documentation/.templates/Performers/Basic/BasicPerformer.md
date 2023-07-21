@@ -14,8 +14,6 @@ Class: Performer
     <b>Namespaces</b>
     </summary>
     
-- GlobalConstantsNamespace
-- GlobalVariablesNamespace
 - System
 - System.Activities
 - System.Activities.Runtime.Collections
@@ -24,7 +22,6 @@ Class: Performer
 - System.Collections.Generic
 - System.Collections.ObjectModel
 - System.ComponentModel
-- System.Linq
 - System.Reflection
 - System.Runtime.Serialization
 - System.Windows
@@ -302,7 +299,7 @@ MultipleAssign_16 --> Switch1_3
 Switch1_3: Switch - @Test Variations - Process
 state Switch1_3 {
 direction TB
-Throw_5 : Throw - Throw GetTransactionData Error
+Throw_5 : Throw - Throw FrameworkProcess Error
 }
 InvokeWorkflowFile_30 : InvokeWorkflowFile - Perform Transaction
 Switch1_3 --> InvokeWorkflowFile_30
@@ -313,10 +310,10 @@ state TryCatch_11 {
 direction TB
 InvokeWorkflowFile_31 : InvokeWorkflowFile - HandleTransactionOutcome.xaml - Invoke Workflow File
 InvokeWorkflowFile_31 --> Switch1_4
-Switch1_4: Switch - @Test Variations - Process
+Switch1_4: Switch - @Test Variations - Process (Bubble)
 state Switch1_4 {
 direction TB
-Throw_7 : Throw - Throw GetTransactionData Error
+Throw_7 : Throw - Throw FrameworkProcess Error (Bubble)
 }
 }
 }

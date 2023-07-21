@@ -11,30 +11,12 @@ Carry out the required steps for this transaction/unit of work.
     <b>Namespaces</b>
     </summary>
     
-- GlobalConstantsNamespace
-- GlobalVariablesNamespace
-- Microsoft.VisualBasic
-- Microsoft.VisualBasic.Activities
 - System
 - System.Activities
-- System.Activities.Expressions
 - System.Activities.Statements
-- System.Activities.Validation
-- System.Activities.XamlIntegration
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
-- System.Data
-- System.Diagnostics
-- System.Linq
-- System.Net.Mail
-- System.Reflection
-- System.Runtime.Serialization
-- System.Text
-- System.Windows.Markup
-- System.Xml
-- System.Xml.Linq
-- UiPath.Core
 - UiPath.Core.Activities
 
 

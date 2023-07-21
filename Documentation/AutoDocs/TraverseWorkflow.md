@@ -13,36 +13,18 @@ Class: TraverseWorkflow
     
 - System.Activities
 - System.Activities.Statements
-- System.Activities.Expressions
-- System.Activities.Validation
-- System.Activities.XamlIntegration
-- Microsoft.VisualBasic
-- Microsoft.VisualBasic.Activities
 - System
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
 - System.Data
-- System.Diagnostics
 - System.Linq
-- System.Net.Mail
 - System.Xml
-- System.Text
 - System.Xml.Linq
-- UiPath.Core
 - UiPath.Core.Activities
-- System.Windows.Markup
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
 - System.Reflection
 - System.Xml.Serialization
-- System.IO
 - Newtonsoft.Json.Linq
-- Newtonsoft.Json
-- System.Dynamic
-- System.ComponentModel
-- System.Collections.Specialized
-- System.Linq.Expressions
 - System.Runtime.Serialization
 
 
@@ -156,64 +138,51 @@ Sequence_1: Sequence - TraverseWorkflow
 state Sequence_1 {
 direction TB
 MultipleAssign_1 : MultipleAssign - Parse Element
-InvokeCode_1 : InvokeCode - Invoke Code
-MultipleAssign_1 --> InvokeCode_1
+LogMessage_1 : LogMessage - LM -- Start
+MultipleAssign_1 --> LogMessage_1
+InvokeCode_1 : InvokeCode - Get Closest Descendants with Display Names
+LogMessage_1 --> InvokeCode_1
 InvokeCode_1 --> If_1
 If_1: If - ActivityName Not Empty?
 state If_1 {
 direction TB
 
-CommentOut_1: CommentOut - Comment Out
-state CommentOut_1 {
+If_3: If - Activity Has No Children?
+state If_3 {
+direction TB
+MultipleAssign_11 : MultipleAssign - Update Markdown for Single Element
+
+Switch1_2: Switch - Activity Type?
+state Switch1_2 {
 direction TB
 
-Sequence_12: Sequence - Ignored Activities
-state Sequence_12 {
+Sequence_13: Sequence - If
+state Sequence_13 {
 direction TB
-WriteLine_2 : WriteLine - Write Line
+MultipleAssign_12 : MultipleAssign - Update Markdown for If Statement
+MultipleAssign_12 --> ForEach1_7
+ForEach1_7: ForEach - Recurse If.Then and If.Else
+state ForEach1_7 {
+direction TB
+
+Sequence_15: Sequence - Process Child
+state Sequence_15 {
+direction TB
+MultipleAssign_13 : MultipleAssign - Update Previous Element to Blank
+InvokeWorkflowFile_4 : InvokeWorkflowFile - Recurse Child
+MultipleAssign_13 --> InvokeWorkflowFile_4
 }
 }
-
-If_2: If - Activity Has No Children?
-state If_2 {
-direction TB
-
-Switch1_1: Switch - Switch
-state Switch1_1 {
-direction TB
-
-Sequence_10: Sequence - Default
-state Sequence_10 {
-direction TB
-MultipleAssign_8 : MultipleAssign - Multiple Assign
-MultipleAssign_8 --> ForEach1_4
-ForEach1_4: ForEach - Recurse
-state ForEach1_4 {
-direction TB
-
-Sequence_11: Sequence - Body
-state Sequence_11 {
-direction TB
-MultipleAssign_9 : MultipleAssign - Multiple Assign
-InvokeWorkflowFile_3 : InvokeWorkflowFile - AutoDocs\\Helper\\TraverseWorkflow.xaml - Invoke Workflow File
-MultipleAssign_9 --> InvokeWorkflowFile_3
-}
-}
-MultipleAssign_10 : MultipleAssign - Multiple Assign
-ForEach1_4 --> MultipleAssign_10
+MultipleAssign_14 : MultipleAssign - Close Markdown for If
+ForEach1_7 --> MultipleAssign_14
 }
 }
 }
 
-ForEach1_1: ForEach - Recurse
-state ForEach1_1 {
+ForEach1_5: ForEach - Recurse Children
+state ForEach1_5 {
 direction TB
-
-Sequence_2: Sequence - Body
-state Sequence_2 {
-direction TB
-InvokeWorkflowFile_1 : InvokeWorkflowFile - AutoDocs\\Helper\\TraverseWorkflow.xaml - Invoke Workflow File
-}
+InvokeWorkflowFile_6 : InvokeWorkflowFile - Traverse Child
 }
 }
 }

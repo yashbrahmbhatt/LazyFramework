@@ -13,29 +13,11 @@ Generates a dictinoary that contains diagnostic information in cases of system e
     
 - System.Activities
 - System.Activities.Statements
-- System.Activities.Expressions
-- System.Activities.Validation
-- System.Activities.XamlIntegration
-- Microsoft.VisualBasic
-- Microsoft.VisualBasic.Activities
 - System
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
-- System.Data
-- System.Diagnostics
-- System.Linq
-- System.Net.Mail
-- System.Xml
-- System.Text
-- System.Xml.Linq
-- UiPath.Core
 - UiPath.Core.Activities
-- System.Windows.Markup
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
-- System.Reflection
-- System.Runtime.Serialization
 
 
 </details>

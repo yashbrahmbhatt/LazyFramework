@@ -11,16 +11,12 @@ Given a CRON expression for the maintenance schedule, checks whether the current
     <b>Namespaces</b>
     </summary>
     
-- GlobalConstantsNamespace
-- GlobalVariablesNamespace
 - System
 - System.Activities
 - System.Activities.Statements
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
-- System.Linq
-- UiPath.Core
 - UiPath.Core.Activities
 
 

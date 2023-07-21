@@ -11,8 +11,6 @@ Handles the outcome of a transaction by updating the queue item status, as well 
     <b>Namespaces</b>
     </summary>
     
-- GlobalConstantsNamespace
-- GlobalVariablesNamespace
 - System
 - System.Activities
 - System.Activities.Statements
@@ -20,8 +18,6 @@ Handles the outcome of a transaction by updating the queue item status, as well 
 - System.Collections.Generic
 - System.Collections.ObjectModel
 - System.ComponentModel
-- System.Linq
-- System.Reflection
 - System.Runtime.Serialization
 - UiPath.Core
 - UiPath.Core.Activities

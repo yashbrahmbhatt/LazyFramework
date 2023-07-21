@@ -11,8 +11,6 @@ Reads data from the srouce of work and adds it to a queue.
     <b>Namespaces</b>
     </summary>
     
-- GlobalConstantsNamespace
-- GlobalVariablesNamespace
 - System
 - System.Activities
 - System.Activities.Runtime.Collections
@@ -20,7 +18,6 @@ Reads data from the srouce of work and adds it to a queue.
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
-- System.Linq
 - System.Reflection
 - System.Runtime.Serialization
 - UiPath.Core

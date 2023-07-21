@@ -11,33 +11,17 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
     <b>Namespaces</b>
     </summary>
     
-- GlobalConstantsNamespace
-- GlobalVariablesNamespace
-- Microsoft.VisualBasic
-- Microsoft.VisualBasic.Activities
 - System
 - System.Activities
-- System.Activities.Expressions
 - System.Activities.Statements
-- System.Activities.Validation
-- System.Activities.XamlIntegration
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
 - System.ComponentModel
 - System.Data
-- System.Diagnostics
-- System.Linq
-- System.Linq.Expressions
-- System.Net.Mail
 - System.Reflection
 - System.Runtime.Serialization
-- System.Text
-- System.Windows.Markup
-- System.Xml
-- System.Xml.Linq
 - System.Xml.Serialization
-- UiPath.Core
 - UiPath.Core.Activities
 - UiPath.DataTableUtilities
 

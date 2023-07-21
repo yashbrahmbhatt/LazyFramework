@@ -24,10 +24,6 @@ Reads all queue items for a single queue within a defined reporting period, writ
 - System.Runtime.Serialization
 - System.Activities.Runtime.Collections
 - Cronos
-- System.Linq.Expressions
-- UiPath.Core
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
 - System.Diagnostics
 - System.ComponentModel
 - UiPath.Platform.ResourceHandling
@@ -40,8 +36,6 @@ Reads all queue items for a single queue within a defined reporting period, writ
 - System.Dynamic
 - System.Xml.Serialization
 - System.Xml.Serialization
-- UiPath.Excel
-- UiPath.Excel.Activities.Business
 
 
 </details>

@@ -1,7 +1,7 @@
 # DataTableToHTMLSuccess
 Class: DataTableToHTMLSuccess
 
-A basic template for a test with the expected outcome being success.
+Validates that all rows are converted successfully to HTML.
 
 <hr />
 
@@ -13,38 +13,22 @@ A basic template for a test with the expected outcome being success.
     
 - System.Activities
 - System.Activities.Statements
-- System.Activities.Expressions
-- System.Activities.Validation
-- System.Activities.XamlIntegration
-- Microsoft.VisualBasic
-- Microsoft.VisualBasic.Activities
 - System
 - System.Collections
 - System.Collections.Generic
 - System.Data
-- System.Diagnostics
-- System.Drawing
-- System.IO
-- System.Linq
-- System.Net.Mail
-- System.Xml
-- System.Text
-- System.Xml.Linq
-- UiPath.Core
 - UiPath.Core.Activities
-- System.Windows.Markup
 - System.Collections.ObjectModel
 - System.Runtime.Serialization
 - System.Reflection
-- System.Linq.Expressions
 - UiPath.Testing.Activities
 - UiPath.Shared.Activities
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
 - System.Activities.Runtime.Collections
 - System.ComponentModel
 - System.Xml.Serialization
-- System.Text.RegularExpressions
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>

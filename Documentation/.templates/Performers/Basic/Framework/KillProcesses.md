@@ -11,8 +11,6 @@ Kill input processes by name.
     <b>Namespaces</b>
     </summary>
     
-- GlobalConstantsNamespace
-- GlobalVariablesNamespace
 - System
 - System.Activities
 - System.Activities.Statements
@@ -21,9 +19,7 @@ Kill input processes by name.
 - System.Collections.ObjectModel
 - System.ComponentModel
 - System.Diagnostics
-- System.Linq
 - System.Reflection
-- UiPath.Core
 - UiPath.Core.Activities
 
 

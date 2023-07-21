@@ -11,17 +11,12 @@ Close all applications gracefully.
     <b>Namespaces</b>
     </summary>
     
-- GlobalConstantsNamespace
-- GlobalVariablesNamespace
 - System
 - System.Activities
 - System.Activities.Statements
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
-- System.Linq
-- System.Reflection
-- UiPath.Core
 - UiPath.Core.Activities
 
 

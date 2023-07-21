@@ -13,40 +13,21 @@ Class: ParseWorkflow
     
 - System.Activities
 - System.Activities.Statements
-- System.Activities.Expressions
-- System.Activities.Validation
-- System.Activities.XamlIntegration
-- Microsoft.VisualBasic
-- Microsoft.VisualBasic.Activities
 - System
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
 - System.Data
-- System.Diagnostics
 - System.Linq
-- System.Net.Mail
 - System.Xml
-- System.Text
 - System.Xml.Linq
-- UiPath.Core
 - UiPath.Core.Activities
-- System.Windows.Markup
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
 - System.Reflection
-- UiPath.Platform.ResourceHandling
-- System.Xml.XPath
 - System.IO
 - Newtonsoft.Json.Linq
-- System.Linq.Expressions
 - System.Xml.Serialization
 - System.ComponentModel
 - System.Runtime.Serialization
-- System.Runtime.CompilerServices
-- Newtonsoft.Json
-- System.Dynamic
-- System.Collections.Specialized
 
 
 </details>
@@ -171,12 +152,12 @@ stateDiagram-v2
 Sequence_1: Sequence - ParseWorkflow
 state Sequence_1 {
 direction TB
+LogMessage_1 : LogMessage - LM -- Start
 BuildDataTable_1 : BuildDataTable - Initialize Arguments Table
+LogMessage_1 --> BuildDataTable_1
 MultipleAssign_1 : MultipleAssign - Parse
 BuildDataTable_1 --> MultipleAssign_1
-WriteLine_1 : WriteLine - Write Line
-MultipleAssign_1 --> WriteLine_1
-WriteLine_1 --> ForEach1_1
+MultipleAssign_1 --> ForEach1_1
 ForEach1_1: ForEach - Add to Arguments Table
 state ForEach1_1 {
 direction TB
@@ -189,9 +170,11 @@ AddDataRow_2 : AddDataRow - Add to ArgumentsTable
 MultipleAssign_5 --> AddDataRow_2
 }
 }
-InvokeWorkflowFile_1 : InvokeWorkflowFile - AutoDocs\\Helper\\TraverseWorkflow.xaml - Invoke Workflow File
+InvokeWorkflowFile_1 : InvokeWorkflowFile - Get Outline Mermaid
 ForEach1_1 --> InvokeWorkflowFile_1
-MultipleAssign_6 : MultipleAssign - Multiple Assign
+MultipleAssign_6 : MultipleAssign - Close Outline Mermaid
 InvokeWorkflowFile_1 --> MultipleAssign_6
+LogMessage_2 : LogMessage - LM -- Complete
+MultipleAssign_6 --> LogMessage_2
 }
 ```

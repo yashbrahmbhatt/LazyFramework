@@ -13,37 +13,24 @@ Class: DocumentProject
     
 - System.Activities
 - System.Activities.Statements
-- System.Activities.Expressions
-- System.Activities.Validation
-- System.Activities.XamlIntegration
-- Microsoft.VisualBasic
-- Microsoft.VisualBasic.Activities
 - System
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
 - System.Data
-- System.Diagnostics
 - System.Linq
-- System.Net.Mail
-- System.Xml
-- System.Text
-- System.Xml.Linq
-- UiPath.Core
 - UiPath.Core.Activities
-- System.Windows.Markup
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
 - System.Reflection
 - System.IO
-- System.Linq.Expressions
 - System.Runtime.Serialization
 - UiPath.Platform.ResourceHandling
 - System.ComponentModel
 - System.Xml.Serialization
 - System.ComponentModel
 - System.Xml.Serialization
-- UiPath.DataTableUtilities
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -118,7 +105,6 @@ Class: DocumentProject
 
 | Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
-| OutputRootFolder | InArgument | x:String |  |
 
     
 </details>
@@ -154,7 +140,9 @@ stateDiagram-v2
 Sequence_1: Sequence - DocumentProject
 state Sequence_1 {
 direction TB
+LogMessage_1 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize Vars
+LogMessage_1 --> MultipleAssign_1
 InvokeWorkflowFile_3 : InvokeWorkflowFile - AutoDocs\\ParseProjectJSON.xaml - Invoke Workflow File
 MultipleAssign_1 --> InvokeWorkflowFile_3
 MultipleAssign_3 : MultipleAssign - Get Test Workflows
@@ -167,17 +155,25 @@ direction TB
 Sequence_5: Sequence - Parse Test
 state Sequence_5 {
 direction TB
-InvokeWorkflowFile_4 : InvokeWorkflowFile - AutoDocs\\ParseWorkflow.xaml - Invoke Workflow File
+InvokeWorkflowFile_4 : InvokeWorkflowFile - Parse Tests
 MultipleAssign_4 : MultipleAssign - Add Values to Dictioanry
 InvokeWorkflowFile_4 --> MultipleAssign_4
 }
 }
-InvokeWorkflowFile_6 : InvokeWorkflowFile - AutoDocs\\DataTableToMarkdown.xaml - Invoke Workflow File
-ForEach1_3 --> InvokeWorkflowFile_6
-MultipleAssign_5 : MultipleAssign - Get Project Content
+LogMessage_2 : LogMessage - LM -- Tests Parsed
+ForEach1_3 --> LogMessage_2
+InvokeWorkflowFile_6 : InvokeWorkflowFile - Dependencies to MD
+LogMessage_2 --> InvokeWorkflowFile_6
+MultipleAssign_5 : MultipleAssign - Set Project Content
 InvokeWorkflowFile_6 --> MultipleAssign_5
-CreateDirectory_2 : CreateDirectory - Create Folder
-MultipleAssign_5 --> CreateDirectory_2
+MultipleAssign_5 --> If_2
+If_2: If - Output Root Exists?
+state If_2 {
+direction TB
+DeleteFolderX_2 : DeleteFolderX - Delete OutputRoot
+}
+CreateDirectory_2 : CreateDirectory - Create OutputRoot
+If_2 --> CreateDirectory_2
 WriteTextFile_2 : WriteTextFile - Write Project.md
 CreateDirectory_2 --> WriteTextFile_2
 WriteTextFile_2 --> ForEach1_1
@@ -185,17 +181,27 @@ ForEach1_1: ForEach - For Each Workflow
 state ForEach1_1 {
 direction TB
 
-Sequence_2: Sequence - Body
+Sequence_2: Sequence - Process Workflow
 state Sequence_2 {
 direction TB
-InvokeWorkflowFile_1 : InvokeWorkflowFile - ParseWorkflow.xaml - Invoke Workflow File
-InvokeWorkflowFile_7 : InvokeWorkflowFile - AutoDocs\\DataTableToMarkdown.xaml - Invoke Workflow File
+LogMessage_3 : LogMessage - LM -- Workflow
+InvokeWorkflowFile_1 : InvokeWorkflowFile - Parse Workflow
+LogMessage_3 --> InvokeWorkflowFile_1
+InvokeWorkflowFile_7 : InvokeWorkflowFile - Arguments To MD
 InvokeWorkflowFile_1 --> InvokeWorkflowFile_7
-MultipleAssign_2 : MultipleAssign - Multiple Assign
+MultipleAssign_2 : MultipleAssign - Set Output Vars
 InvokeWorkflowFile_7 --> MultipleAssign_2
-WriteTextFile_1 : WriteTextFile - Write Text File
-MultipleAssign_2 --> WriteTextFile_1
+MultipleAssign_2 --> If_1
+If_1: If - Relative Folder Exists?
+state If_1 {
+direction TB
+CreateDirectory_3 : CreateDirectory - Create Relative Folder
+}
+WriteTextFile_1 : WriteTextFile - Write Workflow.md
+If_1 --> WriteTextFile_1
 }
 }
+LogMessage_4 : LogMessage - LM -- Complete
+ForEach1_1 --> LogMessage_4
 }
 ```

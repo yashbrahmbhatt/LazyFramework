@@ -13,27 +13,13 @@ Class: ParseProjectJSON
     
 - System.Activities
 - System.Activities.Statements
-- System.Activities.Expressions
-- System.Activities.Validation
-- System.Activities.XamlIntegration
-- Microsoft.VisualBasic
-- Microsoft.VisualBasic.Activities
 - System
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
 - System.Data
-- System.Diagnostics
 - System.Linq
-- System.Net.Mail
-- System.Xml
-- System.Text
-- System.Xml.Linq
-- UiPath.Core
 - UiPath.Core.Activities
-- System.Windows.Markup
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
 - System.Reflection
 - System.IO
 - Newtonsoft.Json
@@ -42,7 +28,6 @@ Class: ParseProjectJSON
 - System.ComponentModel
 - System.Collections.Specialized
 - System.Runtime.Serialization
-- System.Linq.Expressions
 - System.Xml.Serialization
 
 
@@ -120,13 +105,13 @@ Class: ParseProjectJSON
 | in_ProjectJSONPath | InArgument | x:String |  |
 | out_Name | OutArgument | x:String |  |
 | out_Description | OutArgument | x:String |  |
-| out_Dependencies | OutArgument | sd:DataTable |  |
-| out_FileInfoCollection | OutArgument | sd:DataTable |  |
 | out_EntryPoints | OutArgument | scg:IEnumerable(x:String) |  |
 | out_Language | OutArgument | x:String |  |
 | out_ProjectVersion | OutArgument | x:String |  |
 | out_StudioVersion | OutArgument | x:String |  |
 | out_Type | OutArgument | x:String |  |
+| out_dt_Dependencies | OutArgument | sd:DataTable |  |
+| out_dt_FileInfoCollection | OutArgument | sd:DataTable |  |
 
     
 </details>
@@ -160,7 +145,9 @@ stateDiagram-v2
 Sequence_1: Sequence - ParseProjectJSON
 state Sequence_1 {
 direction TB
+LogMessage_1 : LogMessage - LM -- Start
 BuildDataTable_2 : BuildDataTable - Build Dependencies Table
+LogMessage_1 --> BuildDataTable_2
 MultipleAssign_1 : MultipleAssign - Parse File
 BuildDataTable_2 --> MultipleAssign_1
 MultipleAssign_1 --> ForEach1_1
@@ -169,7 +156,7 @@ state ForEach1_1 {
 direction TB
 AddDataRow_2 : AddDataRow - Add Row
 }
-WriteLine_1 : WriteLine - Write Line
-ForEach1_1 --> WriteLine_1
+LogMessage_2 : LogMessage - LM -- Complete
+ForEach1_1 --> LogMessage_2
 }
 ```

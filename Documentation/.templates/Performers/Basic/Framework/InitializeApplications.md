@@ -17,7 +17,6 @@ Initialize all applications required for this performer.
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
-- System.Linq
 - UiPath.Core.Activities
 
 

@@ -13,29 +13,13 @@ Helper to create test data in a queue to test the reporter.
     
 - System.Activities
 - System.Activities.Statements
-- System.Activities.Expressions
-- System.Activities.Validation
-- System.Activities.XamlIntegration
-- Microsoft.VisualBasic
-- Microsoft.VisualBasic.Activities
 - System
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
-- System.Data
-- System.Diagnostics
-- System.Linq
-- System.Net.Mail
-- System.Xml
-- System.Text
-- System.Xml.Linq
 - UiPath.Core
 - UiPath.Core.Activities
-- System.Windows.Markup
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
 - System.Reflection
-- System.Linq.Expressions
 - System.Runtime.Serialization
 
 
@@ -84,6 +68,8 @@ Helper to create test data in a queue to test the reporter.
 - UiPath.System.Activities.Design
 - UiPath.System.Activities.ViewModels
 - UiPath.Workflow
+- System.Threading.AccessControl
+- System.Threading
 
 
 </details>
@@ -140,9 +126,9 @@ Sequence_2: Sequence - Add Item to Queue
 state Sequence_2 {
 direction TB
 AddTransactionItem_1 : AddTransactionItem - Start Transaction
-Delay_1 : Delay - Adding Delay for Execution Time
-AddTransactionItem_1 --> Delay_1
-Delay_1 --> If_1
+InvokeCode_1 : InvokeCode - Adding Delay for Execution Time
+AddTransactionItem_1 --> InvokeCode_1
+InvokeCode_1 --> If_1
 If_1: If - Lucky?
 state If_1 {
 direction TB
