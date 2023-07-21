@@ -15,12 +15,10 @@
     </InArgument>
   </this:Performer.in_TestID>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1005,810</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1632,950</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
-      <x:String>GlobalConstantsNamespace</x:String>
-      <x:String>GlobalVariablesNamespace</x:String>
       <x:String>System</x:String>
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Runtime.Collections</x:String>
@@ -29,7 +27,6 @@
       <x:String>System.Collections.Generic</x:String>
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>System.ComponentModel</x:String>
-      <x:String>System.Linq</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Windows</x:String>
@@ -346,9 +343,9 @@
           <Transition.To>
             <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Checks whether a stop signal was requested or the process is within maintenance hours. If not, will get the next available transaction." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="238,134" sap2010:WorkflowViewState.IdRef="State_8">
               <State.Entry>
-                <TryCatch DisplayName="Try Getting Transaction" sap:VirtualizedContainerService.HintSize="597,1931" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                <TryCatch DisplayName="Try Getting Transaction" sap:VirtualizedContainerService.HintSize="597,2067" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                   <TryCatch.Try>
-                    <Sequence DisplayName="Get Transaction" sap:VirtualizedContainerService.HintSize="559,1703" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <Sequence DisplayName="Get Transaction" sap:VirtualizedContainerService.HintSize="559,1839" sap2010:WorkflowViewState.IdRef="Sequence_17">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Boolean" Name="IsMaintenanceTime" />
                       </Sequence.Variables>
@@ -369,7 +366,7 @@
                           </InArgument>
                         </ui:LogMessage.Message>
                       </ui:LogMessage>
-                      <Switch x:TypeArguments="x:String" DisplayName="@Test Variations - Get Transaction Data" sap:VirtualizedContainerService.HintSize="497,140" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                      <Switch x:TypeArguments="x:String" DisplayName="@Test Variations - Get Transaction Data" sap:VirtualizedContainerService.HintSize="497,276" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                         <Switch.Expression>
                           <InArgument x:TypeArguments="x:String">
                             <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_208">in_TestID</CSharpValue>
@@ -401,7 +398,7 @@
                           </OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
-                      <ui:IfElseIf DisplayName="Stop Requested/Maintenance Window/Success?" sap:VirtualizedContainerService.HintSize="451,948" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
+                      <ui:IfElseIf DisplayName="Stop Requested/Maintenance Window/Success?" sap:VirtualizedContainerService.HintSize="497,948" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
                         <ui:IfElseIf.ConditionBlocks>
                           <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
                             <ui:IfElseIfBlock BlockType="If">
@@ -757,9 +754,9 @@
                     <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_173" xml:space="preserve">TransactionItem != null &amp;&amp; FrameworkException == null  &amp;&amp; !StopRequested</CSharpValue>
                   </Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Processes the current transaction and performs all steps required. Handles Business and System exceptions and updates the queue status." DisplayName="Process" sap:VirtualizedContainerService.HintSize="681,1339" sap2010:WorkflowViewState.IdRef="State_6">
+                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Processes the current transaction and performs all steps required. Handles Business and System exceptions and updates the queue status." DisplayName="Process" sap:VirtualizedContainerService.HintSize="681,1515" sap2010:WorkflowViewState.IdRef="State_6">
                       <State.Entry>
-                        <TryCatch DisplayName="Try Processing Transaction" sap:VirtualizedContainerService.HintSize="635,882" sap2010:WorkflowViewState.IdRef="TryCatch_12">
+                        <TryCatch DisplayName="Try Processing Transaction" sap:VirtualizedContainerService.HintSize="635,1058" sap2010:WorkflowViewState.IdRef="TryCatch_12">
                           <TryCatch.Try>
                             <Sequence DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="559,743" sap2010:WorkflowViewState.IdRef="Sequence_24">
                               <sap:WorkflowViewStateService.ViewState>
@@ -815,7 +812,7 @@
                                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_210">in_TestID</CSharpValue>
                                   </InArgument>
                                 </Switch.Expression>
-                                <Throw x:Key="FrameworkProcessError" DisplayName="Throw GetTransactionData Error" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_5">
+                                <Throw x:Key="FrameworkProcessError" DisplayName="Throw FrameworkProcess Error" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_5">
                                   <InArgument x:TypeArguments="s:Exception">
                                     <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_211">new Exception(in_TestID)</CSharpValue>
                                   </InArgument>
@@ -898,9 +895,9 @@
                             </Catch>
                           </TryCatch.Catches>
                           <TryCatch.Finally>
-                            <TryCatch DisplayName="Try Setting Transaction Status" sap:VirtualizedContainerService.HintSize="597,632" sap2010:WorkflowViewState.IdRef="TryCatch_11">
+                            <TryCatch DisplayName="Try Setting Transaction Status" sap:VirtualizedContainerService.HintSize="597,808" sap2010:WorkflowViewState.IdRef="TryCatch_11">
                               <TryCatch.Try>
-                                <Sequence sap:VirtualizedContainerService.HintSize="559,404" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                <Sequence sap:VirtualizedContainerService.HintSize="559,540" sap2010:WorkflowViewState.IdRef="Sequence_26">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -928,13 +925,13 @@
                                       </InArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                   </ui:InvokeWorkflowFile>
-                                  <Switch x:TypeArguments="x:String" DisplayName="@Test Variations - Process" sap:VirtualizedContainerService.HintSize="497,140" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+                                  <Switch x:TypeArguments="x:String" DisplayName="@Test Variations - Process (Bubble)" sap:VirtualizedContainerService.HintSize="497,276" sap2010:WorkflowViewState.IdRef="Switch`1_4">
                                     <Switch.Expression>
                                       <InArgument x:TypeArguments="x:String">
                                         <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_212">in_TestID</CSharpValue>
                                       </InArgument>
                                     </Switch.Expression>
-                                    <Throw x:Key="FrameworkProcessError" DisplayName="Throw GetTransactionData Error" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_7">
+                                    <Throw x:Key="FrameworkProcessError" DisplayName="Throw FrameworkProcess Error (Bubble)" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_7">
                                       <InArgument x:TypeArguments="s:Exception">
                                         <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_213">new Exception(in_TestID)</CSharpValue>
                                       </InArgument>
