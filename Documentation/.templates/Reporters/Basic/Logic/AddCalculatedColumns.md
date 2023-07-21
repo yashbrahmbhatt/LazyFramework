@@ -151,8 +151,10 @@ state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 AddDataColumn1_2 : AddDataColumn - Add Time Saved
+LogMessage_1 --> AddDataColumn1_2
 AddDataColumn1_3 : AddDataColumn - Add Execution Time
-
+AddDataColumn1_2 --> AddDataColumn1_3
+AddDataColumn1_3 --> ForEachRow_1
 ForEachRow_1: ForEachRow - For Each Row
 state ForEachRow_1 {
 direction TB
@@ -167,7 +169,8 @@ direction TB
 Continue_1 : Continue - Skip Row
 }
 MultipleAssign_4 : MultipleAssign - Update Execution Time
-
+If_3 --> MultipleAssign_4
+MultipleAssign_4 --> If_1
 If_1: If - Failed?
 state If_1 {
 direction TB
@@ -183,5 +186,6 @@ MultipleAssign_3 : MultipleAssign - Set Success Time Saved
 }
 }
 LogMessage_2 : LogMessage - LM -- Complete
+ForEachRow_1 --> LogMessage_2
 }
 ```

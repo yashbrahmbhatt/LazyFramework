@@ -145,50 +145,6 @@ FlowDecision_2: FlowDecision - Is successful?
 state FlowDecision_2 {
 direction TB
 
-Sequence_2: Sequence - Success
-state Sequence_2 {
-direction TB
-
-If_1: If - If TransactionItem is a QueueItem (Success)
-state If_1 {
-direction TB
-
-RetryScope_3: RetryScope - Retry Set Transaction Status (Success)
-state RetryScope_3 {
-direction TB
-
-TryCatch_7: TryCatch - Try Catch Set Transaction Status (Success)
-state TryCatch_7 {
-direction TB
-SetTransactionStatus_5 : SetTransactionStatus - Set transaction status (Successful)
-
-Sequence_11: Sequence - Catch Set Transaction Status (Success)
-state Sequence_11 {
-direction TB
-LogMessage_11 : LogMessage - Log Message Could not set status (Success)
-Rethrow_3 : Rethrow - Rethrow Could not set status (Success)
-}
-}
-}
-}
-
-Sequence_1: Sequence - Log Success with additional logging fields
-state Sequence_1 {
-direction TB
-AddLogFields_1 : AddLogFields - Add transaction log fields (Success)
-LogMessage_1 : LogMessage - Log Message (Success)
-RemoveLogFields_1 : RemoveLogFields - Remove transaction log fields (Success)
-}
-}
-Sequence_2 --> Sequence_3
-Sequence_3: Sequence - Increment transaction index and reset retries
-state Sequence_3 {
-direction TB
-Assign_1 : Assign - Assign io_TransactionNumber
-Assign_2 : Assign - Assign io_RetryNumber
-Assign_5 : Assign - Assign io_ConsecutiveSystemExceptions
-}
-
 FlowDecision_1: FlowDecision - Is Business Exception?
 state FlowDecision_1 {
 direction TB
@@ -209,39 +165,34 @@ TryCatch_6: TryCatch - Try Catch Set Transaction Status (Business Exception)
 state TryCatch_6 {
 direction TB
 SetTransactionStatus_4 : SetTransactionStatus - Set transaction status (Business Exception status)
-
-Sequence_10: Sequence - Catch Set Transaction Status (Business Exception)
-state Sequence_10 {
-direction TB
-LogMessage_8 : LogMessage - Log Message Could not set status (Business Exception)
-Rethrow_2 : Rethrow - Rethrow  Could not set status (Business Exception)
 }
 }
 }
-}
-
+If_2 --> Sequence_4
 Sequence_4: Sequence - Log business exception with additional logging fields
 state Sequence_4 {
 direction TB
 AddLogFields_2 : AddLogFields - Add transaction log fields (Business Exception)
 LogMessage_2 : LogMessage - Log Message (Business Exception)
+AddLogFields_2 --> LogMessage_2
 RemoveLogFields_2 : RemoveLogFields - Remove transaction log fields (Business Exception)
+LogMessage_2 --> RemoveLogFields_2
 }
 }
-
+Sequence_5 --> Sequence_8
 Sequence_8: Sequence - System Exception
 state Sequence_8 {
 direction TB
 LogMessage_10 : LogMessage - Log Message (Consecutive exceptions)
 Assign_3 : Assign - Assign QueryRetry
-
+LogMessage_10 --> Assign_3
+Assign_3 --> TryCatch_4
 TryCatch_4: TryCatch - Try taking screenshot
 state TryCatch_4 {
 direction TB
 InvokeWorkflowFile_5 : InvokeWorkflowFile - TakeScreenshot.xaml - Invoke Workflow File
-LogMessage_6 : LogMessage - Log message (Screenshot not taken)
 }
-
+TryCatch_4 --> If_3
 If_3: If - If TransactionItem is a QueueItem (System Exception)
 state If_3 {
 direction TB
@@ -259,39 +210,24 @@ state Sequence_6 {
 direction TB
 SetTransactionStatus_3 : SetTransactionStatus - Set transaction status (System Exception)
 Assign_4 : Assign - Assign RetryNumber from Queue
-}
-
-Sequence_9: Sequence - Catch Set Transaction Status (System Exception)
-state Sequence_9 {
-direction TB
-LogMessage_7 : LogMessage - Log Message Could not set status (System Exception)
-Rethrow_1 : Rethrow - Rethrow  Could not set status (System Exception)
+SetTransactionStatus_3 --> Assign_4
 }
 }
 }
 }
 AddLogFields_3 : AddLogFields - Add transaction log fields (System Exception)
+If_3 --> AddLogFields_3
 Assign_6 : Assign - Increment consecutive exceptions counter
+AddLogFields_3 --> Assign_6
 InvokeWorkflowFile_1 : InvokeWorkflowFile - RetryCurrentTransaction.xaml - Invoke Workflow File
+Assign_6 --> InvokeWorkflowFile_1
 RemoveLogFields_3 : RemoveLogFields - Remove transaction log fields (System Exception)
-
+InvokeWorkflowFile_1 --> RemoveLogFields_3
+RemoveLogFields_3 --> TryCatch_3
 TryCatch_3: TryCatch - Try closing applications
 state TryCatch_3 {
 direction TB
 InvokeWorkflowFile_3 : InvokeWorkflowFile - CloseAllApplications.xaml - Invoke Workflow File
-
-Sequence_7: Sequence - Close applications
-state Sequence_7 {
-direction TB
-LogMessage_4 : LogMessage - Log message (CloseAllApplications failed)
-
-TryCatch_2: TryCatch - Try killing processes
-state TryCatch_2 {
-direction TB
-InvokeWorkflowFile_4 : InvokeWorkflowFile - Invoke KillAllProcesses workflow
-LogMessage_5 : LogMessage - Log message (KillAllProcesses failed)
-}
-}
 }
 }
 }

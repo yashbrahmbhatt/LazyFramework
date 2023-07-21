@@ -139,7 +139,7 @@ Sequence_1: Sequence - FrameworkMaintenanceTime
 state Sequence_1 {
 direction TB
 LogMessage_4 : LogMessage - LM -- Start
-
+LogMessage_4 --> TimeoutScope_1
 TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
@@ -154,7 +154,8 @@ direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Vars
 }
 LogMessage_3 : LogMessage - LM -- Initialization Complete
-
+Sequence_2 --> LogMessage_3
+LogMessage_3 --> TryCatch_1
 TryCatch_1: TryCatch - Execute Test
 state TryCatch_1 {
 direction TB
@@ -164,10 +165,10 @@ state Sequence_3 {
 direction TB
 InvokeWorkflowFile_1 : InvokeWorkflowFile - .templates\\Performers\\Basic\\BasicPerformer.xaml - Invoke Workflow File
 }
-MultipleAssign_1 : MultipleAssign - Set TestException
 }
 LogMessage_2 : LogMessage - LM -- Test Executed
-
+TryCatch_1 --> LogMessage_2
+LogMessage_2 --> Sequence_4
 Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
@@ -176,5 +177,6 @@ VerifyExpression_5 : VerifyExpression - Verify TestException
 }
 }
 LogMessage_1 : LogMessage - LM -- Complete
+TimeoutScope_1 --> LogMessage_1
 }
 ```

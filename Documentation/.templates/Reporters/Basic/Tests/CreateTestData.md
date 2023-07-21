@@ -130,7 +130,8 @@ state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
-
+LogMessage_1 --> InvokeWorkflowFile_1
+InvokeWorkflowFile_1 --> ForEach1_1
 ForEach1_1: ForEach - Loop through counts
 state ForEach1_1 {
 direction TB
@@ -140,7 +141,8 @@ state Sequence_2 {
 direction TB
 AddTransactionItem_1 : AddTransactionItem - Start Transaction
 Delay_1 : Delay - Adding Delay for Execution Time
-
+AddTransactionItem_1 --> Delay_1
+Delay_1 --> If_1
 If_1: If - Lucky?
 state If_1 {
 direction TB
@@ -156,5 +158,6 @@ SetTransactionStatus_5 : SetTransactionStatus - Set Application
 }
 }
 LogMessage_2 : LogMessage - LM -- Complete
+ForEach1_1 --> LogMessage_2
 }
 ```

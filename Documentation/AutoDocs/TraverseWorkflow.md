@@ -156,39 +156,51 @@ Sequence_1: Sequence - TraverseWorkflow
 state Sequence_1 {
 direction TB
 MultipleAssign_1 : MultipleAssign - Parse Element
-
+InvokeCode_1 : InvokeCode - Invoke Code
+MultipleAssign_1 --> InvokeCode_1
+InvokeCode_1 --> If_1
 If_1: If - ActivityName Not Empty?
 state If_1 {
 direction TB
+
+CommentOut_1: CommentOut - Comment Out
+state CommentOut_1 {
+direction TB
+
+Sequence_12: Sequence - Ignored Activities
+state Sequence_12 {
+direction TB
 WriteLine_2 : WriteLine - Write Line
-WriteLine_2 --> If_2
+}
+}
+
 If_2: If - Activity Has No Children?
 state If_2 {
 direction TB
-MultipleAssign_2 : MultipleAssign - Update Markdown for Single Element
 
 Switch1_1: Switch - Switch
 state Switch1_1 {
 direction TB
 
-Sequence_6: Sequence - Default
-state Sequence_6 {
+Sequence_10: Sequence - Default
+state Sequence_10 {
 direction TB
-MultipleAssign_4 : MultipleAssign - Multiple Assign
-MultipleAssign_6 : MultipleAssign - Multiple Assign
+MultipleAssign_8 : MultipleAssign - Multiple Assign
+MultipleAssign_8 --> ForEach1_4
+ForEach1_4: ForEach - Recurse
+state ForEach1_4 {
+direction TB
 
-ForEach1_3: ForEach - Recurse
-state ForEach1_3 {
+Sequence_11: Sequence - Body
+state Sequence_11 {
 direction TB
-
-Sequence_7: Sequence - Body
-state Sequence_7 {
-direction TB
-InvokeWorkflowFile_2 : InvokeWorkflowFile - AutoDocs\\Helper\\TraverseWorkflow.xaml - Invoke Workflow File
-MultipleAssign_7 : MultipleAssign - Multiple Assign
+MultipleAssign_9 : MultipleAssign - Multiple Assign
+InvokeWorkflowFile_3 : InvokeWorkflowFile - AutoDocs\\Helper\\TraverseWorkflow.xaml - Invoke Workflow File
+MultipleAssign_9 --> InvokeWorkflowFile_3
 }
 }
-MultipleAssign_5 : MultipleAssign - Multiple Assign
+MultipleAssign_10 : MultipleAssign - Multiple Assign
+ForEach1_4 --> MultipleAssign_10
 }
 }
 }

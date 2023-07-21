@@ -147,14 +147,15 @@ Sequence_1: Sequence - GetQueueDefinitionId
 state Sequence_1 {
 direction TB
 OrchestratorHttpRequest_1 : OrchestratorHttpRequest - Orchestrator API Call
-
+OrchestratorHttpRequest_1 --> If_1
 If_1: If - Status Not 2xx?
 state If_1 {
 direction TB
 Throw_1 : Throw - Throw Orchestrator Invalid Status
 }
 MultipleAssign_1 : MultipleAssign - Parse Response
-
+If_1 --> MultipleAssign_1
+MultipleAssign_1 --> If_2
 If_2: If - Validate ID Count
 state If_2 {
 direction TB
@@ -162,5 +163,6 @@ MultipleAssign_2 : MultipleAssign - Set Output
 Throw_2 : Throw - Throw CouldNotFind
 }
 LogMessage_1 : LogMessage - LM -- Complete
+If_2 --> LogMessage_1
 }
 ```

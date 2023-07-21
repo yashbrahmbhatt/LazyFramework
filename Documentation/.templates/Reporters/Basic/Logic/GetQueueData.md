@@ -151,9 +151,14 @@ state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize Outputs
+LogMessage_1 --> MultipleAssign_1
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Get Queue ID
+MultipleAssign_1 --> InvokeWorkflowFile_1
 InvokeWorkflowFile_2 : InvokeWorkflowFile - Get Queue Items
+InvokeWorkflowFile_1 --> InvokeWorkflowFile_2
 InvokeWorkflowFile_3 : InvokeWorkflowFile - Flatten Queue Items Into Table
+InvokeWorkflowFile_2 --> InvokeWorkflowFile_3
 LogMessage_2 : LogMessage - LM -- Complete
+InvokeWorkflowFile_3 --> LogMessage_2
 }
 ```

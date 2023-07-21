@@ -146,7 +146,7 @@ Sequence_1: Sequence - WriteTableToExcel
 state Sequence_1 {
 direction TB
 LogMessage_2 : LogMessage - LM -- Start
-
+LogMessage_2 --> ExcelProcessScopeX_1
 ExcelProcessScopeX_1: ExcelProcessScopeX - Excel
 state ExcelProcessScopeX_1 {
 direction TB
@@ -163,5 +163,6 @@ WriteRangeX_2 : WriteRangeX - Write Table
 }
 }
 LogMessage_1 : LogMessage - LM -- Complete
+ExcelProcessScopeX_1 --> LogMessage_1
 }
 ```

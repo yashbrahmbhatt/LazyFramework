@@ -106,22 +106,9 @@ FlowDecision_2: FlowDecision - Max retries reached?
 state FlowDecision_2 {
 direction TB
 LogMessage_1 : LogMessage - Log message (Max retries reached)
-Assign_1 : Assign - Reset retry counter
-LogMessage_1 --> Assign_1
-Assign_2 : Assign - Increment TransactionNumber (Local retry)
-Assign_1 --> Assign_2
 LogMessage_2 : LogMessage - Log message (Retry)
-LogMessage_2 --> FlowDecision_1
-FlowDecision_1: FlowDecision - Use Orchestrator's retry?
-state FlowDecision_1 {
-direction TB
-Assign_3 : Assign - Increment TransactionNumber (Orchestrator retry)
-Assign_4 : Assign - Increment retry counter
+LogMessage_1 --> LogMessage_2
 }
-}
-LogMessage_3 : LogMessage - Log message (No retry)
-Assign_5 : Assign - Increment TransactionNumber (No retry)
-LogMessage_3 --> Assign_5
 }
 }
 ```

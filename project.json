@@ -42,7 +42,12 @@
     },
     "processOptions": {
       "ignoredFiles": [
-        "Tests/AutoDocs/Helper/TraverseWorkflow/SuccessTestCase.xaml"
+        "Tests/AutoDocs/Helper/TraverseWorkflow/SuccessTestCase.xaml",
+        "AutoDocs/DataTableToMarkdown.xaml",
+        "AutoDocs/DocumentProject.xaml",
+        "AutoDocs/ParseProjectJSON.xaml",
+        "AutoDocs/ParseWorkflow.xaml",
+        "AutoDocs/TraverseWorkflow.xaml"
       ]
     },
     "fileInfoCollection": [
@@ -313,12 +318,6 @@
         "testCaseId": "9b54a231-c4c5-48e7-9cd9-ed9280cfb3f5",
         "testCaseType": "TestCase",
         "fileName": "Tests\\Utility\\LoadConfig\\LoadConfigSuccess.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "eb0c377b-6aed-47a1-9a75-180e1029d001",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\AutoDocs\\TraverseWorkflow\\SuccessTestCase.xaml"
       }
     ],
     "modernBehavior": true

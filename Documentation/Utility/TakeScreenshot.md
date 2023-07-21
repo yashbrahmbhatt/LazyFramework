@@ -154,17 +154,24 @@ MultipleAssign_1 : MultipleAssign - Set File Name
 MultipleAssign_3 : MultipleAssign - Set Folder Path
 }
 FolderExistsX_1 : FolderExistsX - Get Folder Exists
-
+If_2 --> FolderExistsX_1
+FolderExistsX_1 --> If_1
 If_1: If - Folder Doesn't Exist?
 state If_1 {
 direction TB
 CreateDirectory_1 : CreateDirectory - Create Folder!
 }
 MultipleAssign_2 : MultipleAssign - Get Primary Screenshot
+If_1 --> MultipleAssign_2
 InvokeMethod_1 : InvokeMethod - Copy Screen to Graphic
+MultipleAssign_2 --> InvokeMethod_1
 InvokeMethod_2 : InvokeMethod - Dispose Graphic
+InvokeMethod_1 --> InvokeMethod_2
 InvokeMethod_3 : InvokeMethod - Save Screenshot
+InvokeMethod_2 --> InvokeMethod_3
 InvokeMethod_4 : InvokeMethod - Dispose Screenshot
+InvokeMethod_3 --> InvokeMethod_4
 LogMessage_1 : LogMessage - LM -- Complete
+InvokeMethod_4 --> LogMessage_1
 }
 ```

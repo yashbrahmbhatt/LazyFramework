@@ -165,7 +165,7 @@ Sequence_1: Sequence - BasicReporterCRONOutput
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-
+LogMessage_1 --> TimeoutScope_1
 TimeoutScope_1: TimeoutScope - Timed Test
 state TimeoutScope_1 {
 direction TB
@@ -179,9 +179,11 @@ state Sequence_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Vars
 InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
+MultipleAssign_2 --> InvokeWorkflowFile_1
 }
 LogMessage_2 : LogMessage - LM -- Initialization Complete
-
+Sequence_2 --> LogMessage_2
+LogMessage_2 --> TryCatch_1
 TryCatch_1: TryCatch - Execute Test
 state TryCatch_1 {
 direction TB
@@ -191,28 +193,34 @@ state Sequence_3 {
 direction TB
 InvokeWorkflowFile_4 : InvokeWorkflowFile - .templates\\Reporters\\Basic\\BasicReporter.xaml - Invoke Workflow File
 }
-MultipleAssign_1 : MultipleAssign - Set TestException
 }
 LogMessage_3 : LogMessage - LM -- Test Executed
-
+TryCatch_1 --> LogMessage_3
+LogMessage_3 --> Sequence_4
 Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
 MultipleAssign_3 : MultipleAssign - Get Files
 GetRobotCredential_1 : GetRobotCredential - Get Email Credentials
+MultipleAssign_3 --> GetRobotCredential_1
 GetIMAPMailMessages_1 : GetIMAPMailMessages - Get Emails (IMAP)
-
+GetRobotCredential_1 --> GetIMAPMailMessages_1
+GetIMAPMailMessages_1 --> ForEach1_1
 ForEach1_1: ForEach - Delete Root Excels
 state ForEach1_1 {
 direction TB
 DeleteFileX_1 : DeleteFileX - Delete Excel
 }
 VerifyExpression_5 : VerifyExpression - Verify TextException
+ForEach1_1 --> VerifyExpression_5
 VerifyExpression_7 : VerifyExpression - Verify EmailCount
+VerifyExpression_5 --> VerifyExpression_7
 VerifyExpression_6 : VerifyExpression - Verify Report Generated in Output
+VerifyExpression_7 --> VerifyExpression_6
 }
 }
 }
 LogMessage_4 : LogMessage - LM -- Complete
+TimeoutScope_1 --> LogMessage_4
 }
 ```

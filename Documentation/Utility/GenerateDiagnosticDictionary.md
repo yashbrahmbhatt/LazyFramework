@@ -129,5 +129,6 @@ state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Setup Dictionary
+LogMessage_1 --> MultipleAssign_1
 }
 ```

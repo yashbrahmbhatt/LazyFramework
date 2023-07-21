@@ -150,7 +150,8 @@ state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize Vars
-
+LogMessage_1 --> MultipleAssign_1
+MultipleAssign_1 --> ForEach1_1
 ForEach1_1: ForEach - For Each Status
 state ForEach1_1 {
 direction TB
@@ -162,13 +163,13 @@ MultipleAssign_2 : MultipleAssign - Close off StatusFilter
 MultipleAssign_3 : MultipleAssign - Append to StatusFilter
 }
 }
-
+ForEach1_1 --> If_2
 If_2: If - Status Included?
 state If_2 {
 direction TB
 MultipleAssign_4 : MultipleAssign - Update EndPoint with Statuses
 }
-
+If_2 --> InterruptibleDoWhile_1
 InterruptibleDoWhile_1: InterruptibleDoWhile - Loop While 1000 Items Returned
 state InterruptibleDoWhile_1 {
 direction TB
@@ -178,8 +179,10 @@ state Sequence_6 {
 direction TB
 OrchestratorHttpRequest_1 : OrchestratorHttpRequest - Queue Items API Call
 MultipleAssign_5 : MultipleAssign - Parse Response
+OrchestratorHttpRequest_1 --> MultipleAssign_5
 }
 }
 LogMessage_2 : LogMessage - LM -- Complete
+InterruptibleDoWhile_1 --> LogMessage_2
 }
 ```
