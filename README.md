@@ -105,21 +105,9 @@ A description of the module templates that are currently available and planned t
      </details>
   2. <details>
       <summary>
-        <b>ApplicationDispatcher (TBD)</b>
+        <b>ApplicationDispatcher</b>
       </summary>
       A more complex dispatcher designed for when you need to do steps within an application to collect information in order to add to the queue. Useful for scenarios where you read a table, and iterate through it, get additional information for each row, and then add it to the queue. This is because it provides exception handling at the 'Transaction' level so that errors processing particular rows do not impact the entire dispatcher.
-     </details>
-  3. <details>
-       <summary>
-         <b>ExcelDispatcher (TBD)</b>
-       </summary>
-       An extension of the basic dispatcher that uses an excel file as the source of input data.
-     </details>
-  4. <details>
-       <summary>
-         <b>FileDispatcher (TBD)</b>
-       </summary>
-       An extension of the basic dispatcher that uses a text file as the source of input data.
      </details>
 
 </details>
@@ -204,7 +192,7 @@ A description of the module templates that are currently available and planned t
        <summary>
          <b>Templates</b>
        </summary>
-       The templates folder includes mainly some .html and .txt files that contain the subject and body of the emails to send across various module templates. It also contains the excel file template for the BasicReporter.
+       The templates folder includes mainly some .html and .txt files that contain the subject and body of the emails to send across various module templates.
      </details>
 </details>
 
