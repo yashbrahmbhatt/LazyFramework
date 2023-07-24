@@ -1,0 +1,100 @@
+﻿{
+  "Metadata": {
+    "Id": "9d64f5ce-189e-42ed-b129-86e707bd72ee",
+    "Kind": "FormIo"
+  },
+  "DesignProperties": {
+    "Title": "Configure Modules",
+    "Theme": "Default",
+    "ShowInTaskbar": true,
+    "ShowMargin": true,
+    "CustomStyle": ""
+  },
+  "Data": {
+    "components": [
+      {
+        "content": "Please click 'Add Another' after you are done filling out the modules that you need, and then delete the empty row. \n<br />\n<br />\nI think there's a bug within the Forms activities or something, if you don't do the above, it won't propogate the table to the workflow.",
+        "key": "label",
+        "input": false,
+        "tableView": false,
+        "label": "Label",
+        "type": "label"
+      },
+      {
+        "label": "Modules",
+        "reorder": false,
+        "addAnother": "Add Another Module",
+        "addAnotherPosition": "bottom",
+        "layoutFixed": false,
+        "enableRowGroups": false,
+        "initEmpty": false,
+        "key": "modules",
+        "type": "datagrid",
+        "input": true,
+        "tableView": false,
+        "components": [
+          {
+            "label": "Name",
+            "tooltip": "The name of this module.",
+            "tableView": false,
+            "validate": {
+              "required": true
+            },
+            "key": "moduleName",
+            "type": "textfield",
+            "input": true
+          },
+          {
+            "label": "Module Type",
+            "widget": "choicesjs",
+            "tableView": false,
+            "data": {
+              "values": [
+                {
+                  "label": "Dispatcher - Basic",
+                  "value": "dispatcherBasic"
+                },
+                {
+                  "label": "Dispatcher - Application",
+                  "value": "dispatcherApplication"
+                },
+                {
+                  "label": "Performer - Basic",
+                  "value": "performerBasic"
+                },
+                {
+                  "label": "Performer - REFramework",
+                  "value": "performerReFramework"
+                },
+                {
+                  "label": "Reporter - Basic",
+                  "value": "reporterBasic"
+                },
+                {
+                  "label": "Reporter - Power Query",
+                  "value": "reporterPowerQuery"
+                }
+              ]
+            },
+            "validate": {
+              "required": true,
+              "onlyAvailableItems": true
+            },
+            "key": "moduleType",
+            "type": "select",
+            "input": true
+          }
+        ]
+      },
+      {
+        "label": "Save",
+        "showValidations": false,
+        "tableView": false,
+        "key": "save",
+        "type": "button",
+        "saveOnEnter": false,
+        "input": true
+      }
+    ]
+  }
+}

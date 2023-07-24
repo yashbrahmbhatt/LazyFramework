@@ -223,16 +223,16 @@ This is used to keep track of features to be implemented and what has been accom
 - [x] Add Auto-Documentation Module - Yash Brahmbhatt 18/07/2023
 - [x] Add Support for Mermaid Diagrams in AutoDocs - Yash Brahmbhatt 21-07-2023 * Not all activities are currently supported.
 - [x] Create ApplicationDispatcher - Yash brahmbhatt 23/017/2023
+- [x] <strike>Create ExcelDispatcher</strike> - Removed as TODO because Config File now supports Excel Files. Yash brahmbhatt 23/017/2023
+- [x] <strike>Create FileDispatcher</strike> - Removed as TODO because Config File supports Text Files. Yash brahmbhatt 23/017/2023
 - [ ] Create Tasker
-- [x] <strike>Create ExcelDispatcher</strike> - Removed as TODO because Config File now supports Excel Files.
-- [x] <strike>Create FileDispatcher</strike> - Removed as TODO because Config File supports Text Files.
 - [ ] Create PostExceptionStepsPerformer
 - [ ] Create Extractor
 - [ ] Create Classifier
 
 ### Framework Changes
-- [x] Add a 'Mapping' sheet to the Configs that read an excel file into a DataSet with each sheet being a named DataTable within it.
-- [ ] <b>Add a Setup.xaml workflow that helps with initial setup of the modules.</b>
+- [x] Add a 'Mapping' sheet to the Configs that reads an excel file into a DataSet with each sheet being a named DataTable within it.
+- [x] Add a Setup.xaml workflow that helps with initial setup of the modules.
 
 <br />
 
