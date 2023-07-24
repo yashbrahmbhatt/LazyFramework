@@ -223,8 +223,8 @@ This is used to keep track of features to be implemented and what has been accom
 - [x] Add Auto-Documentation Module - Yash Brahmbhatt 18/07/2023
 - [x] Add Support for Mermaid Diagrams in AutoDocs - Yash Brahmbhatt 21-07-2023 * Not all activities are currently supported.
 - [x] Create ApplicationDispatcher - Yash brahmbhatt 23/017/2023
-- [x] <strike>Create ExcelDispatcher</strike> - Removed as TODO because Config File now supports Excel Files. Yash brahmbhatt 23/017/2023
-- [x] <strike>Create FileDispatcher</strike> - Removed as TODO because Config File supports Text Files. Yash brahmbhatt 23/017/2023
+- [x] <strike>Create ExcelDispatcher</strike> - Removed from department because LoadConfig supports Excel Files. Yash brahmbhatt 23/017/2023
+- [x] <strike>Create FileDispatcher</strike> - Removed from department because LoadConfig supports Text Files. Yash brahmbhatt 23/017/2023
 - [ ] Create Tasker
 - [ ] Create PostExceptionStepsPerformer
 - [ ] Create Extractor
