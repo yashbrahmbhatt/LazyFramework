@@ -33,6 +33,12 @@ Tests all the paths for loading a config. Verifies:
 - UiPath.Core
 - GlobalVariablesNamespace
 - GlobalConstantsNamespace
+- System.Data
+- System.ComponentModel
+- System.Xml.Serialization
+- System.Data
+- System.ComponentModel
+- System.Xml.Serialization
 
 
 </details>
@@ -95,6 +101,12 @@ Tests all the paths for loading a config. Verifies:
 - System.Linq.Parallel
 - System.Collections.Immutable
 - System.Linq.Queryable
+- System.Data.Common
+- System.ComponentModel.Primitives
+- System.Private.Xml
+- System.Data.SqlClient
+- System.ComponentModel.EventBasedAsync
+- Microsoft.Win32.Primitives
 
 
 </details>
@@ -179,10 +191,14 @@ VerifyExpression_7 : VerifyExpression - Verify IgnoreSheets Values Not Loaded
 VerifyExpression_6 --> VerifyExpression_7
 VerifyExpression_8 : VerifyExpression - Verify Asset Loaded
 VerifyExpression_7 --> VerifyExpression_8
-VerifyExpression_9 : VerifyExpression - Verify Local File Loaded
+VerifyExpression_9 : VerifyExpression - Verify Local TextFile Loaded
 VerifyExpression_8 --> VerifyExpression_9
-VerifyExpression_10 : VerifyExpression - Verify Storage Bucket File Loaded
+VerifyExpression_10 : VerifyExpression - Verify Storage Bucket TextFile Loaded
 VerifyExpression_9 --> VerifyExpression_10
+VerifyExpression_11 : VerifyExpression - Verify Local ExcelFile Loaded
+VerifyExpression_10 --> VerifyExpression_11
+VerifyExpression_12 : VerifyExpression - Verify Storage Bucket ExcelFile Loaded
+VerifyExpression_11 --> VerifyExpression_12
 }
 }
 }

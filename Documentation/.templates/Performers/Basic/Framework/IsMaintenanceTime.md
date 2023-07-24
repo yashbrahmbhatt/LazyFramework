@@ -17,6 +17,7 @@ Given a CRON expression for the maintenance schedule, checks whether the current
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
+- System.Linq
 - UiPath.Core.Activities
 
 

@@ -33,6 +33,8 @@ Validates the system exception case for this workflow. Email send and validated.
 - UiPath.Mail.Activities
 - UiPath.Core.Activities.Orchestrator
 - UiPath.Platform.ResourceHandling
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -52,11 +54,13 @@ Validates the system exception case for this workflow. Email send and validated.
 - System.Collections
 - System.Collections.Immutable
 - System.ComponentModel
+- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
 - System.Core
 - System.Data
+- System.Data.Common
 - System.Drawing
 - System.IO.FileSystem.AccessControl
 - System.IO.FileSystem.DriveInfo
@@ -74,6 +78,7 @@ Validates the system exception case for this workflow. Email send and validated.
 - System.Private.DataContractSerialization
 - System.Private.ServiceModel
 - System.Private.Uri
+- System.Private.Xml
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions

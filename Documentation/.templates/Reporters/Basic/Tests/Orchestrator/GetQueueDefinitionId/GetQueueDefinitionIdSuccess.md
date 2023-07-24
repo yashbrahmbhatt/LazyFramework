@@ -11,18 +11,22 @@ A basic template for a test with the expected outcome being success.
     <b>Namespaces</b>
     </summary>
     
-- System.Activities
-- System.Activities.Statements
 - System
+- System.Activities
+- System.Activities.Runtime.Collections
+- System.Activities.Statements
 - System.Collections
 - System.Collections.Generic
-- UiPath.Core.Activities
 - System.Collections.ObjectModel
-- System.Runtime.Serialization
+- System.Linq
 - System.Reflection
-- UiPath.Testing.Activities
+- System.Runtime.Serialization
+- UiPath.Core.Activities
 - UiPath.Shared.Activities
-- System.Activities.Runtime.Collections
+- UiPath.Testing.Activities
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -39,12 +43,15 @@ A basic template for a test with the expected outcome being success.
 - PresentationFramework
 - System
 - System.Activities
+- System.Collections
 - System.ComponentModel
+- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
 - System.Core
 - System.Data
+- System.Data.Common
 - System.Drawing
 - System.Linq
 - System.Linq.Expressions
@@ -55,6 +62,7 @@ A basic template for a test with the expected outcome being success.
 - System.Private.DataContractSerialization
 - System.Private.ServiceModel
 - System.Private.Uri
+- System.Private.Xml
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions
@@ -72,12 +80,11 @@ A basic template for a test with the expected outcome being success.
 - UiPath.Mail.Activities
 - UiPath.Studio.Constants
 - UiPath.System.Activities
+- UiPath.System.Activities.Design
+- UiPath.System.Activities.ViewModels
 - UiPath.Testing.Activities
 - UiPath.Workflow
 - WindowsBase
-- UiPath.System.Activities.Design
-- UiPath.System.Activities.ViewModels
-- System.Collections
 
 
 </details>

@@ -19,6 +19,7 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
 - System.Collections.ObjectModel
 - System.ComponentModel
 - System.Data
+- System.Linq
 - System.Reflection
 - System.Runtime.Serialization
 - System.Xml.Serialization

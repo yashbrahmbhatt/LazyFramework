@@ -11,16 +11,19 @@ Helper to create test data in a queue to test the reporter.
     <b>Namespaces</b>
     </summary>
     
+- System
 - System.Activities
 - System.Activities.Statements
-- System
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
-- UiPath.Core
-- UiPath.Core.Activities
+- System.Linq
 - System.Reflection
 - System.Runtime.Serialization
+- UiPath.Core
+- UiPath.Core.Activities
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -36,6 +39,7 @@ Helper to create test data in a queue to test the reporter.
 - System.Activities
 - System.Collections
 - System.ComponentModel
+- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
@@ -51,6 +55,7 @@ Helper to create test data in a queue to test the reporter.
 - System.Private.DataContractSerialization
 - System.Private.ServiceModel
 - System.Private.Uri
+- System.Private.Xml
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions
@@ -60,6 +65,8 @@ Helper to create test data in a queue to test the reporter.
 - System.Security.Permissions
 - System.ServiceModel
 - System.ServiceModel.Activities
+- System.Threading
+- System.Threading.AccessControl
 - System.Xaml
 - System.Xml
 - System.Xml.Linq
@@ -68,8 +75,6 @@ Helper to create test data in a queue to test the reporter.
 - UiPath.System.Activities.Design
 - UiPath.System.Activities.ViewModels
 - UiPath.Workflow
-- System.Threading.AccessControl
-- System.Threading
 
 
 </details>

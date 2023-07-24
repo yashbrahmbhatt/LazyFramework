@@ -52,11 +52,13 @@ Tests for a framework exception when Initialization state has an error. Validate
 - System.Collections
 - System.Collections.Immutable
 - System.ComponentModel
+- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
 - System.Core
 - System.Data
+- System.Data.Common
 - System.Drawing
 - System.Linq
 - System.Linq.Expressions
@@ -70,6 +72,7 @@ Tests for a framework exception when Initialization state has an error. Validate
 - System.Private.DataContractSerialization
 - System.Private.ServiceModel
 - System.Private.Uri
+- System.Private.Xml
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions

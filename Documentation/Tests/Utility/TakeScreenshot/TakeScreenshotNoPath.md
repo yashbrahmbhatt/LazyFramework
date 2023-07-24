@@ -11,23 +11,24 @@ Tests the main case where only the folder path is provided and no file path is g
     <b>Namespaces</b>
     </summary>
     
-- System.Activities
-- System.Activities.Statements
+- GlobalConstantsNamespace
+- GlobalVariablesNamespace
 - System
+- System.Activities
+- System.Activities.Runtime.Collections
+- System.Activities.Statements
 - System.Collections
 - System.Collections.Generic
-- System.IO
-- UiPath.Core.Activities
 - System.Collections.ObjectModel
-- System.Runtime.Serialization
+- System.IO
+- System.Linq
 - System.Reflection
-- UiPath.Testing.Activities
-- UiPath.Shared.Activities
-- System.Activities.Runtime.Collections
-- UiPath.Platform.ResourceHandling
+- System.Runtime.Serialization
 - UiPath.Core
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
+- UiPath.Core.Activities
+- UiPath.Platform.ResourceHandling
+- UiPath.Shared.Activities
+- UiPath.Testing.Activities
 
 
 </details>

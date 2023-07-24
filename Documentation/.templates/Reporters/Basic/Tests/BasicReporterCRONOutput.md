@@ -33,6 +33,9 @@ A basic template for a test with the expected outcome being success.
 - UiPath.Mail
 - UiPath.Mail.IMAP.Activities
 - UiPath.Mail.Activities
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -44,30 +47,45 @@ A basic template for a test with the expected outcome being success.
 - Microsoft.CSharp
 - Microsoft.VisualBasic
 - mscorlib
+- netstandard
+- Newtonsoft.Json
 - NPOI
 - PresentationCore
 - PresentationFramework
 - System
 - System.Activities
+- System.Collections
+- System.Collections.Immutable
 - System.ComponentModel
+- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
 - System.Core
 - System.Data
+- System.Data.Common
 - System.Drawing
+- System.IO.FileSystem.AccessControl
+- System.IO.FileSystem.DriveInfo
+- System.IO.FileSystem.Watcher
+- System.IO.Packaging
 - System.Linq
 - System.Linq.Expressions
+- System.Linq.Parallel
+- System.Linq.Queryable
 - System.Memory
 - System.Memory.Data
+- System.Net.Mail
 - System.ObjectModel
 - System.Private.CoreLib
 - System.Private.DataContractSerialization
 - System.Private.ServiceModel
 - System.Private.Uri
+- System.Private.Xml
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions
+- System.Runtime.InteropServices
 - System.Runtime.Serialization
 - System.Runtime.Serialization.Formatters
 - System.Runtime.Serialization.Primitives
@@ -79,28 +97,16 @@ A basic template for a test with the expected outcome being success.
 - System.Xml.Linq
 - UiPath.Excel
 - UiPath.Excel.Activities
+- UiPath.Mail
 - UiPath.Mail.Activities
+- UiPath.Mail.Activities.Design
 - UiPath.Studio.Constants
 - UiPath.System.Activities
+- UiPath.System.Activities.Design
+- UiPath.System.Activities.ViewModels
 - UiPath.Testing.Activities
 - UiPath.Workflow
 - WindowsBase
-- UiPath.System.Activities.Design
-- UiPath.System.Activities.ViewModels
-- System.Collections
-- Newtonsoft.Json
-- netstandard
-- System.IO.FileSystem.Watcher
-- System.IO.Packaging
-- System.IO.FileSystem.AccessControl
-- System.IO.FileSystem.DriveInfo
-- System.Linq.Parallel
-- System.Collections.Immutable
-- System.Linq.Queryable
-- System.Runtime.InteropServices
-- UiPath.Mail
-- UiPath.Mail.Activities.Design
-- System.Net.Mail
 
 
 </details>

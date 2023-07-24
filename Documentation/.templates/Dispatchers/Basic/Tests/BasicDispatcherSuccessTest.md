@@ -26,6 +26,8 @@ Tests the success path for the dispatcher. Validates items are added to the queu
 - UiPath.Shared.Activities
 - UiPath.Core.Activities.Orchestrator
 - System.Activities.Runtime.Collections
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -45,11 +47,13 @@ Tests the success path for the dispatcher. Validates items are added to the queu
 - System.Collections
 - System.Collections.Immutable
 - System.ComponentModel
+- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
 - System.Core
 - System.Data
+- System.Data.Common
 - System.Drawing
 - System.Linq
 - System.Linq.Expressions
@@ -62,6 +66,7 @@ Tests the success path for the dispatcher. Validates items are added to the queu
 - System.Private.DataContractSerialization
 - System.Private.ServiceModel
 - System.Private.Uri
+- System.Private.Xml
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions

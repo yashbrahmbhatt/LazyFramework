@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="AddModules" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="997,5390" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ufa="clr-namespace:UiPath.Forms.Activities;assembly=UiPath.Forms.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usfr="clr-namespace:UiPath.Studio.Forms.Runtime;assembly=UiPath.Studio.Forms.Runtime" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="AddModules" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="997,5432" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ufa="clr-namespace:UiPath.Forms.Activities;assembly=UiPath.Forms.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usfr="clr-namespace:UiPath.Studio.Forms.Runtime;assembly=UiPath.Studio.Forms.Runtime" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -117,7 +117,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="AddModules" sap:VirtualizedContainerService.HintSize="825,5325" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Accelerates creating new modules by prompting the user for set of modules they want to create, and copies the configs, templates, and all workflow files for that module." DisplayName="AddModules" sap:VirtualizedContainerService.HintSize="825,5367" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Modules" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, sd:DataSet)" Name="ExcelFiles" />
@@ -126,6 +126,7 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="763,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
@@ -629,7 +630,7 @@
                                               </scg:List>
                                             </ui:MultipleAssign.AssignOperations>
                                           </ui:MultipleAssign>
-                                          <ui:MultipleAssign x:Key="ExcelFiles" DisplayName="Update Path (TextFiles)" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
+                                          <ui:MultipleAssign x:Key="ExcelFiles" DisplayName="Update Path (ExcelFiles)" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
                                             <ui:MultipleAssign.AssignOperations>
                                               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">

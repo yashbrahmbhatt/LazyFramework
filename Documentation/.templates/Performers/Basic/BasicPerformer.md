@@ -1,7 +1,6 @@
 # BasicPerformer
 Class: Performer
 
-[Process Name]
 [Author]
 
 [Description of work done for each transaction]
@@ -14,6 +13,8 @@ Class: Performer
     <b>Namespaces</b>
     </summary>
     
+- GlobalConstantsNamespace
+- GlobalVariablesNamespace
 - System
 - System.Activities
 - System.Activities.Runtime.Collections
@@ -22,9 +23,12 @@ Class: Performer
 - System.Collections.Generic
 - System.Collections.ObjectModel
 - System.ComponentModel
+- System.Data
+- System.Linq
 - System.Reflection
 - System.Runtime.Serialization
 - System.Windows
+- System.Xml.Serialization
 - UiPath.Core
 - UiPath.Core.Activities
 
@@ -81,6 +85,8 @@ Class: Performer
 - UiPath.System.Activities.ViewModels
 - UiPath.Workflow
 - WindowsBase
+- System.Private.Xml
+- System.Data.SqlClient
 
 
 </details>
@@ -133,7 +139,19 @@ Class: Performer
 stateDiagram-v2
 
 
-StateMachine_3: StateMachine - Performer State Machine
+Sequence_27: Sequence - Performer
+state Sequence_27 {
+direction TB
+
+Sequence_28: Sequence - Initialize Settings
+state Sequence_28 {
+direction TB
+LogMessage_21 : LogMessage - LM -- Screen
+InvokeWorkflowFile_32 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
+LogMessage_21 --> InvokeWorkflowFile_32
+}
+Sequence_28 --> StateMachine_3
+StateMachine_3: StateMachine - Transactional State Machine
 state StateMachine_3 {
 direction TB
 
@@ -153,19 +171,6 @@ Sequence_21: Sequence - Initialize
 state Sequence_21 {
 direction TB
 
-If_5: If - First Run?
-state If_5 {
-direction TB
-
-Sequence_19: Sequence - Initialize Settings
-state Sequence_19 {
-direction TB
-LogMessage_11 : LogMessage - LM -- Screen
-InvokeWorkflowFile_19 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
-LogMessage_11 --> InvokeWorkflowFile_19
-}
-}
-If_5 --> Switch1_1
 Switch1_1: Switch - @Test Variations - Initialization
 state Switch1_1 {
 direction TB
@@ -348,6 +353,7 @@ direction TB
 MultipleAssign_22 : MultipleAssign - Set FrameworkException to Max Consecutive
 LogMessage_19 : LogMessage - LM -- Max Consecutive
 MultipleAssign_22 --> LogMessage_19
+}
 }
 }
 }

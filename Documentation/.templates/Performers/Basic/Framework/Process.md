@@ -17,6 +17,7 @@ Carry out the required steps for this transaction/unit of work.
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
+- System.Linq
 - UiPath.Core.Activities
 
 

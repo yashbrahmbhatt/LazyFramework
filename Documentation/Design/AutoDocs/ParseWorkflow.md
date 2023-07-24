@@ -127,7 +127,7 @@ Class: ParseWorkflow
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\AutoDocs\TraverseWorkflow.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Design\AutoDocs\TraverseWorkflow.xaml
 
     
 </details>

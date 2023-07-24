@@ -17,14 +17,15 @@ Takes a screenshot and saves it to a folder.
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
-- System.IO
-- System.Reflection
-- UiPath.Core.Activities
-- UiPath.Platform.ResourceHandling
 - System.Drawing
 - System.Drawing.Imaging
-- System.Windows.Forms
+- System.IO
+- System.Linq
+- System.Reflection
 - System.Runtime.Serialization
+- System.Windows.Forms
+- UiPath.Core.Activities
+- UiPath.Platform.ResourceHandling
 
 
 </details>

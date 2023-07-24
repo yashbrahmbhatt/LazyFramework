@@ -11,21 +11,22 @@ Tests that applications can be initialized successfully.
     <b>Namespaces</b>
     </summary>
     
-- System.Activities
-- System.Activities.Statements
+- GlobalConstantsNamespace
+- GlobalVariablesNamespace
 - System
+- System.Activities
+- System.Activities.Runtime.Collections
+- System.Activities.Statements
 - System.Collections
 - System.Collections.Generic
-- UiPath.Core.Activities
 - System.Collections.ObjectModel
-- System.Runtime.Serialization
+- System.Linq
 - System.Reflection
-- UiPath.Testing.Activities
-- UiPath.Shared.Activities
-- System.Activities.Runtime.Collections
+- System.Runtime.Serialization
 - UiPath.Core
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
+- UiPath.Core.Activities
+- UiPath.Shared.Activities
+- UiPath.Testing.Activities
 
 
 </details>
@@ -44,11 +45,13 @@ Tests that applications can be initialized successfully.
 - System.Activities
 - System.Collections
 - System.ComponentModel
+- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
 - System.Core
 - System.Data
+- System.Data.Common
 - System.Drawing
 - System.Linq
 - System.Linq.Expressions
@@ -59,6 +62,7 @@ Tests that applications can be initialized successfully.
 - System.Private.DataContractSerialization
 - System.Private.ServiceModel
 - System.Private.Uri
+- System.Private.Xml
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions

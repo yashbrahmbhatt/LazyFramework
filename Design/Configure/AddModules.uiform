@@ -69,10 +69,6 @@
                 {
                   "label": "Reporter - Basic",
                   "value": "reporterBasic"
-                },
-                {
-                  "label": "Reporter - Power Query",
-                  "value": "reporterPowerQuery"
                 }
               ]
             },

@@ -113,9 +113,9 @@ Class: DocumentProject
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\AutoDocs\ParseProjectJSON.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\AutoDocs\ParseWorkflow.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\AutoDocs\DataTableToMarkdown.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Design\AutoDocs\ParseProjectJSON.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Design\AutoDocs\ParseWorkflow.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Design\AutoDocs\DataTableToMarkdown.xaml
 
     
 </details>
@@ -143,7 +143,7 @@ direction TB
 LogMessage_1 : LogMessage - LM -- Start
 MultipleAssign_1 : MultipleAssign - Initialize Vars
 LogMessage_1 --> MultipleAssign_1
-InvokeWorkflowFile_3 : InvokeWorkflowFile - AutoDocs\\ParseProjectJSON.xaml - Invoke Workflow File
+InvokeWorkflowFile_3 : InvokeWorkflowFile - ParseProjectJSON.xaml - Invoke Workflow File
 MultipleAssign_1 --> InvokeWorkflowFile_3
 MultipleAssign_3 : MultipleAssign - Get Test Workflows
 InvokeWorkflowFile_3 --> MultipleAssign_3

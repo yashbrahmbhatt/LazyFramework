@@ -11,18 +11,22 @@ Tests that all processes are killed successfully.
     <b>Namespaces</b>
     </summary>
     
-- System.Activities
-- System.Activities.Statements
 - System
+- System.Activities
+- System.Activities.Runtime.Collections
+- System.Activities.Statements
 - System.Collections
 - System.Collections.Generic
-- UiPath.Core.Activities
 - System.Collections.ObjectModel
-- System.Runtime.Serialization
+- System.Linq
 - System.Reflection
-- UiPath.Testing.Activities
+- System.Runtime.Serialization
+- UiPath.Core.Activities
 - UiPath.Shared.Activities
-- System.Activities.Runtime.Collections
+- UiPath.Testing.Activities
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -41,11 +45,13 @@ Tests that all processes are killed successfully.
 - System.Activities
 - System.Collections
 - System.ComponentModel
+- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
 - System.Core
 - System.Data
+- System.Data.Common
 - System.Drawing
 - System.Linq
 - System.Linq.Expressions
@@ -56,6 +62,7 @@ Tests that all processes are killed successfully.
 - System.Private.DataContractSerialization
 - System.Private.ServiceModel
 - System.Private.Uri
+- System.Private.Xml
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions

@@ -11,14 +11,15 @@ Flattens a list of JToken into a DataTable. Uses the Aggregate LINQ function.
     <b>Namespaces</b>
     </summary>
     
+- System
 - System.Activities
 - System.Activities.Statements
-- System
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
-- UiPath.Core.Activities
+- System.Linq
 - System.Runtime.Serialization
+- UiPath.Core.Activities
 
 
 </details>

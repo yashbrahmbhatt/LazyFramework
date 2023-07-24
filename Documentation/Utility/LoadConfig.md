@@ -27,6 +27,15 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
 - UiPath.Excel.Model
 - UiPath.Platform.ResourceHandling
 - UiPath.Shared.Activities.Business
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
+- System.Data
+- System.ComponentModel
+- System.Xml.Serialization
+- System.Runtime.Serialization
+- System.IO
+- UiPath.Shared.Activities
 
 
 </details>
@@ -83,6 +92,17 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
 - UiPath.System.Activities.ViewModels
 - UiPath.Testing.Activities
 - UiPath.Workflow
+- System.Data.SqlClient
+- System.ComponentModel.EventBasedAsync
+- PresentationFramework
+- WindowsBase
+- Microsoft.Win32.Primitives
+- System.ComponentModel.Primitives
+- System.Private.Xml
+- System.IO.FileSystem.Watcher
+- System.IO.Packaging
+- System.IO.FileSystem.AccessControl
+- System.IO.FileSystem.DriveInfo
 
 
 </details>
@@ -97,6 +117,7 @@ Reads the config file, ignoring the sheets defined, and outputs the config and t
 | in_IgnoreSheets | InArgument | s:String[] | An array of sheet names to ignore loading into the config variable. |
 | out_Config | OutArgument | scg:Dictionary(x:String, x:String) | The loaded config dictionary. |
 | out_TextFiles | OutArgument | scg:Dictionary(x:String, x:String) | The loaded dictionary of text resources. |
+| out_ExcelFiles | OutArgument | scg:Dictionary(x:String, sd:DataSet) |  |
 
     
 </details>
@@ -197,30 +218,63 @@ If_4: If - NOT Storage Bucket Resource?
 state If_4 {
 direction TB
 
-Sequence_13: Sequence - Local/Network Resource
-state Sequence_13 {
+RetryScope_9: RetryScope - Retry Network/Local
+state RetryScope_9 {
 direction TB
-
-RetryScope_5: RetryScope - Retry Network/Local
-state RetryScope_5 {
-direction TB
-ReadTextFile_2 : ReadTextFile - Read Local File
-}
+ReadTextFile_4 : ReadTextFile - Read Local File
 }
 
-Sequence_14: Sequence - Storage Bucket Resource
-state Sequence_14 {
+RetryScope_10: RetryScope - Retry Orch
+state RetryScope_10 {
 direction TB
-
-RetryScope_6: RetryScope - Retry Orch
-state RetryScope_6 {
-direction TB
-ReadStorageText_2 : ReadStorageText - Get Storage Text
-}
+ReadStorageText_4 : ReadStorageText - Get Storage Text
 }
 }
 Assign_7 : Assign - Set TextFiles Value
 If_4 --> Assign_7
+}
+Sequence_12 --> Sequence_19
+Sequence_19: Sequence - Process ExcelFiles Row
+state Sequence_19 {
+direction TB
+MultipleAssign_5 : MultipleAssign - Initialize DataSet
+MultipleAssign_5 --> If_6
+If_6: If - Storage Bucket Resource? (Excel)
+state If_6 {
+direction TB
+MultipleAssign_4 : MultipleAssign - Set Path (Local)
+}
+If_6 --> RetryScope_11
+RetryScope_11: RetryScope - Retry Network/Local (Excel)
+state RetryScope_11 {
+direction TB
+
+ExcelApplicationCard_3: ExcelApplicationCard - Using Excel File
+state ExcelApplicationCard_3 {
+direction TB
+
+ForEachSheetX_2: ForEachSheetX - For Each Excel Sheet
+state ForEachSheetX_2 {
+direction TB
+
+Sequence_20: Sequence - Read Sheet
+state Sequence_20 {
+direction TB
+ReadRangeX_1 : ReadRangeX - Read Sheet Range
+MultipleAssign_6 : MultipleAssign - Set Table Name
+ReadRangeX_1 --> MultipleAssign_6
+InvokeMethod_1 : InvokeMethod - Add Table to DataSet
+MultipleAssign_6 --> InvokeMethod_1
+}
+}
+}
+}
+RetryScope_11 --> If_7
+If_7: If - Storage Bucket Resource? (Delete Excel)
+state If_7 {
+direction TB
+DeleteFileX_1 : DeleteFileX - Delete Temp File
+}
 }
 }
 }

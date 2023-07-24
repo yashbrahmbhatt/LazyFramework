@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="TraverseWorkflow" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Private.Xml.Linq" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_XElement" Type="InArgument(sxl:XElement)" />
@@ -293,7 +294,7 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="sxl:XElement" Name="Descendant" />
                         </ActivityAction.Argument>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Recurse Descendant" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="AutoDocs\\TraverseWorkflow.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Recurse Descendant" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Design\\AutoDocs\\TraverseWorkflow.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="sxl:XElement" x:Key="in_XElement">
                               <CSharpValue x:TypeArguments="sxl:XElement" sap2010:WorkflowViewState.IdRef="CSharpValue`1_88">Descendant</CSharpValue>
@@ -420,7 +421,7 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
                             </scg:List>
                           </ui:MultipleAssign.AssignOperations>
                         </ui:MultipleAssign>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Recurse Child" sap:VirtualizedContainerService.HintSize="423,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="AutoDocs\\TraverseWorkflow.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Recurse Child" sap:VirtualizedContainerService.HintSize="423,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Design\\AutoDocs\\TraverseWorkflow.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="sxl:XElement" x:Key="in_XElement">
                               <CSharpValue x:TypeArguments="sxl:XElement" sap2010:WorkflowViewState.IdRef="CSharpValue`1_78">Child</CSharpValue>
@@ -490,7 +491,7 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="sxl:XElement" Name="Child" />
               </ActivityAction.Argument>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Traverse Child" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="AutoDocs\\TraverseWorkflow.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Traverse Child" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Design\\AutoDocs\\TraverseWorkflow.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="sxl:XElement" x:Key="in_XElement">
                     <CSharpValue x:TypeArguments="sxl:XElement" sap2010:WorkflowViewState.IdRef="CSharpValue`1_87">Child</CSharpValue>

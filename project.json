@@ -51,7 +51,14 @@
         "AutoDocs/ParseWorkflow.xaml",
         "AutoDocs/TraverseWorkflow.xaml",
         "Configure/AddModules.xaml",
-        "Configure/AddModules.uiform"
+        "Configure/AddModules.uiform",
+        "Design/AutoDocs/DataTableToMarkdown.xaml",
+        "Design/AutoDocs/DocumentProject.xaml",
+        "Design/AutoDocs/ParseProjectJSON.xaml",
+        "Design/AutoDocs/ParseWorkflow.xaml",
+        "Design/AutoDocs/TraverseWorkflow.xaml",
+        "Design/Configure/AddModules.uiform",
+        "Design/Configure/AddModules.xaml"
       ]
     },
     "fileInfoCollection": [

@@ -18,6 +18,7 @@ Sends an email taking a dictionary of data to fill out template subject and body
 - System.Collections.Generic
 - System.Collections.ObjectModel
 - System.Data
+- System.Linq
 - System.Net.Mail
 - System.Reflection
 - System.Runtime.Serialization

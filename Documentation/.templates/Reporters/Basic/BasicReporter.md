@@ -36,6 +36,9 @@ Reads all queue items for a single queue within a defined reporting period, writ
 - System.Dynamic
 - System.Xml.Serialization
 - System.Xml.Serialization
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>

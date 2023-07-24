@@ -11,26 +11,28 @@ A basic template for a test with the expected outcome being success.
     <b>Namespaces</b>
     </summary>
     
-- System.Activities
-- System.Activities.Statements
+- Newtonsoft.Json
+- Newtonsoft.Json.Linq
 - System
+- System.Activities
+- System.Activities.Runtime.Collections
+- System.Activities.Statements
 - System.Collections
 - System.Collections.Generic
-- System.Data
-- UiPath.Core.Activities
 - System.Collections.ObjectModel
-- System.Runtime.Serialization
-- System.Reflection
-- UiPath.Testing.Activities
-- UiPath.Shared.Activities
-- System.Activities.Runtime.Collections
-- Newtonsoft.Json.Linq
-- Newtonsoft.Json
+- System.ComponentModel
+- System.Data
 - System.Dynamic
-- System.ComponentModel
+- System.Linq
+- System.Reflection
+- System.Runtime.Serialization
 - System.Xml.Serialization
-- System.ComponentModel
-- System.Xml.Serialization
+- UiPath.Core.Activities
+- UiPath.Shared.Activities
+- UiPath.Testing.Activities
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>

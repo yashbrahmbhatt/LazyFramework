@@ -11,12 +11,13 @@ Generates a dictinoary that contains diagnostic information in cases of system e
     <b>Namespaces</b>
     </summary>
     
+- System
 - System.Activities
 - System.Activities.Statements
-- System
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
+- System.Linq
 - UiPath.Core.Activities
 
 

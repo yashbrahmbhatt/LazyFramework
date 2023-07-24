@@ -18,6 +18,7 @@ Handles the outcome of a transaction by updating the queue item status, as well 
 - System.Collections.Generic
 - System.Collections.ObjectModel
 - System.ComponentModel
+- System.Linq
 - System.Runtime.Serialization
 - UiPath.Core
 - UiPath.Core.Activities

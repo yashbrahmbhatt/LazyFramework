@@ -31,6 +31,9 @@ Tests the failure path for the dispatcher. Validates that the exception email is
 - UiPath.Mail.Activities
 - System.Activities.Runtime.Collections
 - UiPath.Platform.ResourceHandling
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -49,11 +52,13 @@ Tests the failure path for the dispatcher. Validates that the exception email is
 - System.Activities
 - System.Collections
 - System.ComponentModel
+- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
 - System.Core
 - System.Data
+- System.Data.Common
 - System.Drawing
 - System.Linq
 - System.Linq.Expressions
@@ -65,6 +70,7 @@ Tests the failure path for the dispatcher. Validates that the exception email is
 - System.Private.DataContractSerialization
 - System.Private.ServiceModel
 - System.Private.Uri
+- System.Private.Xml
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions
