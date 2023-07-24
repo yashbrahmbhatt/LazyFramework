@@ -231,8 +231,8 @@ This is used to keep track of features to be implemented and what has been accom
 - [ ] Create Classifier
 
 ### Framework Changes
-- [x] Add a 'Mapping' sheet to the Configs that reads an excel file into a DataSet with each sheet being a named DataTable within it.
-- [x] Add a Setup.xaml workflow that helps with initial setup of the modules.
+- [x] Add a 'Mapping' sheet to the Configs that reads an excel file into a DataSet with each sheet being a named DataTable within it. - Yash Brahmbhatt 24/07/2023
+- [x] Add a Setup.xaml workflow that helps with initial setup of the modules. - Yash Brahmbhatt 24/07/2023
 
 <br />
 
