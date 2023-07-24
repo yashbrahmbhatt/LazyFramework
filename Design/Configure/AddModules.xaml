@@ -143,7 +143,9 @@
     </ui:LogMessage>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Load AddModules Config" sap:VirtualizedContainerService.HintSize="763,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utility\\LoadConfig.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ConfigPath">Configure/AddModulesConfig.xlsx</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ConfigPath">
+          <Literal x:TypeArguments="x:String">Design/Configure/AddModulesConfig.xlsx</Literal>
+        </InArgument>
         <InArgument x:TypeArguments="s:String[]" x:Key="in_IgnoreSheets">
           <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">new string[]{}</CSharpValue>
         </InArgument>

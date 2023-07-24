@@ -1,7 +1,7 @@
 # ApplicationDispatcher
 Class: ApplicationDispatcher
 
-Reads data from the srouce of work and adds it to a queue.
+Reads data from the source of work and adds it to a queue. Specialized for when dispatching requires information from an application.
 
 <hr />
 
@@ -25,6 +25,7 @@ Reads data from the srouce of work and adds it to a queue.
 - System.Runtime.Serialization
 - UiPath.Core
 - UiPath.Core.Activities
+- System.Linq.Expressions
 
 
 </details>
@@ -78,6 +79,7 @@ Reads data from the srouce of work and adds it to a queue.
 - UiPath.System.Activities.ViewModels
 - UiPath.Workflow
 - WindowsBase
+- System.Linq.Expressions
 
 
 </details>
@@ -102,6 +104,7 @@ Reads data from the srouce of work and adds it to a queue.
 - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Dispatchers\Application\Framework\CloseApplications.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Dispatchers\Application\Framework\KillProcesses.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Dispatchers\Application\Framework\InitializeApplications.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\TakeScreenshot.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\GenerateDiagnosticDictionary.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\SendEmail.xaml
@@ -145,10 +148,17 @@ RetryScope_2: RetryScope - Retry Initialize
 state RetryScope_2 {
 direction TB
 
+Sequence_7: Sequence - Retry Initializing Applications
+state Sequence_7 {
+direction TB
+
 TryCatch_2: TryCatch - Try Close, Catch Kill (Initialization)
 state TryCatch_2 {
 direction TB
 InvokeWorkflowFile_5 : InvokeWorkflowFile - Close Applications (Initialization)
+}
+InvokeWorkflowFile_12 : InvokeWorkflowFile - .templates\\Dispatchers\\Application\\Framework\\InitializeApplications.xaml - Invoke Workflow File
+TryCatch_2 --> InvokeWorkflowFile_12
 }
 }
 RetryScope_2 --> Switch1_1
@@ -159,7 +169,15 @@ Throw_1 : Throw - Throw Test Exception
 }
 LogMessage_1 : LogMessage - LM -- Start
 Switch1_1 --> LogMessage_1
-LogMessage_1 --> Sequence_5
+LogMessage_1 --> ForEach1_1
+ForEach1_1: ForEach - For Each Item In Dispatch List
+state ForEach1_1 {
+direction TB
+
+TryCatch_5: TryCatch - Try Dispatching Item
+state TryCatch_5 {
+direction TB
+
 Sequence_5: Sequence - Do Steps and Dispatch
 state Sequence_5 {
 direction TB
@@ -173,8 +191,10 @@ AddQueueItem_1 : AddQueueItem - Add Item to Queue
 MultipleAssign_3 : MultipleAssign - ItemsAdded++
 RetryScope_1 --> MultipleAssign_3
 }
+}
+}
 LogMessage_3 : LogMessage - LM -- Terminating Applications
-Sequence_5 --> LogMessage_3
+ForEach1_1 --> LogMessage_3
 LogMessage_3 --> TryCatch_4
 TryCatch_4: TryCatch - Try Close, Catch Kill (Termination)
 state TryCatch_4 {
