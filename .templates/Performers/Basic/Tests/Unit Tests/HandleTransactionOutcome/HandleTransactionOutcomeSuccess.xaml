@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="HandleTransactionOutcomeSuccess" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1632,3046" sap2010:WorkflowViewState.IdRef="HandleTransactionOutcomeSuccess_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="HandleTransactionOutcomeSuccess" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="636,3046" sap2010:WorkflowViewState.IdRef="HandleTransactionOutcomeSuccess_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -81,11 +81,7 @@
   <Sequence sap2010:Annotation.AnnotationText="Validates the success case for this workflow. Queue Item set to success." DisplayName="HandleTransactionOutcomeSuccess" sap:VirtualizedContainerService.HintSize="646,2981" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="HandleTransactionOutcomeSuccess" Name="TestID" />
-      <Variable x:TypeArguments="x:TimeSpan" Name="Duration">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:TimeSpan" Value="00:05:00" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:TimeSpan" Default="00:05:00" Name="Duration" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -147,7 +143,7 @@
                         </OutArgument>
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
-                        <InArgument x:TypeArguments="x:String">.templates\\Data\\Configs\\PerformerConfig.xlsx</InArgument>
+                        <InArgument x:TypeArguments="x:String">.templates\\Data\\Configs\\BasicPerformerConfig.xlsx</InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -203,6 +199,7 @@
                   <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_TextFiles">
                     <CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">TextFiles</CSharpReference>
                   </OutArgument>
+                  <OutArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataSet)" x:Key="out_ExcelFiles" />
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
               <ui:AddTransactionItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Test Queue Item" sap:VirtualizedContainerService.HintSize="423,194" sap2010:WorkflowViewState.IdRef="AddTransactionItem_1">

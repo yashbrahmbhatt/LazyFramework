@@ -21,7 +21,7 @@
     "isPausable": true,
     "isAttended": false,
     "requiresUserInteraction": true,
-    "supportsPersistence": false,
+    "supportsPersistence": true,
     "workflowSerialization": "DataContract",
     "excludedLoggedData": [
       "Private:*",
@@ -318,6 +318,42 @@
         "testCaseId": "9b54a231-c4c5-48e7-9cd9-ed9280cfb3f5",
         "testCaseType": "TestCase",
         "fileName": "Tests\\Utility\\LoadConfig\\LoadConfigSuccess.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Dispatchers\\Application\\Framework\\CloseApplications.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Dispatchers\\Application\\Framework\\InitializeApplications.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Dispatchers\\Application\\Framework\\KillProcesses.xaml"
+      },
+      {
+        "templateType": "Generic",
+        "fileName": ".templates\\Dispatchers\\Application\\ApplicationDispatcher.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Dispatchers\\Application\\Tests\\Unit Tests\\CloseApplications\\CloseApplicationsSuccess.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Dispatchers\\Application\\Tests\\Unit Tests\\InitializeApplications\\InitializeApplicationsSuccess.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Dispatchers\\Application\\Tests\\Unit Tests\\KillProcesses\\KillProcessesSuccess.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Dispatchers\\Application\\Tests\\Framework\\ApplicationDispatcherFailureTest.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Dispatchers\\Application\\Tests\\Framework\\ApplicationDispatcherSuccessTest.xaml"
       }
     ],
     "modernBehavior": true

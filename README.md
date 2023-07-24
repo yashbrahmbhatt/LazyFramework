@@ -222,16 +222,17 @@ This is used to keep track of features to be implemented and what has been accom
 - [x] Add Tests for all modules so far - Yash Brahmbhatt 19/07/2023
 - [x] Add Auto-Documentation Module - Yash Brahmbhatt 18/07/2023
 - [x] Add Support for Mermaid Diagrams in AutoDocs - Yash Brahmbhatt 21-07-2023 * Not all activities are currently supported.
-- [ ] <b>Create ApplicationDispatcher</b>
+- [x] <b>Create ApplicationDispatcher</b>
 - [ ] Create Tasker
-- [ ] Create ExcelDispatcher
-- [ ] Create FileDispatcher
+- [ ] <strike>Create ExcelDispatcher</strike>
+- [ ] <strike>Create FileDispatcher</strike>
 - [ ] Create PostExceptionStepsPerformer
-- [ ] Create Extractor (DU)
-- [ ] Create Classifier (DU)
+- [ ] Create Extractor
+- [ ] Create Classifier
 
 ### Framework Changes
-- [ ] <b>Add a 'Mapping' sheet to the Configs that read an excel file into a DataSet with each sheet being a named DataTable within it.</b>
+- [x] Add a 'Mapping' sheet to the Configs that read an excel file into a DataSet with each sheet being a named DataTable within it.
+- [ ] <b>Add a Setup.xaml workflow that helps with initial setup of the modules.</b>
 
 <br />
 

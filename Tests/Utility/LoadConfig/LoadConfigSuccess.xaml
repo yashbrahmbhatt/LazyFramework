@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="LoadConfigSuccess" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1632,2864" sap2010:WorkflowViewState.IdRef="SuccessTestCase_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="LoadConfigSuccess" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1003,3124" sap2010:WorkflowViewState.IdRef="SuccessTestCase_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -18,6 +18,12 @@
       <x:String>UiPath.Core</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -76,9 +82,15 @@
       <AssemblyReference>System.Linq.Parallel</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Tests all the paths for loading a config. Verifies:&#xD;&#xA;- All sheets loaded&#xD;&#xA;- Ignored sheets not loaded&#xD;&#xA;- Assets sheet loaded from Orchestrator&#xD;&#xA;- Local TextFiles loaded&#xD;&#xA;- Orchestrator Bucket TextFiles loaded" DisplayName="LoadConfigSuccess" sap:VirtualizedContainerService.HintSize="646,2799" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Tests all the paths for loading a config. Verifies:&#xA;- All sheets loaded&#xA;- Ignored sheets not loaded&#xA;- Assets sheet loaded from Orchestrator&#xA;- Local TextFiles loaded&#xA;- Orchestrator Bucket TextFiles loaded" DisplayName="LoadConfigSuccess" sap:VirtualizedContainerService.HintSize="646,3059" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:TimeSpan" Default="00:05:00" Name="Duration" />
       <Variable x:TypeArguments="s:Exception" Name="TestException">
@@ -106,15 +118,16 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:TimeoutScope DisplayName="Timed Test" sap:VirtualizedContainerService.HintSize="584,2224" sap2010:WorkflowViewState.IdRef="TimeoutScope_1">
+    <ui:TimeoutScope DisplayName="Timed Test" sap:VirtualizedContainerService.HintSize="584,2484" sap2010:WorkflowViewState.IdRef="TimeoutScope_1">
       <ui:TimeoutScope.Body>
         <ActivityAction x:TypeArguments="Activity">
-          <Sequence DisplayName="Test" sap:VirtualizedContainerService.HintSize="550,2099" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Test" sap:VirtualizedContainerService.HintSize="550,2359" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="ConfigPath" />
               <Variable x:TypeArguments="s:String[]" Name="IgnoreSheets" />
               <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Config" />
               <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="TextFiles" />
+              <Variable x:TypeArguments="scg:Dictionary(x:String, sd:DataSet)" Name="ExcelFiles" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -198,6 +211,9 @@
                       <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_TextFiles">
                         <CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">TextFiles</CSharpReference>
                       </OutArgument>
+                      <OutArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataSet)" x:Key="out_ExcelFiles">
+                        <CSharpReference x:TypeArguments="scg:Dictionary(x:String, sd:DataSet)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">ExcelFiles</CSharpReference>
+                      </OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </Sequence>
@@ -248,7 +264,7 @@
                 </InArgument>
               </ui:LogMessage.Message>
             </ui:LogMessage>
-            <Sequence DisplayName="Validate Results" sap:VirtualizedContainerService.HintSize="488,851" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Validate Results" sap:VirtualizedContainerService.HintSize="488,1111" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -282,17 +298,31 @@
                   </InArgument>
                 </uta:VerifyExpression.Expression>
               </uta:VerifyExpression>
-              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Local File Loaded" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_9" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Local TextFile Loaded" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_9" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
                 <uta:VerifyExpression.Expression>
                   <InArgument x:TypeArguments="x:Boolean">
                     <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">TextFiles.Keys.Contains("LocalFile") &amp;&amp; !string.IsNullOrEmpty(TextFiles["LocalFile"])</CSharpValue>
                   </InArgument>
                 </uta:VerifyExpression.Expression>
               </uta:VerifyExpression>
-              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Storage Bucket File Loaded" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_10" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Storage Bucket TextFile Loaded" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_10" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
                 <uta:VerifyExpression.Expression>
                   <InArgument x:TypeArguments="x:Boolean">
                     <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">TextFiles.Keys.Contains("BucketFile") &amp;&amp; !string.IsNullOrEmpty(TextFiles["BucketFile"])</CSharpValue>
+                  </InArgument>
+                </uta:VerifyExpression.Expression>
+              </uta:VerifyExpression>
+              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Local ExcelFile Loaded" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_11" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+                <uta:VerifyExpression.Expression>
+                  <InArgument x:TypeArguments="x:Boolean">
+                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31" xml:space="preserve">ExcelFiles.Keys.Contains("LocalFile") &amp;&amp; ExcelFiles["LocalFile"].Tables.Count  == 2</CSharpValue>
+                  </InArgument>
+                </uta:VerifyExpression.Expression>
+              </uta:VerifyExpression>
+              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Storage Bucket ExcelFile Loaded" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_12" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+                <uta:VerifyExpression.Expression>
+                  <InArgument x:TypeArguments="x:Boolean">
+                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32" xml:space="preserve">ExcelFiles.Keys.Contains("BucketFile") &amp;&amp; ExcelFiles["BucketFile"].Tables.Count  == 2</CSharpValue>
                   </InArgument>
                 </uta:VerifyExpression.Expression>
               </uta:VerifyExpression>
