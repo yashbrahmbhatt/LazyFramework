@@ -1,6 +1,5 @@
 {
   "name": "LazyFramework",
-  "projectId": "7c715e38-dc49-4ac2-87b1-7de4d3e7b07d",
   "description": "A different design approach to UiPath Project frameworks that heavily leverage templates.",
   "main": "Dispatcher.xaml",
   "dependencies": {
@@ -77,10 +76,6 @@
       {
         "templateType": "Generic",
         "fileName": ".templates\\Performers\\Basic\\Framework\\InitializeApplications.xaml"
-      },
-      {
-        "templateType": "Generic",
-        "fileName": ".templates\\Performers\\Basic\\Framework\\IsMaintenanceTime.xaml"
       },
       {
         "templateType": "Generic",
@@ -248,10 +243,6 @@
       },
       {
         "templateType": "TestCase",
-        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework Tests\\FrameworkGetTransactionDataError.xaml"
-      },
-      {
-        "templateType": "TestCase",
         "fileName": ".templates\\Performers\\Basic\\Tests\\Framework Tests\\FrameworkProcessError.xaml"
       },
       {
@@ -365,6 +356,14 @@
       {
         "templateType": "TestCase",
         "fileName": ".templates\\Dispatchers\\Application\\Tests\\Framework\\ApplicationDispatcherSuccessTest.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Performers\\Basic\\Tests\\Framework Tests\\FrameworkGetTransactionDataError.xaml"
+      },
+      {
+        "templateType": "TestCase",
+        "fileName": ".templates\\Dispatchers\\Application\\Tests\\Framework\\ApplicationDispatcherMaintenanceTime.xaml"
       }
     ],
     "modernBehavior": true

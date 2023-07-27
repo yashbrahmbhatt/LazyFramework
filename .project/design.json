@@ -12,7 +12,5 @@
     {
       "Key": "template"
     }
-  ],
-  "SeparateRuntimeDependencies": true,
-  "IncludeSources": true
+  ]
 }
