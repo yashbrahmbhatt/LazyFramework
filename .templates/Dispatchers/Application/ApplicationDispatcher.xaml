@@ -1,9 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ApplicationDispatcher" this:ApplicationDispatcher.in_ConfigPath=".templates\Data\Configs\Dispatcher.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ApplicationDispatcher" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="The path to the config file to use to load variables and resources." Name="in_ConfigPath" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="A list of the sheets to ignore loading from the config." Name="in_IgnoreSheets" Type="InArgument(s:String[])" />
     <x:Property sap2010:Annotation.AnnotationText="Used to modify the workflow in order to test different scenarios. Only used to test exception handling in this workflow. Leave as null for production use." Name="in_TestID" Type="InArgument(x:String)" />
   </x:Members>
+  <this:ApplicationDispatcher.in_ConfigPath>
+    <InArgument x:TypeArguments="x:String">
+      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_71">GlobalConstants.ConfigPath_ApplicationDispatcherTemplate</CSharpValue>
+    </InArgument>
+  </this:ApplicationDispatcher.in_ConfigPath>
   <this:ApplicationDispatcher.in_IgnoreSheets>
     <InArgument x:TypeArguments="s:String[]">
       <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">new string[]{}</CSharpValue>
@@ -15,7 +20,7 @@
     </InArgument>
   </this:ApplicationDispatcher.in_TestID>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>884,3943.3333333333335</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>997,3742</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -86,7 +91,7 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Reads data from the source of work and adds it to a queue. Specialized for when dispatching requires information from an application." DisplayName="ApplicationDispatcher" sap:VirtualizedContainerService.HintSize="719.3333333333334,3878.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Reads data from the source of work and adds it to a queue. Specialized for when dispatching requires information from an application." DisplayName="ApplicationDispatcher" sap:VirtualizedContainerService.HintSize="719,3677" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Config" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="TextFiles" />
@@ -98,7 +103,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LoadConfig.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="657.3333333333334,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Utility\\LoadConfig.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LoadConfig.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="657,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Shared\\LoadConfig.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_ConfigPath">
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">in_ConfigPath</CSharpValue>
@@ -115,13 +120,13 @@
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataSet)" x:Key="out_ExcelFiles" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Switch x:TypeArguments="x:String" DisplayName="@Test Variations - Initialization" sap:VirtualizedContainerService.HintSize="657.3333333333334,324" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+    <Switch x:TypeArguments="x:String" DisplayName="@Test Variations - Initialization" sap:VirtualizedContainerService.HintSize="657,140" sap2010:WorkflowViewState.IdRef="Switch`1_2">
       <Switch.Expression>
         <InArgument x:TypeArguments="x:String">
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_69">in_TestID</CSharpValue>
         </InArgument>
       </Switch.Expression>
-      <ui:MultipleAssign x:Key="ApplicationDispatcherMaintenanceTime" DisplayName="Update Maintenance Times" sap:VirtualizedContainerService.HintSize="422.6666666666667,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+      <ui:MultipleAssign x:Key="ApplicationDispatcherMaintenanceTime" DisplayName="Update Maintenance Times" sap:VirtualizedContainerService.HintSize="423,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -148,7 +153,7 @@
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
     </Switch>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="IsMaintenanceTime.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="657.3333333333334,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Utility\\IsMaintenanceTime.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="IsMaintenanceTime.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="657,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Shared\\IsMaintenanceTime.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_Start">
           <CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_65">new TimeSpan(Convert.ToInt32(Config["Maintenance_Start"].Split(":",StringSplitOptions.RemoveEmptyEntries)[0]), Convert.ToInt32(Config["Maintenance_Start"].Split(":",StringSplitOptions.RemoveEmptyEntries)[1]), Convert.ToInt32(Config["Maintenance_Start"].Split(":",StringSplitOptions.RemoveEmptyEntries)[2]))</CSharpValue>
@@ -161,14 +166,14 @@
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <If DisplayName="Not Maintenance Time?" sap:VirtualizedContainerService.HintSize="657.3333333333334,3048" sap2010:WorkflowViewState.IdRef="If_1">
+    <If DisplayName="Not Maintenance Time?" sap:VirtualizedContainerService.HintSize="657,3038" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_66">!IsMaintenanceTime</CSharpValue>
         </InArgument>
       </If.Condition>
       <If.Then>
-        <TryCatch DisplayName="Try Dispatching" sap:VirtualizedContainerService.HintSize="623.3333333333334,2719.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+        <TryCatch DisplayName="Try Dispatching" sap:VirtualizedContainerService.HintSize="623,2711" sap2010:WorkflowViewState.IdRef="TryCatch_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -176,7 +181,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <TryCatch.Try>
-            <Sequence DisplayName="Dispatching" sap:VirtualizedContainerService.HintSize="584.6666666666666,2480" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Dispatching" sap:VirtualizedContainerService.HintSize="585,2482" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Int32" Default="0" Name="ItemsAdded" />
               </Sequence.Variables>
@@ -417,7 +422,7 @@
                                   </InArgument>
                                 </ui:LogMessage.Message>
                               </ui:LogMessage>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\\TakeScreenshot.xaml - Invoke Workflow File (Each)" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Utility\\TakeScreenshot.xaml">
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\\TakeScreenshot.xaml - Invoke Workflow File (Each)" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Shared\\TakeScreenshot.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
                                   <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">
                                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_47">Config["Folder_ExScreenshots"]</CSharpValue>
@@ -427,7 +432,7 @@
                                   </InOutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GenerateDiagnosticDictionary.xaml - Invoke Workflow File (Each)" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Utility\\GenerateDiagnosticDictionary.xaml">
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GenerateDiagnosticDictionary.xaml - Invoke Workflow File (Each)" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Shared\\GenerateDiagnosticDictionary.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
                                   <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">
                                     <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">exception</CSharpValue>
@@ -455,7 +460,7 @@
                                   </scg:List>
                                 </ui:MultipleAssign.AssignOperations>
                               </ui:MultipleAssign>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail.xaml - Invoke Workflow File (Each)" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Utility\\SendEmail.xaml">
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail.xaml - Invoke Workflow File (Each)" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Shared\\SendEmail.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
                                   <InArgument x:TypeArguments="x:String" x:Key="in_To">
                                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">Config["SysEx_To"]</CSharpValue>
@@ -594,7 +599,7 @@
                       </InArgument>
                     </ui:LogMessage.Message>
                   </ui:LogMessage>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\\TakeScreenshot.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Utility\\TakeScreenshot.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\\TakeScreenshot.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Shared\\TakeScreenshot.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">
                         <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">Config["Folder_ExScreenshots"]</CSharpValue>
@@ -604,7 +609,7 @@
                       </InOutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GenerateDiagnosticDictionary.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utility\\GenerateDiagnosticDictionary.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GenerateDiagnosticDictionary.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Shared\\GenerateDiagnosticDictionary.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">
                         <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">exception</CSharpValue>
@@ -632,7 +637,7 @@
                       </scg:List>
                     </ui:MultipleAssign.AssignOperations>
                   </ui:MultipleAssign>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Utility\\SendEmail.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="422.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Shared\\SendEmail.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_To">
                         <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">Config["SysEx_To"]</CSharpValue>

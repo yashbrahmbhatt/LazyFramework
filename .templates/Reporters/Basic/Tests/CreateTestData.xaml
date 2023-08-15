@@ -4,11 +4,11 @@
   </x:Members>
   <this:CreateTestData.in_ConfigPath>
     <InArgument x:TypeArguments="x:String">
-      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">@".templates\Data\Configs\ReporterConfig.xlsx"</CSharpValue>
+      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">GlobalConstants.ConfigPath_BasicReporterTemplate</CSharpValue>
     </InArgument>
   </this:CreateTestData.in_ConfigPath>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1003,2403</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>997,2403</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -87,20 +87,32 @@
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="478,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">string.Format("Creating reporter test data using Config file at '{0}'", in_ConfigPath)</CSharpValue>
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">
+            <CSharpValue.Result>
+              <OutArgument x:TypeArguments="x:Object" />
+            </CSharpValue.Result>string.Format("Creating reporter test data using Config file at '{0}'", in_ConfigPath)</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\\LoadConfig.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="478,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Utility\\LoadConfig.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\\LoadConfig.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="478,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Shared\\LoadConfig.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_ConfigPath">
-          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">in_ConfigPath</CSharpValue>
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">
+            <CSharpValue.Result>
+              <OutArgument x:TypeArguments="x:String" />
+            </CSharpValue.Result>in_ConfigPath</CSharpValue>
         </InArgument>
         <InArgument x:TypeArguments="s:String[]" x:Key="in_IgnoreSheets">
-          <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">new string[]{}</CSharpValue>
+          <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">
+            <CSharpValue.Result>
+              <OutArgument x:TypeArguments="s:String[]" />
+            </CSharpValue.Result>new string[]{}</CSharpValue>
         </InArgument>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config">
-          <CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">Config</CSharpReference>
+          <CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">
+            <CSharpReference.Result>
+              <OutArgument x:TypeArguments="Location(scg:Dictionary(x:String, x:String))" />
+            </CSharpReference.Result>Config</CSharpReference>
         </OutArgument>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_TextFiles" />
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataSet)" x:Key="out_ExcelFiles" />
@@ -124,17 +136,26 @@
             <ui:AddTransactionItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Start Transaction" sap:VirtualizedContainerService.HintSize="402,194" sap2010:WorkflowViewState.IdRef="AddTransactionItem_1">
               <ui:AddTransactionItem.FolderPath>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">Config["QueueFolder"]</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">
+                    <CSharpValue.Result>
+                      <OutArgument x:TypeArguments="x:String" />
+                    </CSharpValue.Result>Config["QueueFolder"]</CSharpValue>
                 </InArgument>
               </ui:AddTransactionItem.FolderPath>
               <ui:AddTransactionItem.QueueType>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">Config["QueueName"]</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">
+                    <CSharpValue.Result>
+                      <OutArgument x:TypeArguments="x:String" />
+                    </CSharpValue.Result>Config["QueueName"]</CSharpValue>
                 </InArgument>
               </ui:AddTransactionItem.QueueType>
               <ui:AddTransactionItem.Reference>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">i.ToString()</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">
+                    <CSharpValue.Result>
+                      <OutArgument x:TypeArguments="x:String" />
+                    </CSharpValue.Result>i.ToString()</CSharpValue>
                 </InArgument>
               </ui:AddTransactionItem.Reference>
               <ui:AddTransactionItem.TransactionInformation>
@@ -142,11 +163,14 @@
               </ui:AddTransactionItem.TransactionInformation>
               <ui:AddTransactionItem.TransactionItem>
                 <OutArgument x:TypeArguments="ui:QueueItem">
-                  <CSharpReference x:TypeArguments="ui:QueueItem" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">Transaction</CSharpReference>
+                  <CSharpReference x:TypeArguments="ui:QueueItem" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">
+                    <CSharpReference.Result>
+                      <OutArgument x:TypeArguments="Location(ui:QueueItem)" />
+                    </CSharpReference.Result>Transaction</CSharpReference>
                 </OutArgument>
               </ui:AddTransactionItem.TransactionItem>
             </ui:AddTransactionItem>
-            <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Used invoke to bypass code analyzer rule." Code="Thread.Sleep(1000*Convert.ToInt32(new Random().NextInt64(0, 11)));" DisplayName="Adding Delay for Execution Time" sap:VirtualizedContainerService.HintSize="402,196" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+            <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Used invoke to bypass code analyzer rule." Code="System.Threading.Thread.Sleep(1000*Convert.ToInt32(new Random().NextInt64(0, 11)));" DisplayName="Adding Delay for Execution Time" sap:VirtualizedContainerService.HintSize="402,196" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
               <ui:InvokeCode.Arguments>
                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
               </ui:InvokeCode.Arguments>
@@ -159,7 +183,10 @@
             <If DisplayName="Lucky?" sap:VirtualizedContainerService.HintSize="402,937" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Condition>
                 <InArgument x:TypeArguments="x:Boolean">
-                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">new Random().NextInt64(0, 2) == 1</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">
+                    <CSharpValue.Result>
+                      <OutArgument x:TypeArguments="x:Boolean" />
+                    </CSharpValue.Result>new Random().NextInt64(0, 2) == 1</CSharpValue>
                 </InArgument>
               </If.Condition>
               <If.Then>
@@ -169,7 +196,10 @@
                   </ui:SetTransactionStatus.Analytics>
                   <ui:SetTransactionStatus.FolderPath>
                     <InArgument x:TypeArguments="x:String">
-                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">Config["QueueFolder"]</CSharpValue>
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">
+                        <CSharpValue.Result>
+                          <OutArgument x:TypeArguments="x:String" />
+                        </CSharpValue.Result>Config["QueueFolder"]</CSharpValue>
                     </InArgument>
                   </ui:SetTransactionStatus.FolderPath>
                   <ui:SetTransactionStatus.Output>
@@ -177,7 +207,10 @@
                   </ui:SetTransactionStatus.Output>
                   <ui:SetTransactionStatus.TransactionItem>
                     <InArgument x:TypeArguments="ui:QueueItem">
-                      <CSharpValue x:TypeArguments="ui:QueueItem" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">Transaction</CSharpValue>
+                      <CSharpValue x:TypeArguments="ui:QueueItem" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">
+                        <CSharpValue.Result>
+                          <OutArgument x:TypeArguments="ui:QueueItem" />
+                        </CSharpValue.Result>Transaction</CSharpValue>
                     </InArgument>
                   </ui:SetTransactionStatus.TransactionItem>
                 </ui:SetTransactionStatus>
@@ -186,7 +219,10 @@
                 <If DisplayName="App or Bus?" sap:VirtualizedContainerService.HintSize="368,564" sap2010:WorkflowViewState.IdRef="If_2">
                   <If.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
-                      <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">new Random().NextInt64(0, 2) == 1</CSharpValue>
+                      <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">
+                        <CSharpValue.Result>
+                          <OutArgument x:TypeArguments="x:Boolean" />
+                        </CSharpValue.Result>new Random().NextInt64(0, 2) == 1</CSharpValue>
                     </InArgument>
                   </If.Condition>
                   <If.Then>
@@ -196,7 +232,10 @@
                       </ui:SetTransactionStatus.Analytics>
                       <ui:SetTransactionStatus.FolderPath>
                         <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">Config["QueueFolder"]</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">
+                            <CSharpValue.Result>
+                              <OutArgument x:TypeArguments="x:String" />
+                            </CSharpValue.Result>Config["QueueFolder"]</CSharpValue>
                         </InArgument>
                       </ui:SetTransactionStatus.FolderPath>
                       <ui:SetTransactionStatus.Output>
@@ -204,7 +243,10 @@
                       </ui:SetTransactionStatus.Output>
                       <ui:SetTransactionStatus.TransactionItem>
                         <InArgument x:TypeArguments="ui:QueueItem">
-                          <CSharpValue x:TypeArguments="ui:QueueItem" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">Transaction</CSharpValue>
+                          <CSharpValue x:TypeArguments="ui:QueueItem" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">
+                            <CSharpValue.Result>
+                              <OutArgument x:TypeArguments="ui:QueueItem" />
+                            </CSharpValue.Result>Transaction</CSharpValue>
                         </InArgument>
                       </ui:SetTransactionStatus.TransactionItem>
                     </ui:SetTransactionStatus>
@@ -216,7 +258,10 @@
                       </ui:SetTransactionStatus.Analytics>
                       <ui:SetTransactionStatus.FolderPath>
                         <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">Config["QueueFolder"]</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">
+                            <CSharpValue.Result>
+                              <OutArgument x:TypeArguments="x:String" />
+                            </CSharpValue.Result>Config["QueueFolder"]</CSharpValue>
                         </InArgument>
                       </ui:SetTransactionStatus.FolderPath>
                       <ui:SetTransactionStatus.Output>
@@ -224,7 +269,10 @@
                       </ui:SetTransactionStatus.Output>
                       <ui:SetTransactionStatus.TransactionItem>
                         <InArgument x:TypeArguments="ui:QueueItem">
-                          <CSharpValue x:TypeArguments="ui:QueueItem" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">Transaction</CSharpValue>
+                          <CSharpValue x:TypeArguments="ui:QueueItem" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">
+                            <CSharpValue.Result>
+                              <OutArgument x:TypeArguments="ui:QueueItem" />
+                            </CSharpValue.Result>Transaction</CSharpValue>
                         </InArgument>
                       </ui:SetTransactionStatus.TransactionItem>
                     </ui:SetTransactionStatus>
@@ -237,19 +285,28 @@
       </ui:ForEach.Body>
       <ui:ForEach.Values>
         <InArgument x:TypeArguments="sc:IEnumerable">
-          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}</CSharpValue>
+          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">
+            <CSharpValue.Result>
+              <OutArgument x:TypeArguments="sc:IEnumerable" />
+            </CSharpValue.Result>new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}</CSharpValue>
         </InArgument>
       </ui:ForEach.Values>
     </ui:ForEach>
     <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="478,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">
+            <CSharpValue.Result>
+              <OutArgument x:TypeArguments="ui:LogLevel" />
+            </CSharpValue.Result>UiPath.Core.Activities.LogLevel.Info</CSharpValue>
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">"Finished adding test data"</CSharpValue>
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">
+            <CSharpValue.Result>
+              <OutArgument x:TypeArguments="x:Object" />
+            </CSharpValue.Result>"Finished adding test data"</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

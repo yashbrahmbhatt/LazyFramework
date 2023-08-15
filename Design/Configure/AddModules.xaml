@@ -1,53 +1,45 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="AddModules" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="997,5432" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ufa="clr-namespace:UiPath.Forms.Activities;assembly=UiPath.Forms.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usfr="clr-namespace:UiPath.Studio.Forms.Runtime;assembly=UiPath.Studio.Forms.Runtime" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="AddModules" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Output" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:AddModules.Output>
+    <InArgument x:TypeArguments="x:String" />
+  </this:AddModules.Output>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>997,4760</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
-      <x:String>System.Activities.Expressions</x:String>
-      <x:String>System.Activities.Validation</x:String>
-      <x:String>System.Activities.XamlIntegration</x:String>
-      <x:String>Microsoft.VisualBasic</x:String>
-      <x:String>Microsoft.VisualBasic.Activities</x:String>
       <x:String>System</x:String>
       <x:String>System.Collections</x:String>
       <x:String>System.Collections.Generic</x:String>
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>System.Data</x:String>
-      <x:String>System.Diagnostics</x:String>
       <x:String>System.Linq</x:String>
-      <x:String>System.Net.Mail</x:String>
-      <x:String>System.Xml</x:String>
-      <x:String>System.Text</x:String>
-      <x:String>System.Xml.Linq</x:String>
-      <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
-      <x:String>System.Windows.Markup</x:String>
-      <x:String>GlobalVariablesNamespace</x:String>
-      <x:String>GlobalConstantsNamespace</x:String>
       <x:String>System.Runtime.Serialization</x:String>
-      <x:String>UiPath.Studio.Forms.Runtime</x:String>
       <x:String>System.Reflection</x:String>
-      <x:String>UiPath.Forms.Activities</x:String>
-      <x:String>UiPath.Platform.GlobalVariables</x:String>
-      <x:String>UiPath.Forms.Activities.Base</x:String>
-      <x:String>UiPath.Platform.Triggers</x:String>
-      <x:String>UiPath.Platform.Triggers.Scope</x:String>
       <x:String>System.IO</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Xml.Serialization</x:String>
-      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
-      <x:String>UiPath.Activities.System</x:String>
-      <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.DataTableUtilities</x:String>
-      <x:String>System.Linq.Expressions</x:String>
       <x:String>UiPath.Platform.ResourceHandling</x:String>
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities.Business</x:String>
       <x:String>UiPath.Excel.Model</x:String>
       <x:String>UiPath.Shared.Activities.Business</x:String>
-      <x:String>UiPath.Core.Activities.Storage</x:String>
+      <x:String>UiPath.Form.Activities</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -55,12 +47,16 @@
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
       <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
@@ -100,28 +96,33 @@
       <AssemblyReference>System.Xml</AssemblyReference>
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
       <AssemblyReference>System.Xml.ReaderWriter</AssemblyReference>
-      <AssemblyReference>UiPath.Forms.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Form.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
-      <AssemblyReference>UiPath.Studio.Forms.Runtime</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>UiPath.Excel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Accelerates creating new modules by prompting the user for set of modules they want to create, and copies the configs, templates, and all workflow files for that module." DisplayName="AddModules" sap:VirtualizedContainerService.HintSize="825,5367" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Accelerates creating new modules by prompting the user for set of modules they want to create, and copies the configs, templates, and all workflow files for that module." DisplayName="AddModules" sap:VirtualizedContainerService.HintSize="733,4695" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="sd:DataTable" Name="dt_Modules" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Modules">
+        <Variable.Default>
+          <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_104">new DataTable()</CSharpValue>
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="scg:Dictionary(x:String, sd:DataSet)" Name="ExcelFiles" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ModuleConfig" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="ModuleTypes" />
+      <Variable x:TypeArguments="njl:JObject" Name="JObj" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -129,7 +130,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="763,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="671,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
           <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
@@ -141,11 +142,9 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Load AddModules Config" sap:VirtualizedContainerService.HintSize="763,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utility\\LoadConfig.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LoadConfig.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="671,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Shared\\LoadConfig.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ConfigPath">
-          <Literal x:TypeArguments="x:String">Design/Configure/AddModulesConfig.xlsx</Literal>
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ConfigPath">Design/Configure/AddModulesConfig.xlsx</InArgument>
         <InArgument x:TypeArguments="s:String[]" x:Key="in_IgnoreSheets">
           <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">new string[]{}</CSharpValue>
         </InArgument>
@@ -156,7 +155,7 @@
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:MultipleAssign DisplayName="Parse Config" sap:VirtualizedContainerService.HintSize="763,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Parse Config" sap:VirtualizedContainerService.HintSize="671,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -171,10 +170,22 @@
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="scg:List(x:String)">
+                <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_58">ModuleTypes</CSharpReference>
+              </OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="scg:List(x:String)">
+                <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_122">dt_ModuleConfig.AsEnumerable().Select(r =&gt; r["Name"].ToString()).ToList()</CSharpValue>
+              </InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:LogMessage DisplayName="LM: Form Start" sap:VirtualizedContainerService.HintSize="763,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
+    <ui:LogMessage DisplayName="LM: Form Start" sap:VirtualizedContainerService.HintSize="671,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
           <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_53">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
@@ -186,34 +197,55 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ufa:ShowFormActivity Height="{x:Null}" InstanceName="{x:Null}" Left="{x:Null}" Title="{x:Null}" Top="{x:Null}" Width="{x:Null}" DisplayName="Show Modules Form" FormId="9d64f5ce-189e-42ed-b129-86e707bd72ee" sap:VirtualizedContainerService.HintSize="763,186" sap2010:WorkflowViewState.IdRef="ShowFormActivity_2" IsAsync="False">
-      <ufa:ShowFormActivity.Arguments>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="modules">
-          <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_35">dt_Modules</CSharpReference>
+    <ufa:FormActivity CreateFormActivityFileName="{x:Null}" CreateFormActivityFilePath="{x:Null}" Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormTitle="{x:Null}" IconPath="{x:Null}" LocalCSSFilePath="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" CreateFormId="c6c4f422-7c9a-4502-a04f-f74b67facbf6" DevTools="False" DisableMaximizeButton="False" DisableMinimizeButton="False" DisableSanitize="False" DisplayName="Show Add Modules Form" EnableAccessibility="False" FormHeight="400" FormSchema="%[{&quot;label&quot;:&quot;Modules&quot;,&quot;description&quot;:&quot;The modules to add.&quot;,&quot;tooltip&quot;:&quot;The modules to add.&quot;,&quot;reorder&quot;:false,&quot;addAnotherPosition&quot;:&quot;bottom&quot;,&quot;layoutFixed&quot;:false,&quot;enableRowGroups&quot;:false,&quot;initEmpty&quot;:false,&quot;key&quot;:&quot;Modules&quot;,&quot;type&quot;:&quot;datagrid&quot;,&quot;input&quot;:true,&quot;tableView&quot;:false,&quot;components&quot;:[{&quot;label&quot;:&quot;Name&quot;,&quot;description&quot;:&quot;The name of the module. Cannot conflict with an existing folder within the 'Root' provided.&quot;,&quot;tooltip&quot;:&quot;The name of the module. Cannot conflict with an existing folder within the 'Root' provided.&quot;,&quot;tableView&quot;:true,&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;Name&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Type&quot;,&quot;description&quot;:&quot;The type of module to add.&quot;,&quot;tooltip&quot;:&quot;The type of module to add.&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true,&quot;onlyAvailableItems&quot;:true},&quot;key&quot;:&quot;Type&quot;,&quot;type&quot;:&quot;select&quot;,&quot;indexeddb&quot;:{&quot;filter&quot;:{}},&quot;input&quot;:true},{&quot;label&quot;:&quot;Root&quot;,&quot;customClass&quot;:&quot;folderPath&quot;,&quot;showAllFileTypes&quot;:true,&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;Root&quot;,&quot;input&quot;:true,&quot;suffix&quot;:&quot;Select &quot;,&quot;tableView&quot;:true,&quot;type&quot;:&quot;filePath&quot;}]},{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;tableView&quot;:false}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;./assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;./assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;./assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="800" GenerateInputFields="False" sap:VirtualizedContainerService.HintSize="671,142" sap2010:WorkflowViewState.IdRef="FormActivity_1" IsReadOnly="False" MaxColumnsForSchemaGeneration="12" RunDoBlockFirst="False" RunInIsolatedMode="True" StartAsMinimized="False">
+      <ufa:FormActivity.Body>
+        <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
+      </ufa:FormActivity.Body>
+      <ufa:FormActivity.DelayBody>
+        <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+          <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_1" />
+        </ActivityAction>
+      </ufa:FormActivity.DelayBody>
+      <ufa:FormActivity.FormFieldsCollection>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="Modules">
+          <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_54">dt_Modules</CSharpReference>
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="Type_dropdown">
+          <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_59">ModuleTypes</CSharpReference>
+        </InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Type_parent">Modules</InArgument>
+      </ufa:FormActivity.FormFieldsCollection>
+      <ufa:FormActivity.FormFieldsOutputData>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_60">Output</CSharpReference>
         </OutArgument>
-      </ufa:ShowFormActivity.Arguments>
-      <ufa:ShowFormActivity.ShowInTaskbar>
-        <InArgument x:TypeArguments="s:Nullable(x:Boolean)">
-          <Literal x:TypeArguments="s:Nullable(x:Boolean)" Value="True" />
-        </InArgument>
-      </ufa:ShowFormActivity.ShowInTaskbar>
-      <ufa:ShowFormActivity.ShowMargin>
-        <InArgument x:TypeArguments="s:Nullable(x:Boolean)">
-          <Literal x:TypeArguments="s:Nullable(x:Boolean)" Value="True" />
-        </InArgument>
-      </ufa:ShowFormActivity.ShowMargin>
-      <ufa:ShowFormActivity.TopMost>
-        <InArgument x:TypeArguments="s:Nullable(x:Boolean)">
-          <Literal x:TypeArguments="s:Nullable(x:Boolean)" Value="True" />
-        </InArgument>
-      </ufa:ShowFormActivity.TopMost>
-      <ufa:ShowFormActivity.WindowState>
-        <InArgument x:TypeArguments="s:Nullable(usfr:WindowState)">
-          <CSharpValue x:TypeArguments="s:Nullable(usfr:WindowState)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">UiPath.Studio.Forms.Runtime.WindowState.Normal</CSharpValue>
-        </InArgument>
-      </ufa:ShowFormActivity.WindowState>
-    </ufa:ShowFormActivity>
-    <ui:LogMessage DisplayName="LM: Form Complete" sap:VirtualizedContainerService.HintSize="763,141" sap2010:WorkflowViewState.IdRef="LogMessage_3">
+      </ufa:FormActivity.FormFieldsOutputData>
+    </ufa:FormActivity>
+    <ui:MultipleAssign DisplayName="Get Modules Table" sap:VirtualizedContainerService.HintSize="671,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_15">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="sd:DataTable">
+                <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_61">dt_Modules</CSharpReference>
+              </OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="sd:DataTable">
+                <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_123" xml:space="preserve">JsonConvert.DeserializeObject&lt;DataTable&gt;(
+	JsonConvert.SerializeObject(
+		JsonConvert.DeserializeObject&lt;Newtonsoft.Json.Linq.JObject&gt;(
+			Output
+		)["Modules"]
+	)
+)</CSharpValue>
+              </InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:LogMessage DisplayName="LM: Form Complete" sap:VirtualizedContainerService.HintSize="671,141" sap2010:WorkflowViewState.IdRef="LogMessage_3">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
           <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
@@ -225,29 +257,29 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Module" sap:VirtualizedContainerService.HintSize="763,4151" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Module" sap:VirtualizedContainerService.HintSize="671,3351" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="729,4034" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Create Module" sap:VirtualizedContainerService.HintSize="637,3234" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="TargetPath" />
               <Variable x:TypeArguments="x:String" Name="Name" />
               <Variable x:TypeArguments="x:String" Name="Type" />
               <Variable x:TypeArguments="sd:DataRow" Name="ConfigRow" />
               <Variable x:TypeArguments="s:String[]" Name="ModuleFiles" />
               <Variable x:TypeArguments="x:String" Name="ModuleRoot" />
               <Variable x:TypeArguments="x:String" Name="ModuleConfigPath" />
-              <Variable x:TypeArguments="s:String[]" Name="ModuleTemplates" />
+              <Variable x:TypeArguments="x:String" Name="Root" />
+              <Variable x:TypeArguments="x:String" Name="FormFilePath" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="LM: Module Start" sap:VirtualizedContainerService.HintSize="667,141" sap2010:WorkflowViewState.IdRef="LogMessage_4">
+            <ui:LogMessage DisplayName="LM: Module Start" sap:VirtualizedContainerService.HintSize="575,141" sap2010:WorkflowViewState.IdRef="LogMessage_4">
               <ui:LogMessage.Level>
                 <InArgument x:TypeArguments="ui:LogLevel">
                   <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_57">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
@@ -255,11 +287,11 @@
               </ui:LogMessage.Level>
               <ui:LogMessage.Message>
                 <InArgument x:TypeArguments="x:Object">
-                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_58">string.Format("Processing module '{0}'", CurrentRow["moduleName"].ToString())</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_124">string.Format("Processing module '{0}'", CurrentRow["Name"].ToString())</CSharpValue>
                 </InArgument>
               </ui:LogMessage.Message>
             </ui:LogMessage>
-            <ui:MultipleAssign DisplayName="Parse Values" sap:VirtualizedContainerService.HintSize="667,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+            <ui:MultipleAssign DisplayName="Parse Values" sap:VirtualizedContainerService.HintSize="575,287" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -270,7 +302,7 @@
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">CurrentRow["moduleName"].ToString()</CSharpValue>
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_126">CurrentRow["Name"].ToString()</CSharpValue>
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
@@ -282,7 +314,7 @@
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">CurrentRow["moduleType"].ToString()</CSharpValue>
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_127">CurrentRow["Type"].ToString()</CSharpValue>
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
@@ -294,7 +326,7 @@
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="sd:DataRow">
-                        <CSharpValue x:TypeArguments="sd:DataRow" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">dt_ModuleConfig.AsEnumerable().First(r =&gt; r["Key"].ToString() == Type)</CSharpValue>
+                        <CSharpValue x:TypeArguments="sd:DataRow" sap2010:WorkflowViewState.IdRef="CSharpValue`1_128">dt_ModuleConfig.AsEnumerable().First(r =&gt; r["Name"].ToString() == Type)</CSharpValue>
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
@@ -330,19 +362,19 @@
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">ConfigRow["Config"].ToString()</CSharpValue>
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_131">ConfigRow["ConfigPath"].ToString()</CSharpValue>
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
                     <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="s:String[]">
-                        <CSharpReference x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_26">ModuleTemplates</CSharpReference>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_62">Root</CSharpReference>
                       </OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="s:String[]">
-                        <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">ConfigRow["Templates"].ToString().Split(",", StringSplitOptions.RemoveEmptyEntries)</CSharpValue>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_130">Path.Combine(CurrentRow["Root"].ToString().Replace("/","\\"), Name)</CSharpValue>
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
@@ -350,74 +382,74 @@
               </ui:MultipleAssign.AssignOperations>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
-            <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Buttons="Ok" Caption="Select Folder" DisplayName="Message for Folder" sap:VirtualizedContainerService.HintSize="667,85" sap2010:WorkflowViewState.IdRef="MessageBox_1" TopMost="True">
-              <ui:MessageBox.Text>
-                <InArgument x:TypeArguments="x:Object">
-                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">string.Format("Please select the folder you would like to use for the '{0}' module.", Name)</CSharpValue>
-                </InArgument>
-              </ui:MessageBox.Text>
-            </ui:MessageBox>
-            <ui:SelectFolder DisplayName="Prompt Folder Select" sap:VirtualizedContainerService.HintSize="667,79" sap2010:WorkflowViewState.IdRef="SelectFolder_1">
-              <ui:SelectFolder.SelectedFolder>
-                <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">TargetPath</CSharpReference>
-                </OutArgument>
-              </ui:SelectFolder.SelectedFolder>
-            </ui:SelectFolder>
-            <ui:LogMessage DisplayName="LM: Folder Selected" sap:VirtualizedContainerService.HintSize="667,141" sap2010:WorkflowViewState.IdRef="LogMessage_5">
-              <ui:LogMessage.Level>
-                <InArgument x:TypeArguments="ui:LogLevel">
-                  <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_59">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
-                </InArgument>
-              </ui:LogMessage.Level>
-              <ui:LogMessage.Message>
-                <InArgument x:TypeArguments="x:Object">
-                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_60">string.Format("Folder selected at {0}", TargetPath)</CSharpValue>
-                </InArgument>
-              </ui:LogMessage.Message>
-            </ui:LogMessage>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Copy All Files From Modules Root" sap:VirtualizedContainerService.HintSize="667,1535" sap2010:WorkflowViewState.IdRef="ForEach`1_2">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Copy All Files From Modules Root" sap:VirtualizedContainerService.HintSize="575,1917" sap2010:WorkflowViewState.IdRef="ForEach`1_6">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="ModuleFile" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="541,1349" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="541,1731" sap2010:WorkflowViewState.IdRef="Sequence_22">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="TargetFilePath" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:MultipleAssign DisplayName="Set Target Path" sap:VirtualizedContainerService.HintSize="499,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                    <ui:MultipleAssign DisplayName="Set Target Path" sap:VirtualizedContainerService.HintSize="499,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
                             <ui:AssignOperation.To>
                               <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_27">TargetFilePath</CSharpReference>
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_55">TargetFilePath</CSharpReference>
                               </OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40">ModuleFile.Replace(ModuleRoot, TargetPath)</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_145">ModuleFile.Replace(ModuleRoot, Root).Replace(Path.GetFileName(ModuleConfigPath), Name + "Config.xlsx")</CSharpValue>
                               </InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
                         </scg:List>
                       </ui:MultipleAssign.AssignOperations>
                     </ui:MultipleAssign>
-                    <If DisplayName="Workflow File?" sap:VirtualizedContainerService.HintSize="499,1120" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If DisplayName="File Folder Exists?" sap:VirtualizedContainerService.HintSize="499,342" sap2010:WorkflowViewState.IdRef="If_8">
                       <If.Condition>
                         <InArgument x:TypeArguments="x:Boolean">
-                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">ModuleFile.Contains(".xaml")</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_141">!Directory.Exists(Path.GetDirectoryName(TargetFilePath))</CSharpValue>
+                        </InArgument>
+                      </If.Condition>
+                      <If.Then>
+                        <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create File Folder" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_5">
+                          <ui:CreateDirectory.Path>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_142">Path.GetDirectoryName(TargetFilePath)</CSharpValue>
+                            </InArgument>
+                          </ui:CreateDirectory.Path>
+                        </ui:CreateDirectory>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="" sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <If DisplayName="Workflow File?" sap:VirtualizedContainerService.HintSize="499,1120" sap2010:WorkflowViewState.IdRef="If_6">
+                      <If.Condition>
+                        <InArgument x:TypeArguments="x:Boolean">
+                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_110">ModuleFile.Contains(".xaml")</CSharpValue>
                         </InArgument>
                       </If.Condition>
                       <sap:WorkflowViewStateService.ViewState>
@@ -427,7 +459,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence DisplayName="Is Workflow" sap:VirtualizedContainerService.HintSize="465,784" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence DisplayName="Is Workflow" sap:VirtualizedContainerService.HintSize="465,784" sap2010:WorkflowViewState.IdRef="Sequence_23">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="XAMLText" />
                           </Sequence.Variables>
@@ -436,83 +468,83 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:ReadTextFile File="{x:Null}" DisplayName="Read File" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
+                          <ui:ReadTextFile File="{x:Null}" DisplayName="Read File" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_2">
                             <ui:ReadTextFile.Content>
                               <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_28">XAMLText</CSharpReference>
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_56">XAMLText</CSharpReference>
                               </OutArgument>
                             </ui:ReadTextFile.Content>
                             <ui:ReadTextFile.FileName>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">ModuleFile</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_111">ModuleFile</CSharpValue>
                               </InArgument>
                             </ui:ReadTextFile.FileName>
                           </ui:ReadTextFile>
-                          <If DisplayName="Folder Exists for File?" sap:VirtualizedContainerService.HintSize="423,262" sap2010:WorkflowViewState.IdRef="If_2">
+                          <If DisplayName="Folder Exists for File?" sap:VirtualizedContainerService.HintSize="423,262" sap2010:WorkflowViewState.IdRef="If_7">
                             <If.Condition>
                               <InArgument x:TypeArguments="x:Boolean">
-                                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_42">!Directory.Exists(Path.GetDirectoryName(TargetFilePath))</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_112">!Directory.Exists(Path.GetDirectoryName(TargetFilePath))</CSharpValue>
                               </InArgument>
                             </If.Condition>
                             <If.Then>
-                              <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder For File" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_1">
+                              <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder For File" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_4">
                                 <ui:CreateDirectory.Path>
                                   <InArgument x:TypeArguments="x:String">
-                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">Path.GetDirectoryName(TargetFilePath)</CSharpValue>
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_113">Path.GetDirectoryName(TargetFilePath)</CSharpValue>
                                   </InArgument>
                                 </ui:CreateDirectory.Path>
                               </ui:CreateDirectory>
                             </If.Then>
                             <If.Else>
-                              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_12" />
+                              <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_24" />
                             </If.Else>
                           </If>
-                          <ui:MultipleAssign DisplayName="Replace Invoke Paths" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                          <ui:MultipleAssign DisplayName="Replace Invoke Paths" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
                             <ui:MultipleAssign.AssignOperations>
                               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
                                   <ui:AssignOperation.To>
                                     <OutArgument x:TypeArguments="x:String">
-                                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_30">XAMLText</CSharpReference>
+                                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_57">XAMLText</CSharpReference>
                                     </OutArgument>
                                   </ui:AssignOperation.To>
                                   <ui:AssignOperation.Value>
                                     <InArgument x:TypeArguments="x:String">
-                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_63" xml:space="preserve">XAMLText.Replace(ModuleRoot, TargetPath)
-.Replace(ModuleRoot.Replace("\\","\\\\"), TargetPath)
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_173" xml:space="preserve">XAMLText
 .Replace(Directory.GetCurrentDirectory() +"\\", "")
-.Replace(".templates\\Data", "Data")
-.Replace(".templates\\\\Data", "Data\\")</CSharpValue>
+.Replace(ModuleRoot, Path.GetRelativePath(Directory.GetCurrentDirectory(), Root))
+.Replace(ModuleRoot.Replace("\\\\","\\"), Path.GetRelativePath(Directory.GetCurrentDirectory(), Root).Replace("\\","\\\\"))
+.Replace("GlobalConstants.ConfigPath_" + Path.GetFileNameWithoutExtension(ModuleConfigPath).Replace("Config","Template"), "GlobalConstants.ConfigPath_" + Name)</CSharpValue>
                                     </InArgument>
                                   </ui:AssignOperation.Value>
                                 </ui:AssignOperation>
                               </scg:List>
                             </ui:MultipleAssign.AssignOperations>
                           </ui:MultipleAssign>
-                          <ui:WriteTextFile File="{x:Null}" DisplayName="Write Target File" sap:VirtualizedContainerService.HintSize="423,133" sap2010:WorkflowViewState.IdRef="WriteTextFile_1">
+                          <ui:WriteTextFile File="{x:Null}" DisplayName="Write Target File" sap:VirtualizedContainerService.HintSize="423,133" sap2010:WorkflowViewState.IdRef="WriteTextFile_2">
                             <ui:WriteTextFile.FileName>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">TargetFilePath</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_115">TargetFilePath</CSharpValue>
                               </InArgument>
                             </ui:WriteTextFile.FileName>
                             <ui:WriteTextFile.Text>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">XAMLText</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_116">XAMLText</CSharpValue>
                               </InArgument>
                             </ui:WriteTextFile.Text>
                           </ui:WriteTextFile>
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <ui:CopyFile ContinueOnError="{x:Null}" DisplayName="Copy Other File" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="CopyFile_4">
+                        <ui:CopyFile ContinueOnError="{x:Null}" DisplayName="Copy Other File" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="CopyFile_5">
                           <ui:CopyFile.Destination>
                             <InArgument x:TypeArguments="x:String">
-                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49">TargetFilePath</CSharpValue>
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_118">TargetFilePath</CSharpValue>
                             </InArgument>
                           </ui:CopyFile.Destination>
                           <ui:CopyFile.Path>
                             <InArgument x:TypeArguments="x:String">
-                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">ModuleFile</CSharpValue>
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_117">ModuleFile</CSharpValue>
                             </InArgument>
                           </ui:CopyFile.Path>
                         </ui:CopyFile>
@@ -523,7 +555,7 @@
               </ui:ForEach.Body>
               <ui:ForEach.Values>
                 <InArgument x:TypeArguments="sc:IEnumerable">
-                  <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">ModuleFiles</CSharpValue>
+                  <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_108">ModuleFiles</CSharpValue>
                 </InArgument>
               </ui:ForEach.Values>
               <sap:WorkflowViewStateService.ViewState>
@@ -533,218 +565,269 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEach>
-            <ui:CopyFile ContinueOnError="{x:Null}" DisplayName="Copy Config" sap:VirtualizedContainerService.HintSize="667,154" sap2010:WorkflowViewState.IdRef="CopyFile_2">
-              <ui:CopyFile.Destination>
-                <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">Path.Combine(Directory.GetCurrentDirectory(), "Data\\Configs", Name + "Config.xlsx")</CSharpValue>
-                </InArgument>
-              </ui:CopyFile.Destination>
-              <ui:CopyFile.Path>
-                <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">ModuleConfigPath</CSharpValue>
-                </InArgument>
-              </ui:CopyFile.Path>
-            </ui:CopyFile>
-            <ueab:ExcelProcessScopeX LaunchTimeout="{x:Null}" DisplayAlerts="False" DisplayName="Excel Process Scope" ExistingProcessAction="ForceKill" FileConflictResolution="PromptUser" sap:VirtualizedContainerService.HintSize="667,1183" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" LaunchMethod="Automation" MacroSettings="EnableAll" ProcessMode="AlwaysCreateNew" ShowExcelWindow="False">
-              <ueab:ExcelProcessScopeX.Body>
-                <ActivityAction x:TypeArguments="ui:IExcelProcess">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
-                  </ActivityAction.Argument>
-                  <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="633,1096" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None">
-                    <ueab:ExcelApplicationCard.Body>
-                      <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+            <ui:RetryScope DisplayName="Access Is Denied Wait/Retry" sap:VirtualizedContainerService.HintSize="575,343" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="10" RetryInterval="00:00:10">
+              <ui:RetryScope.ActivityBody>
+                <ActivityAction>
+                  <ueab:ExcelProcessScopeX LaunchTimeout="{x:Null}" DisplayAlerts="False" DisplayName="Update Config File" ExistingProcessAction="ForceKill" FileConflictResolution="PromptUser" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" LaunchMethod="Automation" MacroSettings="EnableAll" ProcessMode="AlwaysCreateNew" ShowExcelWindow="False">
+                    <ueab:ExcelProcessScopeX.Body>
+                      <ActivityAction x:TypeArguments="ui:IExcelProcess">
                         <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                          <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
                         </ActivityAction.Argument>
-                        <ueab:ForEachSheetX DisplayName="For Each Excel Sheet" sap:VirtualizedContainerService.HintSize="599,827" sap2010:WorkflowViewState.IdRef="ForEachSheetX_1">
-                          <ueab:ForEachSheetX.Body>
-                            <ActivityAction x:TypeArguments="ue:WorksheetQuickHandle, x:Int32">
-                              <ActivityAction.Argument1>
-                                <DelegateInArgument x:TypeArguments="ue:WorksheetQuickHandle" Name="ConfigSheet" />
-                              </ActivityAction.Argument1>
-                              <ActivityAction.Argument2>
-                                <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
-                              </ActivityAction.Argument2>
-                              <ueab:ExcelForEachRowX DisplayName="For Each Excel Row" EmptyRowBehavior="StopAfterThreeConsecutiveEmptyRows" HasHeaders="True" sap:VirtualizedContainerService.HintSize="565,671" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_1" SaveAfterEachRow="False">
-                                <ueab:ExcelForEachRowX.Body>
-                                  <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
+                        <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None">
+                          <ueab:ExcelApplicationCard.Body>
+                            <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                              </ActivityAction.Argument>
+                              <ueab:ForEachSheetX DisplayName="For Each Excel Sheet" sap:VirtualizedContainerService.HintSize="599,907" sap2010:WorkflowViewState.IdRef="ForEachSheetX_1">
+                                <ueab:ForEachSheetX.Body>
+                                  <ActivityAction x:TypeArguments="ue:WorksheetQuickHandle, x:Int32">
                                     <ActivityAction.Argument1>
-                                      <DelegateInArgument x:TypeArguments="ue:CurrentRowQuickHandle" Name="ConfigExcelRow" />
+                                      <DelegateInArgument x:TypeArguments="ue:WorksheetQuickHandle" Name="ConfigSheet" />
                                     </ActivityAction.Argument1>
                                     <ActivityAction.Argument2>
                                       <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                                     </ActivityAction.Argument2>
-                                    <If DisplayName="Not Empty Row?" sap:VirtualizedContainerService.HintSize="531,489" sap2010:WorkflowViewState.IdRef="If_5">
-                                      <If.Condition>
-                                        <InArgument x:TypeArguments="x:Boolean">
-                                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_67">!string.IsNullOrEmpty(ConfigExcelRow["Name"].ToString())</CSharpValue>
+                                    <ueab:ExcelForEachRowX DisplayName="For Each Excel Row" EmptyRowBehavior="StopAfterThreeConsecutiveEmptyRows" HasHeaders="True" sap:VirtualizedContainerService.HintSize="565,751" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_1" SaveAfterEachRow="False">
+                                      <ueab:ExcelForEachRowX.Body>
+                                        <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
+                                          <ActivityAction.Argument1>
+                                            <DelegateInArgument x:TypeArguments="ue:CurrentRowQuickHandle" Name="ConfigExcelRow" />
+                                          </ActivityAction.Argument1>
+                                          <ActivityAction.Argument2>
+                                            <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                                          </ActivityAction.Argument2>
+                                          <If DisplayName="Not Empty Row?" sap:VirtualizedContainerService.HintSize="531,569" sap2010:WorkflowViewState.IdRef="If_5">
+                                            <If.Condition>
+                                              <InArgument x:TypeArguments="x:Boolean">
+                                                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_67">!string.IsNullOrEmpty(ConfigExcelRow["Name"].ToString())</CSharpValue>
+                                              </InArgument>
+                                            </If.Condition>
+                                            <If.Then>
+                                              <Switch x:TypeArguments="x:String" DisplayName="Sheet Name?" sap:VirtualizedContainerService.HintSize="497,307" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                                                <Switch.Default>
+                                                  <ui:MultipleAssign DisplayName="Update Value" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_18">
+                                                    <ui:MultipleAssign.AssignOperations>
+                                                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
+                                                          <ui:AssignOperation.To>
+                                                            <OutArgument x:TypeArguments="ue:ExcelValue">
+                                                              <CSharpReference x:TypeArguments="ue:ExcelValue" sap2010:WorkflowViewState.IdRef="CSharpReference`1_73">ConfigExcelRow["Value"]</CSharpReference>
+                                                            </OutArgument>
+                                                          </ui:AssignOperation.To>
+                                                          <ui:AssignOperation.Value>
+                                                            <InArgument x:TypeArguments="ue:ExcelValue">
+                                                              <CSharpValue x:TypeArguments="ue:ExcelValue" sap2010:WorkflowViewState.IdRef="CSharpValue`1_161">ConfigExcelRow["Value"].Replace(ModuleRoot, Path.GetRelativePath(Directory.GetCurrentDirectory(), Root))</CSharpValue>
+                                                            </InArgument>
+                                                          </ui:AssignOperation.Value>
+                                                        </ui:AssignOperation>
+                                                      </scg:List>
+                                                    </ui:MultipleAssign.AssignOperations>
+                                                  </ui:MultipleAssign>
+                                                </Switch.Default>
+                                                <Switch.Expression>
+                                                  <InArgument x:TypeArguments="x:String">
+                                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_68">ConfigSheet.Name</CSharpValue>
+                                                  </InArgument>
+                                                </Switch.Expression>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:MultipleAssign x:Key="TextFiles" DisplayName="Update Path (TextFiles)" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_17">
+                                                  <ui:MultipleAssign.AssignOperations>
+                                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
+                                                        <ui:AssignOperation.To>
+                                                          <OutArgument x:TypeArguments="ue:ExcelValue">
+                                                            <CSharpReference x:TypeArguments="ue:ExcelValue" sap2010:WorkflowViewState.IdRef="CSharpReference`1_72">ConfigExcelRow["Path"]</CSharpReference>
+                                                          </OutArgument>
+                                                        </ui:AssignOperation.To>
+                                                        <ui:AssignOperation.Value>
+                                                          <InArgument x:TypeArguments="ue:ExcelValue">
+                                                            <CSharpValue x:TypeArguments="ue:ExcelValue" sap2010:WorkflowViewState.IdRef="CSharpValue`1_160">ConfigExcelRow["Path"].Replace(ModuleRoot, Path.GetRelativePath(Directory.GetCurrentDirectory(), Root))</CSharpValue>
+                                                          </InArgument>
+                                                        </ui:AssignOperation.Value>
+                                                      </ui:AssignOperation>
+                                                    </scg:List>
+                                                  </ui:MultipleAssign.AssignOperations>
+                                                </ui:MultipleAssign>
+                                                <ui:MultipleAssign x:Key="ExcelFiles" DisplayName="Update Path (ExcelFiles)" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_16">
+                                                  <ui:MultipleAssign.AssignOperations>
+                                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
+                                                        <ui:AssignOperation.To>
+                                                          <OutArgument x:TypeArguments="ue:ExcelValue">
+                                                            <CSharpReference x:TypeArguments="ue:ExcelValue" sap2010:WorkflowViewState.IdRef="CSharpReference`1_71">ConfigExcelRow["Path"]</CSharpReference>
+                                                          </OutArgument>
+                                                        </ui:AssignOperation.To>
+                                                        <ui:AssignOperation.Value>
+                                                          <InArgument x:TypeArguments="ue:ExcelValue">
+                                                            <CSharpValue x:TypeArguments="ue:ExcelValue" sap2010:WorkflowViewState.IdRef="CSharpValue`1_159">ConfigExcelRow["Path"].Replace(ModuleRoot, Path.GetRelativePath(Directory.GetCurrentDirectory(), Root))</CSharpValue>
+                                                          </InArgument>
+                                                        </ui:AssignOperation.Value>
+                                                      </ui:AssignOperation>
+                                                    </scg:List>
+                                                  </ui:MultipleAssign.AssignOperations>
+                                                </ui:MultipleAssign>
+                                              </Switch>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence DisplayName="" sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                        </ActivityAction>
+                                      </ueab:ExcelForEachRowX.Body>
+                                      <ueab:ExcelForEachRowX.Range>
+                                        <InArgument x:TypeArguments="ue:IReadRangeRef">
+                                          <CSharpValue x:TypeArguments="ue:IReadRangeRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_66">ConfigSheet</CSharpValue>
                                         </InArgument>
-                                      </If.Condition>
-                                      <If.Then>
-                                        <Switch x:TypeArguments="x:String" DisplayName="Sheet Name?" sap:VirtualizedContainerService.HintSize="497,307" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-                                          <Switch.Default>
-                                            <ui:MultipleAssign DisplayName="Update Value" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
-                                              <ui:MultipleAssign.AssignOperations>
-                                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
-                                                    <ui:AssignOperation.To>
-                                                      <OutArgument x:TypeArguments="ue:ExcelValue">
-                                                        <CSharpReference x:TypeArguments="ue:ExcelValue" sap2010:WorkflowViewState.IdRef="CSharpReference`1_46">ConfigExcelRow["Value"]</CSharpReference>
-                                                      </OutArgument>
-                                                    </ui:AssignOperation.To>
-                                                    <ui:AssignOperation.Value>
-                                                      <InArgument x:TypeArguments="ue:ExcelValue">
-                                                        <CSharpValue x:TypeArguments="ue:ExcelValue" sap2010:WorkflowViewState.IdRef="CSharpValue`1_94">ConfigExcelRow["Value"].Replace(".templates\\Data", "Data")</CSharpValue>
-                                                      </InArgument>
-                                                    </ui:AssignOperation.Value>
-                                                  </ui:AssignOperation>
-                                                </scg:List>
-                                              </ui:MultipleAssign.AssignOperations>
-                                            </ui:MultipleAssign>
-                                          </Switch.Default>
-                                          <Switch.Expression>
-                                            <InArgument x:TypeArguments="x:String">
-                                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_68">ConfigSheet.Name</CSharpValue>
-                                            </InArgument>
-                                          </Switch.Expression>
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                          <ui:MultipleAssign x:Key="TextFiles" DisplayName="Update Path (TextFiles)" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
-                                            <ui:MultipleAssign.AssignOperations>
-                                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
-                                                  <ui:AssignOperation.To>
-                                                    <OutArgument x:TypeArguments="ue:ExcelValue">
-                                                      <CSharpReference x:TypeArguments="ue:ExcelValue" sap2010:WorkflowViewState.IdRef="CSharpReference`1_47">ConfigExcelRow["Path"]</CSharpReference>
-                                                    </OutArgument>
-                                                  </ui:AssignOperation.To>
-                                                  <ui:AssignOperation.Value>
-                                                    <InArgument x:TypeArguments="ue:ExcelValue">
-                                                      <CSharpValue x:TypeArguments="ue:ExcelValue" sap2010:WorkflowViewState.IdRef="CSharpValue`1_95">ConfigExcelRow["Path"].Replace(".templates\\Data", "Data")</CSharpValue>
-                                                    </InArgument>
-                                                  </ui:AssignOperation.Value>
-                                                </ui:AssignOperation>
-                                              </scg:List>
-                                            </ui:MultipleAssign.AssignOperations>
-                                          </ui:MultipleAssign>
-                                          <ui:MultipleAssign x:Key="ExcelFiles" DisplayName="Update Path (ExcelFiles)" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
-                                            <ui:MultipleAssign.AssignOperations>
-                                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
-                                                  <ui:AssignOperation.To>
-                                                    <OutArgument x:TypeArguments="ue:ExcelValue">
-                                                      <CSharpReference x:TypeArguments="ue:ExcelValue" sap2010:WorkflowViewState.IdRef="CSharpReference`1_48">ConfigExcelRow["Path"]</CSharpReference>
-                                                    </OutArgument>
-                                                  </ui:AssignOperation.To>
-                                                  <ui:AssignOperation.Value>
-                                                    <InArgument x:TypeArguments="ue:ExcelValue">
-                                                      <CSharpValue x:TypeArguments="ue:ExcelValue" sap2010:WorkflowViewState.IdRef="CSharpValue`1_96">ConfigExcelRow["Path"].Replace(".templates\\Data", "Data")</CSharpValue>
-                                                    </InArgument>
-                                                  </ui:AssignOperation.Value>
-                                                </ui:AssignOperation>
-                                              </scg:List>
-                                            </ui:MultipleAssign.AssignOperations>
-                                          </ui:MultipleAssign>
-                                        </Switch>
-                                      </If.Then>
-                                      <If.Else>
-                                        <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_19" />
-                                      </If.Else>
-                                    </If>
+                                      </ueab:ExcelForEachRowX.Range>
+                                    </ueab:ExcelForEachRowX>
                                   </ActivityAction>
-                                </ueab:ExcelForEachRowX.Body>
-                                <ueab:ExcelForEachRowX.Range>
-                                  <InArgument x:TypeArguments="ue:IReadRangeRef">
-                                    <CSharpValue x:TypeArguments="ue:IReadRangeRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_66">ConfigSheet</CSharpValue>
+                                </ueab:ForEachSheetX.Body>
+                                <ueab:ForEachSheetX.Workbook>
+                                  <InArgument x:TypeArguments="ue:IWorkbookQuickHandle">
+                                    <CSharpValue x:TypeArguments="ue:IWorkbookQuickHandle" sap2010:WorkflowViewState.IdRef="CSharpValue`1_65">Excel</CSharpValue>
                                   </InArgument>
-                                </ueab:ExcelForEachRowX.Range>
-                              </ueab:ExcelForEachRowX>
+                                </ueab:ForEachSheetX.Workbook>
+                              </ueab:ForEachSheetX>
                             </ActivityAction>
-                          </ueab:ForEachSheetX.Body>
-                          <ueab:ForEachSheetX.Workbook>
-                            <InArgument x:TypeArguments="ue:IWorkbookQuickHandle">
-                              <CSharpValue x:TypeArguments="ue:IWorkbookQuickHandle" sap2010:WorkflowViewState.IdRef="CSharpValue`1_65">Excel</CSharpValue>
+                          </ueab:ExcelApplicationCard.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ueab:ExcelApplicationCard.WorkbookPath>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_171">Path.Combine(Root, "Data", Path.Combine(Root, "Data", Name + "Config.xlsx"))</CSharpValue>
                             </InArgument>
-                          </ueab:ForEachSheetX.Workbook>
-                        </ueab:ForEachSheetX>
+                          </ueab:ExcelApplicationCard.WorkbookPath>
+                        </ueab:ExcelApplicationCard>
                       </ActivityAction>
-                    </ueab:ExcelApplicationCard.Body>
-                    <ueab:ExcelApplicationCard.WorkbookPath>
-                      <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_64">Path.Combine(Directory.GetCurrentDirectory(), "Data\\Configs", Name + "Config.xlsx")</CSharpValue>
-                      </InArgument>
-                    </ueab:ExcelApplicationCard.WorkbookPath>
-                  </ueab:ExcelApplicationCard>
+                    </ueab:ExcelProcessScopeX.Body>
+                  </ueab:ExcelProcessScopeX>
                 </ActivityAction>
-              </ueab:ExcelProcessScopeX.Body>
-            </ueab:ExcelProcessScopeX>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Copy Templates" sap:VirtualizedContainerService.HintSize="667,52" sap2010:WorkflowViewState.IdRef="ForEach`1_3">
-              <ui:ForEach.Body>
-                <ActivityAction x:TypeArguments="x:String">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:String" Name="TemplateFile" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Copy Template File Steps" sap:VirtualizedContainerService.HintSize="410,544" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              </ui:RetryScope.ActivityBody>
+              <ui:RetryScope.Condition>
+                <ActivityFunc x:TypeArguments="x:Boolean" />
+              </ui:RetryScope.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:RetryScope>
+            <ui:CommentOut sap2010:Annotation.AnnotationText="Causes Studio to Boom For Now" DisplayName="Disabled: Add GlobalConstants for Config Paths" sap:VirtualizedContainerService.HintSize="575,94" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="547,822" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Update Global Vars" sap:VirtualizedContainerService.HintSize="485,711" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="RawGlobalVariables" />
+                      <Variable x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" Name="ListOfGlobalVariables" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If DisplayName="Template File's Folder Exists?" sap:VirtualizedContainerService.HintSize="368,262" sap2010:WorkflowViewState.IdRef="If_3">
-                      <If.Condition>
-                        <InArgument x:TypeArguments="x:Boolean">
-                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">!Directory.Exists(Path.GetDirectoryName(Path.Combine(Directory.GetCurrentDirectory(), TemplateFile.Replace(".templates\\", ""))))</CSharpValue>
+                    <ui:ReadTextFile File="{x:Null}" DisplayName="Read Global Vars File" FileName=".project\\globalVariables.json" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_3">
+                      <ui:ReadTextFile.Content>
+                        <OutArgument x:TypeArguments="x:String">
+                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_74">RawGlobalVariables</CSharpReference>
+                        </OutArgument>
+                      </ui:ReadTextFile.Content>
+                    </ui:ReadTextFile>
+                    <ui:MultipleAssign DisplayName="Parse Global Vars" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_19">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">
+                                <CSharpReference x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpReference`1_76">ListOfGlobalVariables</CSharpReference>
+                              </OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">
+                                <CSharpValue x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpValue`1_166">JsonConvert.DeserializeObject&lt;List&lt;Dictionary&lt;string, string&gt;&gt;&gt;(RawGlobalVariables)</CSharpValue>
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                    <AddToCollection x:TypeArguments="scg:Dictionary(x:String, x:String)" DisplayName="Add Module ConfigPath Global Vars" sap:VirtualizedContainerService.HintSize="423,25" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1">
+                      <AddToCollection.Item>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">
+                          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_172" xml:space="preserve">new Dictionary&lt;string, string&gt;()
+{
+	{ "Constant", "false"},
+    {"Name", "ConfigPath_" + Name},
+    {"TypeFullyQualifiedName", "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e"},
+	{"UnresolvedTypeFullyQualifiedName", ""},
+	{"Expression",Path.Combine(Root, "Data", Path.Combine(Root, "Data", Name + "Config.xlsx"))},
+	{"IsLiteral", "false"}
+}</CSharpValue>
                         </InArgument>
-                      </If.Condition>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <If.Then>
-                        <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Templates Folder" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_3">
-                          <ui:CreateDirectory.Path>
-                            <InArgument x:TypeArguments="x:String">
-                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">Path.GetDirectoryName(Path.Combine(Directory.GetCurrentDirectory(), TemplateFile.Replace(".templates\\", "")))</CSharpValue>
-                            </InArgument>
-                          </ui:CreateDirectory.Path>
-                        </ui:CreateDirectory>
-                      </If.Then>
-                    </If>
-                    <ui:CopyFile ContinueOnError="{x:Null}" DisplayName="Copy Template File" sap:VirtualizedContainerService.HintSize="368,154" sap2010:WorkflowViewState.IdRef="CopyFile_3">
-                      <ui:CopyFile.Destination>
+                      </AddToCollection.Item>
+                      <InArgument x:TypeArguments="scg:ICollection(scg:Dictionary(x:String, x:String))">
+                        <CSharpValue x:TypeArguments="scg:ICollection(scg:Dictionary(x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpValue`1_167">ListOfGlobalVariables</CSharpValue>
+                      </InArgument>
+                    </AddToCollection>
+                    <ui:MultipleAssign DisplayName="Serialize Global Vars" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_20">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_77">RawGlobalVariables</CSharpReference>
+                              </OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_169">JsonConvert.SerializeObject(ListOfGlobalVariables)</CSharpValue>
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Global Vars File" FileName=".project\\globalVariables.json" sap:VirtualizedContainerService.HintSize="423,133" sap2010:WorkflowViewState.IdRef="WriteTextFile_3">
+                      <ui:WriteTextFile.Text>
                         <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">Path.Combine(Directory.GetCurrentDirectory(), TemplateFile.Replace(".templates\\", ""))</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_170">RawGlobalVariables</CSharpValue>
                         </InArgument>
-                      </ui:CopyFile.Destination>
-                      <ui:CopyFile.Path>
-                        <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">Path.Combine(Directory.GetCurrentDirectory(), TemplateFile)</CSharpValue>
-                        </InArgument>
-                      </ui:CopyFile.Path>
-                    </ui:CopyFile>
+                      </ui:WriteTextFile.Text>
+                    </ui:WriteTextFile>
                   </Sequence>
-                </ActivityAction>
-              </ui:ForEach.Body>
-              <ui:ForEach.Values>
-                <InArgument x:TypeArguments="sc:IEnumerable">
-                  <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">ModuleTemplates</CSharpValue>
-                </InArgument>
-              </ui:ForEach.Values>
+                </Sequence>
+              </ui:CommentOut.Body>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-            </ui:ForEach>
-            <ui:LogMessage DisplayName="LM: Module Complete" sap:VirtualizedContainerService.HintSize="667,141" sap2010:WorkflowViewState.IdRef="LogMessage_6">
+            </ui:CommentOut>
+            <ui:LogMessage DisplayName="LM: Module Complete" sap:VirtualizedContainerService.HintSize="575,141" sap2010:WorkflowViewState.IdRef="LogMessage_6">
               <ui:LogMessage.Level>
                 <InArgument x:TypeArguments="ui:LogLevel">
                   <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_61">UiPath.Core.Activities.LogLevel.Info</CSharpValue>

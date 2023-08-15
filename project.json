@@ -1,11 +1,16 @@
 {
   "name": "LazyFramework",
+  "projectId": "e4bcedbe-d322-44be-ad58-5af1e1b92f27",
   "description": "A different design approach to UiPath Project frameworks that heavily leverage templates.",
   "main": "Dispatcher.xaml",
   "dependencies": {
     "Cronos": "[0.7.1]",
+    "Microsoft.CodeAnalysis.Common": "[4.5.0-2.22527.10]",
+    "Microsoft.CodeAnalysis.CSharp": "[4.5.0-2.22527.10]",
     "UiPath.Excel.Activities": "[2.20.1]",
-    "UiPath.Form.Activities": "[23.4.5]",
+    "UiPath.Form.Activities": "[2.0.3]",
+    "UiPath.FormActivityLibrary": "[2.0.5]",
+    "UiPath.FormActivityLibrary.Contracts": "[2.0.5]",
     "UiPath.Mail.Activities": "[1.20.2]",
     "UiPath.Persistence.Activities": "[1.4.6]",
     "UiPath.System.Activities": "[23.4.3]",
@@ -56,7 +61,6 @@
         "Design/AutoDocs/ParseProjectJSON.xaml",
         "Design/AutoDocs/ParseWorkflow.xaml",
         "Design/AutoDocs/TraverseWorkflow.xaml",
-        "Design/Configure/AddModules.uiform",
         "Design/Configure/AddModules.xaml"
       ]
     },
@@ -286,42 +290,6 @@
         "fileName": ".templates\\Reporters\\Basic\\Tests\\BasicReporterFromToNoOutput.xaml"
       },
       {
-        "editingStatus": "Publishable",
-        "testCaseId": "921a239e-f41e-4e5d-a770-a315bc80420a",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\Utility\\DataTableToHTML\\DataTableToHTMLSuccess.xaml"
-      },
-      {
-        "editingStatus": "Publishable",
-        "testCaseId": "3bcc0832-1445-43dd-afcd-43951d1dad6b",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\Utility\\GenerateDiagnosticDictionary\\GenerateDiagnosticDictionarySuccess.xaml"
-      },
-      {
-        "editingStatus": "Publishable",
-        "testCaseId": "e9619680-b4fe-4691-901b-e7a3274e6c91",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\Utility\\TakeScreenshot\\TakeScreenshotNoPath.xaml"
-      },
-      {
-        "editingStatus": "Publishable",
-        "testCaseId": "054a9ae5-685b-4b83-9cbd-0d27b2e34c45",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\Utility\\TakeScreenshot\\TakeScreenshotPath.xaml"
-      },
-      {
-        "editingStatus": "Publishable",
-        "testCaseId": "483d3990-77e1-41c0-9ba8-b5660ee8c63c",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\Utility\\SendEmail\\SendEmailSuccess.xaml"
-      },
-      {
-        "editingStatus": "Publishable",
-        "testCaseId": "9b54a231-c4c5-48e7-9cd9-ed9280cfb3f5",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\Utility\\LoadConfig\\LoadConfigSuccess.xaml"
-      },
-      {
         "templateType": "Generic",
         "fileName": ".templates\\Dispatchers\\Application\\Framework\\CloseApplications.xaml"
       },
@@ -364,6 +332,42 @@
       {
         "templateType": "TestCase",
         "fileName": ".templates\\Dispatchers\\Application\\Tests\\Framework\\ApplicationDispatcherMaintenanceTime.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "921a239e-f41e-4e5d-a770-a315bc80420a",
+        "testCaseType": "TestCase",
+        "fileName": "Shared\\Tests\\DataTableToHTML\\DataTableToHTMLSuccess.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "3bcc0832-1445-43dd-afcd-43951d1dad6b",
+        "testCaseType": "TestCase",
+        "fileName": "Shared\\Tests\\GenerateDiagnosticDictionary\\GenerateDiagnosticDictionarySuccess.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "9b54a231-c4c5-48e7-9cd9-ed9280cfb3f5",
+        "testCaseType": "TestCase",
+        "fileName": "Shared\\Tests\\LoadConfig\\LoadConfigSuccess.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "483d3990-77e1-41c0-9ba8-b5660ee8c63c",
+        "testCaseType": "TestCase",
+        "fileName": "Shared\\Tests\\SendEmail\\SendEmailSuccess.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "e9619680-b4fe-4691-901b-e7a3274e6c91",
+        "testCaseType": "TestCase",
+        "fileName": "Shared\\Tests\\TakeScreenshot\\TakeScreenshotNoPath.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "054a9ae5-685b-4b83-9cbd-0d27b2e34c45",
+        "testCaseType": "TestCase",
+        "fileName": "Shared\\Tests\\TakeScreenshot\\TakeScreenshotPath.xaml"
       }
     ],
     "modernBehavior": true

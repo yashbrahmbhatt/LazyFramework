@@ -8,7 +8,7 @@
     </InArgument>
   </this:KillProcesses.in_ProcessesToKill>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1632,950</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>997,888</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -23,6 +23,9 @@
       <x:String>System.Linq</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -94,7 +97,12 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="CurrentProcess" />
           </ActivityAction.Argument>
-          <ui:KillProcess Process="{x:Null}" AppliesTo="OnlyCurrentUser" ContinueOnError="True" DisplayName="Kill Current Process" sap:VirtualizedContainerService.HintSize="334,133" sap2010:WorkflowViewState.IdRef="KillProcess_1">
+          <ui:KillProcess Process="{x:Null}" ContinueOnError="True" DisplayName="Kill Current Process" sap:VirtualizedContainerService.HintSize="334,133" sap2010:WorkflowViewState.IdRef="KillProcess_1">
+            <ui:KillProcess.AppliesTo>
+              <InArgument x:TypeArguments="ui:KillProcessApplyOn">
+                <CSharpValue x:TypeArguments="ui:KillProcessApplyOn" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">KillProcessApplyOn.OnlyCurrentSession</CSharpValue>
+              </InArgument>
+            </ui:KillProcess.AppliesTo>
             <ui:KillProcess.ProcessName>
               <InArgument x:TypeArguments="x:String">
                 <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">CurrentProcess</CSharpValue>

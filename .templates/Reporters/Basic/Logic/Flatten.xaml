@@ -4,7 +4,7 @@
     <x:Property sap2010:Annotation.AnnotationText="The flattened object as a DataTable." Name="out_dt_Table" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1632,950</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>997,734</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -17,6 +17,9 @@
       <x:String>System.Linq</x:String>
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -93,7 +96,7 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="List&lt;Dictionary&lt;string,object&gt;&gt; DictList = in_List.Aggregate(new List&lt;Dictionary&lt;string, object&gt;&gt;(), (List, Item) =&gt; {&#xA;&#x9;JObject JObj = Item.ToObject&lt;JObject&gt;();&#xA;&#x9;IEnumerable&lt;JToken&gt; LeafNodes = JObj.Descendants().Where(t =&gt; !t.HasValues);&#xA;&#x9;Dictionary&lt;string, object&gt; Flattened = LeafNodes.Aggregate(new Dictionary&lt;string, object&gt;(), (Properties, Token) =&gt; {&#xA;&#x9;&#x9;Properties.Add(Token.Path, Token.ToString());&#xA;&#x9;&#x9;return Properties;&#xA;&#x9;});&#xA;&#x9;List.Add(Flattened);&#xA;&#x9;return List;&#xA;});&#xA;out_Table = JsonConvert.DeserializeObject&lt;DataTable&gt;(JsonConvert.SerializeObject(DictList));" DisplayName="Flatten List" sap:VirtualizedContainerService.HintSize="388,165" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="List&lt;Dictionary&lt;string,object&gt;&gt; DictList = in_List.Aggregate(new List&lt;Dictionary&lt;string, object&gt;&gt;(), (List, Item) =&gt; {&#xD;&#xA;&#x9;Newtonsoft.Json.Linq.JObject JObj = Item.ToObject&lt;Newtonsoft.Json.Linq.JObject&gt;();&#xD;&#xA;&#x9;IEnumerable&lt;Newtonsoft.Json.Linq.JToken&gt; LeafNodes = JObj.Descendants().Where(t =&gt; !t.HasValues);&#xD;&#xA;&#x9;Dictionary&lt;string, object&gt; Flattened = LeafNodes.Aggregate(new Dictionary&lt;string, object&gt;(), (Properties, Token) =&gt; {&#xD;&#xA;&#x9;&#x9;Properties.Add(Token.Path, Token.ToString());&#xD;&#xA;&#x9;&#x9;return Properties;&#xD;&#xA;&#x9;});&#xD;&#xA;&#x9;List.Add(Flattened);&#xD;&#xA;&#x9;return List;&#xD;&#xA;});&#xD;&#xA;out_Table = JsonConvert.DeserializeObject&lt;System.Data.DataTable&gt;(JsonConvert.SerializeObject(DictList));" DisplayName="Flatten List" sap:VirtualizedContainerService.HintSize="388,165" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="scg:List(njl:JToken)" x:Key="in_List">
           <CSharpValue x:TypeArguments="scg:List(njl:JToken)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">in_List</CSharpValue>
