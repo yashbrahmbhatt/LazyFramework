@@ -112,8 +112,8 @@ Takes a screenshot and saves it to a folder.
     <b>Tests</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\TakeScreenshot\TakeScreenshotNoPath.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\TakeScreenshot\TakeScreenshotPath.xaml
+- Shared\Tests\TakeScreenshot\TakeScreenshotNoPath.xaml
+- Shared\Tests\TakeScreenshot\TakeScreenshotPath.xaml
 
     
 </details>

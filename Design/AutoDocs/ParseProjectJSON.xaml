@@ -1,23 +1,23 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="ParseProjectJSON" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_ProjectJSONPath" Type="InArgument(x:String)" />
-    <x:Property Name="out_Name" Type="OutArgument(x:String)" />
-    <x:Property Name="out_Description" Type="OutArgument(x:String)" />
-    <x:Property Name="out_EntryPoints" Type="OutArgument(scg:IEnumerable(x:String))" />
-    <x:Property Name="out_Language" Type="OutArgument(x:String)" />
-    <x:Property Name="out_ProjectVersion" Type="OutArgument(x:String)" />
-    <x:Property Name="out_StudioVersion" Type="OutArgument(x:String)" />
-    <x:Property Name="out_Type" Type="OutArgument(x:String)" />
-    <x:Property Name="out_dt_Dependencies" Type="OutArgument(sd:DataTable)" />
-    <x:Property Name="out_dt_FileInfoCollection" Type="OutArgument(sd:DataTable)" />
+    <x:Property sap2010:Annotation.AnnotationText="The path to the project.json." Name="in_ProjectJSONPath" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The name of the project." Name="out_Name" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The description of the project." Name="out_Description" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The path to the entry points of the project." Name="out_EntryPoints" Type="OutArgument(scg:IEnumerable(x:String))" />
+    <x:Property sap2010:Annotation.AnnotationText="The .NET language used to write this project." Name="out_Language" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The version of the project." Name="out_ProjectVersion" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The version of the studio used to publish this package." Name="out_StudioVersion" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The type of the project." Name="out_Type" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="A table of the name and versions of the dependencies of the project." Name="out_dt_Dependencies" Type="OutArgument(sd:DataTable)" />
+    <x:Property sap2010:Annotation.AnnotationText="The FileInfoCollection of the project.json file. Contains information about templates and test cases." Name="out_dt_FileInfoCollection" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <this:ParseProjectJSON.in_ProjectJSONPath>
     <InArgument x:TypeArguments="x:String">
-      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">@"C:\Users\eyash\Documents\UiPath\LazyFramework\project.json"</CSharpValue>
+      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">Path.Combine(Directory.GetCurrentDirectory(), "project.json")</CSharpValue>
     </InArgument>
   </this:ParseProjectJSON.in_ProjectJSONPath>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1632,1430</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>997,1461</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -39,6 +39,9 @@
       <x:String>System.Collections.Specialized</x:String>
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -100,7 +103,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ParseProjectJSON" sap:VirtualizedContainerService.HintSize="485,1365" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Parses the information to be retrieved from the project.json file." DisplayName="ParseProjectJSON" sap:VirtualizedContainerService.HintSize="485,1396" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="JObj" />
       <Variable x:TypeArguments="scg:IEnumerable(s:Object[])" Name="DependencyArrays" />
@@ -108,6 +111,7 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="423,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">

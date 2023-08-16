@@ -107,7 +107,7 @@ Convert a DataTable into HTML. Uses only .ToString for all data types so transfo
     <b>Tests</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\DataTableToHTML\DataTableToHTMLSuccess.xaml
+- Shared\Tests\DataTableToHTML\DataTableToHTMLSuccess.xaml
 
     
 </details>

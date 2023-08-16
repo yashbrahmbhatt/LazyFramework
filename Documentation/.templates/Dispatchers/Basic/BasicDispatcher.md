@@ -11,8 +11,6 @@ Reads data from the srouce of work and adds it to a queue.
     <b>Namespaces</b>
     </summary>
     
-- GlobalConstantsNamespace
-- GlobalVariablesNamespace
 - System
 - System.Activities
 - System.Activities.Runtime.Collections
@@ -25,6 +23,8 @@ Reads data from the srouce of work and adds it to a queue.
 - System.Runtime.Serialization
 - UiPath.Core
 - UiPath.Core.Activities
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -99,10 +99,10 @@ Reads data from the srouce of work and adds it to a queue.
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\TakeScreenshot.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\GenerateDiagnosticDictionary.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\SendEmail.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\TakeScreenshot.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\GenerateDiagnosticDictionary.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\SendEmail.xaml
 
     
 </details>
@@ -127,7 +127,8 @@ stateDiagram-v2
 Sequence_1: Sequence - BasicDispatcher
 state Sequence_1 {
 direction TB
-
+InvokeWorkflowFile_1 : InvokeWorkflowFile - LoadConfig.xaml - Invoke Workflow File
+InvokeWorkflowFile_1 --> TryCatch_1
 TryCatch_1: TryCatch - Try Dispatching
 state TryCatch_1 {
 direction TB
@@ -135,8 +136,7 @@ direction TB
 Sequence_2: Sequence - Dispatching
 state Sequence_2 {
 direction TB
-InvokeWorkflowFile_1 : InvokeWorkflowFile - LoadConfig.xaml - Invoke Workflow File
-InvokeWorkflowFile_1 --> Switch1_1
+
 Switch1_1: Switch - TestID?
 state Switch1_1 {
 direction TB

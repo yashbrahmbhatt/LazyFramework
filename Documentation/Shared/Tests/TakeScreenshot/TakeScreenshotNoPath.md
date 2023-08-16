@@ -1,7 +1,7 @@
-# DataTableToHTMLSuccess
-Class: DataTableToHTMLSuccess
+# TakeScreenshotNoPath
+Class: TakeScreenshotNoPath
 
-Validates that all rows are converted successfully to HTML.
+Tests the main case where only the folder path is provided and no file path is given. Should generate a generic file name automatically.
 
 <hr />
 
@@ -20,14 +20,13 @@ Validates that all rows are converted successfully to HTML.
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
-- System.ComponentModel
-- System.Data
+- System.IO
 - System.Linq
 - System.Reflection
 - System.Runtime.Serialization
-- System.Xml.Serialization
 - UiPath.Core
 - UiPath.Core.Activities
+- UiPath.Platform.ResourceHandling
 - UiPath.Shared.Activities
 - UiPath.Testing.Activities
 
@@ -82,15 +81,13 @@ Validates that all rows are converted successfully to HTML.
 - UiPath.Testing.Activities
 - UiPath.Workflow
 - WindowsBase
-- System.ComponentModel.EventBasedAsync
-- Microsoft.Win32.Primitives
-- System.ComponentModel.Primitives
-- System.Private.Xml
-- System.Data.Common
-- System.Data.SqlClient
 - UiPath.System.Activities.Design
 - UiPath.System.Activities.ViewModels
-- System.Text.RegularExpressions
+- System.IO.FileSystem.Watcher
+- System.IO.Packaging
+- System.IO.FileSystem.AccessControl
+- System.IO.FileSystem.DriveInfo
+- UiPath.Platform
 
 
 </details>
@@ -109,7 +106,7 @@ Validates that all rows are converted successfully to HTML.
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\DataTableToHTML.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\TakeScreenshot.xaml
 
     
 </details>
@@ -131,7 +128,7 @@ Validates that all rows are converted successfully to HTML.
 stateDiagram-v2
 
 
-Sequence_1: Sequence - DataTableToHTMLSuccess
+Sequence_1: Sequence - TakeScreenshotNoPath
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
@@ -147,7 +144,13 @@ direction TB
 Sequence_2: Sequence - Initialize Test
 state Sequence_2 {
 direction TB
-BuildDataTable_1 : BuildDataTable - Setup Table
+MultipleAssign_2 : MultipleAssign - Initialize Vars
+MultipleAssign_2 --> If_1
+If_1: If - FolderPath Exists?
+state If_1 {
+direction TB
+DeleteFolderX_1 : DeleteFolderX - Delete FolderPath
+}
 }
 LogMessage_2 : LogMessage - LM -- Initialization Complete
 Sequence_2 --> LogMessage_2
@@ -159,7 +162,7 @@ direction TB
 Sequence_3: Sequence - ... When
 state Sequence_3 {
 direction TB
-InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\DataTableToHTML.xaml - Invoke Workflow File
+InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\TakeScreenshot.xaml - Invoke Workflow File
 }
 }
 LogMessage_3 : LogMessage - LM -- Test Executed
@@ -169,8 +172,12 @@ Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
 VerifyExpression_5 : VerifyExpression - Verify TextException
-VerifyExpression_6 : VerifyExpression - Verify HTML
+VerifyExpression_6 : VerifyExpression - Verify FilePath Exists
 VerifyExpression_5 --> VerifyExpression_6
+DeleteFileX_1 : DeleteFileX - Delete Screenshot
+VerifyExpression_6 --> DeleteFileX_1
+CreateFile_1 : CreateFile - Create placeholder
+DeleteFileX_1 --> CreateFile_1
 }
 }
 }

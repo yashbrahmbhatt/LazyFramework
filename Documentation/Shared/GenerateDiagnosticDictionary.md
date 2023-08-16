@@ -94,7 +94,7 @@ Generates a dictinoary that contains diagnostic information in cases of system e
     <b>Tests</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\GenerateDiagnosticDictionary\GenerateDiagnosticDictionarySuccess.xaml
+- Shared\Tests\GenerateDiagnosticDictionary\GenerateDiagnosticDictionarySuccess.xaml
 
     
 </details>

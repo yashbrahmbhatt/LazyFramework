@@ -1,7 +1,11 @@
 # TraverseWorkflow
 Class: TraverseWorkflow
 
-
+Recursive workflow to traverse and document the workflow into mermaid diagrams.
+ 
+/_\/_\/_\
+WIP
+/_\/_\/_\
 
 <hr />
 
@@ -26,6 +30,9 @@ Class: TraverseWorkflow
 - System.Xml.Serialization
 - Newtonsoft.Json.Linq
 - System.Runtime.Serialization
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -101,9 +108,9 @@ Class: TraverseWorkflow
 
 | Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
-| in_XElement | InArgument | sxl:XElement |  |
-| io_Markdown | InOutArgument | x:String |  |
-| io_PreviousActivity | InOutArgument | x:String |  |
+| in_XElement | InArgument | sxl:XElement | The current element to document/traverse. |
+| io_Markdown | InOutArgument | x:String | The current markdown generated. |
+| io_PreviousActivity | InOutArgument | x:String | The parent element of the current node. |
 
     
 </details>

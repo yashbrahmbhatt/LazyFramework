@@ -22,6 +22,9 @@ Kill input processes by name.
 - System.Linq
 - System.Reflection
 - UiPath.Core.Activities
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>

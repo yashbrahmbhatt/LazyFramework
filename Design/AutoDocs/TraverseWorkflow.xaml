@@ -1,12 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="TraverseWorkflow" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Private.Xml.Linq" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_XElement" Type="InArgument(sxl:XElement)" />
-    <x:Property Name="io_Markdown" Type="InOutArgument(x:String)" />
-    <x:Property Name="io_PreviousActivity" Type="InOutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The current element to document/traverse." Name="in_XElement" Type="InArgument(sxl:XElement)" />
+    <x:Property sap2010:Annotation.AnnotationText="The current markdown generated." Name="io_Markdown" Type="InOutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The parent element of the current node." Name="io_PreviousActivity" Type="InOutArgument(x:String)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1632,2558</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>997,1847</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -25,6 +24,9 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>Newtonsoft.Json.Linq</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -88,7 +90,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TraverseWorkflow" sap:VirtualizedContainerService.HintSize="653,2493" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Recursive workflow to traverse and document the workflow into mermaid diagrams.&#xD;&#xA; &#xD;&#xA;/_\/_\/_\&#xD;&#xA;WIP&#xD;&#xA;/_\/_\/_\" DisplayName="TraverseWorkflow" sap:VirtualizedContainerService.HintSize="627,1782" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ActivityType" />
       <Variable x:TypeArguments="x:String" Name="ActivityName" />
@@ -99,9 +101,10 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Parse Element" sap:VirtualizedContainerService.HintSize="591,225" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Parse Element" sap:VirtualizedContainerService.HintSize="565,225" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -167,7 +170,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="591,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="565,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
           <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_70">UiPath.Core.Activities.LogLevel.Trace</CSharpValue>
@@ -179,7 +182,7 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="int closest = int.MaxValue;&#xA;&#xA;Func&lt;XElement, XElement, int&gt; GetDistance = (child, parent) =&gt; {&#xA;&#x9;int count = 0;&#xA;&#x9;var current = child;&#xA;&#x9;while(current != parent){&#xA;&#x9;&#x9;count++;&#xA;&#x9;&#x9;current = current.Parent;&#xA;&#x9;}&#xA;&#x9;return count;&#xA;};&#xA;&#xA;foreach (var child in in_Descendants) {&#xA;&#x9;int distance = GetDistance(child, in_Parent);&#xA;&#x9;if(distance &lt; closest) closest = distance;&#xA;}&#xA;&#xA;out_Closest = in_Descendants.Where(d =&gt; GetDistance(d, in_Parent) == closest);" DisplayName="Get Closest Descendants with Display Names" sap:VirtualizedContainerService.HintSize="591,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="int closest = int.MaxValue;&#xA;&#xA;Func&lt;XElement, XElement, int&gt; GetDistance = (child, parent) =&gt; {&#xA;&#x9;int count = 0;&#xA;&#x9;var current = child;&#xA;&#x9;while(current != parent){&#xA;&#x9;&#x9;count++;&#xA;&#x9;&#x9;current = current.Parent;&#xA;&#x9;}&#xA;&#x9;return count;&#xA;};&#xA;&#xA;foreach (var child in in_Descendants) {&#xA;&#x9;int distance = GetDistance(child, in_Parent);&#xA;&#x9;if(distance &lt; closest) closest = distance;&#xA;}&#xA;&#xA;out_Closest = in_Descendants.Where(d =&gt; GetDistance(d, in_Parent) == closest);" DisplayName="Get Closest Descendants with Display Names" sap:VirtualizedContainerService.HintSize="565,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="scg:IEnumerable(sxl:XElement)" x:Key="in_Descendants">
           <CSharpValue x:TypeArguments="scg:IEnumerable(sxl:XElement)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">ActivityDisplayDescendants</CSharpValue>
@@ -192,14 +195,14 @@
         </InArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <If DisplayName="ActivityName Not Empty?" sap:VirtualizedContainerService.HintSize="591,1731" sap2010:WorkflowViewState.IdRef="If_1">
+    <If DisplayName="ActivityName Not Empty?" sap:VirtualizedContainerService.HintSize="565,933" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">!string.IsNullOrEmpty(ActivityName)</CSharpValue>
         </InArgument>
       </If.Condition>
       <If.Then>
-        <If DisplayName="Activity Has No Children?" sap:VirtualizedContainerService.HintSize="557,1250" sap2010:WorkflowViewState.IdRef="If_3">
+        <If DisplayName="Activity Has No Children?" sap:VirtualizedContainerService.HintSize="531,452" sap2010:WorkflowViewState.IdRef="If_3">
           <If.Condition>
             <InArgument x:TypeArguments="x:Boolean">
               <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_72">ActivityDisplayDescendants.Count() == 0</CSharpValue>
@@ -246,7 +249,7 @@ Environment.NewLine + string.Format("{2} : {0} - {1}", ActivityType, ActivityNam
             </ui:MultipleAssign>
           </If.Then>
           <If.Else>
-            <Switch x:TypeArguments="x:String" DisplayName="Activity Type?" sap:VirtualizedContainerService.HintSize="523,936" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+            <Switch x:TypeArguments="x:String" DisplayName="Activity Type?" sap:VirtualizedContainerService.HintSize="497,138" sap2010:WorkflowViewState.IdRef="Switch`1_2">
               <Switch.Default>
                 <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="485,754" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
@@ -391,7 +394,7 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
                     </scg:List>
                   </ui:MultipleAssign.AssignOperations>
                 </ui:MultipleAssign>
-                <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="Recurse If.Then and If.Else" sap:VirtualizedContainerService.HintSize="499,528" sap2010:WorkflowViewState.IdRef="ForEach`1_7">
+                <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="Recurse If.Then and If.Else" sap:VirtualizedContainerService.HintSize="499,186" sap2010:WorkflowViewState.IdRef="ForEach`1_7">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="sxl:XElement">
                       <ActivityAction.Argument>

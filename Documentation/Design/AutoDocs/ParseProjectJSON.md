@@ -1,7 +1,7 @@
 # ParseProjectJSON
 Class: ParseProjectJSON
 
-
+Parses the information to be retrieved from the project.json file.
 
 <hr />
 
@@ -29,6 +29,9 @@ Class: ParseProjectJSON
 - System.Collections.Specialized
 - System.Runtime.Serialization
 - System.Xml.Serialization
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -102,16 +105,16 @@ Class: ParseProjectJSON
 
 | Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
-| in_ProjectJSONPath | InArgument | x:String |  |
-| out_Name | OutArgument | x:String |  |
-| out_Description | OutArgument | x:String |  |
-| out_EntryPoints | OutArgument | scg:IEnumerable(x:String) |  |
-| out_Language | OutArgument | x:String |  |
-| out_ProjectVersion | OutArgument | x:String |  |
-| out_StudioVersion | OutArgument | x:String |  |
-| out_Type | OutArgument | x:String |  |
-| out_dt_Dependencies | OutArgument | sd:DataTable |  |
-| out_dt_FileInfoCollection | OutArgument | sd:DataTable |  |
+| in_ProjectJSONPath | InArgument | x:String | The path to the project.json. |
+| out_Name | OutArgument | x:String | The name of the project. |
+| out_Description | OutArgument | x:String | The description of the project. |
+| out_EntryPoints | OutArgument | scg:IEnumerable(x:String) | The path to the entry points of the project. |
+| out_Language | OutArgument | x:String | The .NET language used to write this project. |
+| out_ProjectVersion | OutArgument | x:String | The version of the project. |
+| out_StudioVersion | OutArgument | x:String | The version of the studio used to publish this package. |
+| out_Type | OutArgument | x:String | The type of the project. |
+| out_dt_Dependencies | OutArgument | sd:DataTable | A table of the name and versions of the dependencies of the project. |
+| out_dt_FileInfoCollection | OutArgument | sd:DataTable | The FileInfoCollection of the project.json file. Contains information about templates and test cases. |
 
     
 </details>

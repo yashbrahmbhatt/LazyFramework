@@ -101,13 +101,14 @@ Reads data from the source of work and adds it to a queue. Specialized for when 
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\IsMaintenanceTime.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Dispatchers\Application\Framework\CloseApplications.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Dispatchers\Application\Framework\KillProcesses.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Dispatchers\Application\Framework\InitializeApplications.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\TakeScreenshot.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\GenerateDiagnosticDictionary.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\SendEmail.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\TakeScreenshot.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\GenerateDiagnosticDictionary.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\SendEmail.xaml
 
     
 </details>
@@ -132,6 +133,19 @@ stateDiagram-v2
 Sequence_1: Sequence - ApplicationDispatcher
 state Sequence_1 {
 direction TB
+InvokeWorkflowFile_1 : InvokeWorkflowFile - LoadConfig.xaml - Invoke Workflow File
+InvokeWorkflowFile_1 --> Switch1_2
+Switch1_2: Switch - @Test Variations - Initialization
+state Switch1_2 {
+direction TB
+MultipleAssign_5 : MultipleAssign - Update Maintenance Times
+}
+InvokeWorkflowFile_16 : InvokeWorkflowFile - IsMaintenanceTime.xaml - Invoke Workflow File
+Switch1_2 --> InvokeWorkflowFile_16
+InvokeWorkflowFile_16 --> If_1
+If_1: If - Not Maintenance Time?
+state If_1 {
+direction TB
 
 TryCatch_1: TryCatch - Try Dispatching
 state TryCatch_1 {
@@ -140,9 +154,7 @@ direction TB
 Sequence_2: Sequence - Dispatching
 state Sequence_2 {
 direction TB
-InvokeWorkflowFile_1 : InvokeWorkflowFile - LoadConfig.xaml - Invoke Workflow File
 LogMessage_4 : LogMessage - LM -- Initializing
-InvokeWorkflowFile_1 --> LogMessage_4
 LogMessage_4 --> RetryScope_2
 RetryScope_2: RetryScope - Retry Initialize
 state RetryScope_2 {
@@ -204,6 +216,8 @@ InvokeWorkflowFile_10 : InvokeWorkflowFile - Close Applications (Termination)
 LogMessage_2 : LogMessage - LM -- Complete
 TryCatch_4 --> LogMessage_2
 }
+}
+LogMessage_7 : LogMessage - LM -- Maintenance
 }
 }
 ```

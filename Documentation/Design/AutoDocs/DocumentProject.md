@@ -1,7 +1,11 @@
 # DocumentProject
 Class: DocumentProject
 
+Documents the current project into markdown in the following manner:
 
+1. Pages for each workflow showing the description, arguments, dependencies, and imports
+
+2. Project Summary page that indicates the type, version, studio version, language, description, dependencies, and entry points of the project.
 
 <hr />
 
@@ -31,6 +35,8 @@ Class: DocumentProject
 - UiPath.Core
 - GlobalVariablesNamespace
 - GlobalConstantsNamespace
+- System.Linq.Expressions
+- System.Xml.Linq
 
 
 </details>

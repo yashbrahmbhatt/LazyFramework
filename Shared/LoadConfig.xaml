@@ -42,7 +42,7 @@
     </InArgument>
   </this:LoadConfig.in_IgnoreSheets>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>997,2433</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>997,4463</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -136,21 +136,21 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Reads the config file, ignoring the sheets defined, and outputs the config and textfiles arguments." DisplayName="LoadConfig" sap:VirtualizedContainerService.HintSize="791,2368" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Reads the config file, ignoring the sheets defined, and outputs the config and textfiles arguments." DisplayName="LoadConfig" sap:VirtualizedContainerService.HintSize="895,4398" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="729,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info">
+    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="833,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">string.Format("Loading config and text resources from path '{0}' and ignoring sheets '{1}'", new string[]{in_ConfigPath, string.Join(", ",in_IgnoreSheets)})</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:MultipleAssign DisplayName="Initialize Outputs" sap:VirtualizedContainerService.HintSize="729,163" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Initialize Outputs" sap:VirtualizedContainerService.HintSize="833,163" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -192,19 +192,19 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ueab:ExcelProcessScopeX LaunchTimeout="{x:Null}" DisplayAlerts="False" DisplayName="Using Excel App" ExistingProcessAction="ForceKill" FileConflictResolution="CloseWithoutSaving" sap:VirtualizedContainerService.HintSize="729,1661" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" LaunchMethod="Automation" MacroSettings="EnableAll" ProcessMode="ReuseIfExists" ShowExcelWindow="False">
+    <ueab:ExcelProcessScopeX LaunchTimeout="{x:Null}" DisplayAlerts="False" DisplayName="Using Excel App" ExistingProcessAction="ForceKill" FileConflictResolution="CloseWithoutSaving" sap:VirtualizedContainerService.HintSize="833,3691" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" LaunchMethod="Automation" MacroSettings="EnableAll" ProcessMode="ReuseIfExists" ShowExcelWindow="False">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
           </ActivityAction.Argument>
-          <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Using Config File" sap:VirtualizedContainerService.HintSize="695,1574" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ReadOnly="True" ResizeWindow="None">
+          <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Using Config File" sap:VirtualizedContainerService.HintSize="799,3604" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ReadOnly="True" ResizeWindow="None">
             <ueab:ExcelApplicationCard.Body>
               <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="ConfigExcel" />
                 </ActivityAction.Argument>
-                <ueab:ForEachSheetX DisplayName="For Each Sheet" sap:VirtualizedContainerService.HintSize="661,1305" sap2010:WorkflowViewState.IdRef="ForEachSheetX_1">
+                <ueab:ForEachSheetX DisplayName="For Each Sheet" sap:VirtualizedContainerService.HintSize="765,3335" sap2010:WorkflowViewState.IdRef="ForEachSheetX_1">
                   <ueab:ForEachSheetX.Body>
                     <ActivityAction x:TypeArguments="ue:WorksheetQuickHandle, x:Int32">
                       <ActivityAction.Argument1>
@@ -213,21 +213,26 @@
                       <ActivityAction.Argument2>
                         <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                       </ActivityAction.Argument2>
-                      <Sequence DisplayName="Process Sheet" sap:VirtualizedContainerService.HintSize="627,1149" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <Sequence DisplayName="Process Sheet" sap:VirtualizedContainerService.HintSize="731,3179" sap2010:WorkflowViewState.IdRef="Sequence_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="LM: Processing sheet" sap:VirtualizedContainerService.HintSize="565,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace">
+                        <ui:LogMessage DisplayName="LM: Processing sheet" sap:VirtualizedContainerService.HintSize="669,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+                          <ui:LogMessage.Level>
+                            <InArgument x:TypeArguments="ui:LogLevel">
+                              <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_72">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                            </InArgument>
+                          </ui:LogMessage.Level>
                           <ui:LogMessage.Message>
                             <InArgument x:TypeArguments="x:Object">
-                              <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">string.Format("Loading sheet {0} into config", ConfigSheet.Name)</CSharpValue>
+                              <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_73">string.Format("Loading sheet {0}", ConfigSheet.Name)</CSharpValue>
                             </InArgument>
                           </ui:LogMessage.Message>
                         </ui:LogMessage>
-                        <If DisplayName="Ignorable Sheet?" sap:VirtualizedContainerService.HintSize="565,52" sap2010:WorkflowViewState.IdRef="If_1">
+                        <If DisplayName="Ignorable Sheet?" sap:VirtualizedContainerService.HintSize="669,617" sap2010:WorkflowViewState.IdRef="If_1">
                           <If.Condition>
                             <InArgument x:TypeArguments="x:Boolean">
                               <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">in_IgnoreSheets.Contains(ConfigSheet.Name)</CSharpValue>
@@ -235,7 +240,7 @@
                           </If.Condition>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -246,7 +251,12 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="LM: Skip" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace">
+                              <ui:LogMessage DisplayName="LM: Skip" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
+                                <ui:LogMessage.Level>
+                                  <InArgument x:TypeArguments="ui:LogLevel">
+                                    <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_67">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                                  </InArgument>
+                                </ui:LogMessage.Level>
                                 <ui:LogMessage.Message>
                                   <InArgument x:TypeArguments="x:Object">
                                     <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">"Sheet is to be ignored, skipping"</CSharpValue>
@@ -257,16 +267,21 @@
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence DisplayName="" sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                            </Sequence>
+                            <ui:LogMessage DisplayName="LM: Continue Sheet" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_5">
+                              <ui:LogMessage.Level>
+                                <InArgument x:TypeArguments="ui:LogLevel">
+                                  <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_69">UiPath.Core.Activities.LogLevel.Trace</CSharpValue>
+                                </InArgument>
+                              </ui:LogMessage.Level>
+                              <ui:LogMessage.Message>
+                                <InArgument x:TypeArguments="x:Object">
+                                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_68">"Sheet is not to be ignored, continuing"</CSharpValue>
+                                </InArgument>
+                              </ui:LogMessage.Message>
+                            </ui:LogMessage>
                           </If.Else>
                         </If>
-                        <ueab:ExcelForEachRowX DisplayName="For Each Row" EmptyRowBehavior="StopAfterThreeConsecutiveEmptyRows" HasHeaders="True" sap:VirtualizedContainerService.HintSize="565,765" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_1" SaveAfterEachRow="False">
+                        <ueab:ExcelForEachRowX DisplayName="For Each Row" EmptyRowBehavior="StopAfterThreeConsecutiveEmptyRows" HasHeaders="True" sap:VirtualizedContainerService.HintSize="669,2230" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_1" SaveAfterEachRow="False">
                           <ueab:ExcelForEachRowX.Body>
                             <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
                               <ActivityAction.Argument1>
@@ -275,14 +290,14 @@
                               <ActivityAction.Argument2>
                                 <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                               </ActivityAction.Argument2>
-                              <If DisplayName="Not Empty Row?" sap:VirtualizedContainerService.HintSize="531,583" sap2010:WorkflowViewState.IdRef="If_3">
+                              <If DisplayName="Not Empty Row?" sap:VirtualizedContainerService.HintSize="635,2048" sap2010:WorkflowViewState.IdRef="If_3">
                                 <If.Condition>
                                   <InArgument x:TypeArguments="x:Boolean">
                                     <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">!string.IsNullOrEmpty(ConfigRow["Name"].ToString())</CSharpValue>
                                   </InArgument>
                                 </If.Condition>
                                 <If.Then>
-                                  <Switch x:TypeArguments="x:String" DisplayName="Sheet Name?" sap:VirtualizedContainerService.HintSize="497,309" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+                                  <Switch x:TypeArguments="x:String" DisplayName="Sheet Name?" sap:VirtualizedContainerService.HintSize="601,1725" sap2010:WorkflowViewState.IdRef="Switch`1_3">
                                     <Switch.Default>
                                       <Assign DisplayName="Set Default Value" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
                                         <Assign.To>
@@ -308,7 +323,7 @@
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence x:Key="Assets" DisplayName="Process Assets Row" sap:VirtualizedContainerService.HintSize="496,285" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                    <Sequence x:Key="Assets" DisplayName="Process Assets Row" sap:VirtualizedContainerService.HintSize="496,284" sap2010:WorkflowViewState.IdRef="Sequence_11">
                                       <Sequence.Variables>
                                         <Variable x:TypeArguments="x:String" Name="AssetValue" />
                                       </Sequence.Variables>
@@ -356,7 +371,7 @@
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:RetryScope>
-                                      <Assign DisplayName="Set Asset Value" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                      <Assign DisplayName="Set Asset Value" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_6">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:String">
                                             <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">out_Config[ConfigRow["Name"].ToString()]</CSharpReference>
@@ -369,7 +384,7 @@
                                         </Assign.Value>
                                       </Assign>
                                     </Sequence>
-                                    <Sequence x:Key="TextFiles" DisplayName="Process TextFiles Row" sap:VirtualizedContainerService.HintSize="496,467" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                    <Sequence x:Key="TextFiles" DisplayName="Process TextFiles Row" sap:VirtualizedContainerService.HintSize="496,284" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                       <Sequence.Variables>
                                         <Variable x:TypeArguments="x:String" Name="FileContent" />
                                       </Sequence.Variables>
@@ -379,7 +394,7 @@
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <If DisplayName="NOT Storage Bucket Resource?" sap:VirtualizedContainerService.HintSize="434,234" sap2010:WorkflowViewState.IdRef="If_4">
+                                      <If DisplayName="NOT Storage Bucket Resource?" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="If_4">
                                         <If.Condition>
                                           <InArgument x:TypeArguments="x:Boolean">
                                             <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">string.IsNullOrWhiteSpace(ConfigRow["Folder"].ToString())</CSharpValue>
@@ -387,7 +402,7 @@
                                         </If.Condition>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
@@ -424,7 +439,7 @@
                                           <ui:RetryScope DisplayName="Retry Orch" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="RetryScope_10">
                                             <ui:RetryScope.ActivityBody>
                                               <ActivityAction>
-                                                <ucas:ReadStorageText TimeoutMS="{x:Null}" DisplayName="Get Storage Text" sap:VirtualizedContainerService.HintSize="334,136.66666666666666" sap2010:WorkflowViewState.IdRef="ReadStorageText_4">
+                                                <ucas:ReadStorageText TimeoutMS="{x:Null}" DisplayName="Get Storage Text" sap:VirtualizedContainerService.HintSize="334,133" sap2010:WorkflowViewState.IdRef="ReadStorageText_4">
                                                   <ucas:ReadStorageText.FolderPath>
                                                     <InArgument x:TypeArguments="x:String">
                                                       <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">ConfigRow["Folder"]</CSharpValue>
@@ -460,7 +475,7 @@
                                           </ui:RetryScope>
                                         </If.Else>
                                       </If>
-                                      <Assign DisplayName="Set TextFiles Value" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                      <Assign DisplayName="Set TextFiles Value" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_7">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:String">
                                             <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">out_TextFiles[ConfigRow["Name"].ToString()]</CSharpReference>
@@ -473,13 +488,13 @@
                                         </Assign.Value>
                                       </Assign>
                                     </Sequence>
-                                    <Sequence x:Key="ExcelFiles" DisplayName="Process ExcelFiles Row" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                    <Sequence x:Key="ExcelFiles" DisplayName="Process ExcelFiles Row" sap:VirtualizedContainerService.HintSize="561,1497" sap2010:WorkflowViewState.IdRef="Sequence_19">
                                       <Sequence.Variables>
                                         <Variable x:TypeArguments="x:String" Name="ExcelFilePath" />
                                       </Sequence.Variables>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
@@ -531,7 +546,7 @@
                                                     </ui:AssignOperation.To>
                                                     <ui:AssignOperation.Value>
                                                       <InArgument x:TypeArguments="x:String">
-                                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_66">Path.Combine(Directory.GetCurrentDirectory(), "Data", "Temp", Guid.NewGuid().ToString() + ".xlsx")</CSharpValue>
+                                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_74">Path.Combine(Directory.GetCurrentDirectory(), Guid.NewGuid().ToString() + ".xlsx")</CSharpValue>
                                                       </InArgument>
                                                     </ui:AssignOperation.Value>
                                                   </ui:AssignOperation>
@@ -700,7 +715,7 @@
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:RetryScope>
-                                      <If sap2010:Annotation.AnnotationText="Deletes the temp file if created" DisplayName="Storage Bucket Resource? (Delete Excel)" sap:VirtualizedContainerService.HintSize="499,94" sap2010:WorkflowViewState.IdRef="If_7">
+                                      <If sap2010:Annotation.AnnotationText="Deletes the temp file if created" DisplayName="Storage Bucket Resource? (Delete Excel)" sap:VirtualizedContainerService.HintSize="499,293" sap2010:WorkflowViewState.IdRef="If_7">
                                         <If.Condition>
                                           <InArgument x:TypeArguments="x:Boolean">
                                             <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_63">!string.IsNullOrWhiteSpace(ConfigRow["Folder"].ToString())</CSharpValue>
@@ -709,7 +724,7 @@
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
@@ -723,14 +738,25 @@
                                           </ui:DeleteFileX>
                                         </If.Then>
                                         <If.Else>
-                                          <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_25" />
+                                          <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_27" />
                                         </If.Else>
                                       </If>
                                     </Sequence>
                                   </Switch>
                                 </If.Then>
                                 <If.Else>
-                                  <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_26" />
+                                  <ui:LogMessage DisplayName="LM: Empty Row" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_6">
+                                    <ui:LogMessage.Level>
+                                      <InArgument x:TypeArguments="ui:LogLevel">
+                                        <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_71">UiPath.Core.Activities.LogLevel.Trace</CSharpValue>
+                                      </InArgument>
+                                    </ui:LogMessage.Level>
+                                    <ui:LogMessage.Message>
+                                      <InArgument x:TypeArguments="x:Object">
+                                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_70">"Ignoring empty row"</CSharpValue>
+                                      </InArgument>
+                                    </ui:LogMessage.Message>
+                                  </ui:LogMessage>
                                 </If.Else>
                               </If>
                             </ActivityAction>
@@ -779,7 +805,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ueab:ExcelProcessScopeX>
-    <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="729,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info">
+    <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="833,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">string.Format("Config loaded with {0} keys, and textfiles loaded with {1} keys", new string[] {out_Config.Keys.Count.ToString(), out_TextFiles.Keys.Count.ToString()})</CSharpValue>

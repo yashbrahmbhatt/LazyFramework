@@ -103,7 +103,7 @@ A basic template for a test with the expected outcome being success.
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Orchestrator\GetQueueDefinitionId.xaml
 
     

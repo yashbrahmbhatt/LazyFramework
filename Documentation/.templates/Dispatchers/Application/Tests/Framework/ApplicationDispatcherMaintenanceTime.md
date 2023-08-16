@@ -1,7 +1,7 @@
-# TakeScreenshotNoPath
-Class: TakeScreenshotNoPath
+# ApplicationDispatcherMaintenanceTime
+Class: ApplicationDispatcherMaintenanceTime
 
-Tests the main case where only the folder path is provided and no file path is given. Should generate a generic file name automatically.
+Tests the success path for the dispatcher when the current time is within the maintenance window. Validates items are not added to the queue.
 
 <hr />
 
@@ -11,24 +11,24 @@ Tests the main case where only the folder path is provided and no file path is g
     <b>Namespaces</b>
     </summary>
     
-- GlobalConstantsNamespace
-- GlobalVariablesNamespace
-- System
 - System.Activities
-- System.Activities.Runtime.Collections
 - System.Activities.Statements
+- System
 - System.Collections
 - System.Collections.Generic
-- System.Collections.ObjectModel
-- System.IO
 - System.Linq
-- System.Reflection
-- System.Runtime.Serialization
 - UiPath.Core
 - UiPath.Core.Activities
-- UiPath.Platform.ResourceHandling
-- UiPath.Shared.Activities
+- System.Collections.ObjectModel
+- System.Runtime.Serialization
+- System.Reflection
 - UiPath.Testing.Activities
+- UiPath.Shared.Activities
+- UiPath.Core.Activities.Orchestrator
+- System.Activities.Runtime.Collections
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
+- UiPath.Shared.Telemetry
 
 
 </details>
@@ -45,15 +45,21 @@ Tests the main case where only the folder path is provided and no file path is g
 - PresentationFramework
 - System
 - System.Activities
+- System.Collections
+- System.Collections.Immutable
 - System.ComponentModel
+- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
 - System.Core
 - System.Data
+- System.Data.Common
 - System.Drawing
 - System.Linq
 - System.Linq.Expressions
+- System.Linq.Parallel
+- System.Linq.Queryable
 - System.Memory
 - System.Memory.Data
 - System.ObjectModel
@@ -61,6 +67,7 @@ Tests the main case where only the folder path is provided and no file path is g
 - System.Private.DataContractSerialization
 - System.Private.ServiceModel
 - System.Private.Uri
+- System.Private.Xml
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions
@@ -78,16 +85,12 @@ Tests the main case where only the folder path is provided and no file path is g
 - UiPath.Mail.Activities
 - UiPath.Studio.Constants
 - UiPath.System.Activities
+- UiPath.System.Activities.Design
+- UiPath.System.Activities.ViewModels
 - UiPath.Testing.Activities
 - UiPath.Workflow
 - WindowsBase
-- UiPath.System.Activities.Design
-- UiPath.System.Activities.ViewModels
-- System.IO.FileSystem.Watcher
-- System.IO.Packaging
-- System.IO.FileSystem.AccessControl
-- System.IO.FileSystem.DriveInfo
-- UiPath.Platform
+- UiPath.Persistence.Activities
 
 
 </details>
@@ -106,7 +109,8 @@ Tests the main case where only the folder path is provided and no file path is g
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\TakeScreenshot.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Dispatchers\Application\ApplicationDispatcher.xaml
 
     
 </details>
@@ -128,7 +132,7 @@ Tests the main case where only the folder path is provided and no file path is g
 stateDiagram-v2
 
 
-Sequence_1: Sequence - TakeScreenshotNoPath
+Sequence_1: Sequence - ApplicationDispatcherMaintenanceTime
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
@@ -141,29 +145,20 @@ Sequence_5: Sequence - Test
 state Sequence_5 {
 direction TB
 
-Sequence_2: Sequence - Initialize Test
-state Sequence_2 {
+Sequence_6: Sequence - Initialize Test
+state Sequence_6 {
 direction TB
-MultipleAssign_2 : MultipleAssign - Initialize Vars
-MultipleAssign_2 --> If_1
-If_1: If - FolderPath Exists?
-state If_1 {
-direction TB
-DeleteFolderX_1 : DeleteFolderX - Delete FolderPath
-}
+MultipleAssign_2 : MultipleAssign - Initialize Variables
+InvokeWorkflowFile_1 : InvokeWorkflowFile - Load Test Config
+MultipleAssign_2 --> InvokeWorkflowFile_1
 }
 LogMessage_2 : LogMessage - LM -- Initialization Complete
-Sequence_2 --> LogMessage_2
+Sequence_6 --> LogMessage_2
 LogMessage_2 --> TryCatch_1
-TryCatch_1: TryCatch - Execute Test
+TryCatch_1: TryCatch - Execute
 state TryCatch_1 {
 direction TB
-
-Sequence_3: Sequence - ... When
-state Sequence_3 {
-direction TB
-InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\TakeScreenshot.xaml - Invoke Workflow File
-}
+InvokeWorkflowFile_2 : InvokeWorkflowFile - ApplicationDispatcher.xaml - Invoke Workflow File
 }
 LogMessage_3 : LogMessage - LM -- Test Executed
 TryCatch_1 --> LogMessage_3
@@ -171,13 +166,11 @@ LogMessage_3 --> Sequence_4
 Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
-VerifyExpression_5 : VerifyExpression - Verify TextException
-VerifyExpression_6 : VerifyExpression - Verify FilePath Exists
-VerifyExpression_5 --> VerifyExpression_6
-DeleteFileX_1 : DeleteFileX - Delete Screenshot
-VerifyExpression_6 --> DeleteFileX_1
-CreateFile_1 : CreateFile - Create placeholder
-DeleteFileX_1 --> CreateFile_1
+GetQueueItems_1 : GetQueueItems - Get New Item
+VerifyExpression_7 : VerifyExpression - Verify QueueItems Count
+GetQueueItems_1 --> VerifyExpression_7
+VerifyExpression_6 : VerifyExpression - Verify TestException
+VerifyExpression_7 --> VerifyExpression_6
 }
 }
 }

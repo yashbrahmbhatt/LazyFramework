@@ -139,13 +139,13 @@ Reads all queue items for a single queue within a defined reporting period, writ
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Logic\GetQueueData.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Logic\AddCalculatedColumns.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Logic\WriteTableToExcel.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\SendEmail.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\TakeScreenshot.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\GenerateDiagnosticDictionary.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\SendEmail.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\TakeScreenshot.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\GenerateDiagnosticDictionary.xaml
 
     
 </details>
@@ -171,9 +171,9 @@ Sequence_1: Sequence - BasicReporter
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
-LogMessage_1 --> InvokeWorkflowFile_1
-InvokeWorkflowFile_1 --> TryCatch_2
+InvokeWorkflowFile_10 : InvokeWorkflowFile - Shared\\LoadConfig.xaml - Invoke Workflow File
+LogMessage_1 --> InvokeWorkflowFile_10
+InvokeWorkflowFile_10 --> TryCatch_2
 TryCatch_2: TryCatch - Try Reporting
 state TryCatch_2 {
 direction TB

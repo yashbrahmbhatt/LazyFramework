@@ -20,6 +20,9 @@ Flattens a list of JToken into a DataTable. Uses the Aggregate LINQ function.
 - System.Linq
 - System.Runtime.Serialization
 - UiPath.Core.Activities
+- UiPath.Core
+- Newtonsoft.Json
+- Newtonsoft.Json.Linq
 
 
 </details>

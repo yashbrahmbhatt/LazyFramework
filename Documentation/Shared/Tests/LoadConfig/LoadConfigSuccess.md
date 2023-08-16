@@ -1,7 +1,12 @@
-# GenerateDiagnosticDictionarySuccess
-Class: GenerateDiagnosticDictionarySuccess
+# LoadConfigSuccess
+Class: LoadConfigSuccess
 
-Tests the generation of basic environment data and exception information into a dictionary.
+Tests all the paths for loading a config. Verifies:
+- All sheets loaded
+- Ignored sheets not loaded
+- Assets sheet loaded from Orchestrator
+- Local TextFiles loaded
+- Orchestrator Bucket TextFiles loaded
 
 <hr />
 
@@ -16,6 +21,7 @@ Tests the generation of basic environment data and exception information into a 
 - System
 - System.Collections
 - System.Collections.Generic
+- System.IO
 - System.Linq
 - UiPath.Core.Activities
 - System.Collections.ObjectModel
@@ -27,6 +33,12 @@ Tests the generation of basic environment data and exception information into a 
 - UiPath.Core
 - GlobalVariablesNamespace
 - GlobalConstantsNamespace
+- System.Data
+- System.ComponentModel
+- System.Xml.Serialization
+- System.Data
+- System.ComponentModel
+- System.Xml.Serialization
 
 
 </details>
@@ -82,9 +94,19 @@ Tests the generation of basic environment data and exception information into a 
 - UiPath.System.Activities.Design
 - UiPath.System.Activities.ViewModels
 - System.Collections
+- System.IO.FileSystem.Watcher
+- System.IO.Packaging
+- System.IO.FileSystem.AccessControl
+- System.IO.FileSystem.DriveInfo
 - System.Linq.Parallel
 - System.Collections.Immutable
 - System.Linq.Queryable
+- System.Data.Common
+- System.ComponentModel.Primitives
+- System.Private.Xml
+- System.Data.SqlClient
+- System.ComponentModel.EventBasedAsync
+- Microsoft.Win32.Primitives
 
 
 </details>
@@ -103,7 +125,7 @@ Tests the generation of basic environment data and exception information into a 
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\GenerateDiagnosticDictionary.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
 
     
 </details>
@@ -125,7 +147,7 @@ Tests the generation of basic environment data and exception information into a 
 stateDiagram-v2
 
 
-Sequence_1: Sequence - GenerateDiagnosticDictionarySuccess
+Sequence_1: Sequence - LoadConfigSuccess
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
@@ -153,7 +175,7 @@ direction TB
 Sequence_3: Sequence - ... When
 state Sequence_3 {
 direction TB
-InvokeWorkflowFile_2 : InvokeWorkflowFile - Utility\\GenerateDiagnosticDictionary.xaml - Invoke Workflow File
+InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
 }
 }
 LogMessage_3 : LogMessage - LM -- Test Executed
@@ -163,8 +185,20 @@ Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
 VerifyExpression_5 : VerifyExpression - Verify TextException
-VerifyExpression_6 : VerifyExpression - Verify Required Keys Exist
+VerifyExpression_6 : VerifyExpression - Verify Non-IgnoreSheets Values Loaded
 VerifyExpression_5 --> VerifyExpression_6
+VerifyExpression_7 : VerifyExpression - Verify IgnoreSheets Values Not Loaded
+VerifyExpression_6 --> VerifyExpression_7
+VerifyExpression_8 : VerifyExpression - Verify Asset Loaded
+VerifyExpression_7 --> VerifyExpression_8
+VerifyExpression_9 : VerifyExpression - Verify Local TextFile Loaded
+VerifyExpression_8 --> VerifyExpression_9
+VerifyExpression_10 : VerifyExpression - Verify Storage Bucket TextFile Loaded
+VerifyExpression_9 --> VerifyExpression_10
+VerifyExpression_11 : VerifyExpression - Verify Local ExcelFile Loaded
+VerifyExpression_10 --> VerifyExpression_11
+VerifyExpression_12 : VerifyExpression - Verify Storage Bucket ExcelFile Loaded
+VerifyExpression_11 --> VerifyExpression_12
 }
 }
 }

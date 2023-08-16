@@ -1,7 +1,7 @@
-# SendEmailSuccess
-Class: SendEmailSuccess
+# TakeScreenshotPath
+Class: TakeScreenshotPath
 
-Sends an email from subject and body templates, replacing any {} values with the correlated key in the template dictionary. Also tests that attachments go through.
+Tests the override for the screenshot path argument. If provided, it should use that path instead of determining from the folder path.
 
 <hr />
 
@@ -11,31 +11,23 @@ Sends an email from subject and body templates, replacing any {} values with the
     <b>Namespaces</b>
     </summary>
     
-- System.Activities
-- System.Activities.Statements
+- GlobalConstantsNamespace
+- GlobalVariablesNamespace
 - System
+- System.Activities
+- System.Activities.Runtime.Collections
+- System.Activities.Statements
 - System.Collections
 - System.Collections.Generic
-- System.Data
+- System.Collections.ObjectModel
 - System.IO
 - System.Linq
-- System.Net.Mail
-- UiPath.Core.Activities
-- System.Collections.ObjectModel
-- System.Runtime.Serialization
 - System.Reflection
-- UiPath.Testing.Activities
-- UiPath.Shared.Activities
-- System.Activities.Runtime.Collections
-- System.ComponentModel
-- System.Xml.Serialization
-- System.Security
-- UiPath.Mail
-- UiPath.Mail.IMAP.Activities
-- UiPath.Mail.Activities
+- System.Runtime.Serialization
 - UiPath.Core
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
+- UiPath.Core.Activities
+- UiPath.Shared.Activities
+- UiPath.Testing.Activities
 
 
 </details>
@@ -90,24 +82,10 @@ Sends an email from subject and body templates, replacing any {} values with the
 - WindowsBase
 - UiPath.System.Activities.Design
 - UiPath.System.Activities.ViewModels
-- System.Collections
 - System.IO.FileSystem.Watcher
 - System.IO.Packaging
 - System.IO.FileSystem.AccessControl
 - System.IO.FileSystem.DriveInfo
-- System.Linq.Parallel
-- System.Collections.Immutable
-- System.Linq.Queryable
-- System.ComponentModel.EventBasedAsync
-- Microsoft.Win32.Primitives
-- System.ComponentModel.Primitives
-- System.Private.Xml
-- System.Data.Common
-- System.Data.SqlClient
-- System.Runtime.InteropServices
-- UiPath.Mail
-- UiPath.Mail.Activities.Design
-- System.Net.Mail
 
 
 </details>
@@ -126,7 +104,7 @@ Sends an email from subject and body templates, replacing any {} values with the
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\SendEmail.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\TakeScreenshot.xaml
 
     
 </details>
@@ -148,7 +126,7 @@ Sends an email from subject and body templates, replacing any {} values with the
 stateDiagram-v2
 
 
-Sequence_1: Sequence - SendEmailSuccess
+Sequence_1: Sequence - TakeScreenshotPath
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
@@ -164,9 +142,7 @@ direction TB
 Sequence_2: Sequence - Initialize Test
 state Sequence_2 {
 direction TB
-BuildDataTable_1 : BuildDataTable - Setup Table
-MultipleAssign_2 : MultipleAssign - Setup Data
-BuildDataTable_1 --> MultipleAssign_2
+MultipleAssign_2 : MultipleAssign - Initialize Vars
 }
 LogMessage_2 : LogMessage - LM -- Initialization Complete
 Sequence_2 --> LogMessage_2
@@ -178,7 +154,7 @@ direction TB
 Sequence_3: Sequence - ... When
 state Sequence_3 {
 direction TB
-InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\SendEmail.xaml - Invoke Workflow File
+InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\TakeScreenshot.xaml - Invoke Workflow File
 }
 }
 LogMessage_3 : LogMessage - LM -- Test Executed
@@ -188,14 +164,12 @@ Sequence_4: Sequence - Validate Results
 state Sequence_4 {
 direction TB
 VerifyExpression_5 : VerifyExpression - Verify TextException
-GetRobotCredential_1 : GetRobotCredential - Get Email Credentials
-VerifyExpression_5 --> GetRobotCredential_1
-GetIMAPMailMessages_1 : GetIMAPMailMessages - Get Emails (IMAP)
-GetRobotCredential_1 --> GetIMAPMailMessages_1
-VerifyExpression_6 : VerifyExpression - Verify EmailCount
-GetIMAPMailMessages_1 --> VerifyExpression_6
-VerifyExpression_7 : VerifyExpression - Verify Email Attachment Count
+VerifyExpression_6 : VerifyExpression - Verify FilePath Exists
+VerifyExpression_5 --> VerifyExpression_6
+VerifyExpression_7 : VerifyExpression - Verify FolderPath not created
 VerifyExpression_6 --> VerifyExpression_7
+DeleteFileX_1 : DeleteFileX - Delete Screenshot
+VerifyExpression_7 --> DeleteFileX_1
 }
 }
 }

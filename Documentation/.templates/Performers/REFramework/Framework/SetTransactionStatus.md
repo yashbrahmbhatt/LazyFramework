@@ -54,7 +54,6 @@ At the end, io_TransactionNumber is incremented, which makes the framework get t
 - NPOI
 - System
 - System.Activities
-- System.Collections
 - System.ComponentModel
 - System.ComponentModel.Composition
 - System.ComponentModel.TypeConverter
@@ -66,10 +65,8 @@ At the end, io_TransactionNumber is incremented, which makes the framework get t
 - System.Linq
 - System.Linq.Expressions
 - System.Memory
-- System.Memory.Data
 - System.ObjectModel
 - System.Private.CoreLib
-- System.Private.ServiceModel
 - System.Private.Uri
 - System.Runtime.Serialization
 - System.Security.Permissions
@@ -83,7 +80,6 @@ At the end, io_TransactionNumber is incremented, which makes the framework get t
 - UiPath.Studio.Constants
 - UiPath.System.Activities
 - UiPath.System.Activities.Design
-- UiPath.Workflow
 
 
 </details>
@@ -112,10 +108,10 @@ At the end, io_TransactionNumber is incremented, which makes the framework get t
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\TakeScreenshot.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\TakeScreenshot.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\RetryCurrentTransaction.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\CloseAllApplications.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\KillAllProcesses.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\KillAllProcesses.xaml
 
     
 </details>

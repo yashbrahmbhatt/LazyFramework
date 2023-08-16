@@ -1,7 +1,7 @@
-# CreateTestData
-Class: CreateTestData
+# DataTableToHTMLSuccess
+Class: DataTableToHTMLSuccess
 
-Helper to create test data in a queue to test the reporter.
+Validates that all rows are converted successfully to HTML.
 
 <hr />
 
@@ -11,19 +11,25 @@ Helper to create test data in a queue to test the reporter.
     <b>Namespaces</b>
     </summary>
     
+- GlobalConstantsNamespace
+- GlobalVariablesNamespace
 - System
 - System.Activities
+- System.Activities.Runtime.Collections
 - System.Activities.Statements
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
+- System.ComponentModel
+- System.Data
 - System.Linq
 - System.Reflection
 - System.Runtime.Serialization
+- System.Xml.Serialization
 - UiPath.Core
 - UiPath.Core.Activities
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
+- UiPath.Shared.Activities
+- UiPath.Testing.Activities
 
 
 </details>
@@ -34,18 +40,19 @@ Helper to create test data in a queue to test the reporter.
 
 - Microsoft.CSharp
 - Microsoft.VisualBasic
+- mscorlib
 - NPOI
+- PresentationCore
+- PresentationFramework
 - System
 - System.Activities
-- System.Collections
 - System.ComponentModel
-- System.ComponentModel.Primitives
 - System.ComponentModel.TypeConverter
 - System.Configuration.ConfigurationManager
 - System.Console
 - System.Core
 - System.Data
-- System.Data.Common
+- System.Drawing
 - System.Linq
 - System.Linq.Expressions
 - System.Memory
@@ -55,7 +62,6 @@ Helper to create test data in a queue to test the reporter.
 - System.Private.DataContractSerialization
 - System.Private.ServiceModel
 - System.Private.Uri
-- System.Private.Xml
 - System.Reflection.DispatchProxy
 - System.Reflection.Metadata
 - System.Reflection.TypeExtensions
@@ -65,16 +71,26 @@ Helper to create test data in a queue to test the reporter.
 - System.Security.Permissions
 - System.ServiceModel
 - System.ServiceModel.Activities
-- System.Threading
-- System.Threading.AccessControl
 - System.Xaml
 - System.Xml
 - System.Xml.Linq
+- UiPath.Excel
+- UiPath.Excel.Activities
+- UiPath.Mail.Activities
 - UiPath.Studio.Constants
 - UiPath.System.Activities
+- UiPath.Testing.Activities
+- UiPath.Workflow
+- WindowsBase
+- System.ComponentModel.EventBasedAsync
+- Microsoft.Win32.Primitives
+- System.ComponentModel.Primitives
+- System.Private.Xml
+- System.Data.Common
+- System.Data.SqlClient
 - UiPath.System.Activities.Design
 - UiPath.System.Activities.ViewModels
-- UiPath.Workflow
+- System.Text.RegularExpressions
 
 
 </details>
@@ -85,7 +101,6 @@ Helper to create test data in a queue to test the reporter.
 
 | Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
-| in_ConfigPath | InArgument | x:String | Path to the config file to load. |
 
     
 </details>
@@ -94,7 +109,7 @@ Helper to create test data in a queue to test the reporter.
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\DataTableToHTML.xaml
 
     
 </details>
@@ -116,39 +131,50 @@ Helper to create test data in a queue to test the reporter.
 stateDiagram-v2
 
 
-Sequence_1: Sequence - CreateTestData
+Sequence_1: Sequence - DataTableToHTMLSuccess
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\LoadConfig.xaml - Invoke Workflow File
-LogMessage_1 --> InvokeWorkflowFile_1
-InvokeWorkflowFile_1 --> ForEach1_1
-ForEach1_1: ForEach - Loop through counts
-state ForEach1_1 {
+LogMessage_1 --> TimeoutScope_1
+TimeoutScope_1: TimeoutScope - Timed Test
+state TimeoutScope_1 {
 direction TB
 
-Sequence_2: Sequence - Add Item to Queue
+Sequence_5: Sequence - Test
+state Sequence_5 {
+direction TB
+
+Sequence_2: Sequence - Initialize Test
 state Sequence_2 {
 direction TB
-AddTransactionItem_1 : AddTransactionItem - Start Transaction
-InvokeCode_1 : InvokeCode - Adding Delay for Execution Time
-AddTransactionItem_1 --> InvokeCode_1
-InvokeCode_1 --> If_1
-If_1: If - Lucky?
-state If_1 {
+BuildDataTable_1 : BuildDataTable - Setup Table
+}
+LogMessage_2 : LogMessage - LM -- Initialization Complete
+Sequence_2 --> LogMessage_2
+LogMessage_2 --> TryCatch_1
+TryCatch_1: TryCatch - Execute Test
+state TryCatch_1 {
 direction TB
-SetTransactionStatus_1 : SetTransactionStatus - Set Successful
 
-If_2: If - App or Bus?
-state If_2 {
+Sequence_3: Sequence - ... When
+state Sequence_3 {
 direction TB
-SetTransactionStatus_3 : SetTransactionStatus - Set Business
-SetTransactionStatus_5 : SetTransactionStatus - Set Application
+InvokeWorkflowFile_1 : InvokeWorkflowFile - Utility\\DataTableToHTML.xaml - Invoke Workflow File
+}
+}
+LogMessage_3 : LogMessage - LM -- Test Executed
+TryCatch_1 --> LogMessage_3
+LogMessage_3 --> Sequence_4
+Sequence_4: Sequence - Validate Results
+state Sequence_4 {
+direction TB
+VerifyExpression_5 : VerifyExpression - Verify TextException
+VerifyExpression_6 : VerifyExpression - Verify HTML
+VerifyExpression_5 --> VerifyExpression_6
 }
 }
 }
-}
-LogMessage_2 : LogMessage - LM -- Complete
-ForEach1_1 --> LogMessage_2
+LogMessage_4 : LogMessage - LM -- Complete
+TimeoutScope_1 --> LogMessage_4
 }
 ```

@@ -1,16 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="ParseWorkflow" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Private.Xml.Linq" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_FilePath" Type="InArgument(x:String)" />
-    <x:Property Name="out_Document" Type="OutArgument(sxl:XDocument)" />
-    <x:Property Name="out_Namespaces" Type="OutArgument(scg:List(x:String))" />
-    <x:Property Name="out_References" Type="OutArgument(scg:List(x:String))" />
-    <x:Property Name="out_DocumentClass" Type="OutArgument(x:String)" />
-    <x:Property Name="out_WorkflowName" Type="OutArgument(x:String)" />
-    <x:Property Name="out_WorkflowDescription" Type="OutArgument(x:String)" />
-    <x:Property Name="out_OutlineMarkdown" Type="OutArgument(x:String)" />
-    <x:Property Name="out_dt_Arguments" Type="OutArgument(sd:DataTable)" />
-    <x:Property Name="out_WorkflowsUsed" Type="OutArgument(scg:IEnumerable(x:String))" />
+    <x:Property sap2010:Annotation.AnnotationText="The path to the workflow file." Name="in_FilePath" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The XDocument if required for later use." Name="out_Document" Type="OutArgument(sxl:XDocument)" />
+    <x:Property sap2010:Annotation.AnnotationText="A list of the names of the namespaces used in this workflow." Name="out_Namespaces" Type="OutArgument(scg:List(x:String))" />
+    <x:Property sap2010:Annotation.AnnotationText="A list of the names of the imports used in this workflow." Name="out_References" Type="OutArgument(scg:List(x:String))" />
+    <x:Property sap2010:Annotation.AnnotationText="The class created for this workflow." Name="out_DocumentClass" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The name of the workflow." Name="out_WorkflowName" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The description of the workflow." Name="out_WorkflowDescription" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The mermaid diagram markdown of the workflow. (ALPHA)" Name="out_OutlineMarkdown" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="A table of the names, types, direction, and description of the arguments." Name="out_dt_Arguments" Type="OutArgument(sd:DataTable)" />
+    <x:Property sap2010:Annotation.AnnotationText="A list of the relative paths of all workflows invoked by this one." Name="out_WorkflowsUsed" Type="OutArgument(scg:IEnumerable(x:String))" />
   </x:Members>
   <this:ParseWorkflow.in_FilePath>
     <InArgument x:TypeArguments="x:String">
@@ -18,7 +17,7 @@
     </InArgument>
   </this:ParseWorkflow.in_FilePath>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1632,1404</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>997,1435</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -39,6 +38,9 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -108,7 +110,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ParseWorkflow" sap:VirtualizedContainerService.HintSize="485,1339" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Parses the workflow-level details." DisplayName="ParseWorkflow" sap:VirtualizedContainerService.HintSize="485,1370" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IEnumerable(sxl:XElement)" Name="ArgumentElements" />
       <Variable x:TypeArguments="sxl:XElement" Name="RootElement" />
@@ -121,6 +123,7 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="423,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
@@ -145,7 +148,7 @@
     <ui:MultipleAssign DisplayName="Parse" sap:VirtualizedContainerService.HintSize="423,380" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+          <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_1">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="sxl:XDocument">
                 <CSharpReference x:TypeArguments="sxl:XDocument" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">out_Document</CSharpReference>

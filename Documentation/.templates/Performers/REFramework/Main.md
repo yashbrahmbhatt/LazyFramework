@@ -105,7 +105,6 @@ Class: Main
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\InitAllApplications.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\GetTransactionData.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\CloseAllApplications.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\KillAllProcesses.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\Process.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\SetTransactionStatus.xaml
 
@@ -264,7 +263,7 @@ InvokeWorkflowFile_5 --> TryCatch_6
 TryCatch_6: TryCatch - Try Catch Set Transaction Status (Success)
 state TryCatch_6 {
 direction TB
-InvokeWorkflowFile_9 : InvokeWorkflowFile - SetTransactionStatus.xaml (Success)
+InvokeWorkflowFile_9 : InvokeWorkflowFile - SetTransactionStatus.xaml - Invoke Workflow File
 }
 }
 }

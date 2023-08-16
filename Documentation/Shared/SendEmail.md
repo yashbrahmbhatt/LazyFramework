@@ -117,7 +117,7 @@ Sends an email taking a dictionary of data to fill out template subject and body
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\DataTableToHTML.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\DataTableToHTML.xaml
 
     
 </details>
@@ -126,7 +126,7 @@ Sends an email taking a dictionary of data to fill out template subject and body
     <b>Tests</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Tests\Utility\SendEmail\SendEmailSuccess.xaml
+- Shared\Tests\SendEmail\SendEmailSuccess.xaml
 
     
 </details>

@@ -103,7 +103,7 @@ Tests that all processes are killed successfully.
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Dispatchers\Application\Framework\InitializeApplications.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Dispatchers\Application\Framework\KillProcesses.xaml
 

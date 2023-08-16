@@ -13,51 +13,34 @@ Accelerates creating new modules by prompting the user for set of modules they w
     
 - System.Activities
 - System.Activities.Statements
-- System.Activities.Expressions
-- System.Activities.Validation
-- System.Activities.XamlIntegration
-- Microsoft.VisualBasic
-- Microsoft.VisualBasic.Activities
 - System
 - System.Collections
 - System.Collections.Generic
 - System.Collections.ObjectModel
 - System.Data
-- System.Diagnostics
 - System.Linq
-- System.Net.Mail
-- System.Xml
-- System.Text
-- System.Xml.Linq
-- UiPath.Core
 - UiPath.Core.Activities
-- System.Windows.Markup
-- GlobalVariablesNamespace
-- GlobalConstantsNamespace
 - System.Runtime.Serialization
-- UiPath.Studio.Forms.Runtime
 - System.Reflection
-- UiPath.Forms.Activities
-- UiPath.Platform.GlobalVariables
-- UiPath.Forms.Activities.Base
-- UiPath.Platform.Triggers
-- UiPath.Platform.Triggers.Scope
 - System.IO
 - System.ComponentModel
 - System.Xml.Serialization
 - System.ComponentModel
 - System.Xml.Serialization
-- UiPath.Core.Activities.Orchestrator
-- UiPath.Activities.System
-- UiPath.Shared.Activities
 - UiPath.DataTableUtilities
-- System.Linq.Expressions
 - UiPath.Platform.ResourceHandling
 - UiPath.Excel
 - UiPath.Excel.Activities.Business
 - UiPath.Excel.Model
 - UiPath.Shared.Activities.Business
-- UiPath.Core.Activities.Storage
+- UiPath.Form.Activities
+- Newtonsoft.Json
+- Newtonsoft.Json.Linq
+- System.Collections.Specialized
+- System.Dynamic
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -69,12 +52,16 @@ Accelerates creating new modules by prompting the user for set of modules they w
 - Microsoft.CSharp
 - Microsoft.VisualBasic
 - Microsoft.Win32.Primitives
+- netstandard
+- Newtonsoft.Json
 - NPOI
 - PresentationFramework
 - System
 - System.Activities
 - System.Collections
 - System.Collections.Immutable
+- System.Collections.NonGeneric
+- System.Collections.Specialized
 - System.ComponentModel
 - System.ComponentModel.EventBasedAsync
 - System.ComponentModel.Primitives
@@ -114,21 +101,20 @@ Accelerates creating new modules by prompting the user for set of modules they w
 - System.Xml
 - System.Xml.Linq
 - System.Xml.ReaderWriter
-- UiPath.Forms.Activities
+- UiPath.Excel
+- UiPath.Excel.Activities
+- UiPath.Excel.Activities.Design
+- UiPath.Form.Activities
+- UiPath.Mail.Activities
+- UiPath.Persistence.Activities
 - UiPath.Platform
 - UiPath.Studio.Constants
-- UiPath.Studio.Forms.Runtime
 - UiPath.System.Activities
 - UiPath.System.Activities.Design
 - UiPath.System.Activities.ViewModels
+- UiPath.Testing.Activities
 - UiPath.Workflow
 - WindowsBase
-- UiPath.Excel.Activities
-- UiPath.Mail.Activities
-- UiPath.Persistence.Activities
-- UiPath.Testing.Activities
-- UiPath.Excel.Activities.Design
-- UiPath.Excel
 
 
 </details>
@@ -147,7 +133,7 @@ Accelerates creating new modules by prompting the user for set of modules they w
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
 
     
 </details>
@@ -173,70 +159,74 @@ Sequence_1: Sequence - AddModules
 state Sequence_1 {
 direction TB
 LogMessage_1 : LogMessage - LM -- Start
-InvokeWorkflowFile_2 : InvokeWorkflowFile - Load AddModules Config
+InvokeWorkflowFile_2 : InvokeWorkflowFile - LoadConfig.xaml - Invoke Workflow File
 LogMessage_1 --> InvokeWorkflowFile_2
 MultipleAssign_1 : MultipleAssign - Parse Config
 InvokeWorkflowFile_2 --> MultipleAssign_1
 LogMessage_2 : LogMessage - LM -- Form Start
 MultipleAssign_1 --> LogMessage_2
-ShowFormActivity_2 : ShowFormActivity - Show Modules Form
-LogMessage_2 --> ShowFormActivity_2
+FormActivity_1 : FormActivity - Show Add Modules Form
+LogMessage_2 --> FormActivity_1
+MultipleAssign_15 : MultipleAssign - Get Modules Table
+FormActivity_1 --> MultipleAssign_15
 LogMessage_3 : LogMessage - LM -- Form Complete
-ShowFormActivity_2 --> LogMessage_3
+MultipleAssign_15 --> LogMessage_3
 LogMessage_3 --> ForEachRow_1
 ForEachRow_1: ForEachRow - For Each Module
 state ForEachRow_1 {
 direction TB
 
-Sequence_3: Sequence - Body
+Sequence_3: Sequence - Create Module
 state Sequence_3 {
 direction TB
 LogMessage_4 : LogMessage - LM -- Module Start
 MultipleAssign_2 : MultipleAssign - Parse Values
 LogMessage_4 --> MultipleAssign_2
-MessageBox_1 : MessageBox - Message for Folder
-MultipleAssign_2 --> MessageBox_1
-SelectFolder_1 : SelectFolder - Prompt Folder Select
-MessageBox_1 --> SelectFolder_1
-LogMessage_5 : LogMessage - LM -- Folder Selected
-SelectFolder_1 --> LogMessage_5
-LogMessage_5 --> ForEach1_2
-ForEach1_2: ForEach - Copy All Files From Modules Root
-state ForEach1_2 {
+MultipleAssign_2 --> ForEach1_6
+ForEach1_6: ForEach - Copy All Files From Modules Root
+state ForEach1_6 {
 direction TB
 
-Sequence_4: Sequence - Copy File
-state Sequence_4 {
+Sequence_22: Sequence - Copy File
+state Sequence_22 {
 direction TB
-MultipleAssign_3 : MultipleAssign - Set Target Path
-MultipleAssign_3 --> If_1
-If_1: If - Workflow File?
-state If_1 {
+MultipleAssign_13 : MultipleAssign - Set Target Path
+MultipleAssign_13 --> If_8
+If_8: If - File Folder Exists?
+state If_8 {
+direction TB
+CreateDirectory_5 : CreateDirectory - Create File Folder
+}
+If_8 --> If_6
+If_6: If - Workflow File?
+state If_6 {
 direction TB
 
-Sequence_5: Sequence - Is Workflow
-state Sequence_5 {
+Sequence_23: Sequence - Is Workflow
+state Sequence_23 {
 direction TB
-ReadTextFile_1 : ReadTextFile - Read File
-ReadTextFile_1 --> If_2
-If_2: If - Folder Exists for File?
-state If_2 {
+ReadTextFile_2 : ReadTextFile - Read File
+ReadTextFile_2 --> If_7
+If_7: If - Folder Exists for File?
+state If_7 {
 direction TB
-CreateDirectory_1 : CreateDirectory - Create Folder For File
+CreateDirectory_4 : CreateDirectory - Create Folder For File
 }
-MultipleAssign_4 : MultipleAssign - Replace Invoke Paths
-If_2 --> MultipleAssign_4
-WriteTextFile_1 : WriteTextFile - Write Target File
-MultipleAssign_4 --> WriteTextFile_1
+MultipleAssign_14 : MultipleAssign - Replace Invoke Paths
+If_7 --> MultipleAssign_14
+WriteTextFile_2 : WriteTextFile - Write Target File
+MultipleAssign_14 --> WriteTextFile_2
 }
-CopyFile_4 : CopyFile - Copy Other File
+CopyFile_5 : CopyFile - Copy Other File
 }
 }
 }
-CopyFile_2 : CopyFile - Copy Config
-ForEach1_2 --> CopyFile_2
-CopyFile_2 --> ExcelProcessScopeX_1
-ExcelProcessScopeX_1: ExcelProcessScopeX - Excel Process Scope
+ForEach1_6 --> RetryScope_1
+RetryScope_1: RetryScope - Access Is Denied Wait/Retry
+state RetryScope_1 {
+direction TB
+
+ExcelProcessScopeX_1: ExcelProcessScopeX - Update Config File
 state ExcelProcessScopeX_1 {
 direction TB
 
@@ -259,35 +249,42 @@ direction TB
 Switch1_1: Switch - Sheet Name?
 state Switch1_1 {
 direction TB
-MultipleAssign_10 : MultipleAssign - Update Path (TextFiles)
-MultipleAssign_11 : MultipleAssign - Update Path (ExcelFiles)
-MultipleAssign_10 --> MultipleAssign_11
+MultipleAssign_17 : MultipleAssign - Update Path (TextFiles)
+MultipleAssign_16 : MultipleAssign - Update Path (ExcelFiles)
+MultipleAssign_17 --> MultipleAssign_16
 }
 }
 }
 }
 }
 }
-ExcelProcessScopeX_1 --> ForEach1_3
-ForEach1_3: ForEach - Copy Templates
-state ForEach1_3 {
+}
+RetryScope_1 --> CommentOut_1
+CommentOut_1: CommentOut - Disabled -- Add GlobalConstants for Config Paths
+state CommentOut_1 {
 direction TB
 
-Sequence_7: Sequence - Copy Template File Steps
-state Sequence_7 {
+Sequence_27: Sequence - Ignored Activities
+state Sequence_27 {
 direction TB
 
-If_3: If - Template File's Folder Exists?
-state If_3 {
+Sequence_26: Sequence - Update Global Vars
+state Sequence_26 {
 direction TB
-CreateDirectory_3 : CreateDirectory - Create Templates Folder
+ReadTextFile_3 : ReadTextFile - Read Global Vars File
+MultipleAssign_19 : MultipleAssign - Parse Global Vars
+ReadTextFile_3 --> MultipleAssign_19
+AddToCollection1_1 : AddToCollection - Add Module ConfigPath Global Vars
+MultipleAssign_19 --> AddToCollection1_1
+MultipleAssign_20 : MultipleAssign - Serialize Global Vars
+AddToCollection1_1 --> MultipleAssign_20
+WriteTextFile_3 : WriteTextFile - Write Global Vars File
+MultipleAssign_20 --> WriteTextFile_3
 }
-CopyFile_3 : CopyFile - Copy Template File
-If_3 --> CopyFile_3
 }
 }
 LogMessage_6 : LogMessage - LM -- Module Complete
-ForEach1_3 --> LogMessage_6
+CommentOut_1 --> LogMessage_6
 }
 }
 }

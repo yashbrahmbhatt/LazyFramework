@@ -115,7 +115,7 @@ Tests the failure path for the dispatcher. Validates that the exception email is
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Dispatchers\Application\ApplicationDispatcher.xaml
 
     

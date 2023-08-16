@@ -123,7 +123,7 @@ Validates the system exception case for this workflow. Email send and validated.
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\Basic\Framework\HandleTransactionOutcome.xaml
 
     

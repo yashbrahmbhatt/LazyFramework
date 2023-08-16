@@ -117,7 +117,7 @@ Tests for a framework exception when Process state has an error. Validates that 
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Utility\LoadConfig.xaml
+- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
 - C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\Basic\BasicPerformer.xaml
 
     

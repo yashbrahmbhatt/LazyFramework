@@ -1,7 +1,7 @@
 # ParseWorkflow
 Class: ParseWorkflow
 
-
+Parses the workflow-level details.
 
 <hr />
 
@@ -28,6 +28,9 @@ Class: ParseWorkflow
 - System.Xml.Serialization
 - System.ComponentModel
 - System.Runtime.Serialization
+- UiPath.Core
+- GlobalVariablesNamespace
+- GlobalConstantsNamespace
 
 
 </details>
@@ -109,16 +112,16 @@ Class: ParseWorkflow
 
 | Name | Direction | Type | Description |
 |  --- | --- | --- | ---  |
-| in_FilePath | InArgument | x:String |  |
-| out_Document | OutArgument | sxl:XDocument |  |
-| out_Namespaces | OutArgument | scg:List(x:String) |  |
-| out_References | OutArgument | scg:List(x:String) |  |
-| out_DocumentClass | OutArgument | x:String |  |
-| out_WorkflowName | OutArgument | x:String |  |
-| out_WorkflowDescription | OutArgument | x:String |  |
-| out_OutlineMarkdown | OutArgument | x:String |  |
-| out_dt_Arguments | OutArgument | sd:DataTable |  |
-| out_WorkflowsUsed | OutArgument | scg:IEnumerable(x:String) |  |
+| in_FilePath | InArgument | x:String | The path to the workflow file. |
+| out_Document | OutArgument | sxl:XDocument | The XDocument if required for later use. |
+| out_Namespaces | OutArgument | scg:List(x:String) | A list of the names of the namespaces used in this workflow. |
+| out_References | OutArgument | scg:List(x:String) | A list of the names of the imports used in this workflow. |
+| out_DocumentClass | OutArgument | x:String | The class created for this workflow. |
+| out_WorkflowName | OutArgument | x:String | The name of the workflow. |
+| out_WorkflowDescription | OutArgument | x:String | The description of the workflow. |
+| out_OutlineMarkdown | OutArgument | x:String | The mermaid diagram markdown of the workflow. (ALPHA) |
+| out_dt_Arguments | OutArgument | sd:DataTable | A table of the names, types, direction, and description of the arguments. |
+| out_WorkflowsUsed | OutArgument | scg:IEnumerable(x:String) | A list of the relative paths of all workflows invoked by this one. |
 
     
 </details>
