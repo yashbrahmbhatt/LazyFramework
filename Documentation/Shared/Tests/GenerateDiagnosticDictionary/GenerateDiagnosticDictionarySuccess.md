@@ -103,7 +103,7 @@ Tests the generation of basic environment data and exception information into a 
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\GenerateDiagnosticDictionary.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Shared\GenerateDiagnosticDictionary.xaml
 
     
 </details>

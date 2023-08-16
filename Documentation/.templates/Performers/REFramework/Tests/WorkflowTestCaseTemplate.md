@@ -83,7 +83,7 @@ Create a new test workflow by copying and renaming this file.
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\InitAllSettings.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Framework\InitAllSettings.xaml
 
     
 </details>

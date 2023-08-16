@@ -117,7 +117,7 @@ Sends an email taking a dictionary of data to fill out template subject and body
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\DataTableToHTML.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Shared\DataTableToHTML.xaml
 
     
 </details>

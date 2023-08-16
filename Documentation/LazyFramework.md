@@ -17,14 +17,10 @@ A different design approach to UiPath Project frameworks that heavily leverage t
 | Name | Version |
 |  --- | ---  |
 | Cronos | 0.7.1 |
-| Microsoft.CodeAnalysis.Common | 4.5.0-2.22527.10 |
-| Microsoft.CodeAnalysis.CSharp | 4.5.0-2.22527.10 |
 | UiPath.Excel.Activities | 2.20.1 |
 | UiPath.Form.Activities | 2.0.3 |
 | UiPath.FormActivityLibrary | 2.0.5 |
-| UiPath.FormActivityLibrary.Contracts | 2.0.5 |
 | UiPath.Mail.Activities | 1.20.2 |
-| UiPath.Persistence.Activities | 1.4.6 |
 | UiPath.System.Activities | 23.4.3 |
 | UiPath.Testing.Activities | 23.4.1 |
 
@@ -35,7 +31,7 @@ A different design approach to UiPath Project frameworks that heavily leverage t
     <b>Entry Points</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Dispatcher.xaml
+- Dispatcher.xaml
 
 
 </details>

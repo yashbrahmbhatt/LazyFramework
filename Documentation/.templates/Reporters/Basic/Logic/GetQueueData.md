@@ -103,9 +103,9 @@ Gets the queue data list and parses it into a table.
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Orchestrator\GetQueueDefinitionId.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Orchestrator\GetQueueItems.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Logic\Flatten.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Orchestrator\GetQueueDefinitionId.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Orchestrator\GetQueueItems.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Logic\Flatten.xaml
 
     
 </details>

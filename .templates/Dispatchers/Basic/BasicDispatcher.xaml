@@ -20,7 +20,7 @@
     </InArgument>
   </this:BasicDispatcher.in_TestID>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>997,2006</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1052,2005</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -89,7 +89,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Reads data from the srouce of work and adds it to a queue." DisplayName="BasicDispatcher" sap:VirtualizedContainerService.HintSize="659,1941" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Reads data from the source of work and adds it to a queue." DisplayName="BasicDispatcher" sap:VirtualizedContainerService.HintSize="659,1940" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Config" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="TextFiles" />
@@ -117,9 +117,9 @@
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataSet)" x:Key="out_ExcelFiles" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <TryCatch DisplayName="Try Dispatching" sap:VirtualizedContainerService.HintSize="597,1646" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Dispatching" sap:VirtualizedContainerService.HintSize="597,1645" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Dispatching" sap:VirtualizedContainerService.HintSize="559,1418" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Dispatching" sap:VirtualizedContainerService.HintSize="559,1417" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="QueueData" />
             <Variable x:TypeArguments="x:String" Name="Reference" />
@@ -130,7 +130,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Switch x:TypeArguments="x:String" DisplayName="TestID?" sap:VirtualizedContainerService.HintSize="497,140" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+          <Switch x:TypeArguments="x:String" DisplayName="TestID?" sap:VirtualizedContainerService.HintSize="497,139" sap2010:WorkflowViewState.IdRef="Switch`1_1">
             <Switch.Expression>
               <InArgument x:TypeArguments="x:String">
                 <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">in_TestID</CSharpValue>

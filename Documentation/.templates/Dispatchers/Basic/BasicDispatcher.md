@@ -1,7 +1,7 @@
 # BasicDispatcher
 Class: BasicDispatcher
 
-Reads data from the srouce of work and adds it to a queue.
+Reads data from the source of work and adds it to a queue.
 
 <hr />
 
@@ -99,10 +99,10 @@ Reads data from the srouce of work and adds it to a queue.
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\TakeScreenshot.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\GenerateDiagnosticDictionary.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\SendEmail.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Shared\TakeScreenshot.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Shared\GenerateDiagnosticDictionary.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Shared\SendEmail.xaml
 
     
 </details>

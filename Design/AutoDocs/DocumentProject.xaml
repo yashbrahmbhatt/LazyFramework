@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DocumentProject" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="997,4391" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Private.Xml.Linq" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DocumentProject" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1052,4391" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Private.Xml.Linq" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -413,14 +413,14 @@ new string[]{}</CSharpValue>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43" xml:space="preserve">File.ReadAllText(ProjectTemplatePath)
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_61" xml:space="preserve">File.ReadAllText(ProjectTemplatePath)
 .Replace("{Name}", ProjectName)
 .Replace("{Description}", ProjectDescription)
 .Replace("{Type}", ProjectType)
 .Replace("{Version}", ProjectVersion)
 .Replace("{StudioVersion}", StudioVersion)
 .Replace("{Dependencies}", DependenciesMarkdown)
-.Replace("{EntryPoints}", string.Join(Environment.NewLine, EntryPoints.Select(x =&gt; "- " + x)) + Environment.NewLine)
+.Replace("{EntryPoints}", string.Join(Environment.NewLine, EntryPoints.Select(x =&gt; "- " + Path.GetRelativePath(Directory.GetCurrentDirectory(), x))) + Environment.NewLine)
 .Replace("{Language}", ProjectLanguage)</CSharpValue>
               </InArgument>
             </ui:AssignOperation.Value>
@@ -581,7 +581,7 @@ new string[]{}</CSharpValue>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_60" xml:space="preserve">WorkflowTemplate
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_62" xml:space="preserve">WorkflowTemplate
 .Replace("{Class}", DocumentClass)
 .Replace("{Description}", WorkflowDescription)
 .Replace("{Namespaces}", string.Join(Environment.NewLine, Namespaces.Select(n =&gt; "- " + n)) + Environment.NewLine)
@@ -590,7 +590,7 @@ new string[]{}</CSharpValue>
 .Replace("{Outline}", Outline)
 .Replace("{WorkflowName}", WorkflowName)
 .Replace("{WorkflowsUsed}", string.Join(Environment.NewLine, WorkflowsUsed.Select(n =&gt; "- " + n)) + Environment.NewLine)
-.Replace("{Tests}", string.Join(Environment.NewLine, WorkflowsInTest.Keys.Where(k =&gt; WorkflowsInTest[k].Contains(WorkflowFile)).Select(x =&gt; "- " + x)) + Environment.NewLine)</CSharpValue>
+.Replace("{Tests}", string.Join(Environment.NewLine, WorkflowsInTest.Keys.Where(k =&gt; WorkflowsInTest[k].Contains(WorkflowFile)).Select(x =&gt; "- " + Path.GetRelativePath(Directory.GetCurrentDirectory(), x))) + Environment.NewLine)</CSharpValue>
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>

@@ -121,7 +121,7 @@ A basic template for a test with the expected outcome being success.
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Logic\Flatten.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\.templates\Reporters\Basic\Logic\Flatten.xaml
 
     
 </details>

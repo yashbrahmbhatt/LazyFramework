@@ -133,7 +133,7 @@ Accelerates creating new modules by prompting the user for set of modules they w
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Shared\LoadConfig.xaml
 
     
 </details>
@@ -264,12 +264,8 @@ CommentOut_1: CommentOut - Disabled -- Add GlobalConstants for Config Paths
 state CommentOut_1 {
 direction TB
 
-Sequence_27: Sequence - Ignored Activities
-state Sequence_27 {
-direction TB
-
-Sequence_26: Sequence - Update Global Vars
-state Sequence_26 {
+Sequence_28: Sequence - Update Global Vars
+state Sequence_28 {
 direction TB
 ReadTextFile_3 : ReadTextFile - Read Global Vars File
 MultipleAssign_19 : MultipleAssign - Parse Global Vars
@@ -280,7 +276,6 @@ MultipleAssign_20 : MultipleAssign - Serialize Global Vars
 AddToCollection1_1 --> MultipleAssign_20
 WriteTextFile_3 : WriteTextFile - Write Global Vars File
 MultipleAssign_20 --> WriteTextFile_3
-}
 }
 }
 LogMessage_6 : LogMessage - LM -- Module Complete

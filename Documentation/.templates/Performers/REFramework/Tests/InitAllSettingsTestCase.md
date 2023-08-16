@@ -96,7 +96,7 @@ The verification should check if initalization of settings was successful: if th
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Framework/InitAllSettings.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Framework/InitAllSettings.xaml
 
     
 </details>

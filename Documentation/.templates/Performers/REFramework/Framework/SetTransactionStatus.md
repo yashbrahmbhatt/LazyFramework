@@ -80,6 +80,9 @@ At the end, io_TransactionNumber is incremented, which makes the framework get t
 - UiPath.Studio.Constants
 - UiPath.System.Activities
 - UiPath.System.Activities.Design
+- UiPath.System.Activities.ViewModels
+- System.Memory.Data
+- UiPath.Workflow
 
 
 </details>
@@ -108,10 +111,10 @@ At the end, io_TransactionNumber is incremented, which makes the framework get t
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\TakeScreenshot.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\RetryCurrentTransaction.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\CloseAllApplications.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\KillAllProcesses.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Shared\TakeScreenshot.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\RetryCurrentTransaction.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\CloseAllApplications.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\.templates\Performers\REFramework\Framework\KillAllProcesses.xaml
 
     
 </details>

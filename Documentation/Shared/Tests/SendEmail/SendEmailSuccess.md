@@ -126,7 +126,7 @@ Sends an email from subject and body templates, replacing any {} values with the
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\SendEmail.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Shared\SendEmail.xaml
 
     
 </details>

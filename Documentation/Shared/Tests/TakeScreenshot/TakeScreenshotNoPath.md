@@ -106,7 +106,7 @@ Tests the main case where only the folder path is provided and no file path is g
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Shared\TakeScreenshot.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Shared\TakeScreenshot.xaml
 
     
 </details>
@@ -145,12 +145,6 @@ Sequence_2: Sequence - Initialize Test
 state Sequence_2 {
 direction TB
 MultipleAssign_2 : MultipleAssign - Initialize Vars
-MultipleAssign_2 --> If_1
-If_1: If - FolderPath Exists?
-state If_1 {
-direction TB
-DeleteFolderX_1 : DeleteFolderX - Delete FolderPath
-}
 }
 LogMessage_2 : LogMessage - LM -- Initialization Complete
 Sequence_2 --> LogMessage_2
@@ -174,10 +168,8 @@ direction TB
 VerifyExpression_5 : VerifyExpression - Verify TextException
 VerifyExpression_6 : VerifyExpression - Verify FilePath Exists
 VerifyExpression_5 --> VerifyExpression_6
-DeleteFileX_1 : DeleteFileX - Delete Screenshot
-VerifyExpression_6 --> DeleteFileX_1
-CreateFile_1 : CreateFile - Create placeholder
-DeleteFileX_1 --> CreateFile_1
+DeleteFileX_2 : DeleteFileX - Delete Screenshot
+VerifyExpression_6 --> DeleteFileX_2
 }
 }
 }

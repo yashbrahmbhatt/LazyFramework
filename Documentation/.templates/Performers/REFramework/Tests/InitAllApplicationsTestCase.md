@@ -98,9 +98,9 @@ The verification should check if after opening the applications, the expected st
     <b>Workflows Used</b>
     </summary>
 
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\InitAllSettings.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Framework/InitAllApplications.xaml
-- C:\Users\eyash\Documents\UiPath\LazyFramework\Framework\CloseAllApplications.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Framework\InitAllSettings.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Framework/InitAllApplications.xaml
+- C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework\Framework\CloseAllApplications.xaml
 
     
 </details>
