@@ -20,7 +20,7 @@
     </InArgument>
   </this:Performer.in_TestID>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>997,1450</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1052,1450</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -161,25 +161,25 @@
       </sap:WorkflowViewStateService.ViewState>
       <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Reset starting state of the automation. Usually used to close/kill all applications and then reinitialize to start and also to recover from system exceptions." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="254,134" sap2010:WorkflowViewState.IdRef="State_9">
         <State.Entry>
-          <TryCatch DisplayName="Try Initializing" sap:VirtualizedContainerService.HintSize="657.3333333333334,2142" sap2010:WorkflowViewState.IdRef="TryCatch_8">
+          <TryCatch DisplayName="Try Initializing" sap:VirtualizedContainerService.HintSize="657,2116" sap2010:WorkflowViewState.IdRef="TryCatch_8">
             <TryCatch.Try>
-              <ui:RetryScope DisplayName="Retry - Initializing" sap:VirtualizedContainerService.HintSize="618.6666666666666,1902.6666666666667" sap2010:WorkflowViewState.IdRef="RetryScope_4">
+              <ui:RetryScope DisplayName="Retry - Initializing" sap:VirtualizedContainerService.HintSize="619,1887" sap2010:WorkflowViewState.IdRef="RetryScope_4">
                 <ui:RetryScope.ActivityBody>
                   <ActivityAction>
-                    <Sequence DisplayName="Initialize" sap:VirtualizedContainerService.HintSize="576.6666666666666,1724" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                    <Sequence DisplayName="Initialize" sap:VirtualizedContainerService.HintSize="577,1712" sap2010:WorkflowViewState.IdRef="Sequence_21">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Switch x:TypeArguments="x:String" DisplayName="@Test Variations - Initialization" sap:VirtualizedContainerService.HintSize="514.6666666666666,166.66666666666666" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                      <Switch x:TypeArguments="x:String" DisplayName="@Test Variations - Initialization" sap:VirtualizedContainerService.HintSize="515,160" sap2010:WorkflowViewState.IdRef="Switch`1_1">
                         <Switch.Expression>
                           <InArgument x:TypeArguments="x:String">
                             <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_200">in_TestID</CSharpValue>
                           </InArgument>
                         </Switch.Expression>
-                        <ui:MultipleAssign x:Key="FrameworkMaintenanceTime" DisplayName="Update Maintenance Times" sap:VirtualizedContainerService.HintSize="422.6666666666667,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_21">
+                        <ui:MultipleAssign x:Key="FrameworkMaintenanceTime" DisplayName="Update Maintenance Times" sap:VirtualizedContainerService.HintSize="423,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_21">
                           <ui:MultipleAssign.AssignOperations>
                             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
@@ -205,13 +205,13 @@
                             </scg:List>
                           </ui:MultipleAssign.AssignOperations>
                         </ui:MultipleAssign>
-                        <Throw x:Key="FrameworkInitializationError" DisplayName="Throw InitializationError" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_1">
+                        <Throw x:Key="FrameworkInitializationError" DisplayName="Throw InitializationError" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1">
                           <InArgument x:TypeArguments="s:Exception">
                             <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_201">new Exception(in_TestID)</CSharpValue>
                           </InArgument>
                         </Throw>
                       </Switch>
-                      <ui:LogMessage DisplayName="LM: Initializing" sap:VirtualizedContainerService.HintSize="514.6666666666666,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_12">
+                      <ui:LogMessage DisplayName="LM: Initializing" sap:VirtualizedContainerService.HintSize="515,141" sap2010:WorkflowViewState.IdRef="LogMessage_12">
                         <ui:LogMessage.Level>
                           <InArgument x:TypeArguments="ui:LogLevel">
                             <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_134">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
@@ -223,7 +223,7 @@
                           </InArgument>
                         </ui:LogMessage.Message>
                       </ui:LogMessage>
-                      <ui:MultipleAssign DisplayName="Reset System Exception" sap:VirtualizedContainerService.HintSize="514.6666666666666,100.66666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
+                      <ui:MultipleAssign DisplayName="Reset System Exception" sap:VirtualizedContainerService.HintSize="515,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
@@ -241,7 +241,7 @@
                           </scg:List>
                         </ui:MultipleAssign.AssignOperations>
                       </ui:MultipleAssign>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="IsMaintenanceTime.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="514.6666666666666,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="Shared\\IsMaintenanceTime.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Is Maintenance Time? (Initialize)" sap:VirtualizedContainerService.HintSize="515,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="Shared\\IsMaintenanceTime.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_Start">
                             <CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_218">new TimeSpan(Convert.ToInt32(Config["Maintenance_Start"].Split(":",StringSplitOptions.RemoveEmptyEntries)[0]), Convert.ToInt32(Config["Maintenance_Start"].Split(":",StringSplitOptions.RemoveEmptyEntries)[1]), Convert.ToInt32(Config["Maintenance_Start"].Split(":",StringSplitOptions.RemoveEmptyEntries)[2]))</CSharpValue>
@@ -400,15 +400,15 @@
             <Transition.To>
               <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Checks whether a stop signal was requested or the process is within maintenance hours. If not, will get the next available transaction." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="238,134" sap2010:WorkflowViewState.IdRef="State_8">
                 <State.Entry>
-                  <TryCatch DisplayName="Try Getting Transaction" sap:VirtualizedContainerService.HintSize="597.3333333333334,1978" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                  <TryCatch DisplayName="Try Getting Transaction" sap:VirtualizedContainerService.HintSize="597,1953" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                     <TryCatch.Try>
-                      <Sequence DisplayName="Get Transaction" sap:VirtualizedContainerService.HintSize="558.6666666666666,1739.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                      <Sequence DisplayName="Get Transaction" sap:VirtualizedContainerService.HintSize="559,1725" sap2010:WorkflowViewState.IdRef="Sequence_17">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="LM: Get Next Transaction" sap:VirtualizedContainerService.HintSize="496.6666666666667,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_13">
+                        <ui:LogMessage DisplayName="LM: Get Next Transaction" sap:VirtualizedContainerService.HintSize="497,141" sap2010:WorkflowViewState.IdRef="LogMessage_13">
                           <ui:LogMessage.Level>
                             <InArgument x:TypeArguments="ui:LogLevel">
                               <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_140">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
@@ -420,26 +420,26 @@
                             </InArgument>
                           </ui:LogMessage.Message>
                         </ui:LogMessage>
-                        <Switch x:TypeArguments="x:String" DisplayName="@Test Variations - Get Transaction Data" sap:VirtualizedContainerService.HintSize="496.6666666666667,146.66666666666666" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                        <Switch x:TypeArguments="x:String" DisplayName="@Test Variations - Get Transaction Data" sap:VirtualizedContainerService.HintSize="497,140" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                           <Switch.Expression>
                             <InArgument x:TypeArguments="x:String">
                               <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_208">in_TestID</CSharpValue>
                             </InArgument>
                           </Switch.Expression>
-                          <Throw x:Key="FrameworkGetTransactionDataError" DisplayName="Throw GetTransactionData Error" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_4">
+                          <Throw x:Key="FrameworkGetTransactionDataError" DisplayName="Throw GetTransactionData Error" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_4">
                             <InArgument x:TypeArguments="s:Exception">
                               <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_209">new Exception(in_TestID)</CSharpValue>
                             </InArgument>
                           </Throw>
                         </Switch>
-                        <ui:ShouldStop DisplayName="Stop Requested?" sap:VirtualizedContainerService.HintSize="496.6666666666667,92" sap2010:WorkflowViewState.IdRef="ShouldStop_2">
+                        <ui:ShouldStop DisplayName="Stop Requested?" sap:VirtualizedContainerService.HintSize="497,90" sap2010:WorkflowViewState.IdRef="ShouldStop_2">
                           <ui:ShouldStop.Result>
                             <OutArgument x:TypeArguments="x:Boolean">
                               <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_39">StopRequested</CSharpReference>
                             </OutArgument>
                           </ui:ShouldStop.Result>
                         </ui:ShouldStop>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="IsMaintenanceTime.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="496.6666666666667,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Shared\\IsMaintenanceTime.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Is Maintenance Time? (GetTransactionData)" sap:VirtualizedContainerService.HintSize="497,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Shared\\IsMaintenanceTime.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_Start">
                               <CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_142">new TimeSpan(Convert.ToInt32(Config["Maintenance_Start"].Split(":",StringSplitOptions.RemoveEmptyEntries)[0]), Convert.ToInt32(Config["Maintenance_Start"].Split(":",StringSplitOptions.RemoveEmptyEntries)[1]), Convert.ToInt32(Config["Maintenance_Start"].Split(":",StringSplitOptions.RemoveEmptyEntries)[2]))</CSharpValue>
@@ -1142,7 +1142,7 @@
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_190">StopRequested &amp;&amp; FrameworkException == null</CSharpValue>
                     </Transition.Condition>
                   </Transition>
-                  <Transition DisplayName="Maintenance Time" sap2010:WorkflowViewState.IdRef="Transition_21">
+                  <Transition DisplayName="Maintenance Time (GetTransactionData)" sap2010:WorkflowViewState.IdRef="Transition_21">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:PointCollection x:Key="ConnectorLocation">438,250.8 408,250.8 408,243.40000000000003 276,243.40000000000003</av:PointCollection>
@@ -1225,7 +1225,7 @@
               <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_192">ConsecutiveSysEx &gt;= Convert.ToInt32(Config["MaxConsecutiveExceptions"])</CSharpValue>
             </Transition.Condition>
           </Transition>
-          <Transition DisplayName="Maintenance Time" sap2010:WorkflowViewState.IdRef="Transition_22">
+          <Transition DisplayName="Maintenance Time (Initialize)" sap2010:WorkflowViewState.IdRef="Transition_22">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <av:PointCollection x:Key="ConnectorLocation">442.7,134 442.7,164 244.20000000000002,164 244.20000000000002,238.00000000000003</av:PointCollection>

@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Activity mc:Ignorable="sap sap2010" x:Class="TakeScreenshotNoPath" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1632,2669" sap2010:WorkflowViewState.IdRef="SuccessTestCase_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TakeScreenshotNoPath" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1052,2404" sap2010:WorkflowViewState.IdRef="SuccessTestCase_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>GlobalConstantsNamespace</x:String>
@@ -77,7 +76,7 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Tests the main case where only the folder path is provided and no file path is given. Should generate a generic file name automatically." DisplayName="TakeScreenshotNoPath" sap:VirtualizedContainerService.HintSize="646,2604" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Tests the main case where only the folder path is provided and no file path is given. Should generate a generic file name automatically." DisplayName="TakeScreenshotNoPath" sap:VirtualizedContainerService.HintSize="646,2339" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:TimeSpan" Default="00:05:00" Name="Duration" />
       <Variable x:TypeArguments="s:Exception" Name="TestException">
@@ -105,10 +104,10 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:TimeoutScope DisplayName="Timed Test" sap:VirtualizedContainerService.HintSize="584,2089" sap2010:WorkflowViewState.IdRef="TimeoutScope_1">
+    <ui:TimeoutScope DisplayName="Timed Test" sap:VirtualizedContainerService.HintSize="584,1824" sap2010:WorkflowViewState.IdRef="TimeoutScope_1">
       <ui:TimeoutScope.Body>
         <ActivityAction x:TypeArguments="Activity">
-          <Sequence DisplayName="Test" sap:VirtualizedContainerService.HintSize="550,1964" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Test" sap:VirtualizedContainerService.HintSize="550,1699" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="FolderPath" />
               <Variable x:TypeArguments="x:String" Name="FilePath" />
@@ -118,7 +117,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Initialize Test" sap:VirtualizedContainerService.HintSize="488,335" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Initialize Test" sap:VirtualizedContainerService.HintSize="488,243" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -135,7 +134,7 @@
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
                         <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">@"C:\Users\eyash\Documents\UiPath\LazyFramework\Data\Temp"</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">Path.Combine(Directory.GetCurrentDirectory(), "Shared\\Tests\\TakeScreenshot")</CSharpValue>
                         </InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
@@ -154,31 +153,6 @@
                   </scg:List>
                 </ui:MultipleAssign.AssignOperations>
               </ui:MultipleAssign>
-              <If DisplayName="FolderPath Exists?" sap:VirtualizedContainerService.HintSize="423,52" sap2010:WorkflowViewState.IdRef="If_1">
-                <If.Condition>
-                  <InArgument x:TypeArguments="x:Boolean">
-                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">Directory.Exists(FolderPath)</CSharpValue>
-                  </InArgument>
-                </If.Condition>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <If.Then>
-                  <ui:DeleteFolderX DisplayName="Delete FolderPath" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Recursive="True">
-                    <ui:DeleteFolderX.Path>
-                      <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">FolderPath</CSharpValue>
-                      </InArgument>
-                    </ui:DeleteFolderX.Path>
-                  </ui:DeleteFolderX>
-                </If.Then>
-                <If.Else>
-                  <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_6" />
-                </If.Else>
-              </If>
             </Sequence>
             <ui:LogMessage DisplayName="LM: Initialization Complete" sap:VirtualizedContainerService.HintSize="488,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
               <ui:LogMessage.Level>
@@ -264,7 +238,7 @@
                 </InArgument>
               </ui:LogMessage.Message>
             </ui:LogMessage>
-            <Sequence DisplayName="Validate Results" sap:VirtualizedContainerService.HintSize="488,624" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Validate Results" sap:VirtualizedContainerService.HintSize="488,451" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -284,20 +258,13 @@
                   </InArgument>
                 </uta:VerifyExpression.Expression>
               </uta:VerifyExpression>
-              <ui:DeleteFileX DisplayName="Delete Screenshot" sap:VirtualizedContainerService.HintSize="388,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_1">
+              <ui:DeleteFileX DisplayName="Delete Screenshot" sap:VirtualizedContainerService.HintSize="388,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_2">
                 <ui:DeleteFileX.Path>
                   <InArgument x:TypeArguments="x:String">
-                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">FilePath</CSharpValue>
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">FilePath</CSharpValue>
                   </InArgument>
                 </ui:DeleteFileX.Path>
               </ui:DeleteFileX>
-              <ui:CreateFile ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create placeholder" sap:VirtualizedContainerService.HintSize="388,133" sap2010:WorkflowViewState.IdRef="CreateFile_1" Name="placeholder">
-                <ui:CreateFile.Path>
-                  <InArgument x:TypeArguments="x:String">
-                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">FolderPath</CSharpValue>
-                  </InArgument>
-                </ui:CreateFile.Path>
-              </ui:CreateFile>
             </Sequence>
           </Sequence>
         </ActivityAction>

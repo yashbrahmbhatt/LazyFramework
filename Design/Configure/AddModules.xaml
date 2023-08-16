@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="AddModules" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="997,4760" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="AddModules" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1052,4515" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -103,7 +103,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Accelerates creating new modules by prompting the user for set of modules they want to create, and copies the configs, templates, and all workflow files for that module." DisplayName="AddModules" sap:VirtualizedContainerService.HintSize="733,4695" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Accelerates creating new modules by prompting the user for set of modules they want to create, and copies the configs, templates, and all workflow files for that module." DisplayName="AddModules" sap:VirtualizedContainerService.HintSize="733,4450" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Modules">
         <Variable.Default>
@@ -113,7 +113,6 @@
       <Variable x:TypeArguments="scg:Dictionary(x:String, sd:DataSet)" Name="ExcelFiles" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ModuleConfig" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="ModuleTypes" />
-      <Variable x:TypeArguments="njl:JObject" Name="JObj" />
       <Variable x:TypeArguments="x:String" Name="ModulesOutput" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -194,9 +193,7 @@
         <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
       </ufa:FormActivity.Body>
       <ufa:FormActivity.DelayBody>
-        <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
-          <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_1" />
-        </ActivityAction>
+        <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
       </ufa:FormActivity.DelayBody>
       <ufa:FormActivity.FormFieldsCollection>
         <InOutArgument x:TypeArguments="sd:DataTable" x:Key="Modules">
@@ -249,13 +246,13 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Module" sap:VirtualizedContainerService.HintSize="671,3351" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Module" sap:VirtualizedContainerService.HintSize="671,3106" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Create Module" sap:VirtualizedContainerService.HintSize="637,3234" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Create Module" sap:VirtualizedContainerService.HintSize="637,2989" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="Name" />
               <Variable x:TypeArguments="x:String" Name="Type" />
@@ -264,7 +261,6 @@
               <Variable x:TypeArguments="x:String" Name="ModuleRoot" />
               <Variable x:TypeArguments="x:String" Name="ModuleConfigPath" />
               <Variable x:TypeArguments="x:String" Name="Root" />
-              <Variable x:TypeArguments="x:String" Name="FormFilePath" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -379,13 +375,13 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Copy All Files From Modules Root" sap:VirtualizedContainerService.HintSize="575,1917" sap2010:WorkflowViewState.IdRef="ForEach`1_6">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Copy All Files From Modules Root" sap:VirtualizedContainerService.HintSize="575,1683" sap2010:WorkflowViewState.IdRef="ForEach`1_6">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="ModuleFile" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="541,1731" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                  <Sequence DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="541,1497" sap2010:WorkflowViewState.IdRef="Sequence_22">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="TargetFilePath" />
                     </Sequence.Variables>
@@ -413,7 +409,7 @@
                         </scg:List>
                       </ui:MultipleAssign.AssignOperations>
                     </ui:MultipleAssign>
-                    <If DisplayName="File Folder Exists?" sap:VirtualizedContainerService.HintSize="499,342" sap2010:WorkflowViewState.IdRef="If_8">
+                    <If DisplayName="File Folder Exists?" sap:VirtualizedContainerService.HintSize="499,262" sap2010:WorkflowViewState.IdRef="If_8">
                       <If.Condition>
                         <InArgument x:TypeArguments="x:Boolean">
                           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_141">!Directory.Exists(Path.GetDirectoryName(TargetFilePath))</CSharpValue>
@@ -438,7 +434,7 @@
                         </Sequence>
                       </If.Else>
                     </If>
-                    <If DisplayName="Workflow File?" sap:VirtualizedContainerService.HintSize="499,1120" sap2010:WorkflowViewState.IdRef="If_6">
+                    <If DisplayName="Workflow File?" sap:VirtualizedContainerService.HintSize="499,966" sap2010:WorkflowViewState.IdRef="If_6">
                       <If.Condition>
                         <InArgument x:TypeArguments="x:Boolean">
                           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_110">ModuleFile.Contains(".xaml")</CSharpValue>
@@ -722,53 +718,47 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:RetryScope>
-            <ui:CommentOut sap2010:Annotation.AnnotationText="Causes Studio to Boom For Now" DisplayName="Disabled: Add GlobalConstants for Config Paths" sap:VirtualizedContainerService.HintSize="575,94" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut sap2010:Annotation.AnnotationText="Causes Studio to Boom For Now" DisplayName="Disabled: Add GlobalConstants for Config Paths" sap:VirtualizedContainerService.HintSize="575,83" sap2010:WorkflowViewState.IdRef="CommentOut_1">
               <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="547,822" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                <Sequence DisplayName="Update Global Vars" sap:VirtualizedContainerService.HintSize="485,711" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="RawGlobalVariables" />
+                    <Variable x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" Name="ListOfGlobalVariables" />
+                  </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Update Global Vars" sap:VirtualizedContainerService.HintSize="485,711" sap2010:WorkflowViewState.IdRef="Sequence_26">
-                    <Sequence.Variables>
-                      <Variable x:TypeArguments="x:String" Name="RawGlobalVariables" />
-                      <Variable x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" Name="ListOfGlobalVariables" />
-                    </Sequence.Variables>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:ReadTextFile File="{x:Null}" DisplayName="Read Global Vars File" FileName=".project\\globalVariables.json" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_3">
-                      <ui:ReadTextFile.Content>
-                        <OutArgument x:TypeArguments="x:String">
-                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_74">RawGlobalVariables</CSharpReference>
-                        </OutArgument>
-                      </ui:ReadTextFile.Content>
-                    </ui:ReadTextFile>
-                    <ui:MultipleAssign DisplayName="Parse Global Vars" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_19">
-                      <ui:MultipleAssign.AssignOperations>
-                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">
-                                <CSharpReference x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpReference`1_76">ListOfGlobalVariables</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">
-                                <CSharpValue x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpValue`1_166">JsonConvert.DeserializeObject&lt;List&lt;Dictionary&lt;string, string&gt;&gt;&gt;(RawGlobalVariables)</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                        </scg:List>
-                      </ui:MultipleAssign.AssignOperations>
-                    </ui:MultipleAssign>
-                    <AddToCollection x:TypeArguments="scg:Dictionary(x:String, x:String)" DisplayName="Add Module ConfigPath Global Vars" sap:VirtualizedContainerService.HintSize="423,25" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1">
-                      <AddToCollection.Item>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">
-                          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_172" xml:space="preserve">new Dictionary&lt;string, string&gt;()
+                  <ui:ReadTextFile File="{x:Null}" DisplayName="Read Global Vars File" FileName=".project\\globalVariables.json" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_3">
+                    <ui:ReadTextFile.Content>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_74">RawGlobalVariables</CSharpReference>
+                      </OutArgument>
+                    </ui:ReadTextFile.Content>
+                  </ui:ReadTextFile>
+                  <ui:MultipleAssign DisplayName="Parse Global Vars" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_19">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">
+                              <CSharpReference x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpReference`1_76">ListOfGlobalVariables</CSharpReference>
+                            </OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">
+                              <CSharpValue x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpValue`1_166">JsonConvert.DeserializeObject&lt;List&lt;Dictionary&lt;string, string&gt;&gt;&gt;(RawGlobalVariables)</CSharpValue>
+                            </InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                  <AddToCollection x:TypeArguments="scg:Dictionary(x:String, x:String)" DisplayName="Add Module ConfigPath Global Vars" sap:VirtualizedContainerService.HintSize="423,25" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1">
+                    <AddToCollection.Item>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">
+                        <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_172" xml:space="preserve">new Dictionary&lt;string, string&gt;()
 {
 	{ "Constant", "false"},
     {"Name", "ConfigPath_" + Name},
@@ -777,38 +767,37 @@
 	{"Expression",Path.Combine(Root, "Data", Path.Combine(Root, "Data", Name + "Config.xlsx"))},
 	{"IsLiteral", "false"}
 }</CSharpValue>
-                        </InArgument>
-                      </AddToCollection.Item>
-                      <InArgument x:TypeArguments="scg:ICollection(scg:Dictionary(x:String, x:String))">
-                        <CSharpValue x:TypeArguments="scg:ICollection(scg:Dictionary(x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpValue`1_167">ListOfGlobalVariables</CSharpValue>
                       </InArgument>
-                    </AddToCollection>
-                    <ui:MultipleAssign DisplayName="Serialize Global Vars" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_20">
-                      <ui:MultipleAssign.AssignOperations>
-                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_77">RawGlobalVariables</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_169">JsonConvert.SerializeObject(ListOfGlobalVariables)</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                        </scg:List>
-                      </ui:MultipleAssign.AssignOperations>
-                    </ui:MultipleAssign>
-                    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Global Vars File" FileName=".project\\globalVariables.json" sap:VirtualizedContainerService.HintSize="423,133" sap2010:WorkflowViewState.IdRef="WriteTextFile_3">
-                      <ui:WriteTextFile.Text>
-                        <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_170">RawGlobalVariables</CSharpValue>
-                        </InArgument>
-                      </ui:WriteTextFile.Text>
-                    </ui:WriteTextFile>
-                  </Sequence>
+                    </AddToCollection.Item>
+                    <InArgument x:TypeArguments="scg:ICollection(scg:Dictionary(x:String, x:String))">
+                      <CSharpValue x:TypeArguments="scg:ICollection(scg:Dictionary(x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpValue`1_167">ListOfGlobalVariables</CSharpValue>
+                    </InArgument>
+                  </AddToCollection>
+                  <ui:MultipleAssign DisplayName="Serialize Global Vars" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_20">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">
+                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_77">RawGlobalVariables</CSharpReference>
+                            </OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_169">JsonConvert.SerializeObject(ListOfGlobalVariables)</CSharpValue>
+                            </InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                  <ui:WriteTextFile File="{x:Null}" DisplayName="Write Global Vars File" FileName=".project\\globalVariables.json" sap:VirtualizedContainerService.HintSize="423,133" sap2010:WorkflowViewState.IdRef="WriteTextFile_3">
+                    <ui:WriteTextFile.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_170">RawGlobalVariables</CSharpValue>
+                      </InArgument>
+                    </ui:WriteTextFile.Text>
+                  </ui:WriteTextFile>
                 </Sequence>
               </ui:CommentOut.Body>
               <sap:WorkflowViewStateService.ViewState>
