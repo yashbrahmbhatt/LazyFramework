@@ -1752,7 +1752,7 @@
                   </scg:List>
                 </ui:MultipleAssign.AssignOperations>
               </ui:MultipleAssign>
-              <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="new_project.json" sap:VirtualizedContainerService.HintSize="597,133" sap2010:WorkflowViewState.IdRef="WriteTextFile_6">
+              <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="project.json" sap:VirtualizedContainerService.HintSize="597,133" sap2010:WorkflowViewState.IdRef="WriteTextFile_6">
                 <ui:WriteTextFile.Text>
                   <InArgument x:TypeArguments="x:String">
                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_371">JsonConvert.SerializeObject(JObj)</CSharpValue>
