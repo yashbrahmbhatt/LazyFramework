@@ -9,24 +9,24 @@
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>System</x:String>
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
-      <x:String>System</x:String>
       <x:String>System.Collections</x:String>
       <x:String>System.Collections.Generic</x:String>
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>System.Data</x:String>
       <x:String>System.Linq</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Xml</x:String>
       <x:String>System.Xml.Linq</x:String>
-      <x:String>UiPath.Core.Activities</x:String>
-      <x:String>System.Reflection</x:String>
       <x:String>System.Xml.Serialization</x:String>
-      <x:String>Newtonsoft.Json.Linq</x:String>
-      <x:String>System.Runtime.Serialization</x:String>
       <x:String>UiPath.Core</x:String>
-      <x:String>GlobalVariablesNamespace</x:String>
-      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -90,7 +90,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Recursive workflow to traverse and document the workflow into mermaid diagrams.&#xD;&#xA; &#xD;&#xA;/_\/_\/_\&#xD;&#xA;WIP&#xD;&#xA;/_\/_\/_\" DisplayName="TraverseWorkflow" sap:VirtualizedContainerService.HintSize="627,1782" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Recursive workflow to traverse and document the workflow into mermaid diagrams.&#xA; &#xA;/_\/_\/_\&#xA;WIP&#xA;/_\/_\/_\" DisplayName="TraverseWorkflow" sap:VirtualizedContainerService.HintSize="627,1782" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ActivityType" />
       <Variable x:TypeArguments="x:String" Name="ActivityName" />
