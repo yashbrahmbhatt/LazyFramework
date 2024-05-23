@@ -7,7 +7,7 @@
     <InArgument x:TypeArguments="njl:JObject" />
   </this:UpdateProjectJSON.in_ProjectJObj>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>986,2730</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>986,2761</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -114,7 +114,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Update Project JSON" sap:VirtualizedContainerService.HintSize="659,2665" sap2010:WorkflowViewState.IdRef="Sequence_75">
+  <Sequence DisplayName="Update Project JSON" sap:VirtualizedContainerService.HintSize="659,2696" sap2010:WorkflowViewState.IdRef="Sequence_75">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Raw" />
       <Variable x:TypeArguments="njl:JArray" Name="FileInfoCollection" />
@@ -359,7 +359,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="597,163" sap2010:WorkflowViewState.IdRef="MultipleAssign_46">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="597,194" sap2010:WorkflowViewState.IdRef="MultipleAssign_46">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_89">
@@ -395,6 +395,18 @@
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="njl:JToken">
                 <CSharpValue x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpValue`1_401">false</CSharpValue>
+              </InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_96">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="njl:JToken">
+                <CSharpReference x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpReference`1_175">in_ProjectJObj["projectId"]</CSharpReference>
+              </OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="njl:JToken">
+                <CSharpValue x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpValue`1_402">Guid.NewGuid()</CSharpValue>
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
