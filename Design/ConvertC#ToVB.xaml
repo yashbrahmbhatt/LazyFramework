@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ConvertC_ToVB" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="986,1359" sap2010:WorkflowViewState.IdRef="ConvertC_ToVB_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ConvertC_ToVB" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="986,1874" sap2010:WorkflowViewState.IdRef="ConvertC_ToVB_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -79,7 +79,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ConvertC_ToVB" sap:VirtualizedContainerService.HintSize="637,1294" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ConvertC_ToVB" sap:VirtualizedContainerService.HintSize="637,1809" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="RawText" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="Matches" />
@@ -89,13 +89,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="575,1183" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Directory.GetFiles(Directory.GetCurrentDirectory(), &quot;*.xaml&quot;, SearchOption.AllDirectories)]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="575,1698" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Directory.GetFiles(Directory.GetCurrentDirectory(), &quot;*.xaml&quot;, SearchOption.AllDirectories)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="CurrentFile" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="541,997" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="541,1512" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -110,7 +110,9 @@
                       <OutArgument x:TypeArguments="x:String">[RawText]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[RawText.Replace("sap2010:ExpressionActivityEditor.ExpressionActivityEditor=""C#""","sap2010:ExpressionActivityEditor.ExpressionActivityEditor=""VB""")]</InArgument>
+                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[RawText.
+Replace("sap2010:ExpressionActivityEditor.ExpressionActivityEditor=""C#""","sap2010:ExpressionActivityEditor.ExpressionActivityEditor=""VB""").
+Replace("&lt;sap2010:ExpressionActivityEditor.ExpressionActivityEditor&gt;C#&lt;/sap2010:ExpressionActivityEditor.ExpressionActivityEditor&gt;","&lt;sap2010:ExpressionActivityEditor.ExpressionActivityEditor&gt;VB&lt;/sap2010:ExpressionActivityEditor.ExpressionActivityEditor&gt;")]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                 </scg:List>
@@ -138,6 +140,37 @@
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="x:String">[RawText.Replace(Match.Value, Match.Groups("Opening").Value.Replace("CSharp","VisualBasic") + "[" + Match.Groups("Content").Value.Replace("[","(").Replace("]",")") + "]" + Match.Groups("Closing").Value.Replace("CSharp","VisualBasic"))]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
+            <ui:Matches FirstMatch="{x:Null}" BuilderPattern="(?&lt;Opening&gt;&lt;CSharp(Value|Reference)\s[^&gt;]*&gt;)(?&lt;Content&gt;[^&lt;]*)(?&lt;Closing&gt;&lt;\/CSharp(Value|Reference)&gt;)" DisplayName="Find Matching Patterns" sap:VirtualizedContainerService.HintSize="499,60" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[RawText]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;Opening&gt;&lt;CSharp(Value|Reference)\\s[^&gt;]*&gt;)(?&lt;Content&gt;[^&lt;]*)(?&lt;Closing&gt;&lt;\\\/CSharp(Value|Reference)&gt;)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;Prefix&gt;\()(?&lt;VariableName&gt;(\S)+)(?&lt;Arrow&gt; =&amp;gt;)" RegexOption="IgnoreCase, Compiled" Result="[Matches]" />
+            <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="499,375" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Matches]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="str:Match">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="str:Match" Name="Match" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="465,189" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[RawText]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[RawText.Replace(Match.Value, "(Function(" + Match.Groups("VariableName").Value + ")")]</InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
                         </scg:List>
