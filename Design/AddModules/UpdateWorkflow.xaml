@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="UpdateWorkflow" this:UpdateWorkflow.TemplateRoot="Design\Modules\Performers\Basic" this:UpdateWorkflow.ModuleRoot="Performer" this:UpdateWorkflow.ModuleName="Performer" this:UpdateWorkflow.in_WorkflowFile="Performer\Performer.xaml" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:luw="clr-namespace:LazyFramework.Utility.WorkflowEditor;assembly=LazyFramework.Utility" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Private.Xml.Linq" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="UpdateWorkflow" this:UpdateWorkflow.TemplateRoot="Design\Modules\Performers\Basic" this:UpdateWorkflow.ModuleRoot="Performer" this:UpdateWorkflow.ModuleName="Performer" this:UpdateWorkflow.in_WorkflowFile="Performer\Performer.xaml" this:UpdateWorkflow.in_ConfigPaths="[new List(Of string)({&quot;Data\BasicPerformerConfig.xlsx&quot;})]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:luw="clr-namespace:LazyFramework.Utility.WorkflowEditor;assembly=LazyFramework.Utility" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Private.Xml.Linq" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="TemplateRoot" Type="InArgument(x:String)" />
     <x:Property Name="ModuleRoot" Type="InArgument(x:String)" />
@@ -6,13 +6,8 @@
     <x:Property Name="in_WorkflowFile" Type="InArgument(x:String)" />
     <x:Property Name="in_ConfigPaths" Type="InArgument(scg:List(x:String))" />
   </x:Members>
-  <this:UpdateWorkflow.in_ConfigPaths>
-    <InArgument x:TypeArguments="scg:List(x:String)">
-      <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_525">new List&lt;string&gt;() {"Data\\BasicPerformerConfig.xlsx"}</CSharpValue>
-    </InArgument>
-  </this:UpdateWorkflow.in_ConfigPaths>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>509,2168</sap:VirtualizedContainerService.HintSize>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>986,2857</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -51,6 +46,7 @@
       <x:String>UiPath.Platform.ResourceHandling</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>LazyFramework.Utility</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -125,9 +121,11 @@
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="UpdateWorkflow" sap:VirtualizedContainerService.HintSize="519,2103" sap2010:WorkflowViewState.IdRef="Sequence_69">
+  <Sequence DisplayName="UpdateWorkflow" sap:VirtualizedContainerService.HintSize="561,2632" sap2010:WorkflowViewState.IdRef="Sequence_69">
     <Sequence.Variables>
       <Variable x:TypeArguments="luw:WFEditor" Name="Editor" />
       <Variable x:TypeArguments="s:Func(x:String, x:String)" Name="UpdateFunction" />
@@ -138,88 +136,84 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="457,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="499,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_506">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_506" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_507">string.Format("Updating file '{0}'", in_WorkflowFile)</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Updating file '{0}'&quot;, in_WorkflowFile)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_507" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:MultipleAssign DisplayName="Update Workflow" sap:VirtualizedContainerService.HintSize="457,163" sap2010:WorkflowViewState.IdRef="MultipleAssign_51">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="f = Function(expression As String) paths.Aggregate(expression, Function(acc As String, curr As String) _&#xD;&#xA;    acc _&#xD;&#xA;    .Replace(Directory.GetCurrentDirectory(), &quot;&quot;) _&#xD;&#xA;    .Replace(Directory.GetCurrentDirectory() &amp; &quot;\&quot;, &quot;&quot;) _&#xD;&#xA;    .Replace(templateRoot, Path.GetRelativePath(Directory.GetCurrentDirectory(), moduleRoot)) _&#xD;&#xA;    .Replace(templateRoot.Replace(&quot;\&quot;, &quot;\\&quot;), Path.GetRelativePath(Directory.GetCurrentDirectory(), moduleRoot).Replace(&quot;\&quot;, &quot;\\&quot;)) _&#xD;&#xA;    .Replace(Path.GetFileName(Directory.GetFiles(templateRoot, &quot;*.xaml&quot;).First()).Replace(&quot;\&quot;, &quot;\\&quot;), moduleName &amp; &quot;.xaml&quot;) _&#xD;&#xA;    .Replace(&quot;GlobalConstants.ConfigPath_&quot; &amp; Path.GetFileNameWithoutExtension(curr).Replace(&quot;Config&quot;, &quot;Template&quot;), &quot;GlobalConstants.ConfigPath_&quot; &amp; moduleName) _&#xD;&#xA;)" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="499,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <OutArgument x:TypeArguments="s:Func(x:String, x:String)" x:Key="f">
+          <VisualBasicReference x:TypeArguments="s:Func(x:String, x:String)" ExpressionText="UpdateFunction" />
+        </OutArgument>
+        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="paths">
+          <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="in_ConfigPaths" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="moduleRoot">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ModuleRoot" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="templateRoot">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="TemplateRoot" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="moduleName">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ModuleName" />
+        </InArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:MultipleAssign DisplayName="Update Workflow" sap:VirtualizedContainerService.HintSize="499,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_51">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_97">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="luw:WFEditor">
-                <CSharpReference x:TypeArguments="luw:WFEditor" sap2010:WorkflowViewState.IdRef="CSharpReference`1_186">Editor</CSharpReference>
+                <VisualBasicReference x:TypeArguments="luw:WFEditor" ExpressionText="Editor" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_186" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="luw:WFEditor">
-                <CSharpValue x:TypeArguments="luw:WFEditor" sap2010:WorkflowViewState.IdRef="CSharpValue`1_493">new WFEditor(in_WorkflowFile)</CSharpValue>
-              </InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_98">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="s:Func(x:String, x:String)">
-                <CSharpReference x:TypeArguments="s:Func(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_187">UpdateFunction</CSharpReference>
-              </OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="s:Func(x:String, x:String)">
-                <CSharpValue x:TypeArguments="s:Func(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_521" xml:space="preserve">(expression) =&gt; in_ConfigPaths.Aggregate(expression, (acc, curr) =&gt; 
-
-acc
-.Replace(Directory.GetCurrentDirectory(), "")
-.Replace(Directory.GetCurrentDirectory() +"\\", "")
-.Replace(TemplateRoot, Path.GetRelativePath(Directory.GetCurrentDirectory(), ModuleRoot))
-.Replace(TemplateRoot.Replace("\\","\\\\"), Path.GetRelativePath(Directory.GetCurrentDirectory(), ModuleRoot).Replace("\\","\\\\"))
-.Replace(Path.GetFileName(Directory.GetFiles(TemplateRoot, "*.xaml").First()).Replace("\\","\\\\"), ModuleName + ".xaml")
-.Replace("GlobalConstants.ConfigPath_" + Path.GetFileNameWithoutExtension(curr).Replace("Config","Template"), "GlobalConstants.ConfigPath_" + ModuleName)
-)</CSharpValue>
+                <VisualBasicValue x:TypeArguments="luw:WFEditor" ExpressionText="new WFEditor(in_WorkflowFile)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_493" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_103">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="scg:IEnumerable(sxl:XAttribute)">
-                <CSharpReference x:TypeArguments="scg:IEnumerable(sxl:XAttribute)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_194">InvokeWorkflowElements</CSharpReference>
+                <VisualBasicReference x:TypeArguments="scg:IEnumerable(sxl:XAttribute)" ExpressionText="InvokeWorkflowElements" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_194" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="scg:IEnumerable(sxl:XAttribute)">
-                <CSharpValue x:TypeArguments="scg:IEnumerable(sxl:XAttribute)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_527">Editor.Activities.Where(a =&gt; a.Type == "InvokeWorkflowFile").Select(a =&gt; LazyFramework.Utility.XDocumentHelpers.GetAttribute(a.ActivityElement, "WorkflowFileName"))</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="scg:IEnumerable(sxl:XAttribute)">[Editor.Activities.Where(Function(a) a.Type = "InvokeWorkflowFile").Select(Function(a) LazyFramework.Utility.XDocumentHelpers.GetAttribute(a.ActivityElement, "WorkflowFileName"))]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:LogMessage DisplayName="LM: Pre-Arguments" sap:VirtualizedContainerService.HintSize="457,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
+    <ui:LogMessage DisplayName="LM: Pre-Arguments" sap:VirtualizedContainerService.HintSize="499,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_508">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_508" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_509">string.Format("Updating {0} arguments", Editor.Arguments.Count())</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Updating {0} arguments&quot;, Editor.Arguments.Count())" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_509" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:ForEach x:TypeArguments="luw:Argument" CurrentIndex="{x:Null}" DisplayName="Update Arguments" sap:VirtualizedContainerService.HintSize="457,52" sap2010:WorkflowViewState.IdRef="ForEach`1_24">
+    <ui:ForEach x:TypeArguments="luw:Argument" CurrentIndex="{x:Null}" DisplayName="Update Arguments" sap:VirtualizedContainerService.HintSize="499,406" sap2010:WorkflowViewState.IdRef="ForEach`1_24">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="luw:Argument">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="luw:Argument" Name="Argument" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="465,350" sap2010:WorkflowViewState.IdRef="Sequence_74">
+          <Sequence sap:VirtualizedContainerService.HintSize="465,220" sap2010:WorkflowViewState.IdRef="Sequence_74">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="NewValue" />
             </Sequence.Variables>
@@ -234,59 +228,56 @@ acc
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_102">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="x:String">
-                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_193">NewValue</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="NewValue" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_193" />
                       </OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_516">Argument.DefaultValue != null ? UpdateFunction.Invoke(Argument.DefaultValue) : null</CSharpValue>
-                      </InArgument>
+                      <InArgument x:TypeArguments="x:String">[If(Argument.DefaultValue IsNot Nothing, UpdateFunction.Invoke(Argument.DefaultValue), Nothing)]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_99">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="x:String">
-                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_188">Argument.DefaultValue</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Argument.DefaultValue" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_188" />
                       </OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_517">NewValue</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="NewValue" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_517" />
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="423,90" sap2010:WorkflowViewState.IdRef="WriteLine_1" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
       <ui:ForEach.Values>
         <InArgument x:TypeArguments="sc:IEnumerable">
-          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_494">Editor.Arguments</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="Editor.Arguments" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_494" />
         </InArgument>
       </ui:ForEach.Values>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:LogMessage DisplayName="LM: Pre-Variables" sap:VirtualizedContainerService.HintSize="457,141" sap2010:WorkflowViewState.IdRef="LogMessage_3">
+    <ui:LogMessage DisplayName="LM: Pre-Variables" sap:VirtualizedContainerService.HintSize="499,141" sap2010:WorkflowViewState.IdRef="LogMessage_3">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_510">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_510" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_511">string.Format("Updating {0} variables", Editor.Variables.Count())</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Updating {0} variables&quot;, Editor.Variables.Count())" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_511" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:ForEach x:TypeArguments="luw:Variable" CurrentIndex="{x:Null}" DisplayName="Update Variables" sap:VirtualizedContainerService.HintSize="457,287" sap2010:WorkflowViewState.IdRef="ForEach`1_25">
+    <ui:ForEach x:TypeArguments="luw:Variable" CurrentIndex="{x:Null}" DisplayName="Update Variables" sap:VirtualizedContainerService.HintSize="499,287" sap2010:WorkflowViewState.IdRef="ForEach`1_25">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="luw:Variable">
           <ActivityAction.Argument>
@@ -298,13 +289,11 @@ acc
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_100">
                   <ui:AssignOperation.To>
                     <OutArgument x:TypeArguments="x:String">
-                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_190">Variable.DefaultValue</CSharpReference>
+                      <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Variable.DefaultValue" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_190" />
                     </OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">
-                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_530">Variable.DefaultValue != null ? Variable.DefaultValue != "" ? UpdateFunction.Invoke(Variable.DefaultValue) : null : null</CSharpValue>
-                    </InArgument>
+                    <InArgument x:TypeArguments="x:String">[If(Variable.DefaultValue Isnot Nothing, If(Variable.DefaultValue IsNot Nothing, UpdateFunction.Invoke(Variable.DefaultValue), Nothing), Nothing)]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
               </scg:List>
@@ -314,7 +303,7 @@ acc
       </ui:ForEach.Body>
       <ui:ForEach.Values>
         <InArgument x:TypeArguments="sc:IEnumerable">
-          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_498">Editor.Variables</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="Editor.Variables" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_498" />
         </InArgument>
       </ui:ForEach.Values>
       <sap:WorkflowViewStateService.ViewState>
@@ -324,15 +313,15 @@ acc
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:LogMessage DisplayName="LM: Pre-Expressions" sap:VirtualizedContainerService.HintSize="457,52" sap2010:WorkflowViewState.IdRef="LogMessage_4">
+    <ui:LogMessage DisplayName="LM: Pre-Expressions" sap:VirtualizedContainerService.HintSize="499,52" sap2010:WorkflowViewState.IdRef="LogMessage_4">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_512">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_512" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_513">string.Format("Updating {0} expressions", Editor.Expressions.Count())</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Updating {0} expressions&quot;, Editor.Expressions.Count())" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_513" />
         </InArgument>
       </ui:LogMessage.Message>
       <sap:WorkflowViewStateService.ViewState>
@@ -342,7 +331,7 @@ acc
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:ForEach x:TypeArguments="luw:Expression" CurrentIndex="{x:Null}" DisplayName="Update Expressions" sap:VirtualizedContainerService.HintSize="457,52" sap2010:WorkflowViewState.IdRef="ForEach`1_26">
+    <ui:ForEach x:TypeArguments="luw:Expression" CurrentIndex="{x:Null}" DisplayName="Update Expressions" sap:VirtualizedContainerService.HintSize="499,52" sap2010:WorkflowViewState.IdRef="ForEach`1_26">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="luw:Expression">
           <ActivityAction.Argument>
@@ -354,12 +343,12 @@ acc
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_101">
                   <ui:AssignOperation.To>
                     <OutArgument x:TypeArguments="x:String">
-                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_192">Expression.Value</CSharpReference>
+                      <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Expression.Value" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_192" />
                     </OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
                     <InArgument x:TypeArguments="x:String">
-                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_503">UpdateFunction.Invoke(Expression.Value)</CSharpValue>
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="UpdateFunction.Invoke(Expression.Value)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_503" />
                     </InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
@@ -370,7 +359,7 @@ acc
       </ui:ForEach.Body>
       <ui:ForEach.Values>
         <InArgument x:TypeArguments="sc:IEnumerable">
-          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_501">Editor.Expressions</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="Editor.Expressions" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_501" />
         </InArgument>
       </ui:ForEach.Values>
       <sap:WorkflowViewStateService.ViewState>
@@ -380,7 +369,7 @@ acc
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:ForEach x:TypeArguments="sxl:XAttribute" CurrentIndex="{x:Null}" DisplayName="Update Invoke Workflow Paths" sap:VirtualizedContainerService.HintSize="457,287" sap2010:WorkflowViewState.IdRef="ForEach`1_27">
+    <ui:ForEach x:TypeArguments="sxl:XAttribute" CurrentIndex="{x:Null}" DisplayName="Update Invoke Workflow Paths" sap:VirtualizedContainerService.HintSize="499,287" sap2010:WorkflowViewState.IdRef="ForEach`1_27">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="sxl:XAttribute">
           <ActivityAction.Argument>
@@ -392,12 +381,12 @@ acc
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_104">
                   <ui:AssignOperation.To>
                     <OutArgument x:TypeArguments="x:String">
-                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_195">IWElement.Value</CSharpReference>
+                      <VisualBasicReference x:TypeArguments="x:String" ExpressionText="IWElement.Value" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_195" />
                     </OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
                     <InArgument x:TypeArguments="x:String">
-                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_524">UpdateFunction.Invoke(IWElement.Value)</CSharpValue>
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="UpdateFunction.Invoke(IWElement.Value)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_524" />
                     </InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
@@ -408,29 +397,29 @@ acc
       </ui:ForEach.Body>
       <ui:ForEach.Values>
         <InArgument x:TypeArguments="sc:IEnumerable">
-          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_523">InvokeWorkflowElements</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="InvokeWorkflowElements" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_523" />
         </InArgument>
       </ui:ForEach.Values>
     </ui:ForEach>
-    <InvokeMethod DisplayName="Save File" sap:VirtualizedContainerService.HintSize="457,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Save">
+    <InvokeMethod DisplayName="Save File" sap:VirtualizedContainerService.HintSize="499,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Save">
       <InvokeMethod.TargetObject>
         <InArgument x:TypeArguments="luw:WFEditor">
-          <CSharpValue x:TypeArguments="luw:WFEditor" sap2010:WorkflowViewState.IdRef="CSharpValue`1_504">Editor</CSharpValue>
+          <VisualBasicValue x:TypeArguments="luw:WFEditor" ExpressionText="Editor" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_504" />
         </InArgument>
       </InvokeMethod.TargetObject>
       <InArgument x:TypeArguments="x:String">
-        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_505">in_WorkflowFile</CSharpValue>
+        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_WorkflowFile" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_505" />
       </InArgument>
     </InvokeMethod>
-    <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="457,141" sap2010:WorkflowViewState.IdRef="LogMessage_5">
+    <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="499,141" sap2010:WorkflowViewState.IdRef="LogMessage_5">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_514">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_514" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_515">"Workflow file updated"</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Workflow file updated&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_515" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

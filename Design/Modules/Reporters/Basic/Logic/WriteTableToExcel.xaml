@@ -13,7 +13,7 @@
   <this:WriteTableToExcel.in_dt_Table>
     <InArgument x:TypeArguments="sd:DataTable" />
   </this:WriteTableToExcel.in_dt_Table>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
   <sap:VirtualizedContainerService.HintSize>1632,1128</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -45,6 +45,7 @@
       <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
@@ -99,12 +100,12 @@
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="518,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_5" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">string.Format("Writing {0} rows to file '{1}' in sheet {2}", new string[] {in_dt_Table.RowCount().ToString(), in_Path, in_SheetName})</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Writing {0} rows to file '{1}' in sheet {2}&quot;, new string() {in_dt_Table.RowCount().ToString(), in_Path, in_SheetName})" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_4" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
@@ -129,12 +130,12 @@
                   <ueab:WriteRangeX DisplayName="Write Table" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="False">
                     <ueab:WriteRangeX.Destination>
                       <InArgument x:TypeArguments="ue:IReadWriteRangeRef">
-                        <CSharpValue x:TypeArguments="ue:IReadWriteRangeRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">Excel.Sheet[in_SheetName]</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="ue:IReadWriteRangeRef" ExpressionText="Excel.Sheet(in_SheetName)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_8" />
                       </InArgument>
                     </ueab:WriteRangeX.Destination>
                     <ueab:WriteRangeX.Source>
                       <InArgument x:TypeArguments="sd:DataTable">
-                        <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">in_dt_Table</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dt_Table" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_9" />
                       </InArgument>
                     </ueab:WriteRangeX.Source>
                     <sap:WorkflowViewStateService.ViewState>
@@ -149,7 +150,7 @@
             </ueab:ExcelApplicationCard.Body>
             <ueab:ExcelApplicationCard.WorkbookPath>
               <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">in_Path</CSharpValue>
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Path" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
               </InArgument>
             </ueab:ExcelApplicationCard.WorkbookPath>
           </ueab:ExcelApplicationCard>
@@ -159,12 +160,12 @@
     <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="518,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_7" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">"Completed writing to excel"</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Completed writing to excel&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_6" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

@@ -4,10 +4,10 @@
   </x:Members>
   <this:KillProcesses.in_ProcessesToKill>
     <InArgument x:TypeArguments="s:String[]">
-      <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">new string[]{}</CSharpValue>
+      <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="new string(){}" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_6" />
     </InArgument>
   </this:KillProcesses.in_ProcessesToKill>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
   <sap:VirtualizedContainerService.HintSize>997,888</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -37,6 +37,7 @@
       <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
@@ -82,12 +83,12 @@
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">string.Format("Killing {0} processes", in_ProcessesToKill.Length)</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Killing {0} processes&quot;, in_ProcessesToKill.Length)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
@@ -100,12 +101,12 @@
           <ui:KillProcess Process="{x:Null}" ContinueOnError="True" DisplayName="Kill Current Process" sap:VirtualizedContainerService.HintSize="334,133" sap2010:WorkflowViewState.IdRef="KillProcess_1">
             <ui:KillProcess.AppliesTo>
               <InArgument x:TypeArguments="ui:KillProcessApplyOn">
-                <CSharpValue x:TypeArguments="ui:KillProcessApplyOn" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">KillProcessApplyOn.OnlyCurrentSession</CSharpValue>
+                <VisualBasicValue x:TypeArguments="ui:KillProcessApplyOn" ExpressionText="KillProcessApplyOn.OnlyCurrentSession" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_7" />
               </InArgument>
             </ui:KillProcess.AppliesTo>
             <ui:KillProcess.ProcessName>
               <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">CurrentProcess</CSharpValue>
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="CurrentProcess" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_4" />
               </InArgument>
             </ui:KillProcess.ProcessName>
           </ui:KillProcess>
@@ -113,14 +114,14 @@
       </ui:ForEach.Body>
       <ui:ForEach.Values>
         <InArgument x:TypeArguments="sc:IEnumerable">
-          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">in_ProcessesToKill</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="in_ProcessesToKill" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
         </InArgument>
       </ui:ForEach.Values>
     </ui:ForEach>
     <ui:LogMessage DisplayName="LM: End" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">"Killed all processes"</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Killed all processes&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_5" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

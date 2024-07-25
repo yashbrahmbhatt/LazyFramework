@@ -4,8 +4,8 @@
     <x:Property sap2010:Annotation.AnnotationText="The folder that houses the queue to get the id for." Name="in_QueueFolder" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="The id retrieved." Name="out_Id" Type="OutArgument(x:Int32)" />
   </x:Members>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1632,986</sap:VirtualizedContainerService.HintSize>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>986,1206</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -26,6 +26,10 @@
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -79,9 +83,11 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Gets the queue definition based on the queue folder and name." DisplayName="GetQueueDefinitionId" sap:VirtualizedContainerService.HintSize="485,921" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Gets the queue definition based on the queue folder and name." DisplayName="GetQueueDefinitionId" sap:VirtualizedContainerService.HintSize="485,1141" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="Status" />
       <Variable x:TypeArguments="x:String" Name="Response" />
@@ -102,34 +108,32 @@
       </ui:OrchestratorHttpRequest.JSONPayload>
       <ui:OrchestratorHttpRequest.Result>
         <OutArgument x:TypeArguments="x:String">
-          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">Response</CSharpReference>
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Response" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_2" />
         </OutArgument>
       </ui:OrchestratorHttpRequest.Result>
       <ui:OrchestratorHttpRequest.StatusCode>
         <OutArgument x:TypeArguments="x:Int32">
-          <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">Status</CSharpReference>
+          <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="Status" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
         </OutArgument>
       </ui:OrchestratorHttpRequest.StatusCode>
     </ui:OrchestratorHttpRequest>
-    <If DisplayName="Status Not 2xx?" sap:VirtualizedContainerService.HintSize="423,52" sap2010:WorkflowViewState.IdRef="If_1">
-      <If.Condition>
-        <InArgument x:TypeArguments="x:Boolean">
-          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">!(Status &lt; 300 &amp;&amp; Status &gt;= 200)</CSharpValue>
-        </InArgument>
-      </If.Condition>
+    <If Condition="[NOt (Status &lt; 300 AndAlso Status &gt;= 200)]" DisplayName="Status Not 2xx?" sap:VirtualizedContainerService.HintSize="368,272" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
         <Throw DisplayName="Throw Orchestrator Invalid Status" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1">
           <InArgument x:TypeArguments="s:Exception">
-            <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">new Exception(string.Format("API call to orchestrator returned an invalid status. Status: {0}. Response: {1}", new string[]{Status.ToString(), Response}))</CSharpValue>
+            <VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="new Exception(string.Format(&quot;API call to orchestrator returned an invalid status. Status: {0}. Response: {1}&quot;, new string(){Status.ToString(), Response}))" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
           </InArgument>
         </Throw>
       </If.Then>
+      <If.Else>
+        <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_2" />
+      </If.Else>
     </If>
     <ui:MultipleAssign DisplayName="Parse Response" sap:VirtualizedContainerService.HintSize="423,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
@@ -137,25 +141,21 @@
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="njl:JObject">
-                <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">JObj</CSharpReference>
+                <VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="JObj" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_4" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="njl:JObject">
-                <CSharpValue x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">JsonConvert.DeserializeObject&lt;Newtonsoft.Json.Linq.JObject&gt;(Response)</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="njl:JObject">[JsonConvert.DeserializeObject(Of Newtonsoft.Json.Linq.JObject)(Response)]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="scg:IEnumerable(njl:JToken)">
-                <CSharpReference x:TypeArguments="scg:IEnumerable(njl:JToken)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">Ids</CSharpReference>
+                <VisualBasicReference x:TypeArguments="scg:IEnumerable(njl:JToken)" ExpressionText="Ids" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_5" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="scg:IEnumerable(njl:JToken)">
-                <CSharpValue x:TypeArguments="scg:IEnumerable(njl:JToken)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">JObj["value"].Where(q =&gt; q["Name"].ToString() == in_QueueName &amp;&amp; q["OrganizationUnitFullyQualifiedName"].ToString() == in_QueueFolder).Select(q =&gt; q["Id"])</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="scg:IEnumerable(njl:JToken)">[JObj("value").Where(Function(q) q("Name").ToString() = in_QueueName AndAlso q("OrganizationUnitFullyQualifiedName").ToString() = in_QueueFolder).Select(Function(q) q("Id"))]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -164,7 +164,7 @@
     <If DisplayName="Validate ID Count" sap:VirtualizedContainerService.HintSize="423,52" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
-          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">Ids.Count() &gt; 0</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Ids.Count() &gt; 0" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_7" />
         </InArgument>
       </If.Condition>
       <sap:WorkflowViewStateService.ViewState>
@@ -180,12 +180,12 @@
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
                 <ui:AssignOperation.To>
                   <OutArgument x:TypeArguments="x:Int32">
-                    <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">out_Id</CSharpReference>
+                    <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="out_Id" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_6" />
                   </OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
                   <InArgument x:TypeArguments="x:Int32">
-                    <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">Convert.ToInt32(Ids.First().ToString())</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Convert.ToInt32(Ids.First().ToString())" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_6" />
                   </InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
@@ -196,7 +196,7 @@
       <If.Else>
         <Throw DisplayName="Throw CouldNotFind" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_2">
           <InArgument x:TypeArguments="s:Exception">
-            <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">new Exception(string.Format("Could not find a queue with the name '{0}' within the folder '{1}'", new string[] {in_QueueName, in_QueueFolder}))</CSharpValue>
+            <VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="new Exception(string.Format(&quot;Could not find a queue with the name '{0}' within the folder '{1}'&quot;, new string() {in_QueueName, in_QueueFolder}))" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_8" />
           </InArgument>
         </Throw>
       </If.Else>
@@ -204,7 +204,7 @@
     <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="423,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">string.Format("Found queue definition id {0}", new string[]{out_Id.ToString()})</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Found queue definition id {0}&quot;, new string(){out_Id.ToString()})" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_10" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

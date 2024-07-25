@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="AddCalculatedColumnsSuccess" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1632,2534" sap2010:WorkflowViewState.IdRef="AddCalculatedColumnsSuccess_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="AddCalculatedColumnsSuccess" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="VB" sap:VirtualizedContainerService.HintSize="986,2534" sap2010:WorkflowViewState.IdRef="AddCalculatedColumnsSuccess_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System</x:String>
@@ -17,6 +17,10 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.Testing.Activities</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -30,6 +34,7 @@
       <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
@@ -77,6 +82,8 @@
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="A basic template for a test with the expected outcome being success." DisplayName="AddCalculatedColumnsSuccess" sap:VirtualizedContainerService.HintSize="646,2469" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -84,7 +91,7 @@
       <Variable x:TypeArguments="x:TimeSpan" Default="00:05:00" Name="Duration" />
       <Variable x:TypeArguments="s:Exception" Name="TestException">
         <Variable.Default>
-          <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">null</CSharpValue>
+          <VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="Nothing" />
         </Variable.Default>
       </Variable>
       <Variable x:TypeArguments="x:String" Default="AddCalculatedColumnsSuccess" Name="TestID" />
@@ -98,12 +105,12 @@
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="584,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_11" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">string.Format("Starting test '{0}'", TestID)</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Starting test '{0}'&quot;, TestID)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_12" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
@@ -131,7 +138,7 @@
               <ui:BuildDataTable DisplayName="Build Queue Table" sap:VirtualizedContainerService.HintSize="423,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;StartProcessing&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;EndProcessing&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ProcessingException.Type&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;StartProcessing&gt;2000/1/1 00:00:00&lt;/StartProcessing&gt;&#xA;    &lt;EndProcessing&gt;2000/1/1 00:01:00&lt;/EndProcessing&gt;&#xA;    &lt;Status&gt;Successful&lt;/Status&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;StartProcessing&gt;2000/1/1 00:00:00&lt;/StartProcessing&gt;&#xA;    &lt;EndProcessing&gt;2000/1/1 00:01:00&lt;/EndProcessing&gt;&#xA;    &lt;ProcessingException.Type&gt;ApplicationException&lt;/ProcessingException.Type&gt;&#xA;    &lt;Status&gt;Failed&lt;/Status&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;StartProcessing&gt;2000/1/1 00:00:00&lt;/StartProcessing&gt;&#xA;    &lt;EndProcessing&gt;2000/1/1 00:01:00&lt;/EndProcessing&gt;&#xA;    &lt;ProcessingException.Type&gt;BusinessException&lt;/ProcessingException.Type&gt;&#xA;    &lt;Status&gt;Failed&lt;/Status&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;">
                 <ui:BuildDataTable.DataTable>
                   <OutArgument x:TypeArguments="sd:DataTable">
-                    <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">dt_Table</CSharpReference>
+                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_Table" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_2" />
                   </OutArgument>
                 </ui:BuildDataTable.DataTable>
               </ui:BuildDataTable>
@@ -141,7 +148,7 @@
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
                       <ui:AssignOperation.To>
                         <OutArgument x:TypeArguments="x:Double">
-                          <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">SuccessTimeSaved</CSharpReference>
+                          <VisualBasicReference x:TypeArguments="x:Double" ExpressionText="SuccessTimeSaved" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_4" />
                         </OutArgument>
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
@@ -151,7 +158,7 @@
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
                       <ui:AssignOperation.To>
                         <OutArgument x:TypeArguments="x:Double">
-                          <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">SysExTimeSaved</CSharpReference>
+                          <VisualBasicReference x:TypeArguments="x:Double" ExpressionText="SysExTimeSaved" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_5" />
                         </OutArgument>
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
@@ -161,7 +168,7 @@
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
                       <ui:AssignOperation.To>
                         <OutArgument x:TypeArguments="x:Double">
-                          <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">BusExTimeSaved</CSharpReference>
+                          <VisualBasicReference x:TypeArguments="x:Double" ExpressionText="BusExTimeSaved" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_6" />
                         </OutArgument>
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
@@ -175,12 +182,12 @@
             <ui:LogMessage DisplayName="LM: Initialization Complete" sap:VirtualizedContainerService.HintSize="488,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
               <ui:LogMessage.Level>
                 <InArgument x:TypeArguments="ui:LogLevel">
-                  <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_13" />
                 </InArgument>
               </ui:LogMessage.Level>
               <ui:LogMessage.Message>
                 <InArgument x:TypeArguments="x:Object">
-                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">"Initialization complete"</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Initialization complete&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_14" />
                 </InArgument>
               </ui:LogMessage.Message>
             </ui:LogMessage>
@@ -198,19 +205,19 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Design\\Modules\\Reporters\\Basic\\Logic\\AddCalculatedColumns.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Design\\Templates\\Reporters\\Basic\\Logic\\AddCalculatedColumns.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AddCalculatedColumns.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Design\Modules\Reporters\Basic\Logic\AddCalculatedColumns.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:Double" x:Key="in_SuccessTimeSaved">
-                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">SuccessTimeSaved</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="SuccessTimeSaved" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_21" />
                       </InArgument>
                       <InArgument x:TypeArguments="x:Double" x:Key="in_BusExTimeSaved">
-                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">BusExTimeSaved</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="BusExTimeSaved" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_22" />
                       </InArgument>
                       <InArgument x:TypeArguments="x:Double" x:Key="in_SysExTimeSaved">
-                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">SysExTimeSaved</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="SysExTimeSaved" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_23" />
                       </InArgument>
                       <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_Table">
-                        <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">dt_Table</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_Table" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_3" />
                       </InOutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
@@ -234,12 +241,12 @@
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
                             <ui:AssignOperation.To>
                               <OutArgument x:TypeArguments="s:Exception">
-                                <CSharpReference x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">TestException</CSharpReference>
+                                <VisualBasicReference x:TypeArguments="s:Exception" ExpressionText="TestException" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
                               </OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="s:Exception">
-                                <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">exception</CSharpValue>
+                                <VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="exception" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_9" />
                               </InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
@@ -253,12 +260,12 @@
             <ui:LogMessage DisplayName="LM: Test Executed" sap:VirtualizedContainerService.HintSize="488,141" sap2010:WorkflowViewState.IdRef="LogMessage_3">
               <ui:LogMessage.Level>
                 <InArgument x:TypeArguments="ui:LogLevel">
-                  <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_15" />
                 </InArgument>
               </ui:LogMessage.Level>
               <ui:LogMessage.Message>
                 <InArgument x:TypeArguments="x:Object">
-                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">"Test executed. Validating results"</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Test executed. Validating results&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_16" />
                 </InArgument>
               </ui:LogMessage.Message>
             </ui:LogMessage>
@@ -268,47 +275,21 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify TextException" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_5" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
-                <uta:VerifyExpression.Expression>
-                  <InArgument x:TypeArguments="x:Boolean">
-                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">TestException == null</CSharpValue>
-                  </InArgument>
-                </uta:VerifyExpression.Expression>
-              </uta:VerifyExpression>
-              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify ExecutionTime Values" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_6" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
-                <uta:VerifyExpression.Expression>
-                  <InArgument x:TypeArguments="x:Boolean">
-                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">dt_Table.Select("[ExecutionTime] = 60").Count() == 3</CSharpValue>
-                  </InArgument>
-                </uta:VerifyExpression.Expression>
-              </uta:VerifyExpression>
-              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify TImeSaved Values" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_7" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
-                <uta:VerifyExpression.Expression>
-                  <InArgument x:TypeArguments="x:Boolean">
-                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26" xml:space="preserve">dt_Table.AsEnumerable().Where(r =&gt; 
-r["Status"].ToString() == "Successful" ? 
-	Convert.ToDouble(r["TimeSaved"].ToString()) == SuccessTimeSaved : 
-	r["Status"].ToString() == "Failed" ? 
-		r["ProcessingException.Type"].ToString() == "ApplicationException" ?
-			Convert.ToDouble(r["TimeSaved"].ToString()) == SysExTimeSaved : 
-			Convert.ToDouble(r["TimeSaved"].ToString()) == BusExTimeSaved :
-false
-).Count() == 3</CSharpValue>
-                  </InArgument>
-                </uta:VerifyExpression.Expression>
-              </uta:VerifyExpression>
+              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify TextException" Expression="[TestException Is Nothing]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_5" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False" />
+              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify ExecutionTime Values" Expression="[dt_Table.Select(&quot;(ExecutionTime) = 60&quot;).Count() = 3]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_6" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False" />
+              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify TImeSaved Values" Expression="[dt_Table.AsEnumerable().Where(Function(r) _&#xD;&#xA;    If(r(&quot;Status&quot;).ToString() = &quot;Successful&quot;, &#xD;&#xA;       Convert.ToDouble(r(&quot;TimeSaved&quot;).ToString()) = SuccessTimeSaved, &#xD;&#xA;       If(r(&quot;Status&quot;).ToString() = &quot;Failed&quot;, &#xD;&#xA;          If(r(&quot;ProcessingException.Type&quot;).ToString() = &quot;ApplicationException&quot;, &#xD;&#xA;             Convert.ToDouble(r(&quot;TimeSaved&quot;).ToString()) = SysExTimeSaved, &#xD;&#xA;             Convert.ToDouble(r(&quot;TimeSaved&quot;).ToString()) = BusExTimeSaved), &#xD;&#xA;          False)&#xD;&#xA;    )&#xD;&#xA;).Count() = 3]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_7" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False" />
             </Sequence>
           </Sequence>
         </ActivityAction>
       </ui:TimeoutScope.Body>
       <ui:TimeoutScope.ThrowExceptionAfter>
         <InArgument x:TypeArguments="x:TimeSpan">
-          <CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">Duration</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="Duration" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_6" />
         </InArgument>
       </ui:TimeoutScope.ThrowExceptionAfter>
       <ui:TimeoutScope.TimeoutMessage>
         <InArgument x:TypeArguments="x:String">
-          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">String.Format("Set timeout {0:hh\\:mm\\:ss} exceeded", Duration)</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="String.Format(&quot;Set timeout {0:hh\\:mm\\:ss} exceeded&quot;, Duration)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_8" />
         </InArgument>
       </ui:TimeoutScope.TimeoutMessage>
       <sap:WorkflowViewStateService.ViewState>
@@ -321,12 +302,12 @@ false
     <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="584,141" sap2010:WorkflowViewState.IdRef="LogMessage_4">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_18" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">"Test case completed"</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Test case completed&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_19" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

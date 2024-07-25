@@ -13,11 +13,11 @@
   </x:Members>
   <this:ParseProjectJSON.in_ProjectJSONPath>
     <InArgument x:TypeArguments="x:String">
-      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">Path.Combine(Directory.GetCurrentDirectory(), "project.json")</CSharpValue>
+      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(Directory.GetCurrentDirectory(), &quot;project.json&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_34" />
     </InArgument>
   </this:ParseProjectJSON.in_ProjectJSONPath>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>997,1461</sap:VirtualizedContainerService.HintSize>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>986,1461</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -117,19 +117,19 @@
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="423,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_31" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">"Parsing project.json"</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Parsing project.json&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_32" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
     <ui:BuildDataTable DisplayName="Build Dependencies Table" sap:VirtualizedContainerService.HintSize="423,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Version&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
       <ui:BuildDataTable.DataTable>
         <OutArgument x:TypeArguments="sd:DataTable">
-          <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">out_dt_Dependencies</CSharpReference>
+          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt_Dependencies" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_7" />
         </OutArgument>
       </ui:BuildDataTable.DataTable>
     </ui:BuildDataTable>
@@ -139,125 +139,107 @@
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="njl:JObject">
-                <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">JObj</CSharpReference>
+                <VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="JObj" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="njl:JObject">
-                <CSharpValue x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">JObject.Parse(File.ReadAllText(in_ProjectJSONPath))</CSharpValue>
+                <VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="JObject.Parse(File.ReadAllText(in_ProjectJSONPath))" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_4" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">out_Name</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_Name" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_2" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">JObj["name"].Value&lt;string&gt;()</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="x:String">[JObj("name").Value(Of string)()]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">out_Description</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_Description" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_3" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">JObj["description"].Value&lt;string&gt;()</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="x:String">[JObj("description").Value(Of string)()]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="scg:IEnumerable(s:Object[])">
-                <CSharpReference x:TypeArguments="scg:IEnumerable(s:Object[])" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">DependencyArrays</CSharpReference>
+                <VisualBasicReference x:TypeArguments="scg:IEnumerable(s:Object[])" ExpressionText="DependencyArrays" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_8" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="scg:IEnumerable(s:Object[])">
-                <CSharpValue x:TypeArguments="scg:IEnumerable(s:Object[])" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12" xml:space="preserve">JObj["dependencies"].Children&lt;JProperty&gt;()
-.Select(c =&gt; new object[]{ 
-	c.Name, 
-	c.Value.ToString().Trim(new char[]{'[', ']'})
-})</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="scg:IEnumerable(s:Object[])" xml:space="preserve">[JObj("dependencies").Children(Of JProperty)() _
+.Select(Function(c) New Object(){  _
+	c.Name,  _
+	c.Value.ToString().Trim(New Char(){"("c, ")"c}) _
+})]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">out_Type</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_Type" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_9" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">JObj["designOptions"].Value&lt;string&gt;("outputType")</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="x:String">[JObj("designOptions").Value(Of string)("outputType")]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="sd:DataTable">
-                <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">out_dt_FileInfoCollection</CSharpReference>
+                <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt_FileInfoCollection" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_11" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="sd:DataTable">
-                <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">JsonConvert.DeserializeObject&lt;DataTable&gt;(JsonConvert.SerializeObject(JObj["designOptions"]["fileInfoCollection"]))</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="sd:DataTable">[JsonConvert.DeserializeObject(Of DataTable)(JsonConvert.SerializeObject(JObj("designOptions")("fileInfoCollection")))]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">
-                <CSharpReference x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">out_EntryPoints</CSharpReference>
+                <VisualBasicReference x:TypeArguments="scg:IEnumerable(x:String)" ExpressionText="out_EntryPoints" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_16" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="scg:IEnumerable(x:String)">
-                <CSharpValue x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">JObj["entryPoints"].Children&lt;JObject&gt;().Select(c =&gt; Path.Combine(Directory.GetCurrentDirectory(), c.Value&lt;string&gt;("filePath")))</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="scg:IEnumerable(x:String)">[JObj("entryPoints").Children(Of JObject)().Select(Function(c) Path.Combine(Directory.GetCurrentDirectory(), c.Value(Of string)("filePath")))]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">out_Language</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_Language" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_13" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">JObj["expressionLanguage"].Value&lt;string&gt;()</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="x:String">[JObj("expressionLanguage").Value(Of string)()]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">out_ProjectVersion</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_ProjectVersion" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_14" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">JObj["projectVersion"].Value&lt;string&gt;()</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="x:String">[JObj("projectVersion").Value(Of string)()]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">out_StudioVersion</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_StudioVersion" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_15" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">JObj["studioVersion"].Value&lt;string&gt;()</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="x:String">[JObj("studioVersion").Value(Of string)()]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -272,12 +254,12 @@
           <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Row" sap:VirtualizedContainerService.HintSize="334,186" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
             <ui:AddDataRow.ArrayRow>
               <InArgument x:TypeArguments="s:Object[]">
-                <CSharpValue x:TypeArguments="s:Object[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">Array</CSharpValue>
+                <VisualBasicValue x:TypeArguments="s:Object[]" ExpressionText="Array" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_15" />
               </InArgument>
             </ui:AddDataRow.ArrayRow>
             <ui:AddDataRow.DataTable>
               <InOutArgument x:TypeArguments="sd:DataTable">
-                <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">out_dt_Dependencies</CSharpReference>
+                <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt_Dependencies" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_10" />
               </InOutArgument>
             </ui:AddDataRow.DataTable>
           </ui:AddDataRow>
@@ -285,14 +267,14 @@
       </ui:ForEach.Body>
       <ui:ForEach.Values>
         <InArgument x:TypeArguments="sc:IEnumerable">
-          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">DependencyArrays</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="DependencyArrays" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_14" />
         </InArgument>
       </ui:ForEach.Values>
     </ui:ForEach>
     <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="423,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">"Finished parsing project.json"</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Finished parsing project.json&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_33" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

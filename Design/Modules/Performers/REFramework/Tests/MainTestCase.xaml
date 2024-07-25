@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="MainTestCase" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="846.4,1284" sap2010:WorkflowViewState.IdRef="MainTestCase_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="MainTestCase" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="VB" sap:VirtualizedContainerService.HintSize="846.4,1284" sap2010:WorkflowViewState.IdRef="MainTestCase_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>Microsoft.VisualBasic</x:String>
@@ -45,6 +45,7 @@
       <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
@@ -88,7 +89,7 @@
     <ui:LogMessage DisplayName="Log Message - MainTestCase" sap:VirtualizedContainerService.HintSize="596,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"MainTestCase started."</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;MainTestCase started.&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
@@ -125,7 +126,7 @@
       <ui:ReadRange AddHeaders="True" DisplayName="Read Resulted Data" sap:VirtualizedContainerService.HintSize="533.6,97.6" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Tests">
         <ui:ReadRange.DataTable>
           <OutArgument x:TypeArguments="sd:DataTable">
-            <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">dt_ResultsData</CSharpReference>
+            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_ResultsData" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_3" />
           </OutArgument>
         </ui:ReadRange.DataTable>
         <ui:ReadRange.Range>
@@ -135,14 +136,14 @@
         </ui:ReadRange.Range>
         <ui:ReadRange.WorkbookPath>
           <InArgument x:TypeArguments="x:String">
-            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">StatusFileName</CSharpValue>
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="StatusFileName" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_6" />
           </InArgument>
         </ui:ReadRange.WorkbookPath>
       </ui:ReadRange>
       <ui:ReadRange AddHeaders="True" DisplayName="Read Expected Data" sap:VirtualizedContainerService.HintSize="533.6,97.6" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Result">
         <ui:ReadRange.DataTable>
           <OutArgument x:TypeArguments="sd:DataTable">
-            <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">dt_ExpectedData</CSharpReference>
+            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_ExpectedData" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_4" />
           </OutArgument>
         </ui:ReadRange.DataTable>
         <ui:ReadRange.Range>
@@ -152,19 +153,19 @@
         </ui:ReadRange.Range>
         <ui:ReadRange.WorkbookPath>
           <InArgument x:TypeArguments="x:String">
-            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">ExpectedDataFileName</CSharpValue>
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ExpectedDataFileName" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_7" />
           </InArgument>
         </ui:ReadRange.WorkbookPath>
       </ui:ReadRange>
       <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify if result data count matches expected data count" sap:VirtualizedContainerService.HintSize="533.6,72" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_1" Operator="Equality" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
         <uta:VerifyExpressionWithOperator.FirstExpression>
           <InArgument x:TypeArguments="x:Int32">
-            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">dt_ExpectedData.Rows.Count</CSharpValue>
+            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="dt_ExpectedData.Rows.Count" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
           </InArgument>
         </uta:VerifyExpressionWithOperator.FirstExpression>
         <uta:VerifyExpressionWithOperator.SecondExpression>
           <InArgument x:TypeArguments="x:Int32">
-            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">dt_ResultsData.Rows.Count</CSharpValue>
+            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="dt_ResultsData.Rows.Count" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
           </InArgument>
         </uta:VerifyExpressionWithOperator.SecondExpression>
       </uta:VerifyExpressionWithOperator>

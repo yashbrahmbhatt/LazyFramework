@@ -6,7 +6,7 @@
     <x:Property sap2010:Annotation.AnnotationText="Used during transitions between states to represent exceptions other than business exceptions." Name="in_SystemException" Type="InArgument(s:Exception)" />
     <x:Property sap2010:Annotation.AnnotationText="Used to indicate whether the retry procedure is managed by an Orchestrator queue." Name="in_QueueRetry" Type="InArgument(x:Boolean)" />
   </x:Members>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
   <sap:VirtualizedContainerService.HintSize>1162.4,813.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -27,6 +27,7 @@
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
@@ -64,7 +65,7 @@
     </Flowchart.StartNode>
     <FlowDecision x:Name="__ReferenceID10" DisplayName="Retry transaction?" sap:VirtualizedContainerService.HintSize="100,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
       <FlowDecision.Condition>
-        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">Convert.ToInt32(in_Config["MaxRetryNumber"]) &gt; 0</CSharpValue>
+        <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Convert.ToInt32(in_Config(&quot;MaxRetryNumber&quot;)) &gt; 0" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
       </FlowDecision.Condition>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -80,7 +81,7 @@
       <FlowDecision.True>
         <FlowDecision x:Name="__ReferenceID0" DisplayName="Max retries reached?" sap:VirtualizedContainerService.HintSize="115.2,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
           <FlowDecision.Condition>
-            <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">io_RetryNumber &gt;= Convert.ToInt32(in_Config["MaxRetryNumber"])</CSharpValue>
+            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="io_RetryNumber &gt;= Convert.ToInt32(in_Config(&quot;MaxRetryNumber&quot;))" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_8" />
           </FlowDecision.Condition>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -105,12 +106,12 @@
               <ui:LogMessage DisplayName="Log message (Max retries reached)" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="LogMessage_1">
                 <ui:LogMessage.Level>
                   <InArgument x:TypeArguments="ui:LogLevel">
-                    <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">LogLevel.Error</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="LogLevel.Error" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_9" />
                   </InArgument>
                 </ui:LogMessage.Level>
                 <ui:LogMessage.Message>
                   <InArgument x:TypeArguments="x:Object">
-                    <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">in_Config["LogMessage_ApplicationException"].ToString()+" Max number of retries reached. "+in_SystemException.Message+" at Source: "+in_SystemException.Source</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="in_Config(&quot;LogMessage_ApplicationException&quot;).ToString()+&quot; Max number of retries reached. &quot;+in_SystemException.Message+&quot; at Source: &quot;+in_SystemException.Source" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_10" />
                   </InArgument>
                 </ui:LogMessage.Message>
                 <sap:WorkflowViewStateService.ViewState>
@@ -132,7 +133,7 @@
                   <Assign DisplayName="Reset retry counter" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Int32">
-                        <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">io_RetryNumber</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_RetryNumber" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_2" />
                       </OutArgument>
                     </Assign.To>
                     <Assign.Value>
@@ -151,12 +152,12 @@
                       <Assign DisplayName="Increment TransactionNumber (Local retry)" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Int32">
-                            <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">io_TransactionNumber</CSharpReference>
+                            <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_TransactionNumber" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_3" />
                           </OutArgument>
                         </Assign.To>
                         <Assign.Value>
                           <InArgument x:TypeArguments="x:Int32">
-                            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">io_TransactionNumber+1</CSharpValue>
+                            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="io_TransactionNumber+1" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_14" />
                           </InArgument>
                         </Assign.Value>
                       </Assign>
@@ -178,19 +179,19 @@
               <ui:LogMessage DisplayName="Log message (Retry)" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="LogMessage_2">
                 <ui:LogMessage.Level>
                   <InArgument x:TypeArguments="ui:LogLevel">
-                    <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">LogLevel.Warn</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="LogLevel.Warn" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_11" />
                   </InArgument>
                 </ui:LogMessage.Level>
                 <ui:LogMessage.Message>
                   <InArgument x:TypeArguments="x:Object">
-                    <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">in_Config["LogMessage_ApplicationException"].ToString()+" Retry: "+io_RetryNumber.ToString()+". "+in_SystemException.Message+" at Source: "+in_SystemException.Source</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="in_Config(&quot;LogMessage_ApplicationException&quot;).ToString()+&quot; Retry: &quot;+io_RetryNumber.ToString()+&quot;. &quot;+in_SystemException.Message+&quot; at Source: &quot;+in_SystemException.Source" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_12" />
                   </InArgument>
                 </ui:LogMessage.Message>
               </ui:LogMessage>
               <FlowStep.Next>
                 <FlowDecision x:Name="__ReferenceID7" DisplayName="Use Orchestrator's retry?" sap:VirtualizedContainerService.HintSize="136,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                   <FlowDecision.Condition>
-                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">in_QueueRetry</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_QueueRetry" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_13" />
                   </FlowDecision.Condition>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -215,12 +216,12 @@
                       <Assign DisplayName="Increment TransactionNumber (Orchestrator retry)" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_3">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Int32">
-                            <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">io_TransactionNumber</CSharpReference>
+                            <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_TransactionNumber" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_4" />
                           </OutArgument>
                         </Assign.To>
                         <Assign.Value>
                           <InArgument x:TypeArguments="x:Int32">
-                            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">io_TransactionNumber+1</CSharpValue>
+                            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="io_TransactionNumber+1" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_15" />
                           </InArgument>
                         </Assign.Value>
                       </Assign>
@@ -237,12 +238,12 @@
                       <Assign DisplayName="Increment retry counter" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_4">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Int32">
-                            <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">io_RetryNumber</CSharpReference>
+                            <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_RetryNumber" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_5" />
                           </OutArgument>
                         </Assign.To>
                         <Assign.Value>
                           <InArgument x:TypeArguments="x:Int32">
-                            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">io_RetryNumber+1</CSharpValue>
+                            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="io_RetryNumber+1" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_16" />
                           </InArgument>
                         </Assign.Value>
                       </Assign>
@@ -266,12 +267,12 @@
           <ui:LogMessage DisplayName="Log message (No retry)" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="LogMessage_3">
             <ui:LogMessage.Level>
               <InArgument x:TypeArguments="ui:LogLevel">
-                <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">LogLevel.Error</CSharpValue>
+                <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="LogLevel.Error" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
               </InArgument>
             </ui:LogMessage.Level>
             <ui:LogMessage.Message>
               <InArgument x:TypeArguments="x:Object">
-                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">in_Config["LogMessage_ApplicationException"].ToString()+in_SystemException.Message+" at Source: "+in_SystemException.Source</CSharpValue>
+                <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="in_Config(&quot;LogMessage_ApplicationException&quot;).ToString()+in_SystemException.Message+&quot; at Source: &quot;+in_SystemException.Source" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_5" />
               </InArgument>
             </ui:LogMessage.Message>
           </ui:LogMessage>
@@ -287,12 +288,12 @@
               <Assign DisplayName="Increment TransactionNumber (No retry)" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">
-                    <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">io_TransactionNumber</CSharpReference>
+                    <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_TransactionNumber" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
                   </OutArgument>
                 </Assign.To>
                 <Assign.Value>
                   <InArgument x:TypeArguments="x:Int32">
-                    <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">io_TransactionNumber+1</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="io_TransactionNumber+1" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_7" />
                   </InArgument>
                 </Assign.Value>
               </Assign>

@@ -3,7 +3,7 @@
     <x:Property sap2010:Annotation.AnnotationText="The list of JTokens to flatten." Name="in_List" Type="InArgument(scg:List(njl:JToken))" />
     <x:Property sap2010:Annotation.AnnotationText="The flattened object as a DataTable." Name="out_dt_Table" Type="OutArgument(sd:DataTable)" />
   </x:Members>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
   <sap:VirtualizedContainerService.HintSize>997,734</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -87,34 +87,34 @@
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_14">[UiPath.Core.Activities.LogLevel.Info]</VisualBasicValue>
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">"Flattening list into DataTable"</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_13">["Flattening list into DataTable"]</VisualBasicValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="List&lt;Dictionary&lt;string,object&gt;&gt; DictList = in_List.Aggregate(new List&lt;Dictionary&lt;string, object&gt;&gt;(), (List, Item) =&gt; {&#xA;&#x9;Newtonsoft.Json.Linq.JObject JObj = Item.ToObject&lt;Newtonsoft.Json.Linq.JObject&gt;();&#xA;&#x9;IEnumerable&lt;Newtonsoft.Json.Linq.JToken&gt; LeafNodes = JObj.Descendants().Where(t =&gt; !t.HasValues);&#xA;&#x9;Dictionary&lt;string, object&gt; Flattened = LeafNodes.Aggregate(new Dictionary&lt;string, object&gt;(), (Properties, Token) =&gt; {&#xA;&#x9;&#x9;Properties.Add(Token.Path, Token.ToString());&#xA;&#x9;&#x9;return Properties;&#xA;&#x9;});&#xA;&#x9;List.Add(Flattened);&#xA;&#x9;return List;&#xA;});&#xA;out_Table = JsonConvert.DeserializeObject&lt;System.Data.DataTable&gt;(JsonConvert.SerializeObject(DictList));" DisplayName="Flatten List" sap:VirtualizedContainerService.HintSize="388,165" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="List&lt;Dictionary&lt;string,object&gt;&gt; DictList = in_List.Aggregate(new List&lt;Dictionary&lt;string, object&gt;&gt;(), (List, Item) =&gt; {&#xA;&#x9;Newtonsoft.Json.Linq.JObject JObj = Item.ToObject&lt;Newtonsoft.Json.Linq.JObject&gt;();&#xA;&#x9;IEnumerable&lt;Newtonsoft.Json.Linq.JToken&gt; LeafNodes = JObj.Descendants(Function().Where(t) !t.HasValues);&#xA;&#x9;Dictionary&lt;string, object&gt; Flattened = LeafNodes.Aggregate(new Dictionary&lt;string, object&gt;(), (Properties, Token) =&gt; {&#xA;&#x9;&#x9;Properties.Add(Token.Path, Token.ToString());&#xA;&#x9;&#x9;return Properties;&#xA;&#x9;});&#xA;&#x9;List.Add(Flattened);&#xA;&#x9;return List;&#xA;});&#xA;out_Table = JsonConvert.DeserializeObject&lt;System.Data.DataTable&gt;(JsonConvert.SerializeObject(DictList));" DisplayName="Flatten List" sap:VirtualizedContainerService.HintSize="388,165" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="scg:List(njl:JToken)" x:Key="in_List">
-          <CSharpValue x:TypeArguments="scg:List(njl:JToken)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">in_List</CSharpValue>
+          <VisualBasicValue x:TypeArguments="scg:List(njl:JToken)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_12">[in_List]</VisualBasicValue>
         </InArgument>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_Table">
-          <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">out_dt_Table</CSharpReference>
+          <VisualBasicReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_8">[out_dt_Table]</VisualBasicReference>
         </OutArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
     <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_16">[UiPath.Core.Activities.LogLevel.Info]</VisualBasicValue>
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">"Flattened list into DataTable"</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_15">["Flattened list into DataTable"]</VisualBasicValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="BasicDispatcherSuccessTest" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="985,2681" sap2010:WorkflowViewState.IdRef="BasicDispatcherSuccessTest_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="BasicDispatcherSuccessTest" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="VB" sap:VirtualizedContainerService.HintSize="986,2681" sap2010:WorkflowViewState.IdRef="BasicDispatcherSuccessTest_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>GlobalConstantsNamespace</x:String>
@@ -94,12 +94,12 @@
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="581,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_47">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_47" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">string.Format("Starting test '{0}'", TestID)</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Starting test '{0}'&quot;, TestID)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_48" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
@@ -130,24 +130,24 @@
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
                       <ui:AssignOperation.To>
                         <OutArgument x:TypeArguments="x:String">
-                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">ConfigPath</CSharpReference>
+                          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="ConfigPath" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_6" />
                         </OutArgument>
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
                         <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_64">GlobalConstants.ConfigPath_BasicDispatcherTemplate</CSharpValue>
+                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="GlobalConstants.ConfigPath_BasicDispatcherTemplate" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_64" />
                         </InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
                       <ui:AssignOperation.To>
                         <OutArgument x:TypeArguments="s:String[]">
-                          <CSharpReference x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">IgnoreSheets</CSharpReference>
+                          <VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="IgnoreSheets" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_5" />
                         </OutArgument>
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
                         <InArgument x:TypeArguments="s:String[]">
-                          <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">new string[]{}</CSharpValue>
+                          <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="new string(){}" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_35" />
                         </InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
@@ -157,13 +157,13 @@
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Load Test Config" sap:VirtualizedContainerService.HintSize="423,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Shared\\LoadConfig.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_ConfigPath">
-                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55">ConfigPath</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ConfigPath" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_55" />
                   </InArgument>
                   <InArgument x:TypeArguments="s:String[]" x:Key="in_IgnoreSheets">
-                    <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">IgnoreSheets</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="IgnoreSheets" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_11" />
                   </InArgument>
                   <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config">
-                    <CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">Config</CSharpReference>
+                    <VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="Config" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_3" />
                   </OutArgument>
                   <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_TextFiles" />
                   <OutArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataSet)" x:Key="out_ExcelFiles" />
@@ -174,12 +174,12 @@
             <ui:LogMessage DisplayName="LM: Initialization Complete" sap:VirtualizedContainerService.HintSize="485,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
               <ui:LogMessage.Level>
                 <InArgument x:TypeArguments="ui:LogLevel">
-                  <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_49" />
                 </InArgument>
               </ui:LogMessage.Level>
               <ui:LogMessage.Message>
                 <InArgument x:TypeArguments="x:Object">
-                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">"Initialization complete"</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Initialization complete&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_50" />
                 </InArgument>
               </ui:LogMessage.Message>
             </ui:LogMessage>
@@ -194,13 +194,13 @@
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Run BasicDispatcher" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Design\\Modules\\Dispatchers\\Basic\\BasicDispatcher.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="x:String" x:Key="in_ConfigPath">
-                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">ConfigPath</CSharpValue>
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ConfigPath" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_36" />
                     </InArgument>
                     <InArgument x:TypeArguments="s:String[]" x:Key="in_IgnoreSheets">
-                      <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">IgnoreSheets</CSharpValue>
+                      <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="IgnoreSheets" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_37" />
                     </InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_TestID">
-                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_61">TestID</CSharpValue>
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="TestID" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_61" />
                     </InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
@@ -223,12 +223,12 @@
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
                             <ui:AssignOperation.To>
                               <OutArgument x:TypeArguments="s:Exception">
-                                <CSharpReference x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">TestException</CSharpReference>
+                                <VisualBasicReference x:TypeArguments="s:Exception" ExpressionText="TestException" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
                               </OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="s:Exception">
-                                <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">exception</CSharpValue>
+                                <VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="exception" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_9" />
                               </InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
@@ -242,12 +242,12 @@
             <ui:LogMessage DisplayName="LM: Test Executed" sap:VirtualizedContainerService.HintSize="485,141" sap2010:WorkflowViewState.IdRef="LogMessage_3">
               <ui:LogMessage.Level>
                 <InArgument x:TypeArguments="ui:LogLevel">
-                  <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_51" />
                 </InArgument>
               </ui:LogMessage.Level>
               <ui:LogMessage.Message>
                 <InArgument x:TypeArguments="x:Object">
-                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">"Test executed. Validating results"</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Test executed. Validating results&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_52" />
                 </InArgument>
               </ui:LogMessage.Message>
             </ui:LogMessage>
@@ -263,43 +263,37 @@
               <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get New Item" FilterStrategy="Equals" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="GetQueueItems_1" QueueItemStates="New">
                 <ui:GetQueueItems.FolderPath>
                   <InArgument x:TypeArguments="x:String">
-                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40">Config["QueueFolder"]</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;QueueFolder&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_40" />
                   </InArgument>
                 </ui:GetQueueItems.FolderPath>
                 <ui:GetQueueItems.QueueName>
                   <InArgument x:TypeArguments="x:String">
-                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">Config["QueueName"]</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;QueueName&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_39" />
                   </InArgument>
                 </ui:GetQueueItems.QueueName>
                 <ui:GetQueueItems.Result>
                   <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">
-                    <CSharpReference x:TypeArguments="scg:IEnumerable(ui:QueueItem)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">QueueItems</CSharpReference>
+                    <VisualBasicReference x:TypeArguments="scg:IEnumerable(ui:QueueItem)" ExpressionText="QueueItems" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_8" />
                   </OutArgument>
                 </ui:GetQueueItems.Result>
               </ui:GetQueueItems>
               <ui:DeleteQueueItems TimeoutMS="{x:Null}" DisplayName="Delete Added Items" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="DeleteQueueItems_2">
                 <ui:DeleteQueueItems.FolderPath>
                   <InArgument x:TypeArguments="x:String">
-                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_60">Config["QueueFolder"]</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;QueueFolder&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_60" />
                   </InArgument>
                 </ui:DeleteQueueItems.FolderPath>
                 <ui:DeleteQueueItems.QueueItems>
                   <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">
-                    <CSharpValue x:TypeArguments="scg:IEnumerable(ui:QueueItem)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_59">QueueItems</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="scg:IEnumerable(ui:QueueItem)" ExpressionText="QueueItems" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_59" />
                   </InArgument>
                 </ui:DeleteQueueItems.QueueItems>
               </ui:DeleteQueueItems>
-              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify TestException" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_6" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
-                <uta:VerifyExpression.Expression>
-                  <InArgument x:TypeArguments="x:Boolean">
-                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_57">TestException == null</CSharpValue>
-                  </InArgument>
-                </uta:VerifyExpression.Expression>
-              </uta:VerifyExpression>
+              <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify TestException" Expression="[TestException Is Nothing]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_6" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False" />
               <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify QueueItems Count" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="VerifyExpression_7" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
                 <uta:VerifyExpression.Expression>
                   <InArgument x:TypeArguments="x:Boolean">
-                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_58">QueueItems.Count() &gt; 0</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="QueueItems.Count() &gt; 0" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_58" />
                   </InArgument>
                 </uta:VerifyExpression.Expression>
               </uta:VerifyExpression>
@@ -309,12 +303,12 @@
       </ui:TimeoutScope.Body>
       <ui:TimeoutScope.ThrowExceptionAfter>
         <InArgument x:TypeArguments="x:TimeSpan">
-          <CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">Duration</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="Duration" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_6" />
         </InArgument>
       </ui:TimeoutScope.ThrowExceptionAfter>
       <ui:TimeoutScope.TimeoutMessage>
         <InArgument x:TypeArguments="x:String">
-          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">String.Format("Set timeout {0:hh\\:mm\\:ss} exceeded", Duration)</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="String.Format(&quot;Set timeout {0:hh\\:mm\\:ss} exceeded&quot;, Duration)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_8" />
         </InArgument>
       </ui:TimeoutScope.TimeoutMessage>
       <sap:WorkflowViewStateService.ViewState>
@@ -327,12 +321,12 @@
     <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="581,141" sap2010:WorkflowViewState.IdRef="LogMessage_4">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_53">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_53" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">"Test case completed"</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Test case completed&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_54" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

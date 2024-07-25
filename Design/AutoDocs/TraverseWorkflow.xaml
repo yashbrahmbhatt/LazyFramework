@@ -4,8 +4,8 @@
     <x:Property sap2010:Annotation.AnnotationText="The current markdown generated." Name="io_Markdown" Type="InOutArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="The parent element of the current node." Name="io_PreviousActivity" Type="InOutArgument(x:String)" />
   </x:Members>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>997,1847</sap:VirtualizedContainerService.HintSize>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>986,2845</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -27,6 +27,7 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -88,9 +89,11 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Recursive workflow to traverse and document the workflow into mermaid diagrams.&#xA; &#xA;/_\/_\/_\&#xA;WIP&#xA;/_\/_\/_\" DisplayName="TraverseWorkflow" sap:VirtualizedContainerService.HintSize="627,1782" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Recursive workflow to traverse and document the workflow into mermaid diagrams.&#xA; &#xA;/_\/_\/_\&#xA;WIP&#xA;/_\/_\/_\" DisplayName="TraverseWorkflow" sap:VirtualizedContainerService.HintSize="731,2780" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ActivityType" />
       <Variable x:TypeArguments="x:String" Name="ActivityName" />
@@ -104,110 +107,92 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Parse Element" sap:VirtualizedContainerService.HintSize="565,225" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Parse Element" sap:VirtualizedContainerService.HintSize="669,225" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">ActivityType</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="ActivityType" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">in_XElement.Name.LocalName</CSharpValue>
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_XElement.Name.LocalName" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">ActivityName</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="ActivityName" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_2" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">in_XElement.Attributes("DisplayName").Select(a =&gt; a.Value).FirstOrDefault("").Replace(":", " --")</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="x:String">[in_XElement.Attributes("DisplayName").Select(Function(a) a.Value).FirstOrDefault("").Replace(":", " --")]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="scg:IEnumerable(sxl:XElement)">
-                <CSharpReference x:TypeArguments="scg:IEnumerable(sxl:XElement)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">ActivityChildren</CSharpReference>
+                <VisualBasicReference x:TypeArguments="scg:IEnumerable(sxl:XElement)" ExpressionText="ActivityChildren" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_3" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="scg:IEnumerable(sxl:XElement)">
-                <CSharpValue x:TypeArguments="scg:IEnumerable(sxl:XElement)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">in_XElement.Descendants().Where(d =&gt; d.Parent == in_XElement)</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="scg:IEnumerable(sxl:XElement)">[in_XElement.Descendants().Where(Function(d) d.Parent Is in_XElement)]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="scg:IEnumerable(sxl:XElement)">
-                <CSharpReference x:TypeArguments="scg:IEnumerable(sxl:XElement)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">ActivityDisplayDescendants</CSharpReference>
+                <VisualBasicReference x:TypeArguments="scg:IEnumerable(sxl:XElement)" ExpressionText="ActivityDisplayDescendants" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_5" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="scg:IEnumerable(sxl:XElement)">
-                <CSharpValue x:TypeArguments="scg:IEnumerable(sxl:XElement)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">in_XElement.Descendants().Where(d =&gt; d.Attributes().Any(a =&gt; a.Name.LocalName == "DisplayName"))</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="scg:IEnumerable(sxl:XElement)">[in_XElement.Descendants().Where(Function(d) d.Attributes().Any(Function(a) a.Name.LocalName = "DisplayName"))]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">ActivityId</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="ActivityId" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_7" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">in_XElement.Attributes().Where(a =&gt; a.Name.LocalName == "WorkflowViewState.IdRef").Select(a =&gt; a.Value).FirstOrDefault("").Replace("`","")</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="x:String">[in_XElement.Attributes().Where(Function(a) a.Name.LocalName = "WorkflowViewState.IdRef").Select(Function(a) a.Value).FirstOrDefault("").Replace("`","")]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="565,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="669,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_70">UiPath.Core.Activities.LogLevel.Trace</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Trace" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_70" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_71">string.Format("Traversing node of type {0} with a display name of {1}", ActivityType, ActivityName)</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Traversing node of type {0} with a display name of {1}&quot;, ActivityType, ActivityName)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_71" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="int closest = int.MaxValue;&#xA;&#xA;Func&lt;XElement, XElement, int&gt; GetDistance = (child, parent) =&gt; {&#xA;&#x9;int count = 0;&#xA;&#x9;var current = child;&#xA;&#x9;while(current != parent){&#xA;&#x9;&#x9;count++;&#xA;&#x9;&#x9;current = current.Parent;&#xA;&#x9;}&#xA;&#x9;return count;&#xA;};&#xA;&#xA;foreach (var child in in_Descendants) {&#xA;&#x9;int distance = GetDistance(child, in_Parent);&#xA;&#x9;if(distance &lt; closest) closest = distance;&#xA;}&#xA;&#xA;out_Closest = in_Descendants.Where(d =&gt; GetDistance(d, in_Parent) == closest);" DisplayName="Get Closest Descendants with Display Names" sap:VirtualizedContainerService.HintSize="565,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim closest As Integer = Integer.MaxValue&#xD;&#xA;&#xD;&#xA;Dim GetDistance As Func(Of XElement, XElement, Integer) = Function(child As XElement, parent As XElement) As Integer&#xD;&#xA;    Dim count As Integer = 0&#xD;&#xA;    Dim current As XElement = child&#xD;&#xA;    While current IsNot parent&#xD;&#xA;        count += 1&#xD;&#xA;        current = current.Parent&#xD;&#xA;    End While&#xD;&#xA;    Return count&#xD;&#xA;End Function&#xD;&#xA;&#xD;&#xA;For Each child In in_Descendants&#xD;&#xA;    Dim distance As Integer = GetDistance(child, in_Parent)&#xD;&#xA;    If distance &lt; closest Then closest = distance&#xD;&#xA;Next&#xD;&#xA;&#xD;&#xA;out_Closest = in_Descendants.Where(Function(d) GetDistance(d, in_Parent) = closest)&#xD;&#xA;" DisplayName="Get Closest Descendants with Display Names" sap:VirtualizedContainerService.HintSize="669,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="scg:IEnumerable(sxl:XElement)" x:Key="in_Descendants">
-          <CSharpValue x:TypeArguments="scg:IEnumerable(sxl:XElement)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">ActivityDisplayDescendants</CSharpValue>
+          <VisualBasicValue x:TypeArguments="scg:IEnumerable(sxl:XElement)" ExpressionText="ActivityDisplayDescendants" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_54" />
         </InArgument>
         <OutArgument x:TypeArguments="scg:IEnumerable(sxl:XElement)" x:Key="out_Closest">
-          <CSharpReference x:TypeArguments="scg:IEnumerable(sxl:XElement)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_26">ActivityDisplayDescendants</CSharpReference>
+          <VisualBasicReference x:TypeArguments="scg:IEnumerable(sxl:XElement)" ExpressionText="ActivityDisplayDescendants" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_26" />
         </OutArgument>
         <InArgument x:TypeArguments="sxl:XElement" x:Key="in_Parent">
-          <CSharpValue x:TypeArguments="sxl:XElement" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55">in_XElement</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sxl:XElement" ExpressionText="in_XElement" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_55" />
         </InArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <If DisplayName="ActivityName Not Empty?" sap:VirtualizedContainerService.HintSize="565,933" sap2010:WorkflowViewState.IdRef="If_1">
-      <If.Condition>
-        <InArgument x:TypeArguments="x:Boolean">
-          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">!string.IsNullOrEmpty(ActivityName)</CSharpValue>
-        </InArgument>
-      </If.Condition>
+    <If Condition="[Not string.IsNullOrEmpty(ActivityName)]" DisplayName="ActivityName Not Empty?" sap:VirtualizedContainerService.HintSize="669,1931" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <If DisplayName="Activity Has No Children?" sap:VirtualizedContainerService.HintSize="531,452" sap2010:WorkflowViewState.IdRef="If_3">
-          <If.Condition>
-            <InArgument x:TypeArguments="x:Boolean">
-              <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_72">ActivityDisplayDescendants.Count() == 0</CSharpValue>
-            </InArgument>
-          </If.Condition>
+        <If Condition="[ActivityDisplayDescendants.Count() = 0]" DisplayName="Activity Has No Children?" sap:VirtualizedContainerService.HintSize="635,1450" sap2010:WorkflowViewState.IdRef="If_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -221,26 +206,24 @@
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="x:String">
-                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_34">io_Markdown</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_Markdown" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_34" />
                       </OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_73" xml:space="preserve">io_Markdown + 
-Environment.NewLine + string.Format("{2} : {0} - {1}", ActivityType, ActivityName, ActivityId) +
-(io_PreviousActivity == "" ? "" : Environment.NewLine + string.Format("{0} --&gt; {1}", io_PreviousActivity, ActivityId))</CSharpValue>
-                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[io_Markdown + _
+Environment.NewLine + String.Format("{2} : {0} - {1}", ActivityType, ActivityName, ActivityId) + _
+If(io_PreviousActivity = "", "", Environment.NewLine + String.Format("{0} --&gt; {1}", io_PreviousActivity, ActivityId))]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_29">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="x:String">
-                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_35">io_PreviousActivity</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_PreviousActivity" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_35" />
                       </OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_74">ActivityId</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ActivityId" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_74" />
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
@@ -249,7 +232,7 @@ Environment.NewLine + string.Format("{2} : {0} - {1}", ActivityType, ActivityNam
             </ui:MultipleAssign>
           </If.Then>
           <If.Else>
-            <Switch x:TypeArguments="x:String" DisplayName="Activity Type?" sap:VirtualizedContainerService.HintSize="497,138" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+            <Switch x:TypeArguments="x:String" DisplayName="Activity Type?" sap:VirtualizedContainerService.HintSize="601,1136" sap2010:WorkflowViewState.IdRef="Switch`1_2">
               <Switch.Default>
                 <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="485,754" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
@@ -264,22 +247,20 @@ Environment.NewLine + string.Format("{2} : {0} - {1}", ActivityType, ActivityNam
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_42">io_Markdown</CSharpReference>
+                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_Markdown" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_42" />
                             </OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">
-                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_81" xml:space="preserve">io_Markdown + 
-Environment.NewLine + (string.IsNullOrEmpty(io_PreviousActivity) ? "" : string.Format("{0} --&gt; {1}", io_PreviousActivity, ActivityId)) +
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[io_Markdown + _
+Environment.NewLine + If(String.IsNullOrEmpty(io_PreviousActivity), "", String.Format("{0} --&gt; {1}", io_PreviousActivity, ActivityId)) + _
 Environment.NewLine + string.Format("{0}: {1} - {2}", ActivityId, ActivityType, ActivityName) +
-Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment.NewLine + "direction TB"</CSharpValue>
-                            </InArgument>
+Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment.NewLine + "direction TB"]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_43">io_PreviousActivity</CSharpReference>
+                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_PreviousActivity" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_43" />
                             </OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
@@ -300,13 +281,13 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Recurse Descendant" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Design\\AutoDocs\\TraverseWorkflow.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="sxl:XElement" x:Key="in_XElement">
-                              <CSharpValue x:TypeArguments="sxl:XElement" sap2010:WorkflowViewState.IdRef="CSharpValue`1_88">Descendant</CSharpValue>
+                              <VisualBasicValue x:TypeArguments="sxl:XElement" ExpressionText="Descendant" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_88" />
                             </InArgument>
                             <InOutArgument x:TypeArguments="x:String" x:Key="io_Markdown">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_50">io_Markdown</CSharpReference>
+                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_Markdown" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_50" />
                             </InOutArgument>
                             <InOutArgument x:TypeArguments="x:String" x:Key="io_PreviousActivity">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_51">io_PreviousActivity</CSharpReference>
+                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_PreviousActivity" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_51" />
                             </InOutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
@@ -314,7 +295,7 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
                     </ui:ForEach.Body>
                     <ui:ForEach.Values>
                       <InArgument x:TypeArguments="sc:IEnumerable">
-                        <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_82">ActivityDisplayDescendants</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="ActivityDisplayDescendants" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_82" />
                       </InArgument>
                     </ui:ForEach.Values>
                     <sap:WorkflowViewStateService.ViewState>
@@ -330,24 +311,24 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_46">io_Markdown</CSharpReference>
+                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_Markdown" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_46" />
                             </OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
                             <InArgument x:TypeArguments="x:String">
-                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_84">io_Markdown + Environment.NewLine + "}"</CSharpValue>
+                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_Markdown + Environment.NewLine + &quot;}&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_84" />
                             </InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_35">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_47">io_PreviousActivity</CSharpReference>
+                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_PreviousActivity" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_47" />
                             </OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
                             <InArgument x:TypeArguments="x:String">
-                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_85">ActivityId</CSharpValue>
+                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ActivityId" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_85" />
                             </InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
@@ -358,7 +339,7 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
               </Switch.Default>
               <Switch.Expression>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_75">ActivityType</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ActivityType" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_75" />
                 </InArgument>
               </Switch.Expression>
               <sap:WorkflowViewStateService.ViewState>
@@ -379,22 +360,20 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
                         <ui:AssignOperation.To>
                           <OutArgument x:TypeArguments="x:String">
-                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_36">io_Markdown</CSharpReference>
+                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_Markdown" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_36" />
                           </OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">
-                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_76" xml:space="preserve">io_Markdown + 
-Environment.NewLine + (string.IsNullOrEmpty(io_PreviousActivity) ? "" : string.Format("{0} --&gt; {1}", io_PreviousActivity, ActivityId)) +
+                          <InArgument x:TypeArguments="x:String" xml:space="preserve">[io_Markdown + _
+Environment.NewLine + If(String.IsNullOrEmpty(io_PreviousActivity), "", String.Format("{0} --&gt; {1}", io_PreviousActivity, ActivityId)) +
 Environment.NewLine + string.Format("{0}: {1} - {2}", ActivityId, ActivityType, ActivityName) +
-Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment.NewLine + "direction TB"</CSharpValue>
-                          </InArgument>
+Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment.NewLine + "direction TB"]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                     </scg:List>
                   </ui:MultipleAssign.AssignOperations>
                 </ui:MultipleAssign>
-                <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="Recurse If.Then and If.Else" sap:VirtualizedContainerService.HintSize="499,186" sap2010:WorkflowViewState.IdRef="ForEach`1_7">
+                <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="Recurse If.Then and If.Else" sap:VirtualizedContainerService.HintSize="499,528" sap2010:WorkflowViewState.IdRef="ForEach`1_7">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="sxl:XElement">
                       <ActivityAction.Argument>
@@ -412,7 +391,7 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
                                 <ui:AssignOperation.To>
                                   <OutArgument x:TypeArguments="x:String">
-                                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_37">io_PreviousActivity</CSharpReference>
+                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_PreviousActivity" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_37" />
                                   </OutArgument>
                                 </ui:AssignOperation.To>
                                 <ui:AssignOperation.Value>
@@ -427,13 +406,13 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Recurse Child" sap:VirtualizedContainerService.HintSize="423,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Design\\AutoDocs\\TraverseWorkflow.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="sxl:XElement" x:Key="in_XElement">
-                              <CSharpValue x:TypeArguments="sxl:XElement" sap2010:WorkflowViewState.IdRef="CSharpValue`1_78">Child</CSharpValue>
+                              <VisualBasicValue x:TypeArguments="sxl:XElement" ExpressionText="Child" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_78" />
                             </InArgument>
                             <InOutArgument x:TypeArguments="x:String" x:Key="io_Markdown">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_38">io_Markdown</CSharpReference>
+                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_Markdown" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_38" />
                             </InOutArgument>
                             <InOutArgument x:TypeArguments="x:String" x:Key="io_PreviousActivity">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_39">io_PreviousActivity</CSharpReference>
+                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_PreviousActivity" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_39" />
                             </InOutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
@@ -442,7 +421,7 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
                   </ui:ForEach.Body>
                   <ui:ForEach.Values>
                     <InArgument x:TypeArguments="sc:IEnumerable">
-                      <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_77">ActivityDisplayDescendants</CSharpValue>
+                      <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="ActivityDisplayDescendants" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_77" />
                     </InArgument>
                   </ui:ForEach.Values>
                   <sap:WorkflowViewStateService.ViewState>
@@ -458,24 +437,24 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
                         <ui:AssignOperation.To>
                           <OutArgument x:TypeArguments="x:String">
-                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_40">io_Markdown</CSharpReference>
+                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_Markdown" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_40" />
                           </OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
                           <InArgument x:TypeArguments="x:String">
-                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_79">io_Markdown + Environment.NewLine + "}"</CSharpValue>
+                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_Markdown + Environment.NewLine + &quot;}&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_79" />
                           </InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_38">
                         <ui:AssignOperation.To>
                           <OutArgument x:TypeArguments="x:String">
-                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_41">io_PreviousActivity</CSharpReference>
+                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_PreviousActivity" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_41" />
                           </OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
                           <InArgument x:TypeArguments="x:String">
-                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_80">ActivityId</CSharpValue>
+                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ActivityId" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_80" />
                           </InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
@@ -497,13 +476,13 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Traverse Child" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Design\\AutoDocs\\TraverseWorkflow.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="sxl:XElement" x:Key="in_XElement">
-                    <CSharpValue x:TypeArguments="sxl:XElement" sap2010:WorkflowViewState.IdRef="CSharpValue`1_87">Child</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="sxl:XElement" ExpressionText="Child" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_87" />
                   </InArgument>
                   <InOutArgument x:TypeArguments="x:String" x:Key="io_Markdown">
-                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_48">io_Markdown</CSharpReference>
+                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_Markdown" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_48" />
                   </InOutArgument>
                   <InOutArgument x:TypeArguments="x:String" x:Key="io_PreviousActivity">
-                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_49">io_PreviousActivity</CSharpReference>
+                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_PreviousActivity" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_49" />
                   </InOutArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
@@ -511,7 +490,7 @@ Environment.NewLine + string.Format("state {0} ",ActivityId) + "{" + Environment
           </ui:ForEach.Body>
           <ui:ForEach.Values>
             <InArgument x:TypeArguments="sc:IEnumerable">
-              <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_86">ActivityChildren</CSharpValue>
+              <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="ActivityChildren" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_86" />
             </InArgument>
           </ui:ForEach.Values>
           <sap:WorkflowViewStateService.ViewState>

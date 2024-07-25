@@ -3,7 +3,7 @@
     <x:Property sap2010:Annotation.AnnotationText="The transaction data to be used to perform the process." Name="io_Data" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property sap2010:Annotation.AnnotationText="The reference of the queue item being processed." Name="in_Reference" Type="InArgument(x:String)" />
   </x:Members>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
   <sap:VirtualizedContainerService.HintSize>1632,950</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -60,7 +60,7 @@
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">string.Format("Processing transaction '{0}'", in_Reference)</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2">[string.Format("Processing transaction '{0}'", in_Reference)]</VisualBasicValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
