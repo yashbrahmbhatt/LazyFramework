@@ -6,7 +6,7 @@
   <this:UpdateProjectJSON.in_ProjectJObj>
     <InArgument x:TypeArguments="njl:JObject" />
   </this:UpdateProjectJSON.in_ProjectJObj>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
   <sap:VirtualizedContainerService.HintSize>986,2761</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -42,6 +42,7 @@
       <x:String>UiPath.Core</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -112,6 +113,8 @@
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Update Project JSON" sap:VirtualizedContainerService.HintSize="659,2696" sap2010:WorkflowViewState.IdRef="Sequence_75">
@@ -134,61 +137,49 @@
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_85">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="njl:JArray">
-                <CSharpReference x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpReference`1_168">FileInfoCollection</CSharpReference>
+                <VisualBasicReference x:TypeArguments="njl:JArray" ExpressionText="FileInfoCollection" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_168" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="njl:JArray">
-                <CSharpValue x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpValue`1_359">(JArray) in_ProjectJObj["designOptions"]["fileInfoCollection"]</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="njl:JArray">[DirectCast(in_ProjectJObj("designOptions")("fileInfoCollection"), JArray)]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_88">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="njl:JArray">
-                <CSharpReference x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpReference`1_169">IgnoredFiles</CSharpReference>
+                <VisualBasicReference x:TypeArguments="njl:JArray" ExpressionText="IgnoredFiles" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_169" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="njl:JArray">
-                <CSharpValue x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpValue`1_364">(JArray) in_ProjectJObj["designOptions"]["processOptions"]["ignoredFiles"]</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="njl:JArray">[DirectCast(in_ProjectJObj("designOptions")("processOptions")("ignoredFiles"), JArray)]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_87">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="scg:List(x:String)">
-                <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_170">FilesToIgnore</CSharpReference>
+                <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="FilesToIgnore" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_170" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="scg:List(x:String)">
-                <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_380">Directory.GetFiles("Design", "*.xaml", SearchOption.AllDirectories).Select(f =&gt; Path.GetRelativePath(Directory.GetCurrentDirectory(), f).Replace("\\","/")).Where(f =&gt; IgnoredFiles.All(i =&gt; i.ToString() != f) ).ToList()</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="scg:List(x:String)">[Directory.GetFiles("Design", "*.xaml", SearchOption.AllDirectories).Select(Function(f) Path.GetRelativePath(Directory.GetCurrentDirectory(), f).Replace("\","/")).Where(Function(f) IgnoredFiles.All(Function(i) i.ToString() &lt;&gt; f) ).ToList()]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_91">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="scg:List(x:String)">
-                <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_171">NewTestFiles</CSharpReference>
+                <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="NewTestFiles" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_171" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="scg:List(x:String)">
-                <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_395" xml:space="preserve">Directory.GetFiles(Directory.GetCurrentDirectory(), "*.xaml",SearchOption.AllDirectories)
-.Select(f =&gt; Path.GetRelativePath(Directory.GetCurrentDirectory(), f))
-.Where(f =&gt;
-	!f.StartsWith("Design") &amp;&amp; 
-	FileInfoCollection.All(c =&gt; c["fileName"].ToString() != f) &amp;&amp; 
-	f.Split("\\", StringSplitOptions.RemoveEmptyEntries).Contains("Tests")	
-).ToList()</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="scg:List(x:String)" xml:space="preserve">[Directory.GetFiles(Directory.GetCurrentDirectory(), "*.xaml",SearchOption.AllDirectories).
+Select(Function(f) Path.GetRelativePath(Directory.GetCurrentDirectory(), f)).
+Where(Function(f) Not f.StartsWith("Design") AndAlso FileInfoCollection.All(Function(c) c("fileName").ToString() &lt;&gt; f) AndAlso f.Split("\", StringSplitOptions.RemoveEmptyEntries).Contains("Tests")).ToList()]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_93">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:Int32">
-                <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_172">FICIndex</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="FICIndex" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_172" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
@@ -209,7 +200,7 @@
           <If DisplayName="Within Design Folder?" sap:VirtualizedContainerService.HintSize="499,595" sap2010:WorkflowViewState.IdRef="If_14">
             <If.Condition>
               <InArgument x:TypeArguments="x:Boolean">
-                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_387">FileInfoCollection[FICIndex]["fileName"].ToString().Contains("Design")</CSharpValue>
+                <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="FileInfoCollection(FICIndex)(&quot;fileName&quot;).ToString().Contains(&quot;Design&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_387" />
               </InArgument>
             </If.Condition>
             <If.Then>
@@ -222,11 +213,11 @@
                 <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="258,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_4" MethodName="Remove">
                   <InvokeMethod.TargetObject>
                     <InArgument x:TypeArguments="njl:JArray">
-                      <CSharpValue x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpValue`1_396">FileInfoCollection</CSharpValue>
+                      <VisualBasicValue x:TypeArguments="njl:JArray" ExpressionText="FileInfoCollection" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_396" />
                     </InArgument>
                   </InvokeMethod.TargetObject>
                   <InArgument x:TypeArguments="njl:JToken">
-                    <CSharpValue x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpValue`1_390">FileInfoCollection[FICIndex]</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="njl:JToken" ExpressionText="FileInfoCollection(FICIndex)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_390" />
                   </InArgument>
                 </InvokeMethod>
               </Sequence>
@@ -244,12 +235,12 @@
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_94">
                         <ui:AssignOperation.To>
                           <OutArgument x:TypeArguments="x:Int32">
-                            <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_173">FICIndex</CSharpReference>
+                            <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="FICIndex" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_173" />
                           </OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
                           <InArgument x:TypeArguments="x:Int32">
-                            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_391">FICIndex + 1</CSharpValue>
+                            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="FICIndex + 1" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_391" />
                           </InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
@@ -262,7 +253,7 @@
         </Sequence>
       </ui:InterruptibleWhile.Body>
       <ui:InterruptibleWhile.Condition>
-        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_388">FICIndex &lt; FileInfoCollection.Count</CSharpValue>
+        <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="FICIndex &lt; FileInfoCollection.Count" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_388" />
       </ui:InterruptibleWhile.Condition>
     </ui:InterruptibleWhile>
     <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Ignore Existing Tests" sap:VirtualizedContainerService.HintSize="597,551" sap2010:WorkflowViewState.IdRef="ForEach`1_22">
@@ -286,18 +277,16 @@
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_92">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="njl:JObject">
-                        <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_164">TestFileJObj</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="TestFileJObj" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_164" />
                       </OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="njl:JObject">
-                        <CSharpValue x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpValue`1_384" xml:space="preserve">JObject.Parse(JsonConvert.SerializeObject(new Dictionary&lt;string, string&gt;(){
-	    {"editingStatus", "Publishable"},
-        {"testCaseId", Guid.NewGuid().ToString()},
-        {"testCaseType", "TestCase"},
-        {"fileName", NewTestFile}
-}))</CSharpValue>
-                      </InArgument>
+                      <InArgument x:TypeArguments="njl:JObject" xml:space="preserve">[JObject.Parse(JsonConvert.SerializeObject(New Dictionary(Of String, String)() From {
+    {"editingStatus", "Publishable"},
+    {"testCaseId", Guid.NewGuid().ToString()},
+    {"testCaseType", "TestCase"},
+    {"fileName", NewTestFile}
+}))]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                 </scg:List>
@@ -306,11 +295,11 @@
             <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="423,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="Add">
               <InvokeMethod.TargetObject>
                 <InArgument x:TypeArguments="njl:JArray">
-                  <CSharpValue x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpValue`1_397">FileInfoCollection</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="njl:JArray" ExpressionText="FileInfoCollection" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_397" />
                 </InArgument>
               </InvokeMethod.TargetObject>
               <InArgument x:TypeArguments="njl:JObject">
-                <CSharpValue x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpValue`1_378">TestFileJObj</CSharpValue>
+                <VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="TestFileJObj" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_378" />
               </InArgument>
             </InvokeMethod>
           </Sequence>
@@ -318,7 +307,7 @@
       </ui:ForEach.Body>
       <ui:ForEach.Values>
         <InArgument x:TypeArguments="sc:IEnumerable">
-          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_374">NewTestFiles</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="NewTestFiles" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_374" />
         </InArgument>
       </ui:ForEach.Values>
     </ui:ForEach>
@@ -337,11 +326,11 @@
             <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="258,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="Add">
               <InvokeMethod.TargetObject>
                 <InArgument x:TypeArguments="njl:JArray">
-                  <CSharpValue x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpValue`1_398">IgnoredFiles</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="njl:JArray" ExpressionText="IgnoredFiles" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_398" />
                 </InArgument>
               </InvokeMethod.TargetObject>
               <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_367">IgnoredFile</CSharpValue>
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="IgnoredFile" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_367" />
               </InArgument>
             </InvokeMethod>
           </Sequence>
@@ -349,7 +338,7 @@
       </ui:ForEach.Body>
       <ui:ForEach.Values>
         <InArgument x:TypeArguments="sc:IEnumerable">
-          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_366">FilesToIgnore</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="FilesToIgnore" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_366" />
         </InArgument>
       </ui:ForEach.Values>
       <sap:WorkflowViewStateService.ViewState>
@@ -365,48 +354,48 @@
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_89">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="njl:JToken">
-                <CSharpReference x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpReference`1_161">in_ProjectJObj["designOptions"]["fileInfoCollection"]</CSharpReference>
+                <VisualBasicReference x:TypeArguments="njl:JToken" ExpressionText="in_ProjectJObj(&quot;designOptions&quot;)(&quot;fileInfoCollection&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_161" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="njl:JArray">
-                <CSharpValue x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpValue`1_399">FileInfoCollection</CSharpValue>
+                <VisualBasicValue x:TypeArguments="njl:JArray" ExpressionText="FileInfoCollection" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_399" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_90">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="njl:JToken">
-                <CSharpReference x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpReference`1_162">in_ProjectJObj["designOptions"]["processOptions"]["ignoredFiles"]</CSharpReference>
+                <VisualBasicReference x:TypeArguments="njl:JToken" ExpressionText="in_ProjectJObj(&quot;designOptions&quot;)(&quot;processOptions&quot;)(&quot;ignoredFiles&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_162" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="njl:JArray">
-                <CSharpValue x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpValue`1_400">IgnoredFiles</CSharpValue>
+                <VisualBasicValue x:TypeArguments="njl:JArray" ExpressionText="IgnoredFiles" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_400" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_95">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="njl:JToken">
-                <CSharpReference x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpReference`1_174">in_ProjectJObj["isTemplate"]</CSharpReference>
+                <VisualBasicReference x:TypeArguments="njl:JToken" ExpressionText="in_ProjectJObj(&quot;isTemplate&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_174" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="njl:JToken">
-                <CSharpValue x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpValue`1_401">false</CSharpValue>
+                <VisualBasicValue x:TypeArguments="njl:JToken" ExpressionText="false" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_401" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_96">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="njl:JToken">
-                <CSharpReference x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpReference`1_175">in_ProjectJObj["projectId"]</CSharpReference>
+                <VisualBasicReference x:TypeArguments="njl:JToken" ExpressionText="in_ProjectJObj(&quot;projectId&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_175" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="njl:JToken">
-                <CSharpValue x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpValue`1_402">Guid.NewGuid()</CSharpValue>
+                <VisualBasicValue x:TypeArguments="njl:JToken" ExpressionText="Guid.NewGuid()" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_402" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
@@ -416,7 +405,7 @@
     <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="project.json" sap:VirtualizedContainerService.HintSize="597,133" sap2010:WorkflowViewState.IdRef="WriteTextFile_6">
       <ui:WriteTextFile.Text>
         <InArgument x:TypeArguments="x:String">
-          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_371">JsonConvert.SerializeObject(in_ProjectJObj)</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="JsonConvert.SerializeObject(in_ProjectJObj)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_371" />
         </InArgument>
       </ui:WriteTextFile.Text>
     </ui:WriteTextFile>

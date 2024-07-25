@@ -2,8 +2,8 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="A Dictionary of string and JObject with the key being the Id specified in the module.config." Name="out_ModuleConfigs" Type="OutArgument(scg:Dictionary(x:String, njl:JObject))" />
   </x:Members>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>985,936</sap:VirtualizedContainerService.HintSize>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>986,936</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -130,25 +130,23 @@
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_38">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="scg:List(x:String)">
-                <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_123">ModuleConfigPaths</CSharpReference>
+                <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="ModuleConfigPaths" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_123" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="scg:List(x:String)">
-                <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_273">Directory.GetFiles(Directory.GetCurrentDirectory(), "module.config", SearchOption.AllDirectories).Select(f =&gt; Path.GetRelativePath(Directory.GetCurrentDirectory(), f)).ToList()</CSharpValue>
+                <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="Directory.GetFiles(Directory.GetCurrentDirectory(), &quot;module.config&quot;, SearchOption.AllDirectories).Select(Function(f) Path.GetRelativePath(Directory.GetCurrentDirectory(), f)).ToList()" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_273" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_39">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="scg:Dictionary(x:String, njl:JObject)">
-                <CSharpReference x:TypeArguments="scg:Dictionary(x:String, njl:JObject)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_93">out_ModuleConfigs</CSharpReference>
+                <VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, njl:JObject)" ExpressionText="out_ModuleConfigs" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_93" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, njl:JObject)">
-                <CSharpValue x:TypeArguments="scg:Dictionary(x:String, njl:JObject)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_208">new Dictionary&lt;string, JObject&gt;()</CSharpValue>
-              </InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, njl:JObject)">[new Dictionary(Of string, JObject)()]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -173,12 +171,12 @@
             <ui:ReadTextFile File="{x:Null}" DisplayName="Read module.config" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_4">
               <ui:ReadTextFile.Content>
                 <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_81">Raw</CSharpReference>
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Raw" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_81" />
                 </OutArgument>
               </ui:ReadTextFile.Content>
               <ui:ReadTextFile.FileName>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_191">ModuleConfigPath</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ModuleConfigPath" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_191" />
                 </InArgument>
               </ui:ReadTextFile.FileName>
             </ui:ReadTextFile>
@@ -188,36 +186,34 @@
                   <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_40">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="njl:JObject">
-                        <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_120">ConfigValueJObject</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="ConfigValueJObject" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_120" />
                       </OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="njl:JObject">
-                        <CSharpValue x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpValue`1_268">JsonConvert.DeserializeObject&lt;JObject&gt;(Raw)</CSharpValue>
-                      </InArgument>
+                      <InArgument x:TypeArguments="njl:JObject">[JsonConvert.DeserializeObject(Of JObject)(Raw)]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_42">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="njl:JToken">
-                        <CSharpReference x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpReference`1_84">ConfigValueJObject["Root"]</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="njl:JToken" ExpressionText="ConfigValueJObject(&quot;Root&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_84" />
                       </OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="njl:JToken">
-                        <CSharpValue x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpValue`1_383">Path.GetRelativePath(Directory.GetCurrentDirectory(), ModuleConfigPath).Replace("\\" + Path.GetFileName(ModuleConfigPath),"")</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="njl:JToken" ExpressionText="Path.GetRelativePath(Directory.GetCurrentDirectory(), ModuleConfigPath).Replace(&quot;\\&quot; + Path.GetFileName(ModuleConfigPath),&quot;&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_383" />
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_45">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="njl:JObject">
-                        <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_88">out_ModuleConfigs[ConfigValueJObject["ID"].ToString()]</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_ModuleConfigs(ConfigValueJObject(&quot;ID&quot;).ToString())" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_88" />
                       </OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="njl:JObject">
-                        <CSharpValue x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpValue`1_269">ConfigValueJObject</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="ConfigValueJObject" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_269" />
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
@@ -229,7 +225,7 @@
       </ui:ForEach.Body>
       <ui:ForEach.Values>
         <InArgument x:TypeArguments="sc:IEnumerable">
-          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_190">ModuleConfigPaths</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="ModuleConfigPaths" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_190" />
         </InArgument>
       </ui:ForEach.Values>
       <sap:WorkflowViewStateService.ViewState>

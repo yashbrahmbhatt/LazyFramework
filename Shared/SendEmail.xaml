@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SendEmail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SendEmail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Who to send the email to." Name="in_To" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="The templated subject of the email to send." Name="in_Subject" Type="InArgument(x:String)" />
@@ -38,8 +38,8 @@
   <this:SendEmail.in_CC>
     <InArgument x:TypeArguments="x:String" />
   </this:SendEmail.in_CC>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1632,2165</sap:VirtualizedContainerService.HintSize>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>986,2165</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -60,6 +60,11 @@
       <x:String>UiPath.Mail.Activities</x:String>
       <x:String>UiPath.Mail.SMTP.Activities</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -117,6 +122,7 @@
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Sends an email taking a dictionary of data to fill out template subject and body fields. Supports DataTable to HTML &lt;table&gt; objects as well." DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="637,2100" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -129,11 +135,11 @@
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="575,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">string.Format("Sending email using {0} keys in the template data dictionary", in_TemplateData.Keys.Count.ToString())</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Sending email using {0} keys in the template data dictionary&quot;, in_TemplateData.Keys.Count.ToString())" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_20" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each TemplateData Key" sap:VirtualizedContainerService.HintSize="575,930" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each TemplateData Key" sap:VirtualizedContainerService.HintSize="575,930" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[new List(Of string)(in_TemplateData.Keys)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
@@ -145,12 +151,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If DisplayName="DataTable Object?" sap:VirtualizedContainerService.HintSize="499,656" sap2010:WorkflowViewState.IdRef="If_1">
-              <If.Condition>
-                <InArgument x:TypeArguments="x:Boolean">
-                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">in_TemplateData[Key] != null &amp;&amp; in_TemplateData[Key].GetType() == typeof(DataTable)</CSharpValue>
-                </InArgument>
-              </If.Condition>
+            <If Condition="[in_TemplateData(Key) IsNot Nothing AndAlso typeof  in_TemplateData(Key) Is DataTable]" DisplayName="DataTable Object?" sap:VirtualizedContainerService.HintSize="499,656" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Sequence DisplayName="DataTable Object" sap:VirtualizedContainerService.HintSize="465,342" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <Sequence.Variables>
@@ -164,10 +165,10 @@
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Shared\\DataTableToHTML.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="423,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Shared\\DataTableToHTML.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_ToConvert">
-                        <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">(DataTable)in_TemplateData[Key]</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="CType(in_TemplateData(Key), DataTable)" />
                       </InArgument>
                       <OutArgument x:TypeArguments="x:String" x:Key="out_HTMLTable">
-                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">HTMLValue</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="HTMLValue" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_3" />
                       </OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
@@ -177,12 +178,12 @@
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">in_Body</CSharpReference>
+                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="in_Body" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_4" />
                             </OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
                             <InArgument x:TypeArguments="x:String">
-                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">in_Body.Replace("{" + Key + "}", HTMLValue)</CSharpValue>
+                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Body.Replace(&quot;{&quot; + Key + &quot;}&quot;, HTMLValue)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_17" />
                             </InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
@@ -198,25 +199,21 @@
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
                         <ui:AssignOperation.To>
                           <OutArgument x:TypeArguments="x:String">
-                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">in_Body</CSharpReference>
+                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="in_Body" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_6" />
                           </OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">
-                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">in_Body.Replace("{" + Key + "}", in_TemplateData[Key] == null ? "" : in_TemplateData[Key].ToString())</CSharpValue>
-                          </InArgument>
+                          <InArgument x:TypeArguments="x:String">[in_Body.Replace("{" + Key + "}", If(in_TemplateData(Key) Is Nothing, "" , in_TemplateData(Key).ToString()))]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
                         <ui:AssignOperation.To>
                           <OutArgument x:TypeArguments="x:String">
-                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">in_Subject</CSharpReference>
+                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="in_Subject" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_5" />
                           </OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">
-                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">in_Subject.Replace("{" + Key + "}", in_TemplateData[Key] == null ? "" : in_TemplateData[Key].ToString())</CSharpValue>
-                          </InArgument>
+                          <InArgument x:TypeArguments="x:String">[in_Subject.Replace("{" + Key + "}", if(in_TemplateData(Key) Is Nothing, "", in_TemplateData(Key).ToString()))]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                     </scg:List>
@@ -227,11 +224,6 @@
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
-      <ui:ForEach.Values>
-        <InArgument x:TypeArguments="sc:IEnumerable">
-          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">new List&lt;string&gt;(in_TemplateData.Keys)</CSharpValue>
-        </InArgument>
-      </ui:ForEach.Values>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -255,44 +247,44 @@
             <ui:GetRobotCredential TimeoutMS="{x:Null}" CacheStrategy="None" DisplayName="Get Email Creds" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1">
               <ui:GetRobotCredential.AssetName>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">in_CredentialName</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_CredentialName" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_7" />
                 </InArgument>
               </ui:GetRobotCredential.AssetName>
               <ui:GetRobotCredential.FolderPath>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">in_CredentialFolder</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_CredentialFolder" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_8" />
                 </InArgument>
               </ui:GetRobotCredential.FolderPath>
               <ui:GetRobotCredential.Password>
                 <OutArgument x:TypeArguments="ss:SecureString">
-                  <CSharpReference x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">Password</CSharpReference>
+                  <VisualBasicReference x:TypeArguments="ss:SecureString" ExpressionText="Password" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_2" />
                 </OutArgument>
               </ui:GetRobotCredential.Password>
               <ui:GetRobotCredential.Username>
                 <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">Username</CSharpReference>
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Username" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
                 </OutArgument>
               </ui:GetRobotCredential.Username>
             </ui:GetRobotCredential>
             <ui:SendMail Bcc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DisplayName="Send Email" EnableSSL="True" sap:VirtualizedContainerService.HintSize="388,146" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" SecureConnection="Auto">
               <ui:SendMail.AttachmentsCollection>
                 <InArgument x:TypeArguments="scg:IEnumerable(x:String)">
-                  <CSharpValue x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">in_Attachments</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="scg:IEnumerable(x:String)" ExpressionText="in_Attachments" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_6" />
                 </InArgument>
               </ui:SendMail.AttachmentsCollection>
               <ui:SendMail.Body>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">in_Body</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Body" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_5" />
                 </InArgument>
               </ui:SendMail.Body>
               <ui:SendMail.Cc>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">in_CC</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_CC" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_11" />
                 </InArgument>
               </ui:SendMail.Cc>
               <ui:SendMail.Email>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">Username</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Username" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_9" />
                 </InArgument>
               </ui:SendMail.Email>
               <ui:SendMail.Files>
@@ -300,27 +292,27 @@
               </ui:SendMail.Files>
               <ui:SendMail.Port>
                 <InArgument x:TypeArguments="x:Int32">
-                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">in_Port</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_Port" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
                 </InArgument>
               </ui:SendMail.Port>
               <ui:SendMail.SecurePassword>
                 <InArgument x:TypeArguments="ss:SecureString">
-                  <CSharpValue x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">Password</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="Password" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_10" />
                 </InArgument>
               </ui:SendMail.SecurePassword>
               <ui:SendMail.Server>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">in_Server</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Server" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
                 </InArgument>
               </ui:SendMail.Server>
               <ui:SendMail.Subject>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">in_Subject</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Subject" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_4" />
                 </InArgument>
               </ui:SendMail.Subject>
               <ui:SendMail.To>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">in_To</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_To" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
                 </InArgument>
               </ui:SendMail.To>
             </ui:SendMail>
@@ -340,7 +332,7 @@
     <ui:LogMessage DisplayName="LM: Sent" sap:VirtualizedContainerService.HintSize="575,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">"Email sent"</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Email sent&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_21" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

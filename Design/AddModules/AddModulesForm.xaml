@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="AddModulesForm" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="AddModulesForm" this:AddModulesForm.in_ModuleConfigs="[new Dictionary(Of string, JObject)()]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="The dictionary of module.config files." Name="in_ModuleConfigs" Type="InArgument(scg:Dictionary(x:String, njl:JObject))" />
     <x:Property sap2010:Annotation.AnnotationText="The module.configs dictionary output as a datatable." Name="out_dt_Modules" Type="OutArgument(sd:DataTable)" />
@@ -6,12 +6,7 @@
     <x:Property sap2010:Annotation.AnnotationText="The name of the project to be updated later in the project.json." Name="io_ProjectName" Type="InOutArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="The project description to be updated later in the project.json." Name="io_ProjectDescription" Type="InOutArgument(x:String)" />
   </x:Members>
-  <this:AddModulesForm.in_ModuleConfigs>
-    <InArgument x:TypeArguments="scg:Dictionary(x:String, njl:JObject)">
-      <CSharpValue x:TypeArguments="scg:Dictionary(x:String, njl:JObject)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_251">new Dictionary&lt;string, JObject&gt;()</CSharpValue>
-    </InArgument>
-  </this:AddModulesForm.in_ModuleConfigs>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
   <sap:VirtualizedContainerService.HintSize>986,1004</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -136,12 +131,12 @@
     <ui:LogMessage DisplayName="LM: Form Start" sap:VirtualizedContainerService.HintSize="423,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_53">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_53" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">"Showing form..."</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="&quot;Showing form...&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_54" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
@@ -151,12 +146,12 @@
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="scg:List(x:String)">
-                <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_93">ModuleTypes</CSharpReference>
+                <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="ModuleTypes" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_93" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="scg:List(x:String)">
-                <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_250">in_ModuleConfigs.Values.Select(r =&gt; r["Name"].ToString()).ToList()</CSharpValue>
+                <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="in_ModuleConfigs.Values.Select(Function(r) r(&quot;Name&quot;).ToString()).ToList()" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_250" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
@@ -172,24 +167,22 @@
       </ufa:FormActivity.DelayBody>
       <ufa:FormActivity.FormFieldsCollection>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="Modules">
-          <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_54">out_dt_Modules</CSharpReference>
+          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt_Modules" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_54" />
         </OutArgument>
         <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="Type_dropdown">
-          <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_59">ModuleTypes</CSharpReference>
+          <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="ModuleTypes" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_59" />
         </InOutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Type_parent">
-          <Literal x:TypeArguments="x:String">Modules</Literal>
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Type_parent">Modules</InArgument>
         <InOutArgument x:TypeArguments="x:String" x:Key="ProjectName">
-          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_94">io_ProjectName</CSharpReference>
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_ProjectName" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_94" />
         </InOutArgument>
         <InOutArgument x:TypeArguments="x:String" x:Key="ProjectDescription">
-          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_95">io_ProjectDescription</CSharpReference>
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_ProjectDescription" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_95" />
         </InOutArgument>
       </ufa:FormActivity.FormFieldsCollection>
       <ufa:FormActivity.FormFieldsOutputData>
         <OutArgument x:TypeArguments="x:String">
-          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_92">out_Output</CSharpReference>
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_Output" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_92" />
         </OutArgument>
       </ufa:FormActivity.FormFieldsOutputData>
     </ufa:FormActivity>
@@ -199,35 +192,28 @@
           <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_27">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="sd:DataTable">
-                <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_61">out_dt_Modules</CSharpReference>
+                <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt_Modules" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_61" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="sd:DataTable">
-                <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_211" xml:space="preserve">JsonConvert.DeserializeObject&lt;DataTable&gt;(
+              <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[JsonConvert.DeserializeObject(Of DataTable)(
 	JsonConvert.SerializeObject(
-		JsonConvert.DeserializeObject&lt;Newtonsoft.Json.Linq.JObject&gt;(
+		JsonConvert.DeserializeObject(Of Newtonsoft.Json.Linq.JObject)(
 			out_Output
-		)["Modules"]
+		)("Modules")
 	)
-)</CSharpValue>
-              </InArgument>
+)]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:LogMessage DisplayName="LM: Form Complete" sap:VirtualizedContainerService.HintSize="423,141" sap2010:WorkflowViewState.IdRef="LogMessage_3">
+    <ui:LogMessage DisplayName="LM: Form Complete" sap:VirtualizedContainerService.HintSize="423,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Form submitted.&quot; + out_dt_Modules.RowCount().ToString() + &quot; rows To process.&quot;]">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_55" />
         </InArgument>
       </ui:LogMessage.Level>
-      <ui:LogMessage.Message>
-        <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_56">string.Format("Form submitted. {0} rows to process.", out_dt_Modules == null ? "0" : out_dt_Modules.RowCount())</CSharpValue>
-        </InArgument>
-      </ui:LogMessage.Message>
     </ui:LogMessage>
   </Sequence>
 </Activity>

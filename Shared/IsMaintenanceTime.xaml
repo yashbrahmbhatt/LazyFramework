@@ -4,8 +4,8 @@
     <x:Property sap2010:Annotation.AnnotationText="The end time of the maintenance period." Name="in_End" Type="InArgument(x:TimeSpan)" />
     <x:Property sap2010:Annotation.AnnotationText="Output boolean as to whether current time is within the maintenance period." Name="out_IsMaintenanceTime" Type="OutArgument(x:Boolean)" />
   </x:Members>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1632,950</sap:VirtualizedContainerService.HintSize>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>986,783</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -17,6 +17,9 @@
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>System.Linq</x:String>
       <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -26,6 +29,7 @@
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
       <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
@@ -55,11 +59,11 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Given a CRON expression for the maintenance schedule, checks whether the current date/time is within the maintenance window. Outputs a boolean." DisplayName="IsMaintenanceTime" sap:VirtualizedContainerService.HintSize="519,617" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Given a CRON expression for the maintenance schedule, checks whether the current date/time is within the maintenance window. Outputs a boolean." DisplayName="IsMaintenanceTime" sap:VirtualizedContainerService.HintSize="519,718" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:TimeSpan" Name="Current">
         <Variable.Default>
-          <CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">DateTime.Now.TimeOfDay</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="DateTime.Now.TimeOfDay" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
         </Variable.Default>
       </Variable>
     </Sequence.Variables>
@@ -69,10 +73,10 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If DisplayName="No Boundary?" sap:VirtualizedContainerService.HintSize="457,283" sap2010:WorkflowViewState.IdRef="If_1">
+    <If DisplayName="No Boundary?" sap:VirtualizedContainerService.HintSize="457,384" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
-          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">in_Start &lt;= in_End</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_Start &lt;= in_End" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
         </InArgument>
       </If.Condition>
       <If.Then>
@@ -82,13 +86,11 @@
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
                 <ui:AssignOperation.To>
                   <OutArgument x:TypeArguments="x:Boolean">
-                    <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">out_IsMaintenanceTime</CSharpReference>
+                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="out_IsMaintenanceTime" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
                   </OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:Boolean">
-                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">Current &gt;= in_Start &amp;&amp; Current &lt;= in_End</CSharpValue>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:Boolean">[Current &gt;= in_Start AndAlso Current &lt;= in_End]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
             </scg:List>
@@ -102,13 +104,11 @@
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
                 <ui:AssignOperation.To>
                   <OutArgument x:TypeArguments="x:Boolean">
-                    <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">out_IsMaintenanceTime</CSharpReference>
+                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="out_IsMaintenanceTime" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_2" />
                   </OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:Boolean">
-                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">Current &gt;= in_Start || Current &lt;= in_End</CSharpValue>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:Boolean">[Current &gt;= in_Start Or Current &lt;= in_End]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
             </scg:List>
@@ -119,12 +119,12 @@
     <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="457,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
-          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">UiPath.Core.Activities.LogLevel.Trace</CSharpValue>
+          <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Trace" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_5" />
         </InArgument>
       </ui:LogMessage.Level>
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">string.Format("IsMaintenanceTime: {0}", out_IsMaintenanceTime.ToString())</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;IsMaintenanceTime: {0}&quot;, out_IsMaintenanceTime.ToString())" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_6" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

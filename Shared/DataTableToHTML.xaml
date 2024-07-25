@@ -3,7 +3,7 @@
     <x:Property sap2010:Annotation.AnnotationText="The DataTable to convert to HTML." Name="in_dt_ToConvert" Type="InArgument(sd:DataTable)" />
     <x:Property sap2010:Annotation.AnnotationText="The output HTML." Name="out_HTMLTable" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
   <sap:VirtualizedContainerService.HintSize>1632,1866</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -33,6 +33,7 @@
       <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
@@ -83,7 +84,7 @@
     <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="519,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">string.Format("Converting table with {0} columns and {1} rows to HTML", new string[] {in_dt_ToConvert.Columns.Count.ToString(), in_dt_ToConvert.Rows.Count.ToString()})</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Converting table with {0} columns and {1} rows to HTML&quot;, new string() {in_dt_ToConvert.Columns.Count.ToString(), in_dt_ToConvert.Rows.Count.ToString()})" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_10" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
@@ -93,7 +94,7 @@
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">out_HTMLTable</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_HTMLTable" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
@@ -115,12 +116,12 @@
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
                   <ui:AssignOperation.To>
                     <OutArgument x:TypeArguments="x:String">
-                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">out_HTMLTable</CSharpReference>
+                      <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_HTMLTable" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_2" />
                     </OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
                     <InArgument x:TypeArguments="x:String">
-                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">out_HTMLTable + "&lt;th&gt;" + Column.ColumnName + "&lt;/th&gt;"</CSharpValue>
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_HTMLTable + &quot;&lt;th&gt;&quot; + Column.ColumnName + &quot;&lt;/th&gt;&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
                     </InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
@@ -131,7 +132,7 @@
       </ui:ForEach.Body>
       <ui:ForEach.Values>
         <InArgument x:TypeArguments="sc:IEnumerable">
-          <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">in_dt_ToConvert.Columns</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="in_dt_ToConvert.Columns" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
         </InArgument>
       </ui:ForEach.Values>
     </ui:ForEach>
@@ -141,12 +142,12 @@
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">out_HTMLTable</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_HTMLTable" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_3" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">out_HTMLTable + "&lt;/tr&gt;"</CSharpValue>
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_HTMLTable + &quot;&lt;/tr&gt;&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
@@ -171,12 +172,12 @@
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="x:String">
-                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">out_HTMLTable</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_HTMLTable" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_4" />
                       </OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">out_HTMLTable + "&lt;tr&gt;"</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_HTMLTable + &quot;&lt;tr&gt;&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_5" />
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
@@ -195,12 +196,12 @@
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">out_HTMLTable</CSharpReference>
+                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_HTMLTable" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_5" />
                             </OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
                             <InArgument x:TypeArguments="x:String">
-                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">out_HTMLTable + "&lt;td&gt;" + CurrentRow[Column].ToString() + "&lt;/td&gt;"</CSharpValue>
+                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_HTMLTable + &quot;&lt;td&gt;&quot; + CurrentRow(Column).ToString() + &quot;&lt;/td&gt;&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_7" />
                             </InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
@@ -211,7 +212,7 @@
               </ui:ForEach.Body>
               <ui:ForEach.Values>
                 <InArgument x:TypeArguments="sc:IEnumerable">
-                  <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">in_dt_ToConvert.Columns</CSharpValue>
+                  <VisualBasicValue x:TypeArguments="sc:IEnumerable" ExpressionText="in_dt_ToConvert.Columns" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_6" />
                 </InArgument>
               </ui:ForEach.Values>
               <sap:WorkflowViewStateService.ViewState>
@@ -227,12 +228,12 @@
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="x:String">
-                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">out_HTMLTable</CSharpReference>
+                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_HTMLTable" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_6" />
                       </OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">out_HTMLTable + "&lt;/tr&gt;"</CSharpValue>
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_HTMLTable + &quot;&lt;/tr&gt;&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_8" />
                       </InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
@@ -244,7 +245,7 @@
       </ui:ForEachRow.Body>
       <ui:ForEachRow.DataTable>
         <InArgument x:TypeArguments="sd:DataTable">
-          <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">in_dt_ToConvert</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dt_ToConvert" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_4" />
         </InArgument>
       </ui:ForEachRow.DataTable>
     </ui:ForEachRow>
@@ -254,12 +255,12 @@
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">out_HTMLTable</CSharpReference>
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_HTMLTable" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_7" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">out_HTMLTable + "&lt;/table&gt;"</CSharpValue>
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_HTMLTable + &quot;&lt;/table&gt;&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_9" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
@@ -269,7 +270,7 @@
     <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="518.6666666666666,96" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">string.Format("Converted table into HTML with {0} characters", out_HTMLTable.Length.ToString())</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Converted table into HTML with {0} characters&quot;, out_HTMLTable.Length.ToString())" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_11" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

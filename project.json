@@ -281,7 +281,7 @@
     "modernBehavior": true,
     "saveToCloud": false
   },
-  "expressionLanguage": "CSharp",
+  "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
       "filePath": "Dispatcher.xaml",

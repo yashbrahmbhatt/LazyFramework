@@ -1,15 +1,10 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TakeScreenshot" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sdi="clr-namespace:System.Drawing.Imaging;assembly=System.Drawing.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TakeScreenshot" this:TakeScreenshot.in_FolderPath="C:\Users\eyash\Documents\UiPath\LazyFramework\Data\Temp" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sdi="clr-namespace:System.Drawing.Imaging;assembly=System.Drawing.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="The path to the folder to save screenshots to." Name="in_FolderPath" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="If specified, overrides the folder path and uses this path for the file name. Otherwise, it just outputs the full path to the screenshot." Name="io_FilePath" Type="InOutArgument(x:String)" />
   </x:Members>
-  <this:TakeScreenshot.in_FolderPath>
-    <InArgument x:TypeArguments="x:String">
-      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">@"C:\Users\eyash\Documents\UiPath\LazyFramework\Data\Temp"</CSharpValue>
-    </InArgument>
-  </this:TakeScreenshot.in_FolderPath>
-  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1632,2154</sap:VirtualizedContainerService.HintSize>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>986,2154</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -28,6 +23,9 @@
       <x:String>System.Windows.Forms</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -37,6 +35,7 @@
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
       <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
@@ -99,7 +98,7 @@
     <If DisplayName="Empty File Path?" sap:VirtualizedContainerService.HintSize="457,384" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
-          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">string.IsNullOrEmpty(io_FilePath)</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="string.IsNullOrEmpty(io_FilePath)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_6" />
         </InArgument>
       </If.Condition>
       <sap:WorkflowViewStateService.ViewState>
@@ -115,12 +114,12 @@
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
                 <ui:AssignOperation.To>
                   <OutArgument x:TypeArguments="x:String">
-                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">io_FilePath</CSharpReference>
+                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_FilePath" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_3" />
                   </OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
                   <InArgument x:TypeArguments="x:String">
-                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">Path.Combine(in_FolderPath, string.Format("{0}_{1}_{2}_{3}.png", new string[]{Environment.MachineName, Environment.UserDomainName, Environment.UserName, DateTime.Now.ToString("yyyyMMdd HHmmss") }))</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_FolderPath, string.Format(&quot;{0}_{1}_{2}_{3}.png&quot;, new string(){Environment.MachineName, Environment.UserDomainName, Environment.UserName, DateTime.Now.ToString(&quot;yyyyMMdd HHmmss&quot;) }))" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_24" />
                   </InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
@@ -135,12 +134,12 @@
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
                 <ui:AssignOperation.To>
                   <OutArgument x:TypeArguments="x:String">
-                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">in_FolderPath</CSharpReference>
+                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="in_FolderPath" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_7" />
                   </OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
                   <InArgument x:TypeArguments="x:String">
-                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">new FileInfo(io_FilePath).Directory.FullName</CSharpValue>
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="new FileInfo(io_FilePath).Directory.FullName" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_25" />
                   </InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
@@ -152,26 +151,21 @@
     <ui:FolderExistsX DisplayName="Get Folder Exists" sap:VirtualizedContainerService.HintSize="457,133" sap2010:WorkflowViewState.IdRef="FolderExistsX_1">
       <ui:FolderExistsX.Exists>
         <OutArgument x:TypeArguments="x:Boolean">
-          <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">FolderExists</CSharpReference>
+          <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="FolderExists" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
         </OutArgument>
       </ui:FolderExistsX.Exists>
       <ui:FolderExistsX.Path>
         <InArgument x:TypeArguments="x:String">
-          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">in_FolderPath</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FolderPath" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
         </InArgument>
       </ui:FolderExistsX.Path>
     </ui:FolderExistsX>
-    <If DisplayName="Folder Doesn't Exist?" sap:VirtualizedContainerService.HintSize="457,262" sap2010:WorkflowViewState.IdRef="If_1">
-      <If.Condition>
-        <InArgument x:TypeArguments="x:Boolean">
-          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">!FolderExists</CSharpValue>
-        </InArgument>
-      </If.Condition>
+    <If Condition="[Not FolderExists]" DisplayName="Folder Doesn't Exist?" sap:VirtualizedContainerService.HintSize="457,262" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder!" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_1">
           <ui:CreateDirectory.Path>
             <InArgument x:TypeArguments="x:String">
-              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">in_FolderPath</CSharpValue>
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FolderPath" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
             </InArgument>
           </ui:CreateDirectory.Path>
         </ui:CreateDirectory>
@@ -186,36 +180,36 @@
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="sd:Rectangle">
-                <CSharpReference x:TypeArguments="sd:Rectangle" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">ScreenBounds</CSharpReference>
+                <VisualBasicReference x:TypeArguments="sd:Rectangle" ExpressionText="ScreenBounds" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_4" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="sd:Rectangle">
-                <CSharpValue x:TypeArguments="sd:Rectangle" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">Screen.PrimaryScreen.Bounds</CSharpValue>
+                <VisualBasicValue x:TypeArguments="sd:Rectangle" ExpressionText="Screen.PrimaryScreen.Bounds" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_10" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="sd1:Bitmap">
-                <CSharpReference x:TypeArguments="sd1:Bitmap" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">Screenshot</CSharpReference>
+                <VisualBasicReference x:TypeArguments="sd1:Bitmap" ExpressionText="Screenshot" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_5" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="sd1:Bitmap">
-                <CSharpValue x:TypeArguments="sd1:Bitmap" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">new Bitmap(ScreenBounds.Width, ScreenBounds.Height, PixelFormat.Format32bppArgb)</CSharpValue>
+                <VisualBasicValue x:TypeArguments="sd1:Bitmap" ExpressionText="new Bitmap(ScreenBounds.Width, ScreenBounds.Height, PixelFormat.Format32bppArgb)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_11" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="sd1:Graphics">
-                <CSharpReference x:TypeArguments="sd1:Graphics" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">Graphic</CSharpReference>
+                <VisualBasicReference x:TypeArguments="sd1:Graphics" ExpressionText="Graphic" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_6" />
               </OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="sd1:Graphics">
-                <CSharpValue x:TypeArguments="sd1:Graphics" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">Graphics.FromImage(Screenshot)</CSharpValue>
+                <VisualBasicValue x:TypeArguments="sd1:Graphics" ExpressionText="Graphics.FromImage(Screenshot)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_12" />
               </InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
@@ -225,55 +219,55 @@
     <InvokeMethod DisplayName="Copy Screen to Graphic" sap:VirtualizedContainerService.HintSize="457,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="CopyFromScreen">
       <InvokeMethod.TargetObject>
         <InArgument x:TypeArguments="sd1:Graphics">
-          <CSharpValue x:TypeArguments="sd1:Graphics" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">Graphic</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sd1:Graphics" ExpressionText="Graphic" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_17" />
         </InArgument>
       </InvokeMethod.TargetObject>
       <InArgument x:TypeArguments="x:Int32">
-        <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">ScreenBounds.X</CSharpValue>
+        <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="ScreenBounds.X" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_13" />
       </InArgument>
       <InArgument x:TypeArguments="x:Int32">
-        <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">ScreenBounds.Y</CSharpValue>
+        <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="ScreenBounds.Y" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_14" />
       </InArgument>
       <InArgument x:TypeArguments="x:Int32">0</InArgument>
       <InArgument x:TypeArguments="x:Int32">0</InArgument>
       <InArgument x:TypeArguments="sd:Size">
-        <CSharpValue x:TypeArguments="sd:Size" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">ScreenBounds.Size</CSharpValue>
+        <VisualBasicValue x:TypeArguments="sd:Size" ExpressionText="ScreenBounds.Size" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_15" />
       </InArgument>
       <InArgument x:TypeArguments="sd1:CopyPixelOperation">
-        <CSharpValue x:TypeArguments="sd1:CopyPixelOperation" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">CopyPixelOperation.SourceCopy</CSharpValue>
+        <VisualBasicValue x:TypeArguments="sd1:CopyPixelOperation" ExpressionText="CopyPixelOperation.SourceCopy" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_16" />
       </InArgument>
     </InvokeMethod>
     <InvokeMethod DisplayName="Dispose Graphic" sap:VirtualizedContainerService.HintSize="457,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="Dispose">
       <InvokeMethod.TargetObject>
         <InArgument x:TypeArguments="sd1:Graphics">
-          <CSharpValue x:TypeArguments="sd1:Graphics" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">Graphic</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sd1:Graphics" ExpressionText="Graphic" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_18" />
         </InArgument>
       </InvokeMethod.TargetObject>
     </InvokeMethod>
     <InvokeMethod DisplayName="Save Screenshot" sap:VirtualizedContainerService.HintSize="457,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="Save">
       <InvokeMethod.TargetObject>
         <InArgument x:TypeArguments="sd1:Bitmap">
-          <CSharpValue x:TypeArguments="sd1:Bitmap" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">Screenshot</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sd1:Bitmap" ExpressionText="Screenshot" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_21" />
         </InArgument>
       </InvokeMethod.TargetObject>
       <InArgument x:TypeArguments="x:String">
-        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">io_FilePath</CSharpValue>
+        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_FilePath" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_19" />
       </InArgument>
       <InArgument x:TypeArguments="sdi:ImageFormat">
-        <CSharpValue x:TypeArguments="sdi:ImageFormat" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">ImageFormat.Png</CSharpValue>
+        <VisualBasicValue x:TypeArguments="sdi:ImageFormat" ExpressionText="ImageFormat.Png" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_20" />
       </InArgument>
     </InvokeMethod>
     <InvokeMethod DisplayName="Dispose Screenshot" sap:VirtualizedContainerService.HintSize="457,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_4" MethodName="Dispose">
       <InvokeMethod.TargetObject>
         <InArgument x:TypeArguments="sd1:Bitmap">
-          <CSharpValue x:TypeArguments="sd1:Bitmap" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">Screenshot</CSharpValue>
+          <VisualBasicValue x:TypeArguments="sd1:Bitmap" ExpressionText="Screenshot" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_22" />
         </InArgument>
       </InvokeMethod.TargetObject>
     </InvokeMethod>
     <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="457,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">string.Format("Screenshot saved at {0}", io_FilePath)</CSharpValue>
+          <VisualBasicValue x:TypeArguments="x:Object" ExpressionText="string.Format(&quot;Screenshot saved at {0}&quot;, io_FilePath)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_9" />
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
