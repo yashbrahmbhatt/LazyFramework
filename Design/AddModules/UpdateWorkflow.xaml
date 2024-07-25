@@ -7,7 +7,7 @@
     <x:Property Name="in_ConfigPaths" Type="InArgument(scg:List(x:String))" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>VB</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>986,2857</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>986,2932</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -125,7 +125,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="UpdateWorkflow" sap:VirtualizedContainerService.HintSize="561,2632" sap2010:WorkflowViewState.IdRef="Sequence_69">
+  <Sequence DisplayName="UpdateWorkflow" sap:VirtualizedContainerService.HintSize="561,2867" sap2010:WorkflowViewState.IdRef="Sequence_69">
     <Sequence.Variables>
       <Variable x:TypeArguments="luw:WFEditor" Name="Editor" />
       <Variable x:TypeArguments="s:Func(x:String, x:String)" Name="UpdateFunction" />
@@ -148,23 +148,13 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="f = Function(expression As String) paths.Aggregate(expression, Function(acc As String, curr As String) _&#xD;&#xA;    acc _&#xD;&#xA;    .Replace(Directory.GetCurrentDirectory(), &quot;&quot;) _&#xD;&#xA;    .Replace(Directory.GetCurrentDirectory() &amp; &quot;\&quot;, &quot;&quot;) _&#xD;&#xA;    .Replace(templateRoot, Path.GetRelativePath(Directory.GetCurrentDirectory(), moduleRoot)) _&#xD;&#xA;    .Replace(templateRoot.Replace(&quot;\&quot;, &quot;\\&quot;), Path.GetRelativePath(Directory.GetCurrentDirectory(), moduleRoot).Replace(&quot;\&quot;, &quot;\\&quot;)) _&#xD;&#xA;    .Replace(Path.GetFileName(Directory.GetFiles(templateRoot, &quot;*.xaml&quot;).First()).Replace(&quot;\&quot;, &quot;\\&quot;), moduleName &amp; &quot;.xaml&quot;) _&#xD;&#xA;    .Replace(&quot;GlobalConstants.ConfigPath_&quot; &amp; Path.GetFileNameWithoutExtension(curr).Replace(&quot;Config&quot;, &quot;Template&quot;), &quot;GlobalConstants.ConfigPath_&quot; &amp; moduleName) _&#xD;&#xA;)" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="499,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="f = Function(expression As String) paths.Aggregate(expression, Function(acc As String, curr As String) _&#xA;    acc _&#xA;    .Replace(Directory.GetCurrentDirectory(), &quot;&quot;) _&#xA;    .Replace(Directory.GetCurrentDirectory() &amp; &quot;\&quot;, &quot;&quot;) _&#xA;    .Replace(templateRoot, Path.GetRelativePath(Directory.GetCurrentDirectory(), moduleRoot)) _&#xA;    .Replace(templateRoot.Replace(&quot;\&quot;, &quot;\\&quot;), Path.GetRelativePath(Directory.GetCurrentDirectory(), moduleRoot).Replace(&quot;\&quot;, &quot;\\&quot;)) _&#xA;    .Replace(Path.GetFileName(Directory.GetFiles(templateRoot, &quot;*.xaml&quot;).First()).Replace(&quot;\&quot;, &quot;\\&quot;), moduleName &amp; &quot;.xaml&quot;) _&#xA;    .Replace(&quot;GlobalConstants.ConfigPath_&quot; &amp; Path.GetFileNameWithoutExtension(curr).Replace(&quot;Config&quot;, &quot;Template&quot;), &quot;GlobalConstants.ConfigPath_&quot; &amp; moduleName) _&#xA;)" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="499,165" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
       <ui:InvokeCode.Arguments>
-        <OutArgument x:TypeArguments="s:Func(x:String, x:String)" x:Key="f">
-          <VisualBasicReference x:TypeArguments="s:Func(x:String, x:String)" ExpressionText="UpdateFunction" />
-        </OutArgument>
-        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="paths">
-          <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="in_ConfigPaths" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="moduleRoot">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ModuleRoot" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="templateRoot">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="TemplateRoot" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="moduleName">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ModuleName" />
-        </InArgument>
+        <OutArgument x:TypeArguments="s:Func(x:String, x:String)" x:Key="f">[UpdateFunction]</OutArgument>
+        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="paths">[in_ConfigPaths]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="moduleRoot">[ModuleRoot]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="templateRoot">[TemplateRoot]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="moduleName">[ModuleName]</InArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
     <ui:MultipleAssign DisplayName="Update Workflow" sap:VirtualizedContainerService.HintSize="499,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_51">
@@ -331,11 +321,11 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:ForEach x:TypeArguments="luw:Expression" CurrentIndex="{x:Null}" DisplayName="Update Expressions" sap:VirtualizedContainerService.HintSize="499,52" sap2010:WorkflowViewState.IdRef="ForEach`1_26">
+    <ui:ForEach x:TypeArguments="luw:Expression" CurrentIndex="{x:Null}" DisplayName="Update Expressions" sap:VirtualizedContainerService.HintSize="499,287" sap2010:WorkflowViewState.IdRef="ForEach`1_26">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="luw:Expression">
           <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="luw:Expression" Name="Expression" />
+            <DelegateInArgument x:TypeArguments="luw:Expression" Name="Exp" />
           </ActivityAction.Argument>
           <ui:MultipleAssign DisplayName="Update Expression" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_54">
             <ui:MultipleAssign.AssignOperations>
@@ -343,12 +333,12 @@
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_101">
                   <ui:AssignOperation.To>
                     <OutArgument x:TypeArguments="x:String">
-                      <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Expression.Value" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_192" />
+                      <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Exp.Value" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_192" />
                     </OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
                     <InArgument x:TypeArguments="x:String">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="UpdateFunction.Invoke(Expression.Value)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_503" />
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="UpdateFunction.Invoke(Exp.Value)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_503" />
                     </InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
@@ -364,7 +354,7 @@
       </ui:ForEach.Values>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
