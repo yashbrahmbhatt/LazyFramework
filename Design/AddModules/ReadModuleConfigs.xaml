@@ -180,41 +180,31 @@
                 </InArgument>
               </ui:ReadTextFile.FileName>
             </ui:ReadTextFile>
-            <ui:MultipleAssign DisplayName="Add Config JObject To Dictionary" sap:VirtualizedContainerService.HintSize="423,163" sap2010:WorkflowViewState.IdRef="MultipleAssign_22">
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423,163" sap2010:WorkflowViewState.IdRef="MultipleAssign_23">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                  <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_40">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_46">
                     <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="njl:JObject">
-                        <VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="ConfigValueJObject" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_120" />
-                      </OutArgument>
+                      <OutArgument x:TypeArguments="njl:JObject">[ConfigValueJObject]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
                       <InArgument x:TypeArguments="njl:JObject">[JsonConvert.DeserializeObject(Of JObject)(Raw)]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_42">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_47">
                     <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="njl:JToken">
-                        <VisualBasicReference x:TypeArguments="njl:JToken" ExpressionText="ConfigValueJObject(&quot;Root&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_84" />
-                      </OutArgument>
+                      <OutArgument x:TypeArguments="njl:JToken">[ConfigValueJObject("Root")]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="njl:JToken">
-                        <VisualBasicValue x:TypeArguments="njl:JToken" ExpressionText="Path.GetRelativePath(Directory.GetCurrentDirectory(), ModuleConfigPath).Replace(&quot;\\&quot; + Path.GetFileName(ModuleConfigPath),&quot;&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_383" />
-                      </InArgument>
+                      <InArgument x:TypeArguments="njl:JToken">[Path.GetRelativePath(Directory.GetCurrentDirectory(), ModuleConfigPath).Replace("\" + Path.GetFileName(ModuleConfigPath),"")]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_45">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_48">
                     <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="njl:JObject">
-                        <VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="out_ModuleConfigs(ConfigValueJObject(&quot;ID&quot;).ToString())" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_88" />
-                      </OutArgument>
+                      <OutArgument x:TypeArguments="njl:JObject">[out_ModuleConfigs(ConfigValueJObject("ID").ToString())]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="njl:JObject">
-                        <VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="ConfigValueJObject" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_269" />
-                      </InArgument>
+                      <InArgument x:TypeArguments="njl:JObject">[ConfigValueJObject]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                 </scg:List>
