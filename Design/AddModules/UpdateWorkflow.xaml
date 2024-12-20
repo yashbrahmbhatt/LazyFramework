@@ -47,6 +47,7 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>LazyFramework.Utility</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -125,7 +126,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="UpdateWorkflow" sap:VirtualizedContainerService.HintSize="561,2867" sap2010:WorkflowViewState.IdRef="Sequence_69">
+  <Sequence DisplayName="UpdateWorkflow" sap:VirtualizedContainerService.HintSize="1081,3245" sap2010:WorkflowViewState.IdRef="Sequence_69">
     <Sequence.Variables>
       <Variable x:TypeArguments="luw:WFEditor" Name="Editor" />
       <Variable x:TypeArguments="s:Func(x:String, x:String)" Name="UpdateFunction" />
@@ -136,7 +137,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="499,141" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+    <ui:LogMessage DisplayName="LM: Start" sap:VirtualizedContainerService.HintSize="461,173" sap2010:WorkflowViewState.IdRef="LogMessage_1">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
           <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_506" />
@@ -148,7 +149,7 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="f = Function(expression As String) paths.Aggregate(expression, Function(acc As String, curr As String) _&#xA;    acc _&#xA;    .Replace(Directory.GetCurrentDirectory(), &quot;&quot;) _&#xA;    .Replace(Directory.GetCurrentDirectory() &amp; &quot;\&quot;, &quot;&quot;) _&#xA;    .Replace(templateRoot, Path.GetRelativePath(Directory.GetCurrentDirectory(), moduleRoot)) _&#xA;    .Replace(templateRoot.Replace(&quot;\&quot;, &quot;\\&quot;), Path.GetRelativePath(Directory.GetCurrentDirectory(), moduleRoot).Replace(&quot;\&quot;, &quot;\\&quot;)) _&#xA;    .Replace(Path.GetFileName(Directory.GetFiles(templateRoot, &quot;*.xaml&quot;).First()).Replace(&quot;\&quot;, &quot;\\&quot;), moduleName &amp; &quot;.xaml&quot;) _&#xA;    .Replace(&quot;GlobalConstants.ConfigPath_&quot; &amp; Path.GetFileNameWithoutExtension(curr).Replace(&quot;Config&quot;, &quot;Template&quot;), &quot;GlobalConstants.ConfigPath_&quot; &amp; moduleName) _&#xA;)" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="499,165" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="f = Function(expression As String) paths.Aggregate(expression, Function(acc As String, curr As String) _&#xA;    acc _&#xA;    .Replace(Directory.GetCurrentDirectory(), &quot;&quot;) _&#xA;    .Replace(Directory.GetCurrentDirectory() &amp; &quot;\&quot;, &quot;&quot;) _&#xA;    .Replace(templateRoot, Path.GetRelativePath(Directory.GetCurrentDirectory(), moduleRoot)) _&#xA;    .Replace(templateRoot.Replace(&quot;\&quot;, &quot;\\&quot;), Path.GetRelativePath(Directory.GetCurrentDirectory(), moduleRoot).Replace(&quot;\&quot;, &quot;\\&quot;)) _&#xA;    .Replace(Path.GetFileName(Directory.GetFiles(templateRoot, &quot;*.xaml&quot;).First()).Replace(&quot;\&quot;, &quot;\\&quot;), moduleName &amp; &quot;.xaml&quot;) _&#xA;    .Replace(&quot;GlobalConstants.ConfigPath_&quot; &amp; Path.GetFileNameWithoutExtension(curr).Replace(&quot;Config&quot;, &quot;Template&quot;), &quot;GlobalConstants.ConfigPath_&quot; &amp; moduleName) _&#xA;)" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="461,197" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
       <ui:InvokeCode.Arguments>
         <OutArgument x:TypeArguments="s:Func(x:String, x:String)" x:Key="f">[UpdateFunction]</OutArgument>
         <InArgument x:TypeArguments="scg:List(x:String)" x:Key="paths">[in_ConfigPaths]</InArgument>
@@ -157,7 +158,7 @@
         <InArgument x:TypeArguments="x:String" x:Key="moduleName">[ModuleName]</InArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <ui:MultipleAssign DisplayName="Update Workflow" sap:VirtualizedContainerService.HintSize="499,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_51">
+    <ui:MultipleAssign DisplayName="Update Workflow" sap:VirtualizedContainerService.HintSize="461,164" sap2010:WorkflowViewState.IdRef="MultipleAssign_51">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_97">
@@ -185,7 +186,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:LogMessage DisplayName="LM: Pre-Arguments" sap:VirtualizedContainerService.HintSize="499,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
+    <ui:LogMessage DisplayName="LM: Pre-Arguments" sap:VirtualizedContainerService.HintSize="461,173" sap2010:WorkflowViewState.IdRef="LogMessage_2">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
           <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_508" />
@@ -197,13 +198,13 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:ForEach x:TypeArguments="luw:Argument" CurrentIndex="{x:Null}" DisplayName="Update Arguments" sap:VirtualizedContainerService.HintSize="499,406" sap2010:WorkflowViewState.IdRef="ForEach`1_24">
+    <ui:ForEach x:TypeArguments="luw:Argument" CurrentIndex="{x:Null}" DisplayName="Update Arguments" sap:VirtualizedContainerService.HintSize="461,737" sap2010:WorkflowViewState.IdRef="ForEach`1_24">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="luw:Argument">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="luw:Argument" Name="Argument" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="465,220" sap2010:WorkflowViewState.IdRef="Sequence_74">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="459,557" sap2010:WorkflowViewState.IdRef="Sequence_74">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="NewValue" />
             </Sequence.Variables>
@@ -212,34 +213,63 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="Update Argument" sap:VirtualizedContainerService.HintSize="423,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_52">
-              <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_102">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">
-                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="NewValue" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_193" />
-                      </OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[If(Argument.DefaultValue IsNot Nothing, UpdateFunction.Invoke(Argument.DefaultValue), Nothing)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_99">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">
-                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Argument.DefaultValue" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_188" />
-                      </OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">
-                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="NewValue" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_517" />
-                      </InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                </scg:List>
-              </ui:MultipleAssign.AssignOperations>
-            </ui:MultipleAssign>
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="425,497" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch.Try>
+                <ui:MultipleAssign DisplayName="Update Argument" sap:VirtualizedContainerService.HintSize="423,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_52">
+                  <ui:MultipleAssign.AssignOperations>
+                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_102">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">
+                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="NewValue" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_193" />
+                          </OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[If(Argument.DefaultValue IsNot Nothing, UpdateFunction.Invoke(Argument.DefaultValue), Nothing)]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_99">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">
+                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Argument.DefaultValue" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_188" />
+                          </OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">
+                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="NewValue" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_517" />
+                          </InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                    </scg:List>
+                  </ui:MultipleAssign.AssignOperations>
+                </ui:MultipleAssign>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="423,89" sap2010:WorkflowViewState.IdRef="Sequence_76">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+              <TryCatch.Finally>
+                <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="423,89" sap2010:WorkflowViewState.IdRef="Sequence_75">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </TryCatch.Finally>
+            </TryCatch>
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
@@ -255,7 +285,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:LogMessage DisplayName="LM: Pre-Variables" sap:VirtualizedContainerService.HintSize="499,141" sap2010:WorkflowViewState.IdRef="LogMessage_3">
+    <ui:LogMessage DisplayName="LM: Pre-Variables" sap:VirtualizedContainerService.HintSize="461,173" sap2010:WorkflowViewState.IdRef="LogMessage_3">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
           <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_510" />
@@ -267,28 +297,57 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ui:ForEach x:TypeArguments="luw:Variable" CurrentIndex="{x:Null}" DisplayName="Update Variables" sap:VirtualizedContainerService.HintSize="499,287" sap2010:WorkflowViewState.IdRef="ForEach`1_25">
+    <ui:ForEach x:TypeArguments="luw:Variable" CurrentIndex="{x:Null}" DisplayName="Update Variables" sap:VirtualizedContainerService.HintSize="461,574" sap2010:WorkflowViewState.IdRef="ForEach`1_25">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="luw:Variable">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="luw:Variable" Name="Variable" />
           </ActivityAction.Argument>
-          <ui:MultipleAssign DisplayName="Update Variable" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_56">
-            <ui:MultipleAssign.AssignOperations>
-              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_100">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">
-                      <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Variable.DefaultValue" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_190" />
-                    </OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[If(Variable.DefaultValue Isnot Nothing, If(Variable.DefaultValue IsNot Nothing, UpdateFunction.Invoke(Variable.DefaultValue), Nothing), Nothing)]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-              </scg:List>
-            </ui:MultipleAssign.AssignOperations>
-          </ui:MultipleAssign>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="425,354" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+            <TryCatch.Try>
+              <ui:MultipleAssign DisplayName="Update Variable" sap:VirtualizedContainerService.HintSize="423,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_56">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_100">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">
+                          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Variable.DefaultValue" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_190" />
+                        </OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[If(Variable.DefaultValue Isnot Nothing, If(Variable.DefaultValue IsNot Nothing, UpdateFunction.Invoke(Variable.DefaultValue), Nothing), Nothing)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+              </ui:MultipleAssign>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="423,89" sap2010:WorkflowViewState.IdRef="Sequence_78">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+            <TryCatch.Finally>
+              <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="423,89" sap2010:WorkflowViewState.IdRef="Sequence_77">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </TryCatch.Finally>
+          </TryCatch>
         </ActivityAction>
       </ui:ForEach.Body>
       <ui:ForEach.Values>
@@ -303,7 +362,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:LogMessage DisplayName="LM: Pre-Expressions" sap:VirtualizedContainerService.HintSize="499,52" sap2010:WorkflowViewState.IdRef="LogMessage_4">
+    <ui:LogMessage DisplayName="LM: Pre-Expressions" sap:VirtualizedContainerService.HintSize="461,57" sap2010:WorkflowViewState.IdRef="LogMessage_4">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
           <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_512" />
@@ -321,7 +380,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:ForEach x:TypeArguments="luw:Expression" CurrentIndex="{x:Null}" DisplayName="Update Expressions" sap:VirtualizedContainerService.HintSize="499,287" sap2010:WorkflowViewState.IdRef="ForEach`1_26">
+    <ui:ForEach x:TypeArguments="luw:Expression" CurrentIndex="{x:Null}" DisplayName="Update Expressions" sap:VirtualizedContainerService.HintSize="461,321" sap2010:WorkflowViewState.IdRef="ForEach`1_26">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="luw:Expression">
           <ActivityAction.Argument>
@@ -359,7 +418,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:ForEach x:TypeArguments="sxl:XAttribute" CurrentIndex="{x:Null}" DisplayName="Update Invoke Workflow Paths" sap:VirtualizedContainerService.HintSize="499,287" sap2010:WorkflowViewState.IdRef="ForEach`1_27">
+    <ui:ForEach x:TypeArguments="sxl:XAttribute" CurrentIndex="{x:Null}" DisplayName="Update Invoke Workflow Paths" sap:VirtualizedContainerService.HintSize="461,321" sap2010:WorkflowViewState.IdRef="ForEach`1_27">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="sxl:XAttribute">
           <ActivityAction.Argument>
@@ -391,7 +450,7 @@
         </InArgument>
       </ui:ForEach.Values>
     </ui:ForEach>
-    <InvokeMethod DisplayName="Save File" sap:VirtualizedContainerService.HintSize="499,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Save">
+    <InvokeMethod DisplayName="Save File" sap:VirtualizedContainerService.HintSize="461,168" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Save">
       <InvokeMethod.TargetObject>
         <InArgument x:TypeArguments="luw:WFEditor">
           <VisualBasicValue x:TypeArguments="luw:WFEditor" ExpressionText="Editor" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_504" />
@@ -401,7 +460,7 @@
         <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_WorkflowFile" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_505" />
       </InArgument>
     </InvokeMethod>
-    <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="499,141" sap2010:WorkflowViewState.IdRef="LogMessage_5">
+    <ui:LogMessage DisplayName="LM: Complete" sap:VirtualizedContainerService.HintSize="461,164" sap2010:WorkflowViewState.IdRef="LogMessage_5">
       <ui:LogMessage.Level>
         <InArgument x:TypeArguments="ui:LogLevel">
           <VisualBasicValue x:TypeArguments="ui:LogLevel" ExpressionText="UiPath.Core.Activities.LogLevel.Info" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_514" />
