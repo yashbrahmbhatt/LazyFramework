@@ -278,7 +278,6 @@
         "fileName": "Design\\Modules\\Reporters\\Basic\\Tests\\BasicReporterFromToNoOutput.xaml"
       }
     ],
-    "modernBehavior": true,
     "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",
