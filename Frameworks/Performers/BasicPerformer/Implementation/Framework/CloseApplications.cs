@@ -17,7 +17,7 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implement
         [Workflow]
         public override StateData Execute(StateData state)
         {
-            Log("Here");
+            workflows.InitializeApplications(state);
             // To start using services, use IntelliSense (CTRL + Space) to discover the available services:
             // e.g. system.GetAsset(...)
 

@@ -46,7 +46,14 @@
       ]
     },
     "processOptions": {
-      "ignoredFiles": []
+      "ignoredFiles": [
+        "Frameworks/Performers/BasicPerformer/Implementation/Framework/CloseApplications.cs",
+        "Frameworks/Performers/BasicPerformer/Implementation/Framework/GetTransactionData.cs",
+        "Frameworks/Performers/BasicPerformer/Implementation/Framework/Process.cs",
+        "Frameworks/Performers/BasicPerformer/Implementation/Main.cs",
+        "Frameworks/Performers/BasicPerformer/Implementation/MainWithoutWorkflows.cs",
+        "Frameworks/Performers/BasicPerformer/Implementation/Framework/InitializeApplications.xaml"
+      ]
     },
     "fileInfoCollection": [
       {

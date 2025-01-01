@@ -15,8 +15,8 @@ namespace LazyFramework.DX.Shared
     {
         public static bool CurrentlyBetweenTimes(TimeSpan? start, TimeSpan? end)
         {
-            if(start == null) throw new ArgumentNullException(nameof(start));
-            if(end == null) throw new ArgumentNullException(nameof(end));
+            if (start == null) throw new ArgumentNullException(nameof(start));
+            if (end == null) throw new ArgumentNullException(nameof(end));
             var current = DateTime.Now.TimeOfDay;
             return start <= end ? current >= start && current <= end : current >= start || current <= end;
         }
@@ -25,14 +25,14 @@ namespace LazyFramework.DX.Shared
         {
 
             string folderPath, filePath;
-            if(inputPath == null) throw new ArgumentNullException(nameof(inputPath));
+            if (inputPath == null) throw new ArgumentNullException(nameof(inputPath));
             if (Directory.Exists(inputPath))
             {
                 // Input is a folder path
                 folderPath = inputPath;
                 string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
                 string fileName = $"{Environment.MachineName}_{Environment.UserDomainName}_{Environment.UserName}_{timestamp}.png";
-                if(folderPath == null) throw new Exception("WTF");
+                if (folderPath == null) throw new Exception("WTF");
                 filePath = Path.Combine(folderPath, fileName);
             }
             else
@@ -48,9 +48,9 @@ namespace LazyFramework.DX.Shared
 
 
             // Capture the screenshot
-            if(Screen.PrimaryScreen == null) throw new Exception("Cannot take screenshots without a primary screen");
+            if (Screen.PrimaryScreen == null) throw new Exception("Cannot take screenshots without a primary screen");
             var bounds = Screen.PrimaryScreen.Bounds;
-            
+
             using (var screenshot = new Bitmap(bounds.Width, bounds.Height, PixelFormat.Format32bppArgb))
             using (var graphics = Graphics.FromImage(screenshot))
             {
@@ -119,17 +119,6 @@ namespace LazyFramework.DX.Shared
             throw lastException ?? new Exception("WTF");
         }
 
-        public static void KillProcesses(List<string> processNames)
-        {
-            IEnumerable<Process[]> processes = processNames.Select(p => Process.GetProcessesByName(p));
-            foreach (var processType in processes)
-            {
-                if(processType == null) continue;
-                foreach (var processInstance in processType)
-                {
-                    processInstance.Kill();
-                }
-            }
-        }
+        
     }
 }

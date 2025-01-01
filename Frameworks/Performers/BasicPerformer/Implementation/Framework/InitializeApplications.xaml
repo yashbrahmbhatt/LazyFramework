@@ -32,6 +32,8 @@
       <x:String>LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer</x:String>
       <x:String>System.Dynamic</x:String>
       <x:String>LazyFramework.DX.Shared.Models</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -69,9 +71,13 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="InitializeApplications" sap:VirtualizedContainerService.HintSize="1155,316.82399999999996" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="InitializeApplications" sap:VirtualizedContainerService.HintSize="1028,546.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

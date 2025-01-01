@@ -16,10 +16,10 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implement
     public class MainWithoutWorkflows : BaseMain<Config, StateData, Workflow>
     {
         [Workflow]
-        public override void Execute(string configPath, List<string> ignored)
+        public void Execute(string configPath, List<string> ignored)
         {
             
-            base.Execute(configPath, ignored);
+            base.RunFramework(configPath, ignored);
             // To start using services, use IntelliSense (CTRL + Space) to discover the available services:
             // e.g. system.GetAsset(...)
 

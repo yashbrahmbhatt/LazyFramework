@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -60,19 +61,22 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer
 
 
 
-    public abstract class BaseMain<TConfig, TStateData, TWorkflow> : CodedWorkflow where TConfig : BaseConfig, new() where TStateData : BaseStateData<TConfig>, new() where TWorkflow : BaseWorkflow<TStateData, TConfig>
+    public abstract partial class BaseMain<TConfig, TStateData, TWorkflow> : CodedWorkflow where TConfig : BaseConfig, new() where TStateData : BaseStateData<TConfig>, new() where TWorkflow : BaseWorkflow<TStateData, TConfig>
     {
         // Workflow Slots
         public delegate TStateData ExecuteDelegate(TStateData state);
-        public ExecuteDelegate? InitializeSettings;
-        public ExecuteDelegate InitializeApplications;
-        public ExecuteDelegate Process;
-        public ExecuteDelegate GetTransactionData;
-        public ExecuteDelegate? HandleBusinessException;
-        public ExecuteDelegate? HandleSystemException;
-        public ExecuteDelegate? HandleSuccess;
-        public ExecuteDelegate? End;
-        public ExecuteDelegate CloseApplications;
+        public static class WorkflowSlots
+        {
+            public static ExecuteDelegate? InitializeSettings;
+            public static ExecuteDelegate InitializeApplications;
+            public static ExecuteDelegate Process;
+            public static ExecuteDelegate GetTransactionData;
+            public static ExecuteDelegate? HandleBusinessException;
+            public static ExecuteDelegate? HandleSystemException;
+            public static ExecuteDelegate? HandleSuccess;
+            public static ExecuteDelegate? End;
+            public static ExecuteDelegate CloseApplications;
+        }
 
         // Constructors
         public BaseMain() { }
@@ -80,14 +84,16 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer
         // Fields
         public TStateData Data = new();
         public Stack<State> Stack = new();
+        public FixedSizeQueue<string> StackHistory = new FixedSizeQueue<string>(10);
+        public TStateData InitialData;
 
 
         // Entry
-        public virtual void Execute(string configPath, List<string> ignored)
+        public void RunFramework(string configPath, List<string> ignored)
         {
             ValidateWorkflows();
             InitializeFramework(configPath, ignored);
-            RunStateMachine();
+            RunStateMachine(TestId.None);
         }
 
         // Framework Methods
@@ -134,9 +140,10 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer
         }
         public bool IsMaintenanceTime()
         {
+            Log($"Checking if currently ({DateTime.Now.ToString()} between maintenance times ({Data.Config?.Maintenance_Start} {Data.Config?.Maintenance_End})");
             return SharedHelpers.CurrentlyBetweenTimes(Data.Config?.Maintenance_Start, Data.Config?.Maintenance_End);
         }
-        public void RunStateMachine()
+        public void RunStateMachine(TestId testId)
         {
             Stack.Push(InitializeState);
             while (Stack.Count > 0)
@@ -144,42 +151,72 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer
                 try
                 {
                     var currentState = Stack.Pop();
-                    currentState.Invoke(TestId.None);
+                    StackHistory.Enqueue(currentState.Method.Name);
+                    currentState.Invoke(testId);
                 }
                 catch (Exception e)
                 {
                     Data.FrameEx = e;
-                    Stack.Push(EndState);
+                    Stack.Clear();
                 }
             }
+            StackHistory.Enqueue("EndState");
+            EndState(testId);
         }
         public void InitializeFramework(string configPath, List<string> ignored)
         {
             // System.Windows.MessageBox.Show("The primary screen resolution is: " + SystemParameters.PrimaryScreenWidth.ToString() + " x " + SystemParameters.PrimaryScreenHeight.ToString());
             // File.WriteAllText("text.json", JsonConvert.SerializeObject(this, Formatting.Indented, new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore }));
             Log("The primary screen resolution is: " + SystemParameters.PrimaryScreenWidth.ToString() + " x " + SystemParameters.PrimaryScreenHeight.ToString());
-            if (InitializeSettings != null) Data = InitializeSettings(Data);
+            if (WorkflowSlots.InitializeSettings != null) Data = WorkflowSlots.InitializeSettings(Data);
             else Data = new TStateData() { Config = DictionaryObjectFactory.FromDictionary<TConfig>(workflows.LoadConfig(configPath, ignored)) };
+            InitialData = JsonConvert.DeserializeObject<TStateData>(JsonConvert.SerializeObject(Data));
         }
-        private void ValidateWorkflows()
+        public void ValidateWorkflows()
         {
-            if (InitializeApplications == null) throw new FrameworkWorkflowNotInitialized(nameof(InitializeApplications));
-            if (Process == null) throw new FrameworkWorkflowNotInitialized(nameof(Process));
-            if (CloseApplications == null) throw new FrameworkWorkflowNotInitialized(nameof(CloseApplications));
-            if (GetTransactionData == null) throw new FrameworkWorkflowNotInitialized(nameof(GetTransactionData));
+            if (WorkflowSlots.InitializeApplications == null) throw new FrameworkWorkflowNotInitialized(nameof(WorkflowSlots.InitializeApplications));
+            if (WorkflowSlots.Process == null) throw new FrameworkWorkflowNotInitialized(nameof(WorkflowSlots.Process));
+            if (WorkflowSlots.CloseApplications == null) throw new FrameworkWorkflowNotInitialized(nameof(WorkflowSlots.CloseApplications));
+            if (WorkflowSlots.GetTransactionData == null) throw new FrameworkWorkflowNotInitialized(nameof(WorkflowSlots.GetTransactionData));
         }
-
+        public void KillProcesses(List<string> processNames)
+        {
+            foreach (var processName in processNames)
+            {
+                try
+                {
+                    var processes = Process.GetProcessesByName(processName);
+                    foreach (var process in processes)
+                    {
+                        try
+                        {
+                            process.Kill();
+                            process.WaitForExit(); // Optional: Ensure the process has exited
+                            Log($"Successfully killed process: {process.ProcessName} (ID: {process.Id})");
+                        }
+                        catch (Exception ex)
+                        {
+                            Log($"Failed to kill process: {process.ProcessName} (ID: {process.Id}). Error: {ex.Message}");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log($"Error retrieving processes for '{processName}': {ex.Message}");
+                }
+            }
+        }
         // States
         public delegate void State(TestId testId);
         public void InitializeState(TestId testId)
         {
             switch (testId)
             {
-                case TestId.MaintenanceTime:
+                case TestId.InitializeMaintenanceTime:
                     Data.Config.Maintenance_Start = new TimeSpan(0, 0, 0);
                     Data.Config.Maintenance_End = new TimeSpan(23, 59, 59);
                     break;
-                case TestId.StateError:
+                case TestId.InitializeStateError:
                     throw new Exception(nameof(testId));
                 default:
                     break;
@@ -190,24 +227,26 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer
             try
             {
                 Log("Trying to close applications");
-                Data = CloseApplications(Data);
+                Data = WorkflowSlots.CloseApplications(Data);
+                Log("Applications closed successfully");
+                
             }
             catch
             {
                 Log("Failed to close applications, killing processes instead");
-                SharedHelpers.KillProcesses(Data.Config?.ProcessesToKill ?? new List<string>());
+                KillProcesses(Data.Config?.ProcessesToKill ?? new List<string>());
             }
             if (IsMaintenanceTime())
             {
                 Log("Within maintenance window");
-                Stack.Push(EndState);
             }
+            else
             {
 
                 SharedHelpers.Retry<bool>(() =>
                 {
                     Log("Initializing applications...");
-                    Data = InitializeApplications(Data);
+                    Data = WorkflowSlots.InitializeApplications(Data);
                     Log("Applications initialized");
                 });
                 Stack.Push(GetTransactionState);
@@ -217,11 +256,11 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer
         {
             switch (testId)
             {
-                case TestId.MaintenanceTime:
+                case TestId.GetTransactionMaintenanceTime:
                     Data.Config.Maintenance_Start = new TimeSpan(0, 0, 0);
                     Data.Config.Maintenance_End = new TimeSpan(23, 59, 59);
                     break;
-                case TestId.StateError:
+                case TestId.GetTransactionStateError:
                     throw new Exception(nameof(testId));
                 default:
                     break;
@@ -230,14 +269,12 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer
             if (IsMaintenanceTime())
             {
                 Log("Currently within maintenance window");
-                Stack.Push(EndState);
                 return;
             }
-            Data = GetTransactionData(Data);
+            Data = WorkflowSlots.GetTransactionData(Data);
             if (Data.Transaction == null)
             {
                 Log("No more queue items");
-                Stack.Push(EndState);
                 return;
             }
             Log("Transaction found");
@@ -247,7 +284,7 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer
         {
             switch (testId)
             {
-                case TestId.StateError:
+                case TestId.ProcessStateError:
                     throw new Exception(nameof(testId));
                 default:
                     break;
@@ -265,11 +302,12 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer
                     case TestId.TransactionSystemException:
                         throw new Exception(nameof(testId));
                     case TestId.TransactionBusinessException:
-
+                        throw new Exception(nameof(testId));
                     default:
                         break;
                 }
-                Data = Process(Data);
+                Data = WorkflowSlots.Process(Data);
+                Data.ConsecutiveSystemExceptions = 0;
             }
             catch (BusinessRuleException bre)
             {
@@ -303,86 +341,108 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer
                 if (Data.SysEx != null)
                 {
                     SendErrorEmail();
-                    Data = HandleSystemException != null ? HandleSystemException(Data) : Data;
-                    Stack.Push(InitializeState);
+                    Data = WorkflowSlots.HandleSystemException != null ? WorkflowSlots.HandleSystemException(Data) : Data;
+                    Data.ConsecutiveSystemExceptions += 1;
+                    if (Data.ConsecutiveSystemExceptions > Data.Config?.MaxConsecutiveExceptions)
+                    {
+                        Log("Reached maximum consecutive system exception");
+                    }
+                    else
+                    {
+                        Log($"Consecutive system exceptions: {Data.ConsecutiveSystemExceptions.ToString()} less than max, reinitializing");
+                        Stack.Push(InitializeState);
+                    }
                 }
                 else if (Data.BusEx != null)
                 {
                     SendErrorEmail();
-                    Data = HandleBusinessException != null ? HandleBusinessException(Data) : Data;
+                    Data = WorkflowSlots.HandleBusinessException != null ? WorkflowSlots.HandleBusinessException(Data) : Data;
                     Stack.Push(GetTransactionState);
                 }
                 else
                 {
-                    Data = HandleSuccess != null ? HandleSuccess(Data) : Data;
+                    Data = WorkflowSlots.HandleSuccess != null ? WorkflowSlots.HandleSuccess(Data) : Data;
                     Stack.Push(GetTransactionState);
                 }
             }
         }
         public void EndState(TestId testId)
         {
-            Data = End != null ? End(Data) : Data;
+            Data = WorkflowSlots.End != null ? WorkflowSlots.End(Data) : Data;
             if (Data.FrameEx != null) SendErrorEmail();
 
             try
             {
-                Data = CloseApplications(Data);
+                Data = WorkflowSlots.CloseApplications(Data);
             }
             catch
             {
-                SharedHelpers.KillProcesses(Data.Config?.ProcessesToKill ?? new List<string>());
+                KillProcesses(Data.Config?.ProcessesToKill ?? new List<string>());
             }
 
             if (Data.FrameEx != null) throw Data.FrameEx;
         }
 
         // State Tests
-
         public virtual void RunTests(string configPath, List<string> ignored)
         {
             InitializeFramework(configPath, ignored);
-            InitializeStateTestMaintenanceTime();
+            RunTest("InitializeState - Maintenance Time", TestId.InitializeMaintenanceTime, new List<VerifyTest>() {
+                (ex, data, history) => ("No test Exception", testing.VerifyExpression(ex == null)),
+                (ex, data, history) => ("Only 2 states", testing.VerifyExpression((history as FixedSizeQueue<string>).Count == 2)),
+                (ex, data, history) => ("First state was initialize", testing.VerifyExpression((history as FixedSizeQueue<string>).ToArray().First() == "InitializeState")),
+                (ex, data, history) => ("Last state was End", testing.VerifyExpression((history as FixedSizeQueue<string>).ToArray().Last() == "EndState"))
+            });
+            RunTest("InitializeState - State Error", TestId.InitializeStateError, new List<VerifyTest>() {
+                (ex, data, history) => ("Exception raised", testing.VerifyExpression(ex != null)),
+                (ex, data, history) => ("Framework exception not null", testing.VerifyExpression(Data.FrameEx != null)),
+                (ex, data, history) => ("Only 2 states", testing.VerifyExpression((history as FixedSizeQueue<string>).Count == 2)),
+                (ex, data, history) => ("First state was initialize", testing.VerifyExpression((history as FixedSizeQueue<string>).ToArray().First() == "InitializeState")),
+                (ex, data, history) => ("Last state was End", testing.VerifyExpression((history as FixedSizeQueue<string>).ToArray().Last() == "EndState"))
+            });
+            RunTest("GetTransaction - Maintenance Time", TestId.GetTransactionMaintenanceTime, new List<VerifyTest>() {
+                (ex, data, history) => ("No test Exception", testing.VerifyExpression(ex == null)),
+                (ex, data, history) => ("Only 3 states", testing.VerifyExpression((history as FixedSizeQueue<string>).Count == 3)),
+                (ex, data, history) => ("First state was initialize", testing.VerifyExpression((history as FixedSizeQueue<string>).ToArray().First() == "InitializeState")),
+                (ex, data, history) => ("Second state was GetTransaction", testing.VerifyExpression((history as FixedSizeQueue<string>).ToArray()[1] == "GetTransactionState")),
+                (ex, data, history) => ("Last state was End", testing.VerifyExpression((history as FixedSizeQueue<string>).ToArray().Last() == "EndState"))
+            });
+            RunTest("InitializeState - State Error", TestId.InitializeStateError, new List<VerifyTest>() {
+                (ex, data, history) => ("Exception raised", testing.VerifyExpression(ex != null)),
+                (ex, data, history) => ("Framework exception not null", testing.VerifyExpression(Data.FrameEx != null)),
+                (ex, data, history) => ("Only 3 states", testing.VerifyExpression((history as FixedSizeQueue<string>).Count == 3)),
+                (ex, data, history) => ("First state was initialize", testing.VerifyExpression((history as FixedSizeQueue<string>).ToArray().First() == "InitializeState")),
+                (ex, data, history) => ("Second state was GetTransaction", testing.VerifyExpression((history as FixedSizeQueue<string>).ToArray()[1] == "GetTransactionState")),
+                (ex, data, history) => ("Last state was End", testing.VerifyExpression((history as FixedSizeQueue<string>).ToArray().Last() == "EndState"))
+            });
         }
-        public void InitializeStateTestMaintenanceTime()
+        public delegate (string verificationName, bool result) VerifyTest(Exception testException, TStateData data, FixedSizeQueue<string> history);
+        public void RunTest(string name, TestId testId, List<VerifyTest> verifications)
         {
-            ResetStateExceptConfig();
+            ResetState();
+            ResetHistory();
             Exception ex = null;
             try
             {
-                InitializeState(TestId.MaintenanceTime);
+                RunStateMachine(testId);
             }
             catch (Exception e)
             {
                 ex = e;
             }
-
-            testing.VerifyExpression(ex == null);
-            testing.VerifyExpression(Stack.Count == 0 && Stack.First() == EndState);
+            foreach (VerifyTest verification in verifications)
+            {
+                var result = verification(ex, Data, StackHistory);
+                Log($"[Test {name}] {result.verificationName}:  {result.result.ToString()}");
+            }
         }
 
-        public void InitializeStateTestStateError()
-        {
-            ResetStateExceptConfig();
-            Exception ex = null;
-            try
-            {
-                InitializeState(TestId.StateError);
-            }
-            catch (Exception e)
-            {
-                ex = e;
-            }
-
-            testing.VerifyExpression(ex != null);
-        }
         // Resets everything except config
-        public void ResetStateExceptConfig()
-        {
-            Data.SysEx = null;
-            Data.FrameEx = null;
-            Data.BusEx = null;
-            Data.Transaction = null;
-            Data.ConsecutiveSystemExceptions = 0;
+        public void ResetState() {
+            Data = JsonConvert.DeserializeObject<TStateData>(JsonConvert.SerializeObject(InitialData));
+        }
+        public void ResetHistory(){
+            StackHistory.Clear();
         }
 
         // Helper Structs/Classes/Enums
@@ -396,14 +456,20 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer
             {
             }
         }
-
     }
     public enum TestId
     {
-        StateError,
+        // InitializeState
+        InitializeStateError,
+        InitializeMaintenanceTime,
+        //GetTransactionDataState
+        GetTransactionStateError,
+        GetTransactionMaintenanceTime,
+        //Process
+        ProcessStateError,
         TransactionSystemException,
         TransactionBusinessException,
-        MaintenanceTime,
+        //None
         None
     }
 }
