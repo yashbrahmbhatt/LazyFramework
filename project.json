@@ -1,0 +1,72 @@
+{
+  "name": "LazyFramework.DX.Shared",
+  "projectId": "cb585199-63e4-4865-bbae-68d40429da8d",
+  "description": "",
+  "main": "NewActivity.xaml",
+  "dependencies": {
+    "UiPath.Excel.Activities": "2.24.4",
+    "UiPath.System.Activities": "24.10.7",
+    "UiPath.Testing.Activities": "24.10.3"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "25.0.157.0",
+  "projectVersion": "1.0.1",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Library",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": [
+        "Frameworks/Performers/BasicPerformer/Implementation/Framework/CloseApplications.cs",
+        "Frameworks/Performers/BasicPerformer/Implementation/Framework/GetTransactionData.cs",
+        "Frameworks/Performers/BasicPerformer/Implementation/Framework/InitializeApplications.xaml",
+        "Frameworks/Performers/BasicPerformer/Implementation/Framework/Process.cs",
+        "Frameworks/Performers/BasicPerformer/Implementation/Main.cs",
+        "Frameworks/Performers/BasicPerformer/Implementation/MainWithoutWorkflows.cs"
+      ]
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "ee43056f-96d7-47e0-b719-9c9fa50c81c5",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\LoadConfigTests.cs"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "746f083c-e138-4934-8429-cca8d350e579",
+        "testCaseType": "TestCase",
+        "fileName": "Frameworks\\Performers\\BasicPerformer\\Implementation\\Main.Tests.State.cs"
+      }
+    ],
+    "saveToCloud": false
+  },
+  "expressionLanguage": "CSharp",
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Windows"
+}

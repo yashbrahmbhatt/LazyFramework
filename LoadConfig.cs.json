@@ -1,0 +1,45 @@
+{
+  "DisplayName": "Load Config",
+  "Tooltip": "Loads an excel or json configuration file into a dictionary of strings and objects.",
+  "HelpLink": null,
+  "Color": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "ignored",
+      "DisplayName": "Ignored Sheets/Keys",
+      "Category": "Input",
+      "Tooltip": "They sheets or keys to ignore from the config.",
+      "Placeholder": null,
+      "Widget": "TextComposer",
+      "IsRequired": true,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "file",
+      "DisplayName": "File Path",
+      "Category": "Input",
+      "Tooltip": "The file path to the config file to be loaded.",
+      "Placeholder": null,
+      "Widget": "TextComposer",
+      "IsRequired": true,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "Output",
+      "DisplayName": "Output",
+      "Category": "Output",
+      "Tooltip": "The loaded config dictionary.",
+      "Placeholder": null,
+      "Widget": "TextComposer",
+      "IsRequired": true,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    }
+  ]
+}
