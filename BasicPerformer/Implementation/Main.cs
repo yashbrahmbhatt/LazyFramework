@@ -11,7 +11,7 @@ using UiPath.Excel.Activities.API;
 using UiPath.Excel.Activities.API.Models;
 using UiPath.Orchestrator.Client.Models;
 
-namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implementation
+namespace LazyFramework.DX.Shared.BasicPerformer.Implementation
 {
     public class Config : BaseConfig
     {
@@ -23,11 +23,11 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implement
 
     }
 
-    public abstract class Workflow : BaseWorkflow<StateData, Config>
+    public abstract class FrameworkWorkflow : BaseWorkflow<StateData, Config>
     {
-
+        
     }
-    public class Main : BaseMain<Config, StateData, Workflow>
+    public class Main : BaseMain<Config, StateData, FrameworkWorkflow>
     {
 
         public Main() { }

@@ -12,7 +12,7 @@ using UiPath.CodedWorkflows.Interfaces;
 using UiPath.Core;
 using UiPath.Core.Activities;
 #nullable enable
-namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer
+namespace LazyFramework.DX.Shared.BasicPerformer
 {
 
     public abstract class BaseConfig : DictionaryObject

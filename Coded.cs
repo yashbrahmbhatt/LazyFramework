@@ -9,23 +9,27 @@ using UiPath.Excel.Activities;
 using UiPath.Excel.Activities.API;
 using UiPath.Excel.Activities.API.Models;
 using UiPath.Orchestrator.Client.Models;
+using UiPath.Testing;
+using UiPath.Testing.Activities.Api.Models;
+using UiPath.Testing.Activities.Models;
+using UiPath.Testing.Activities.TestData;
+using UiPath.Testing.Activities.TestDataQueues.Enums;
+using UiPath.Testing.Enums;
 
-namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implementation.Framework
+namespace LazyFramework.DX.Shared
 {
-    public class Process : Workflow
+    public class Coded : CodedWorkflow
     {
         [Workflow]
-        public override StateData Execute(StateData state)
+        public void Execute()
         {
+            workflows.Xaml();
             // To start using services, use IntelliSense (CTRL + Space) to discover the available services:
             // e.g. system.GetAsset(...)
 
             // For accessing UI Elements from Object Repository, you can use the Descriptors class e.g:
             // var screen = uiAutomation.Open(Descriptors.MyApp.FirstScreen);
             // screen.Click(Descriptors.MyApp.FirstScreen.SettingsButton);
-            return state;
         }
-
-
     }
 }

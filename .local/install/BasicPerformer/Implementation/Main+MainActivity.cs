@@ -4,33 +4,43 @@ using UiPath.CodedWorkflows;
 using UiPath.CodedWorkflows.Utils;
 using System.Runtime;
 
-namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implementation
+namespace LazyFramework.DX.Shared.BasicPerformer.Implementation
 {
     [System.ComponentModel.Browsable(false)]
-    public class Main_Tests_StateActivity : System.Activities.Activity
+    public class MainActivity : System.Activities.Activity
     {
-        public Main_Tests_StateActivity()
+        public InArgument<System.String> configPath { get; set; }
+
+        public InArgument<System.Collections.Generic.List<System.String>> ignored { get; set; }
+
+        public MainActivity()
         {
             this.Implementation = () =>
             {
-                return new Main_Tests_StateActivityChild()
-                {};
+                return new MainActivityChild()
+                {configPath = (this.configPath == null ? (InArgument<System.String>)Argument.CreateReference((Argument)new InArgument<System.String>(), "configPath") : (InArgument<System.String>)Argument.CreateReference((Argument)this.configPath, "configPath")), ignored = (this.ignored == null ? (InArgument<System.Collections.Generic.List<System.String>>)Argument.CreateReference((Argument)new InArgument<System.Collections.Generic.List<System.String>>(), "ignored") : (InArgument<System.Collections.Generic.List<System.String>>)Argument.CreateReference((Argument)this.ignored, "ignored")), };
             };
         }
     }
 
-    internal class Main_Tests_StateActivityChild : UiPath.CodedWorkflows.AsyncTaskCodedWorkflowActivity
+    internal class MainActivityChild : UiPath.CodedWorkflows.AsyncTaskCodedWorkflowActivity
     {
+        public InArgument<System.String> configPath { get; set; }
+
+        public InArgument<System.Collections.Generic.List<System.String>> ignored { get; set; }
+
         public System.Collections.Generic.IDictionary<string, object> newResult { get; set; }
 
-        public Main_Tests_StateActivityChild()
+        public MainActivityChild()
         {
-            DisplayName = "Main_Tests_State";
+            DisplayName = "Main";
         }
 
         protected override async System.Threading.Tasks.Task<Action<AsyncCodeActivityContext>> ExecuteAsync(AsyncCodeActivityContext context, System.Threading.CancellationToken cancellationToken)
         {
-            var codedWorkflow = new global::LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implementation.Main_Tests_State();
+            var var_configPath = configPath.Get(context);
+            var var_ignored = ignored.Get(context);
+            var codedWorkflow = new global::LazyFramework.DX.Shared.BasicPerformer.Implementation.Main();
             CodedWorkflowHelper.Initialize(codedWorkflow, new UiPath.CodedWorkflows.Utils.CodedWorkflowsFeatureChecker(new System.Collections.Generic.List<string>()
             {UiPath.CodedWorkflows.Utils.CodedWorkflowsFeatures.AsyncEntrypoints}), context);
             await System.Threading.Tasks.Task.Run(() => CodedWorkflowHelper.RunWithExceptionHandlingAsync(() =>
@@ -38,7 +48,7 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implement
                 if (codedWorkflow is IBeforeAfterRun codedWorkflowWithBeforeAfter)
                 {
                     codedWorkflowWithBeforeAfter.Before(new BeforeRunContext()
-                    {RelativeFilePath = "Frameworks\\Performers\\BasicPerformer\\Implementation\\Main.Tests.State.cs"});
+                    {RelativeFilePath = "BasicPerformer\\Implementation\\Main.cs"});
                 }
 
                 return System.Threading.Tasks.Task.CompletedTask;
@@ -47,7 +57,7 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implement
                 CodedExecutionHelper.Run(() =>
                 {
                     {
-                        codedWorkflow.RunTests();
+                        codedWorkflow.Execute(var_configPath, var_ignored);
                         newResult = new System.Collections.Generic.Dictionary<string, object>{};
                     }
                 }, cancellationToken);
@@ -57,7 +67,7 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implement
                 if (codedWorkflow is IBeforeAfterRun codedWorkflowWithBeforeAfter)
                 {
                     codedWorkflowWithBeforeAfter.After(new AfterRunContext()
-                    {RelativeFilePath = "Frameworks\\Performers\\BasicPerformer\\Implementation\\Main.Tests.State.cs", Exception = exception});
+                    {RelativeFilePath = "BasicPerformer\\Implementation\\Main.cs", Exception = exception});
                 }
 
                 return System.Threading.Tasks.Task.CompletedTask;

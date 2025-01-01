@@ -16,14 +16,15 @@ using UiPath.Testing.Activities.TestData;
 using UiPath.Testing.Activities.TestDataQueues.Enums;
 using UiPath.Testing.Enums;
 
-namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implementation.Framework
+namespace LazyFramework.DX.Shared.BasicPerformer.Implementation.Framework
 {
-    public class GetTransactionData : Workflow
+    public class GetTransactionData : CodedWorkflow
     {
         [Workflow]
-        public override StateData Execute(StateData state)
+        public StateData Execute(StateData state)
         {
-            state.Transaction = system.GetTransactionItem(state.Config?.QueueName, state.Config?.QueueFolder);
+            if(state.Config == null) throw new ArgumentNullException(nameof(state.Config));
+            state.Transaction = system.GetTransactionItem(state.Config.QueueName, state.Config.QueueFolder);
             // To start using services, use IntelliSense (CTRL + Space) to discover the available services:
             // e.g. system.GetAsset(...)
 

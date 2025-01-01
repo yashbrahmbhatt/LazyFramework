@@ -4,43 +4,33 @@ using UiPath.CodedWorkflows;
 using UiPath.CodedWorkflows.Utils;
 using System.Runtime;
 
-namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implementation
+namespace LazyFramework.DX.Shared
 {
     [System.ComponentModel.Browsable(false)]
-    public class MainActivity : System.Activities.Activity
+    public class CodedActivity : System.Activities.Activity
     {
-        public InArgument<System.String> configPath { get; set; }
-
-        public InArgument<System.Collections.Generic.List<System.String>> ignored { get; set; }
-
-        public MainActivity()
+        public CodedActivity()
         {
             this.Implementation = () =>
             {
-                return new MainActivityChild()
-                {configPath = (this.configPath == null ? (InArgument<System.String>)Argument.CreateReference((Argument)new InArgument<System.String>(), "configPath") : (InArgument<System.String>)Argument.CreateReference((Argument)this.configPath, "configPath")), ignored = (this.ignored == null ? (InArgument<System.Collections.Generic.List<System.String>>)Argument.CreateReference((Argument)new InArgument<System.Collections.Generic.List<System.String>>(), "ignored") : (InArgument<System.Collections.Generic.List<System.String>>)Argument.CreateReference((Argument)this.ignored, "ignored")), };
+                return new CodedActivityChild()
+                {};
             };
         }
     }
 
-    internal class MainActivityChild : UiPath.CodedWorkflows.AsyncTaskCodedWorkflowActivity
+    internal class CodedActivityChild : UiPath.CodedWorkflows.AsyncTaskCodedWorkflowActivity
     {
-        public InArgument<System.String> configPath { get; set; }
-
-        public InArgument<System.Collections.Generic.List<System.String>> ignored { get; set; }
-
         public System.Collections.Generic.IDictionary<string, object> newResult { get; set; }
 
-        public MainActivityChild()
+        public CodedActivityChild()
         {
-            DisplayName = "Main";
+            DisplayName = "Coded";
         }
 
         protected override async System.Threading.Tasks.Task<Action<AsyncCodeActivityContext>> ExecuteAsync(AsyncCodeActivityContext context, System.Threading.CancellationToken cancellationToken)
         {
-            var var_configPath = configPath.Get(context);
-            var var_ignored = ignored.Get(context);
-            var codedWorkflow = new global::LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implementation.Main();
+            var codedWorkflow = new global::LazyFramework.DX.Shared.Coded();
             CodedWorkflowHelper.Initialize(codedWorkflow, new UiPath.CodedWorkflows.Utils.CodedWorkflowsFeatureChecker(new System.Collections.Generic.List<string>()
             {UiPath.CodedWorkflows.Utils.CodedWorkflowsFeatures.AsyncEntrypoints}), context);
             await System.Threading.Tasks.Task.Run(() => CodedWorkflowHelper.RunWithExceptionHandlingAsync(() =>
@@ -48,7 +38,7 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implement
                 if (codedWorkflow is IBeforeAfterRun codedWorkflowWithBeforeAfter)
                 {
                     codedWorkflowWithBeforeAfter.Before(new BeforeRunContext()
-                    {RelativeFilePath = "Frameworks\\Performers\\BasicPerformer\\Implementation\\Main.cs"});
+                    {RelativeFilePath = "Coded.cs"});
                 }
 
                 return System.Threading.Tasks.Task.CompletedTask;
@@ -57,7 +47,7 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implement
                 CodedExecutionHelper.Run(() =>
                 {
                     {
-                        codedWorkflow.Execute(var_configPath, var_ignored);
+                        codedWorkflow.Execute();
                         newResult = new System.Collections.Generic.Dictionary<string, object>{};
                     }
                 }, cancellationToken);
@@ -67,7 +57,7 @@ namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implement
                 if (codedWorkflow is IBeforeAfterRun codedWorkflowWithBeforeAfter)
                 {
                     codedWorkflowWithBeforeAfter.After(new AfterRunContext()
-                    {RelativeFilePath = "Frameworks\\Performers\\BasicPerformer\\Implementation\\Main.cs", Exception = exception});
+                    {RelativeFilePath = "Coded.cs", Exception = exception});
                 }
 
                 return System.Threading.Tasks.Task.CompletedTask;

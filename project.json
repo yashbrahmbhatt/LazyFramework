@@ -37,23 +37,16 @@
     "libraryOptions": {
       "includeOriginalXaml": false,
       "privateWorkflows": [
-        "Frameworks/Performers/BasicPerformer/Implementation/Framework/CloseApplications.cs",
-        "Frameworks/Performers/BasicPerformer/Implementation/Framework/GetTransactionData.cs",
-        "Frameworks/Performers/BasicPerformer/Implementation/Framework/InitializeApplications.xaml",
-        "Frameworks/Performers/BasicPerformer/Implementation/Framework/Process.cs",
         "Frameworks/Performers/BasicPerformer/Implementation/Main.cs",
-        "Frameworks/Performers/BasicPerformer/Implementation/MainWithoutWorkflows.cs"
+        "BasicPerformer/Implementation/Framework/CloseApplications.cs",
+        "BasicPerformer/Implementation/Framework/GetTransactionData.cs",
+        "BasicPerformer/Implementation/Framework/InitializeApplications.cs",
+        "BasicPerformer/Implementation/Framework/Process.xaml",
+        "BasicPerformer/Implementation/Main.cs"
       ]
     },
     "processOptions": {
-      "ignoredFiles": [
-        "Frameworks/Performers/BasicPerformer/Implementation/Framework/CloseApplications.cs",
-        "Frameworks/Performers/BasicPerformer/Implementation/Framework/GetTransactionData.cs",
-        "Frameworks/Performers/BasicPerformer/Implementation/Framework/Process.cs",
-        "Frameworks/Performers/BasicPerformer/Implementation/Main.cs",
-        "Frameworks/Performers/BasicPerformer/Implementation/MainWithoutWorkflows.cs",
-        "Frameworks/Performers/BasicPerformer/Implementation/Framework/InitializeApplications.xaml"
-      ]
+      "ignoredFiles": []
     },
     "fileInfoCollection": [
       {
@@ -64,9 +57,9 @@
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "746f083c-e138-4934-8429-cca8d350e579",
+        "testCaseId": "3def2668-0bf4-47a5-a551-f88351e61c92",
         "testCaseType": "TestCase",
-        "fileName": "Frameworks\\Performers\\BasicPerformer\\Implementation\\Main.Tests.State.cs"
+        "fileName": "BasicPerformer\\Implementation\\Main.Test.cs"
       }
     ],
     "saveToCloud": false

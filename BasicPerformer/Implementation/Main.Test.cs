@@ -17,12 +17,12 @@ using UiPath.Testing.Activities.TestData;
 using UiPath.Testing.Activities.TestDataQueues.Enums;
 using UiPath.Testing.Enums;
 
-namespace LazyFramework.DX.Shared.Frameworks.Performers.BasicPerformer.Implementation
+namespace LazyFramework.DX.Shared.BasicPerformer.Implementation
 {
-    public class Main_Tests_State : Main
+    public class Main_Test : Main
     {
         [TestCase]
-        public new void RunTests()
+        public void RunTests()
         {
             WorkflowSlots.InitializeApplications = workflows.InitializeApplications;
             WorkflowSlots.CloseApplications = workflows.CloseApplications;
