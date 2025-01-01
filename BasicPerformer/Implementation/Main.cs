@@ -31,6 +31,7 @@ namespace LazyFramework.DX.Shared.BasicPerformer.Implementation
     {
 
         public Main() { }
+        
         public override void SendEmail(List<string> to, List<string> cc, List<string> attachments, string body, string subject)
         {
             Log($"Sending email with subject '{subject}'");
@@ -39,12 +40,15 @@ namespace LazyFramework.DX.Shared.BasicPerformer.Implementation
         [Workflow]
         public void Execute(string configPath, List<string> ignored)
         {
-            WorkflowSlots.InitializeApplications = workflows.InitializeApplications;
-            WorkflowSlots.CloseApplications = workflows.CloseApplications;
-            WorkflowSlots.Process = workflows.Process;
-            WorkflowSlots.GetTransactionData = workflows.GetTransactionData;
+            
+            Slots.InitializeApplications = workflows.InitializeApplications;
+            Slots.CloseApplications = workflows.CloseApplications;
+            Slots.Process = workflows.Process;
+            Slots.GetTransactionData = workflows.GetTransactionData;
             
             RunFramework(configPath, ignored);
         }
+        
+        
     }
 }

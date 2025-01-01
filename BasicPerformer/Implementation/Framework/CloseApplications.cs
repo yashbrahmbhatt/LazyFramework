@@ -23,6 +23,8 @@ namespace LazyFramework.DX.Shared.BasicPerformer.Implementation.Framework
         [Workflow]
         public StateData Execute(StateData state)
         {
+            Log("test");
+            
             // To start using services, use IntelliSense (CTRL + Space) to discover the available services:
             // e.g. system.GetAsset(...)
 

@@ -24,12 +24,13 @@ namespace LazyFramework.DX.Shared.BasicPerformer.Implementation
         [TestCase]
         public void RunTests()
         {
-            WorkflowSlots.InitializeApplications = workflows.InitializeApplications;
-            WorkflowSlots.CloseApplications = workflows.CloseApplications;
-            WorkflowSlots.Process = workflows.Process;
-            WorkflowSlots.GetTransactionData = workflows.GetTransactionData;
-            var configPath = Path.Combine(Directory.GetCurrentDirectory(), "Frameworks\\Performers\\BasicPerformer\\Implementation\\Data\\Config.xlsx");
+            var configPath = @"C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework.DX.Shared\BasicPerformer\Implementation\Data\Config.xlsx";
             var ignored = new List<string>();
+            Slots.InitializeApplications = workflows.InitializeApplications;
+            Slots.CloseApplications = workflows.CloseApplications;
+            Slots.Process = workflows.Process;
+            Slots.GetTransactionData = workflows.GetTransactionData;
+            
             base.RunTests(configPath, ignored);
             // Arrange
 

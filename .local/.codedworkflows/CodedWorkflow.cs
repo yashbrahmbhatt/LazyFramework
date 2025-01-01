@@ -24,7 +24,7 @@ namespace LazyFramework.DX.Shared
         private Lazy<ConnectionsManager> _connectionsManagerLazy;
         public CodedWorkflow()
         {
-            _ = new System.Type[]{typeof(UiPath.Excel.Activities.API.IExcelService), typeof(UiPath.Testing.API.ITestingService), typeof(UiPath.Core.Activities.API.ISystemService)};
+            _ = new System.Type[]{typeof(UiPath.Testing.API.ITestingService), typeof(UiPath.Excel.Activities.API.IExcelService), typeof(UiPath.Core.Activities.API.ISystemService)};
             _workflowRunnerServiceLazy = new Lazy<global::LazyFramework.DX.Shared.WorkflowRunnerService>(() => new global::LazyFramework.DX.Shared.WorkflowRunnerService(this.services));
 #pragma warning disable
             _connectionsManagerLazy = new Lazy<ConnectionsManager>(() => new ConnectionsManager(serviceContainer));

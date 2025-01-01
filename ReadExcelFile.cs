@@ -19,7 +19,7 @@ namespace LazyFramework.DX.Shared
             {
                 ShowExcelWindow = false,
                 DisplayAllerts = false,
-                ExistingProcessAction = ExistingExcelProcessAction.None,
+                ExistingProcessAction = ExistingExcelProcessAction.ForceKill,
                 FileConflictResolution = ExcelFileConflictResolution.None,
                 LaunchMethod = ExcelStartMethod.Automation,
                 ProcessMode = ExcelProcessMode.ReuseIfExists,
