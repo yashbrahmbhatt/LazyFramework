@@ -19,7 +19,7 @@ using UiPath.Testing.Enums;
 
 namespace LazyFramework.DX.Shared.BasicPerformer.Implementation
 {
-    public class Main_Test : Main
+    public class Main_Test : BasicPerformer.Test.BaseTests<Config, StateData>
     {
         [TestCase]
         public void RunTests()

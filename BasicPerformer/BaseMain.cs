@@ -17,26 +17,14 @@ namespace LazyFramework.DX.Shared.BasicPerformer
 {
 
     
-
-
-    /*
-    public abstract class BaseWorkflow<TState, TConfig> : CodedWorkflow where TState : BaseStateData<TConfig> where TConfig : BaseConfig
-    {
-        public abstract TState Execute(TState state);
-    }
-    */
-
-
-
-
-    public abstract partial class BaseMain<TConfig, TStateData/*, TWorkflow*/> : CodedWorkflow where TConfig : BaseConfig, new() where TStateData : BaseStateData<TConfig>, new() /* where TWorkflow : BaseWorkflow<TStateData, TConfig>*/
+    public abstract class BaseMain<TConfig, TStateData/*, TWorkflow*/> : CodedWorkflow where TConfig : BaseConfig, new() where TStateData : BaseStateData<TConfig>, new() /* where TWorkflow : BaseWorkflow<TStateData, TConfig>*/
     {
         // Workflow Slots
         public WorkflowSlots Slots = new();
         public class WorkflowSlots
         {
             public delegate TStateData ExecuteDelegate(TStateData state);
-            
+
             public ExecuteDelegate? InitializeSettings = null;
             public ExecuteDelegate InitializeApplications = DefaultExecuteDelegate("InitializeApplications");
             public ExecuteDelegate Process = DefaultExecuteDelegate("Process");
@@ -46,11 +34,13 @@ namespace LazyFramework.DX.Shared.BasicPerformer
             public ExecuteDelegate? HandleSuccess;
             public ExecuteDelegate? End;
             public ExecuteDelegate CloseApplications = DefaultExecuteDelegate("CloseApplications");
-            
-            public WorkflowSlots(){}
-            
-            public static ExecuteDelegate DefaultExecuteDelegate(string name){
-                return (TStateData state) => {
+
+            public WorkflowSlots() { }
+
+            public static ExecuteDelegate DefaultExecuteDelegate(string name)
+            {
+                return (TStateData state) =>
+                {
                     return state;
                 };
             }
@@ -61,8 +51,8 @@ namespace LazyFramework.DX.Shared.BasicPerformer
 
         // Fields
         public TStateData Data = new();
-        public Stack<State> Stack = new();
-
+        
+        
         // Entry
         public void RunFramework(string configPath, List<string> ignored)
         {
@@ -120,22 +110,19 @@ namespace LazyFramework.DX.Shared.BasicPerformer
         }
         public void RunStateMachine(TestId testId)
         {
-            Stack.Push(InitializeState);
-            while (Stack.Count > 0)
+            Data.Stack.Push(InitializeState);
+            while (Data.Stack.Count > 0)
             {
                 try
                 {
-                    var currentState = Stack.Pop();
-                    StackHistory.Enqueue(currentState.Method.Name);
+                    var currentState = Data.Stack.Pop();
                     currentState.Invoke(testId);
                 }
                 catch (Exception e)
                 {
-                    Data.FrameEx = e;
-                    Stack.Clear();
+                    Data.FrameEx = e;                    
                 }
             }
-            StackHistory.Enqueue("EndState");
             EndState(testId);
         }
         public virtual void InitializeFramework(string configPath, List<string> ignored)
@@ -224,7 +211,7 @@ namespace LazyFramework.DX.Shared.BasicPerformer
                     Data = Slots.InitializeApplications(Data);
                     Log("Applications initialized");
                 });
-                Stack.Push(GetTransactionState);
+                Data.Stack.Push(GetTransactionState);
             }
         }
         public virtual void GetTransactionState(TestId testId)
@@ -253,7 +240,7 @@ namespace LazyFramework.DX.Shared.BasicPerformer
                 return;
             }
             Log("Transaction found");
-            Stack.Push(ProcessState);
+            Data.Stack.Push(ProcessState);
         }
         public virtual void ProcessState(TestId testId)
         {
@@ -325,19 +312,19 @@ namespace LazyFramework.DX.Shared.BasicPerformer
                     else
                     {
                         Log($"Consecutive system exceptions: {Data.ConsecutiveSystemExceptions.ToString()} less than max, reinitializing");
-                        Stack.Push(InitializeState);
+                        Data.Stack.Push(InitializeState);
                     }
                 }
                 else if (Data.BusEx != null)
                 {
                     SendErrorEmail();
                     Data = Slots.HandleBusinessException != null ? Slots.HandleBusinessException(Data) : Data;
-                    Stack.Push(GetTransactionState);
+                    Data.Stack.Push(GetTransactionState);
                 }
                 else
                 {
                     Data = Slots.HandleSuccess != null ? Slots.HandleSuccess(Data) : Data;
-                    Stack.Push(GetTransactionState);
+                    Data.Stack.Push(GetTransactionState);
                 }
             }
         }
@@ -358,7 +345,7 @@ namespace LazyFramework.DX.Shared.BasicPerformer
             if (Data.FrameEx != null) throw Data.FrameEx;
         }
 
-        
+
 
         // Helper Structs/Classes/Enums
         public class FrameworkWorkflowNotInitialized : Exception

@@ -1,3 +1,4 @@
+using UiPath.CodedWorkflows.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,11 +19,12 @@ using UiPath.Testing.Enums;
 
 namespace LazyFramework.DX.Shared.BasicPerformer.Implementation.Framework
 {
-    public class InitializeApplications :FrameworkWorkflow
+    public class InitializeApplications : FrameworkWorkflow
     {
         [Workflow]
         public override StateData Execute(StateData state)
         {
+            Log("Test");
             // To start using services, use IntelliSense (CTRL + Space) to discover the available services:
             // e.g. system.GetAsset(...)
 

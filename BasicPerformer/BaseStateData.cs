@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using LazyFramework.DX.Shared.Models;
 using UiPath.Core;
 using UiPath.Core.Activities.Storage;
 using UiPath.Excel;
@@ -17,8 +18,10 @@ using UiPath.Testing.Enums;
 
 namespace LazyFramework.DX.Shared.BasicPerformer
 {
+    public delegate void State(TestId testId);
     public abstract class BaseStateData<TConfig> where TConfig : BaseConfig
     {
+        public Stack<State> Stack = new();
         public TConfig? Config = null;
         public Exception? SysEx = null;
         public Exception? FrameEx = null;

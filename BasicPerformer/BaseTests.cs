@@ -19,12 +19,13 @@ using UiPath.Testing.Activities.TestData;
 using UiPath.Testing.Activities.TestDataQueues.Enums;
 using UiPath.Testing.Enums;
 
-namespace LazyFramework.DX.Shared.BasicPerformer 
+namespace LazyFramework.DX.Shared.BasicPerformer.Test
 {
-    public class BasicPerformerTests<TConfig, TStateData, TWorkflow> : BasicPerformer.BaseMain<TConfig, TStateData, TWorkflow> where TConfig : BaseConfig, new() where TStateData : BaseStateData<TConfig>, new() where TWorkflow : BaseWorkflow<TStateData, TConfig>
+    public class BaseTests<TConfig, TStateData> : BaseMain<TConfig, TStateData> where TConfig : BaseConfig, new() where TStateData : BaseStateData<TConfig>, new()
     {
         public FixedSizeQueue<string> StackHistory = new FixedSizeQueue<string>(10);
-        public TStateData InitialData;
+        public TStateData InitialData = null;
+
         // Tests
         public virtual void RunTests(string configPath, List<string> ignored)
         {
@@ -100,7 +101,8 @@ namespace LazyFramework.DX.Shared.BasicPerformer
                 }
             });
         }
-        public virtual void InitializeFramework(string configPath, List<string> ignored) {
+        public virtual void InitializeFramework(string configPath, List<string> ignored)
+        {
             base.InitializeFramework(configPath, ignored);
             InitialData = JsonConvert.DeserializeObject<TStateData>(JsonConvert.SerializeObject(Data));
         }
@@ -108,7 +110,7 @@ namespace LazyFramework.DX.Shared.BasicPerformer
         public void RunTest(string name, TestId testId, List<VerifyTest> verifications)
         {
             Log($"Starting test '{name}'");
-            ResetState();
+            Data = DesSer<TStateData>(InitialData as TStateData);
             ResetHistory();
             Exception ex = null;
             try
@@ -128,10 +130,10 @@ namespace LazyFramework.DX.Shared.BasicPerformer
             Log($"Test '{name}' complete");
         }
 
-        // Resets everything except config
-        public void ResetState()
+        
+        public T DesSer<T>(T fromObject)
         {
-            Data = JsonConvert.DeserializeObject<TStateData>(JsonConvert.SerializeObject(InitialData));
+            return (T)JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(fromObject));
         }
         public void ResetHistory()
         {

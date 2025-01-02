@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using UiPath.CodedWorkflows;
+using UiPath.CodedWorkflows.Interfaces;
 using UiPath.Core;
 using UiPath.Core.Activities.Storage;
 using UiPath.Excel;
@@ -28,5 +29,7 @@ namespace LazyFramework.DX.Shared._Services
             serviceLocator.RegisterType<IMyService, MyService>();
             // Implementation using 'RegisterInstance'
         }
+        
+        
     }
 }
