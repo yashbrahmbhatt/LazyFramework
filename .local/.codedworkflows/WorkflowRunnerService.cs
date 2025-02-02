@@ -18,39 +18,39 @@ namespace LazyFramework.DX.Shared
         }
 
         /// <summary>
-        /// Invokes the LoadConfig.cs
+        /// Invokes the BasicPerformer2/States/Initialize/InitializeSettings.cs
         /// </summary>
-        public System.Collections.Generic.Dictionary<System.String, System.Object> LoadConfig(System.String file, System.Collections.Generic.List<System.String> ignored)
+        public LazyFramework.DX.Shared.BasicPerformer2.BaseStateData<LazyFramework.DX.Shared.BasicPerformer2.BaseConfig> InitializeSettings(LazyFramework.DX.Shared.BasicPerformer2.BaseStateData<LazyFramework.DX.Shared.BasicPerformer2.BaseConfig> state)
         {
-            var result = _services.WorkflowInvocationService.RunWorkflow(@"LoadConfig.cs", new Dictionary<string, object>{{"file", file}, {"ignored", ignored}}, default, default, default, GetAssemblyName());
-            return (System.Collections.Generic.Dictionary<System.String, System.Object>)result["Output"];
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer2\States\Initialize\InitializeSettings.cs", new Dictionary<string, object>{{"state", state}}, default, default, default, GetAssemblyName());
+            return (LazyFramework.DX.Shared.BasicPerformer2.BaseStateData<LazyFramework.DX.Shared.BasicPerformer2.BaseConfig>)result["Output"];
         }
 
         /// <summary>
-        /// Invokes the LoadConfig.cs
+        /// Invokes the BasicPerformer2/States/Initialize/InitializeSettings.cs
         /// </summary>
 		/// <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
-        public System.Collections.Generic.Dictionary<System.String, System.Object> LoadConfig(System.String file, System.Collections.Generic.List<System.String> ignored, System.Boolean isolated)
+        public LazyFramework.DX.Shared.BasicPerformer2.BaseStateData<LazyFramework.DX.Shared.BasicPerformer2.BaseConfig> InitializeSettings(LazyFramework.DX.Shared.BasicPerformer2.BaseStateData<LazyFramework.DX.Shared.BasicPerformer2.BaseConfig> state, System.Boolean isolated)
         {
-            var result = _services.WorkflowInvocationService.RunWorkflow(@"LoadConfig.cs", new Dictionary<string, object>{{"file", file}, {"ignored", ignored}}, default, isolated, default, GetAssemblyName());
-            return (System.Collections.Generic.Dictionary<System.String, System.Object>)result["Output"];
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer2\States\Initialize\InitializeSettings.cs", new Dictionary<string, object>{{"state", state}}, default, isolated, default, GetAssemblyName());
+            return (LazyFramework.DX.Shared.BasicPerformer2.BaseStateData<LazyFramework.DX.Shared.BasicPerformer2.BaseConfig>)result["Output"];
         }
 
         /// <summary>
-        /// Invokes the Xaml.xaml
+        /// Invokes the BasicPerformer2/States/InitializeState.cs
         /// </summary>
-        public void Xaml()
+        public void InitializeState(LazyFramework.DX.Shared.BasicPerformer2.BaseStateData<LazyFramework.DX.Shared.BasicPerformer2.BaseConfig> state)
         {
-            var result = _services.WorkflowInvocationService.RunWorkflow(@"Xaml.xaml", new Dictionary<string, object>{}, default, default, default, GetAssemblyName());
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer2\States\InitializeState.cs", new Dictionary<string, object>{{"state", state}}, default, default, default, GetAssemblyName());
         }
 
         /// <summary>
-        /// Invokes the Xaml.xaml
+        /// Invokes the BasicPerformer2/States/InitializeState.cs
         /// </summary>
 		/// <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
-        public void Xaml(System.Boolean isolated)
+        public void InitializeState(LazyFramework.DX.Shared.BasicPerformer2.BaseStateData<LazyFramework.DX.Shared.BasicPerformer2.BaseConfig> state, System.Boolean isolated)
         {
-            var result = _services.WorkflowInvocationService.RunWorkflow(@"Xaml.xaml", new Dictionary<string, object>{}, default, isolated, default, GetAssemblyName());
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer2\States\InitializeState.cs", new Dictionary<string, object>{{"state", state}}, default, isolated, default, GetAssemblyName());
         }
 
         /// <summary>
@@ -92,39 +92,39 @@ namespace LazyFramework.DX.Shared
         }
 
         /// <summary>
-        /// Invokes the BasicPerformer/Implementation/Framework/CloseApplications.cs
+        /// Invokes the BasicPerformer/Implementation/Framework/Process.xaml
         /// </summary>
-        public LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData CloseApplications(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData state)
+        public LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData Process(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData State)
         {
-            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer\Implementation\Framework\CloseApplications.cs", new Dictionary<string, object>{{"state", state}}, default, default, default, GetAssemblyName());
-            return (LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)result["Output"];
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer\Implementation\Framework\Process.xaml", new Dictionary<string, object>{{"State", State}}, default, default, default, GetAssemblyName());
+            return (LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)result["State"];
         }
 
         /// <summary>
-        /// Invokes the BasicPerformer/Implementation/Framework/CloseApplications.cs
+        /// Invokes the BasicPerformer/Implementation/Framework/Process.xaml
         /// </summary>
 		/// <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
-        public LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData CloseApplications(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData state, System.Boolean isolated)
+        public LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData Process(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData State, System.Boolean isolated)
         {
-            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer\Implementation\Framework\CloseApplications.cs", new Dictionary<string, object>{{"state", state}}, default, isolated, default, GetAssemblyName());
-            return (LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)result["Output"];
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer\Implementation\Framework\Process.xaml", new Dictionary<string, object>{{"State", State}}, default, isolated, default, GetAssemblyName());
+            return (LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)result["State"];
         }
 
         /// <summary>
-        /// Invokes the BasicPerformer/Implementation/Main.Test.cs
+        /// Invokes the Xaml.xaml
         /// </summary>
-        public void Main_Test()
+        public void Xaml()
         {
-            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer\Implementation\Main.Test.cs", new Dictionary<string, object>{}, default, default, default, GetAssemblyName());
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"Xaml.xaml", new Dictionary<string, object>{}, default, default, default, GetAssemblyName());
         }
 
         /// <summary>
-        /// Invokes the BasicPerformer/Implementation/Main.Test.cs
+        /// Invokes the Xaml.xaml
         /// </summary>
 		/// <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
-        public void Main_Test(System.Boolean isolated)
+        public void Xaml(System.Boolean isolated)
         {
-            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer\Implementation\Main.Test.cs", new Dictionary<string, object>{}, default, isolated, default, GetAssemblyName());
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"Xaml.xaml", new Dictionary<string, object>{}, default, isolated, default, GetAssemblyName());
         }
 
         /// <summary>
@@ -164,22 +164,22 @@ namespace LazyFramework.DX.Shared
         }
 
         /// <summary>
-        /// Invokes the BasicPerformer/Implementation/Framework/Process.xaml
+        /// Invokes the BasicPerformer/Implementation/Framework/CloseApplications.cs
         /// </summary>
-        public LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData Process(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData State)
+        public LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData CloseApplications(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData state)
         {
-            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer\Implementation\Framework\Process.xaml", new Dictionary<string, object>{{"State", State}}, default, default, default, GetAssemblyName());
-            return (LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)result["State"];
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer\Implementation\Framework\CloseApplications.cs", new Dictionary<string, object>{{"state", state}}, default, default, default, GetAssemblyName());
+            return (LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)result["Output"];
         }
 
         /// <summary>
-        /// Invokes the BasicPerformer/Implementation/Framework/Process.xaml
+        /// Invokes the BasicPerformer/Implementation/Framework/CloseApplications.cs
         /// </summary>
 		/// <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
-        public LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData Process(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData State, System.Boolean isolated)
+        public LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData CloseApplications(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData state, System.Boolean isolated)
         {
-            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer\Implementation\Framework\Process.xaml", new Dictionary<string, object>{{"State", State}}, default, isolated, default, GetAssemblyName());
-            return (LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)result["State"];
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer\Implementation\Framework\CloseApplications.cs", new Dictionary<string, object>{{"state", state}}, default, isolated, default, GetAssemblyName());
+            return (LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)result["Output"];
         }
 
         /// <summary>
@@ -197,6 +197,59 @@ namespace LazyFramework.DX.Shared
         public void Coded(System.Boolean isolated)
         {
             var result = _services.WorkflowInvocationService.RunWorkflow(@"Coded.cs", new Dictionary<string, object>{}, default, isolated, default, GetAssemblyName());
+        }
+
+        /// <summary>
+        /// Invokes the LoadConfig.cs
+        /// </summary>
+        public System.Collections.Generic.Dictionary<System.String, System.Object> LoadConfig(System.String file, System.Collections.Generic.List<System.String> ignored)
+        {
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"LoadConfig.cs", new Dictionary<string, object>{{"file", file}, {"ignored", ignored}}, default, default, default, GetAssemblyName());
+            return (System.Collections.Generic.Dictionary<System.String, System.Object>)result["Output"];
+        }
+
+        /// <summary>
+        /// Invokes the LoadConfig.cs
+        /// </summary>
+		/// <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        public System.Collections.Generic.Dictionary<System.String, System.Object> LoadConfig(System.String file, System.Collections.Generic.List<System.String> ignored, System.Boolean isolated)
+        {
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"LoadConfig.cs", new Dictionary<string, object>{{"file", file}, {"ignored", ignored}}, default, isolated, default, GetAssemblyName());
+            return (System.Collections.Generic.Dictionary<System.String, System.Object>)result["Output"];
+        }
+
+        /// <summary>
+        /// Invokes the BasicPerformer2/BaseMain.cs
+        /// </summary>
+        public void BaseMain()
+        {
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer2\BaseMain.cs", new Dictionary<string, object>{}, default, default, default, GetAssemblyName());
+        }
+
+        /// <summary>
+        /// Invokes the BasicPerformer2/BaseMain.cs
+        /// </summary>
+		/// <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        public void BaseMain(System.Boolean isolated)
+        {
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"BasicPerformer2\BaseMain.cs", new Dictionary<string, object>{}, default, isolated, default, GetAssemblyName());
+        }
+
+        /// <summary>
+        /// Invokes the Child.cs
+        /// </summary>
+        public void Child()
+        {
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"Child.cs", new Dictionary<string, object>{}, default, default, default, GetAssemblyName());
+        }
+
+        /// <summary>
+        /// Invokes the Child.cs
+        /// </summary>
+		/// <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        public void Child(System.Boolean isolated)
+        {
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"Child.cs", new Dictionary<string, object>{}, default, isolated, default, GetAssemblyName());
         }
 
         private string GetAssemblyName()

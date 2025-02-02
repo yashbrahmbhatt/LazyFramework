@@ -15,11 +15,13 @@ namespace LazyFramework.DX.Shared.BasicPerformer.Implementation
 {
     public class Config : BaseConfig { }
     public class StateData : BaseStateData<Config> { }
-    public abstract class FrameworkWorkflow : BaseWorkflow<Config, StateData> { }
+    public abstract class FrameworkWorkflow : BaseWorkflow<Config, StateData> {
+        public FrameworkWorkflow(){}
+        public FrameworkWorkflow(ExecuteDelegate del) : base(del) {}
+    }
 
     public class Main : BaseMain<Config, StateData>
     {
-
         public Main() { }
 
         public override void SendEmail(List<string> to, List<string> cc, List<string> attachments, string body, string subject)
@@ -31,12 +33,12 @@ namespace LazyFramework.DX.Shared.BasicPerformer.Implementation
         public void Execute(string configPath, List<string> ignored)
         {
 
-            Slots.InitializeApplications = workflows.InitializeApplications;
-            Slots.CloseApplications = workflows.CloseApplications;
-            Slots.Process = workflows.Process;
-            Slots.GetTransactionData = workflows.GetTransactionData;
+            Workflows.InitializeApplications = workflows.InitializeApplications;
+            Workflows.CloseApplications = workflows.CloseApplications;
+            Workflows.Process = workflows.Process;
+            Workflows.GetTransactionData = workflows.GetTransactionData;
 
-            RunFramework(configPath, ignored);
+            base.RunFramework(configPath, ignored);
         }
 
 

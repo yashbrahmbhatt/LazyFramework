@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using LazyFramework.DX.Shared.Models;
+using LazyFramework.DX.Shared.Models.StateMachine;
 using UiPath.CodedWorkflows;
 using UiPath.CodedWorkflows.Interfaces;
 using UiPath.Core;
@@ -17,16 +19,24 @@ using UiPath.Testing.Activities.TestData;
 using UiPath.Testing.Activities.TestDataQueues.Enums;
 using UiPath.Testing.Enums;
 
-namespace LazyFramework.DX.Shared.BasicPerformer.Implementation.Framework
+namespace LazyFramework.DX.Shared.BasicPerformer2.States.Initialize
 {
-    public class InitializeApplications : FrameworkWorkflow
+    public class InitializeSettings : Workflow<BaseStateData<BaseConfig>>
     {
-        public InitializeApplications() {}
-        public InitializeApplications(ExecuteDelegate del) : base(del) {}
+        public string ConfigPath {get; set;}
+        public List<string> Ignored {get; set;}
+        
+        public InitializeSettings(){}
+        public InitializeSettings(ICodedWorkflowServices _services, string configPath, List<string> ignored) {
+            services = _services;
+            ConfigPath = configPath;
+            Ignored = ignored;
+        }
+        
         [Workflow]
-        public override StateData Execute(StateData state)
+        public override BaseStateData<BaseConfig> Execute(BaseStateData<BaseConfig> state)
         {
-            state = base.Execute(state);
+            Log($"Initialize settings!");
             // To start using services, use IntelliSense (CTRL + Space) to discover the available services:
             // e.g. system.GetAsset(...)
 

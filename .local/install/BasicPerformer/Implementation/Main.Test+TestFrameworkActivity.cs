@@ -7,30 +7,30 @@ using System.Runtime;
 namespace LazyFramework.DX.Shared.BasicPerformer.Implementation
 {
     [System.ComponentModel.Browsable(false)]
-    public class Main_TestActivity : System.Activities.Activity
+    public class TestFrameworkActivity : System.Activities.Activity
     {
-        public Main_TestActivity()
+        public TestFrameworkActivity()
         {
             this.Implementation = () =>
             {
-                return new Main_TestActivityChild()
+                return new TestFrameworkActivityChild()
                 {};
             };
         }
     }
 
-    internal class Main_TestActivityChild : UiPath.CodedWorkflows.AsyncTaskCodedWorkflowActivity
+    internal class TestFrameworkActivityChild : UiPath.CodedWorkflows.AsyncTaskCodedWorkflowActivity
     {
         public System.Collections.Generic.IDictionary<string, object> newResult { get; set; }
 
-        public Main_TestActivityChild()
+        public TestFrameworkActivityChild()
         {
-            DisplayName = "Main_Test";
+            DisplayName = "TestFramework";
         }
 
         protected override async System.Threading.Tasks.Task<Action<AsyncCodeActivityContext>> ExecuteAsync(AsyncCodeActivityContext context, System.Threading.CancellationToken cancellationToken)
         {
-            var codedWorkflow = new global::LazyFramework.DX.Shared.BasicPerformer.Implementation.Main_Test();
+            var codedWorkflow = new global::LazyFramework.DX.Shared.BasicPerformer.Implementation.TestFramework();
             CodedWorkflowHelper.Initialize(codedWorkflow, new UiPath.CodedWorkflows.Utils.CodedWorkflowsFeatureChecker(new System.Collections.Generic.List<string>()
             {UiPath.CodedWorkflows.Utils.CodedWorkflowsFeatures.AsyncEntrypoints}), context);
             await System.Threading.Tasks.Task.Run(() => CodedWorkflowHelper.RunWithExceptionHandlingAsync(() =>

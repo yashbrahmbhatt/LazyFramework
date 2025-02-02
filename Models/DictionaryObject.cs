@@ -10,16 +10,29 @@ namespace LazyFramework.DX.Shared.Models
 {
     public abstract class DictionaryObject : DynamicObject
     {
-        public Dictionary<string, object> Data = new();
+        public virtual Dictionary<string, object> Data { get; set; } = new();
 
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
             string propertyName = binder.Name;
-
             var property = GetType().GetProperty(propertyName);
+
             if (property == null)
                 throw new InvalidOperationException($"Property '{propertyName}' does not exist on type '{GetType().Name}'.");
 
+            // If the property type is a DictionaryObject, recursively instantiate and get the value.
+            if (typeof(DictionaryObject).IsAssignableFrom(property.PropertyType))
+            {
+                if (!Data.ContainsKey(propertyName))
+                {
+                    var nestedObject = Activator.CreateInstance(property.PropertyType) as DictionaryObject;
+                    Data[propertyName] = nestedObject;
+                }
+                result = Data[propertyName];
+                return true;
+            }
+
+            // Handle simple cases (primitive types, etc.)
             if (Data.TryGetValue(propertyName, out var value))
             {
                 result = value;
@@ -32,11 +45,26 @@ namespace LazyFramework.DX.Shared.Models
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
             string propertyName = binder.Name;
-
             var property = GetType().GetProperty(propertyName);
+
             if (property == null)
                 throw new InvalidOperationException($"Property '{propertyName}' does not exist on type '{GetType().Name}'.");
 
+            // If the property type is a DictionaryObject, handle setting recursively.
+            if (typeof(DictionaryObject).IsAssignableFrom(property.PropertyType))
+            {
+                if (value is DictionaryObject nestedObject)
+                {
+                    Data[propertyName] = nestedObject;
+                    return true;
+                }
+                else
+                {
+                    throw new InvalidCastException($"Expected a DictionaryObject type for property '{propertyName}'.");
+                }
+            }
+
+            // Handle simple cases (primitive types, etc.)
             Data[propertyName] = value;
             return true;
         }
@@ -51,11 +79,7 @@ namespace LazyFramework.DX.Shared.Models
         {
             return JsonConvert.SerializeObject(Data, Formatting.Indented);
         }
-
-
-
-    }
-;
+    };
 
     public static class TypeParsers
     {

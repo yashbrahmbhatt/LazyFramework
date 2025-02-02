@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using LazyFramework.DX.Shared.Models;
+using LazyFramework.DX.Shared.Models.StateMachine;
+using UiPath.CodedWorkflows;
 using UiPath.Core;
 using UiPath.Core.Activities.Storage;
 using UiPath.Excel;
@@ -16,16 +18,24 @@ using UiPath.Testing.Activities.TestData;
 using UiPath.Testing.Activities.TestDataQueues.Enums;
 using UiPath.Testing.Enums;
 
-namespace LazyFramework.DX.Shared.BasicPerformer
+namespace LazyFramework.DX.Shared.BasicPerformer2
 {
-    public abstract class BaseStateData<TConfig> where TConfig : BaseConfig
+    public class BaseMain : StateMachine<BaseStateData<BaseConfig>>
     {
-        public Stack<Delegate> Stack = new();
-        public TConfig? Config = null;
-        public Exception? SysEx = null;
-        public Exception? FrameEx = null;
-        public BusinessRuleException? BusEx = null;
-        public QueueItem? Transaction = null;
-        public int ConsecutiveSystemExceptions = 0;
+        [Workflow]
+        public void Execute()
+        {
+
+
+
+
+
+
+
+
+
+
+
+        }
     }
 }

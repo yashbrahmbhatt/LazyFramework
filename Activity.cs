@@ -1,7 +1,7 @@
 using System;
+using System.Activities;
 using System.Collections.Generic;
 using System.Data;
-using LazyFramework.DX.Shared.Models;
 using UiPath.Core;
 using UiPath.Core.Activities.Storage;
 using UiPath.Excel;
@@ -16,16 +16,13 @@ using UiPath.Testing.Activities.TestData;
 using UiPath.Testing.Activities.TestDataQueues.Enums;
 using UiPath.Testing.Enums;
 
-namespace LazyFramework.DX.Shared.BasicPerformer
+namespace LazyFramework.DX.Shared
 {
-    public abstract class BaseStateData<TConfig> where TConfig : BaseConfig
+    public class MyActivity : System.Activities.CodeActivity
     {
-        public Stack<Delegate> Stack = new();
-        public TConfig? Config = null;
-        public Exception? SysEx = null;
-        public Exception? FrameEx = null;
-        public BusinessRuleException? BusEx = null;
-        public QueueItem? Transaction = null;
-        public int ConsecutiveSystemExceptions = 0;
+        protected override void Execute(CodeActivityContext context)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

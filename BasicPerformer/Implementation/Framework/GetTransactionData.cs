@@ -20,11 +20,15 @@ namespace LazyFramework.DX.Shared.BasicPerformer.Implementation.Framework
 {
     public class GetTransactionData : FrameworkWorkflow
     {
+        public GetTransactionData() {}
+        public GetTransactionData(ExecuteDelegate del) : base(del){}
+        
         [Workflow]
         public override StateData Execute(StateData state)
         {
+            state = base.Execute(state);
            // if(state.Config == null) throw new ArgumentNullException(nameof(state.Config));
-            //state.Transaction = system.GetTransactionItem(state.Config.QueueName, state.Config.QueueFolder);
+            state.Transaction = system.GetTransactionItem(state.Config.QueueName, state.Config.QueueFolder);
             // To start using services, use IntelliSense (CTRL + Space) to discover the available services:
             // e.g. system.GetAsset(...)
 

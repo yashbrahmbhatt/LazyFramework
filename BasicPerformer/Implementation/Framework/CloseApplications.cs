@@ -18,12 +18,14 @@ using UiPath.Testing.Enums;
 
 namespace LazyFramework.DX.Shared.BasicPerformer.Implementation.Framework
 {
-    public class CloseApplications: CodedWorkflow
+    public class CloseApplications: FrameworkWorkflow
     {
+        public CloseApplications(){}
+        public CloseApplications(ExecuteDelegate del) : base(del){ }
         [Workflow]
         public StateData Execute(StateData state)
         {
-            Log("test");
+            state = base.Execute(state);
             
             // To start using services, use IntelliSense (CTRL + Space) to discover the available services:
             // e.g. system.GetAsset(...)

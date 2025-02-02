@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Reflection;
 using UiPath.CodedWorkflows;
 using UiPath.CodedWorkflows.Interfaces;
 using UiPath.Core;
@@ -29,7 +30,18 @@ namespace LazyFramework.DX.Shared._Services
             serviceLocator.RegisterType<IMyService, MyService>();
             // Implementation using 'RegisterInstance'
         }
-        
-        
+        public virtual void Initialize(ICodedWorkflowServices services)
+        {
+            var servicesField = typeof(CodedWorkflowBase).GetProperty("services", BindingFlags.NonPublic | BindingFlags.Instance);
+            if (servicesField != null)
+            {
+                servicesField.SetValue(this, services);
+            }
+            else
+            {
+                Log($"Could not find services field");
+            }
+        }
+
     }
 }

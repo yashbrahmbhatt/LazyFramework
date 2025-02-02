@@ -45,6 +45,7 @@ namespace LazyFramework.DX.Shared
                 });
             });
             Log($"File read with {ds.Tables.Count.ToString()} tables");
+            process.Dispose();
             return ds;
         }
     }

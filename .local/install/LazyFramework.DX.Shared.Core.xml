@@ -4,14 +4,14 @@
         <name>LazyFramework.DX.Shared.Core</name>
     </assembly>
     <members>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.LoadConfig(System.String,System.Collections.Generic.List{System.String})">
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Process(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)">
             <summary>
-            Invokes the LoadConfig.cs
+            Invokes the BasicPerformer/Implementation/Framework/Process.xaml
             </summary>
         </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.LoadConfig(System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Process(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData,System.Boolean)">
             <summary>
-            Invokes the LoadConfig.cs
+            Invokes the BasicPerformer/Implementation/Framework/Process.xaml
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
@@ -26,58 +26,14 @@
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.InitializeApplications(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)">
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.LoadConfig(System.String,System.Collections.Generic.List{System.String})">
             <summary>
-            Invokes the BasicPerformer/Implementation/Framework/InitializeApplications.cs
+            Invokes the LoadConfig.cs
             </summary>
         </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.InitializeApplications(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData,System.Boolean)">
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.LoadConfig(System.String,System.Collections.Generic.List{System.String},System.Boolean)">
             <summary>
-            Invokes the BasicPerformer/Implementation/Framework/InitializeApplications.cs
-            </summary>
-            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
-        </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.GetTransactionData(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)">
-            <summary>
-            Invokes the BasicPerformer/Implementation/Framework/GetTransactionData.cs
-            </summary>
-        </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.GetTransactionData(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData,System.Boolean)">
-            <summary>
-            Invokes the BasicPerformer/Implementation/Framework/GetTransactionData.cs
-            </summary>
-            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
-        </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.CloseApplications(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)">
-            <summary>
-            Invokes the BasicPerformer/Implementation/Framework/CloseApplications.cs
-            </summary>
-        </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.CloseApplications(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData,System.Boolean)">
-            <summary>
-            Invokes the BasicPerformer/Implementation/Framework/CloseApplications.cs
-            </summary>
-            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
-        </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Main_Test">
-            <summary>
-            Invokes the BasicPerformer/Implementation/Main.Test.cs
-            </summary>
-        </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Main_Test(System.Boolean)">
-            <summary>
-            Invokes the BasicPerformer/Implementation/Main.Test.cs
-            </summary>
-            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
-        </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Main(System.String,System.Collections.Generic.List{System.String})">
-            <summary>
-            Invokes the BasicPerformer/Implementation/Main.cs
-            </summary>
-        </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Main(System.String,System.Collections.Generic.List{System.String},System.Boolean)">
-            <summary>
-            Invokes the BasicPerformer/Implementation/Main.cs
+            Invokes the LoadConfig.cs
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
@@ -92,14 +48,80 @@
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Process(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)">
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.InitializeState(LazyFramework.DX.Shared.BasicPerformer2.BaseStateData{LazyFramework.DX.Shared.BasicPerformer2.BaseConfig})">
             <summary>
-            Invokes the BasicPerformer/Implementation/Framework/Process.xaml
+            Invokes the BasicPerformer2/States/InitializeState.cs
             </summary>
         </member>
-        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Process(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData,System.Boolean)">
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.InitializeState(LazyFramework.DX.Shared.BasicPerformer2.BaseStateData{LazyFramework.DX.Shared.BasicPerformer2.BaseConfig},System.Boolean)">
             <summary>
-            Invokes the BasicPerformer/Implementation/Framework/Process.xaml
+            Invokes the BasicPerformer2/States/InitializeState.cs
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Main(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Invokes the BasicPerformer/Implementation/Main.cs
+            </summary>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Main(System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Invokes the BasicPerformer/Implementation/Main.cs
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.BaseMain">
+            <summary>
+            Invokes the BasicPerformer2/BaseMain.cs
+            </summary>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.BaseMain(System.Boolean)">
+            <summary>
+            Invokes the BasicPerformer2/BaseMain.cs
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.GetTransactionData(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)">
+            <summary>
+            Invokes the BasicPerformer/Implementation/Framework/GetTransactionData.cs
+            </summary>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.GetTransactionData(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData,System.Boolean)">
+            <summary>
+            Invokes the BasicPerformer/Implementation/Framework/GetTransactionData.cs
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.InitializeSettings(LazyFramework.DX.Shared.BasicPerformer2.BaseStateData{LazyFramework.DX.Shared.BasicPerformer2.BaseConfig})">
+            <summary>
+            Invokes the BasicPerformer2/States/Initialize/InitializeSettings.cs
+            </summary>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.InitializeSettings(LazyFramework.DX.Shared.BasicPerformer2.BaseStateData{LazyFramework.DX.Shared.BasicPerformer2.BaseConfig},System.Boolean)">
+            <summary>
+            Invokes the BasicPerformer2/States/Initialize/InitializeSettings.cs
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.InitializeApplications(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)">
+            <summary>
+            Invokes the BasicPerformer/Implementation/Framework/InitializeApplications.cs
+            </summary>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.InitializeApplications(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData,System.Boolean)">
+            <summary>
+            Invokes the BasicPerformer/Implementation/Framework/InitializeApplications.cs
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Child">
+            <summary>
+            Invokes the Child.cs
+            </summary>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Child(System.Boolean)">
+            <summary>
+            Invokes the Child.cs
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
@@ -111,6 +133,17 @@
         <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.Coded(System.Boolean)">
             <summary>
             Invokes the Coded.cs
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.CloseApplications(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData)">
+            <summary>
+            Invokes the BasicPerformer/Implementation/Framework/CloseApplications.cs
+            </summary>
+        </member>
+        <member name="M:LazyFramework.DX.Shared.WorkflowRunnerService.CloseApplications(LazyFramework.DX.Shared.BasicPerformer.Implementation.StateData,System.Boolean)">
+            <summary>
+            Invokes the BasicPerformer/Implementation/Framework/CloseApplications.cs
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>

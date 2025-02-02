@@ -16,16 +16,13 @@ using UiPath.Testing.Activities.TestData;
 using UiPath.Testing.Activities.TestDataQueues.Enums;
 using UiPath.Testing.Enums;
 
-namespace LazyFramework.DX.Shared.BasicPerformer
+namespace LazyFramework.DX.Shared.BasicPerformer2
 {
-    public abstract class BaseStateData<TConfig> where TConfig : BaseConfig
+    public class BaseStateData<TConfig> : DictionaryObject where TConfig : DictionaryObject, new()
     {
-        public Stack<Delegate> Stack = new();
-        public TConfig? Config = null;
-        public Exception? SysEx = null;
-        public Exception? FrameEx = null;
-        public BusinessRuleException? BusEx = null;
-        public QueueItem? Transaction = null;
-        public int ConsecutiveSystemExceptions = 0;
+        public Exception SysEx { get; set; } = null;
+        public TConfig Config {get; set;} = new();
+        
+        public BaseStateData(){}
     }
 }

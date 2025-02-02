@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using LazyFramework.DX.Shared.BasicPerformer;
 using LazyFramework.DX.Shared.Models;
 using Newtonsoft.Json;
 using UiPath.Core;
@@ -19,130 +20,105 @@ using UiPath.Testing.Activities.TestData;
 using UiPath.Testing.Activities.TestDataQueues.Enums;
 using UiPath.Testing.Enums;
 
-namespace LazyFramework.DX.Shared.BasicPerformer.Test
+namespace LazyFramework.DX.Shared.BasicPerformer
 {
-    public class BaseTests<TConfig, TStateData> : BaseMain<TConfig, TStateData> where TConfig : BaseConfig, new() where TStateData : BaseStateData<TConfig>, new()
+    public enum TestId
     {
+        // InitializeState
+        InitializeStateError,
+        InitializeMaintenanceTime,
+        //GetTransactionDataState
+        GetTransactionStateError,
+        GetTransactionMaintenanceTime,
+        //Process
+        ProcessStateError,
+        TransactionSystemException,
+        TransactionBusinessException,
+        //None
+        None
+    }
+    public partial class BaseTests<TConfig, TStateData> : BaseMain<TConfig, TStateData> where TConfig : BaseConfig, new() where TStateData : BaseStateData<TConfig>, new()
+    {
+        // Fields
+        public override BaseStateSlots States { get; set; } = new();
         public FixedSizeQueue<string> StackHistory = new FixedSizeQueue<string>(10);
         public TStateData InitialData = null;
 
-        // Tests
+        //Constructors
+        public BaseTests() : base() { }
+
+        // Entry
         public virtual void RunTests(string configPath, List<string> ignored)
         {
-            InitializeFramework(configPath, ignored);
-            RunTest("InitializeState - Maintenance Time", TestId.InitializeMaintenanceTime, new List<VerifyTest>() {
-                (ex, data, history) => ("No test Exception", ex == null),
-                (ex, data, history) => ("Only 2 states", (history as FixedSizeQueue<string>).Count == 2),
-                (ex, data, history) => ("First state was initialize", (history as FixedSizeQueue<string>).ToArray().First() == "InitializeState"),
-                (ex, data, history) => ("Last state was End", (history as FixedSizeQueue<string>).ToArray().Last() == "EndState")
-            });
-            RunTest("InitializeState - State Error", TestId.InitializeStateError, new List<VerifyTest>() {
-                (ex, data, history) => ("Exception raised", ex != null),
-                (ex, data, history) => ("Framework exception not null", Data.FrameEx != null),
-                (ex, data, history) => ("Only 2 states", (history as FixedSizeQueue<string>).Count == 2),
-                (ex, data, history) => ("First state was initialize", (history as FixedSizeQueue<string>).ToArray().First() == "InitializeState"),
-                (ex, data, history) => ("Last state was End", (history as FixedSizeQueue<string>).ToArray().Last() == "EndState")
-            });
-            RunTest("GetTransaction - Maintenance Time", TestId.GetTransactionMaintenanceTime, new List<VerifyTest>() {
-                (ex, data, history) => ("No test Exception", ex == null),
-                (ex, data, history) => ("Only 3 states", (history as FixedSizeQueue<string>).Count == 3),
-                (ex, data, history) => ("First state was initialize", (history as FixedSizeQueue<string>).ToArray().First() == "InitializeState"),
-                (ex, data, history) => ("Second state was GetTransaction", (history as FixedSizeQueue<string>).ToArray()[1] == "GetTransactionState"),
-                (ex, data, history) => ("Last state was End", (history as FixedSizeQueue<string>).ToArray().Last() == "EndState")
-            });
-            RunTest("GetTransaction - State Error", TestId.GetTransactionStateError, new List<VerifyTest>() {
-                (ex, data, history) => ("Exception raised", ex != null),
-                (ex, data, history) => ("Framework exception not null", Data.FrameEx != null),
-                (ex, data, history) => ("Only 3 states", (history as FixedSizeQueue<string>).Count == 3),
-                (ex, data, history) => ("First state was initialize", (history as FixedSizeQueue<string>).ToArray().First() == "InitializeState"),
-                (ex, data, history) => ("Second state was GetTransaction", (history as FixedSizeQueue<string>).ToArray()[1] == "GetTransactionState"),
-                (ex, data, history) => ("Last state was End", (history as FixedSizeQueue<string>).ToArray().Last() == "EndState")
-            });
-            system.AddQueueItem(Data.Config?.QueueName, Data.Config?.QueueFolder, default, new Dictionary<string, object>(), default, default, "ProcessStateError", default);
-            RunTest("Process - State Error", TestId.ProcessStateError, new List<VerifyTest>() {
-                (ex, data, history) => ("Exception raised", ex != null),
-                (ex, data, history) => ("Framework exception not null", Data.FrameEx != null),
-                (ex, data, history) => ("Only 4 states", (history as FixedSizeQueue<string>).Count == 4),
-                (ex, data, history) => ("First state was initialize", (history as FixedSizeQueue<string>).ToArray().First() == "InitializeState"),
-                (ex, data, history) => ("Second state was GetTransaction", (history as FixedSizeQueue<string>).ToArray()[1] == "GetTransactionState"),
-                (ex, data, history) => ("Third state was Process", (history as FixedSizeQueue<string>).ToArray()[2] == "ProcessState"),
-                (ex, data, history) => ("Last state was End", (history as FixedSizeQueue<string>).ToArray().Last() == "EndState")
-            });
-            system.AddQueueItem(Data.Config?.QueueName, Data.Config?.QueueFolder, default, new Dictionary<string, object>(), default, default, "TransactionSystemException", default);
-            var timestamp = DateTime.Now;
-            RunTest("Process - Transaction System Exception", TestId.TransactionSystemException, new List<VerifyTest>() {
-                (ex, data, history) => ("Exception not raised", ex == null),
-                (ex, data, history) => ("Framework exception is null", Data.FrameEx == null),
-                (ex, data, history) => ("System exception is not null", Data.SysEx != null),
-                (ex, data, history) => ("6 states", (history as FixedSizeQueue<string>).Count == 6),
-                (ex, data, history) => ("First state was initialize", (history as FixedSizeQueue<string>).ToArray().First() == "InitializeState"),
-                (ex, data, history) => ("Second state was GetTransaction", (history as FixedSizeQueue<string>).ToArray()[1] == "GetTransactionState"),
-                (ex, data, history) => ("Third state was Process", (history as FixedSizeQueue<string>).ToArray()[2] == "ProcessState"),
-                (ex, data, history) => ("Last state was End", (history as FixedSizeQueue<string>).ToArray().Last() == "EndState"),
-                (ex, data, history) => {
-                    var item = system.GetQueueItems(Data.Config?.QueueName, Data.Config?.QueueFolder, default, timestamp, default, QueueItemStates.Failed, default, ReferenceFilterStrategy.StartsWith, "TransactionSystemException", default, 1, default).First();
-                    return ("Item has system exception",  item != null && item.ProcessingException.Type == ProcessingExceptionType.ApplicationException);
-                }
-            });
-            system.AddQueueItem(Data.Config?.QueueName, Data.Config?.QueueFolder, default, new Dictionary<string, object>(), default, default, "TransactionBusinessException", default);
-            timestamp = DateTime.Now;
-            RunTest("Process - Transaction System Exception", TestId.TransactionBusinessException, new List<VerifyTest>() {
-                (ex, data, history) => ("Exception not raised", ex == null),
-                (ex, data, history) => ("Framework exception is null", Data.FrameEx == null),
-                (ex, data, history) => ("Business exception is not null", Data.BusEx != null),
-                (ex, data, history) => ("6 states", (history as FixedSizeQueue<string>).Count == 6),
-                (ex, data, history) => ("First state was initialize", (history as FixedSizeQueue<string>).ToArray().First() == "InitializeState"),
-                (ex, data, history) => ("Second state was GetTransaction", (history as FixedSizeQueue<string>).ToArray()[1] == "GetTransactionState"),
-                (ex, data, history) => ("Third state was Process", (history as FixedSizeQueue<string>).ToArray()[2] == "ProcessState"),
-                (ex, data, history) => ("Last state was End", (history as FixedSizeQueue<string>).ToArray().Last() == "EndState"),
-                (ex, data, history) => {
-                    var item = system.GetQueueItems(Data.Config?.QueueName, Data.Config?.QueueFolder, default, timestamp, default, QueueItemStates.Failed, default, ReferenceFilterStrategy.StartsWith, "TransactionBusinessException", default, 1, default).First();
-                    return ("Transaction has business exception", item != null && item.ProcessingException.Type == ProcessingExceptionType.ApplicationException);
-                }
-            });
+            InitializeSettings(configPath, ignored);
+            InitialData = DesSer(Data);
+            RunInitializeStateTests();
+            RunGetTransactionStateTests();
+            RunProcessStateTests();
         }
-        public virtual void InitializeFramework(string configPath, List<string> ignored)
+
+        // Overrides
+        public new void RunStateMachine(params object[] param)
         {
-            base.InitializeFramework(configPath, ignored);
-            InitialData = JsonConvert.DeserializeObject<TStateData>(JsonConvert.SerializeObject(Data));
+            Data.Stack.Push(States.Initialize);
+            while (Data.Stack.Count > 0)
+            {
+                try
+                {
+                    var currentState = Data.Stack.Pop();
+                    StackHistory.Enqueue(currentState.Method.Name);
+                    currentState.DynamicInvoke(param);
+                }
+                catch (Exception e)
+                {
+                    Data.FrameEx = e;
+                }
+            }
+            StackHistory.Enqueue(States.End.Method.Name);
+            States.End.DynamicInvoke(param);
         }
-        public delegate (string verificationName, bool result) VerifyTest(Exception testException, TStateData data, FixedSizeQueue<string> history);
-        public void RunTest(string name, TestId testId, List<VerifyTest> verifications)
+
+        // Helpers
+        public delegate (string verificationName, bool result) VerifyMethod(Exception testException);
+
+        public virtual void RunTest(string name, TestId testId, List<VerifyMethod> verifications)
         {
-            Log($"Starting test '{name}'");
             Data = DesSer<TStateData>(InitialData as TStateData);
             ResetHistory();
             Exception ex = null;
+            Log($"Starting test '{name}'");
+            Log($"States: {States.ToString()}");
+            Log($"Workflows: {Workflows.ToString()}");
             try
             {
                 RunStateMachine(testId);
             }
             catch (Exception e)
             {
+                Log($"Test Exception raised: {e.Message}\n{e.StackTrace}", UiPath.CodedWorkflows.LogLevel.Error);
                 ex = e;
             }
+            Log($"Test completed. StackHistory: {StackHistory.ToString()}");
             Log($"Starting {verifications.Count} verifications");
-            foreach (VerifyTest verification in verifications)
+            foreach (VerifyMethod verification in verifications)
             {
-                var result = verification(ex, Data, StackHistory);
+                var result = verification(ex);
                 testing.VerifyExpression(result.result, $"Verification '{result.verificationName}' has result {{Result}}", true, result.verificationName, false, false);
             }
             Log($"Test '{name}' complete");
         }
-
-        
-        public T DesSer<T>(T fromObject)
+        public static T DesSer<T>(T fromObject)
         {
             return (T)JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(fromObject));
         }
-        public void ResetHistory()
+        public virtual void ResetHistory()
         {
             StackHistory.Clear();
         }
 
         public override void SendEmail(List<string> to, List<string> cc, List<string> attachments, string body, string subject)
         {
-            throw new NotImplementedException();
+            Log($"Email would be sent here!");
         }
     }
 }

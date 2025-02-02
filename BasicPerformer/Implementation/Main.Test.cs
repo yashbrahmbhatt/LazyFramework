@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using Newtonsoft.Json;
 using UiPath.CodedWorkflows;
 using UiPath.Core;
 using UiPath.Core.Activities.Storage;
@@ -19,28 +20,27 @@ using UiPath.Testing.Enums;
 
 namespace LazyFramework.DX.Shared.BasicPerformer.Implementation
 {
-    public class Main_Test : BasicPerformer.Test.BaseTests<Config, StateData>
+    public class TestFramework : BaseTests<Config, StateData>
     {
         [TestCase]
         public void RunTests()
         {
-            var configPath = @"C:\Users\yash.brahmbhatt\Documents\UiPath\LazyFramework.DX.Shared\BasicPerformer\Implementation\Data\Config.xlsx";
+            var configPath = @"BasicPerformer\Implementation\Data\Config.xlsx";
             var ignored = new List<string>();
-            Slots.InitializeApplications = workflows.InitializeApplications;
-            Slots.CloseApplications = workflows.CloseApplications;
-            Slots.Process = workflows.Process;
-            Slots.GetTransactionData = workflows.GetTransactionData;
             
+            Workflows.InitializeApplications = workflows.InitializeApplications;
+            Workflows.Process = workflows.Process;
+            Workflows.CloseApplications = workflows.CloseApplications;
+            Workflows.GetTransactionData = workflows.GetTransactionData;
+
+            States.Initialize = (TestId testId) => InitializeState(testId);
+            States.GetTransaction = (TestId testId) => GetTransactionState(testId);
+            States.Process = (TestId testId) => ProcessState(testId);
+            States.End = (TestId testId) => EndState();
+            Log("Starting tests!");
+            Log(States.ToString());
             base.RunTests(configPath, ignored);
-            // Arrange
-
-            // Act
-            // For accessing UI Elements from Object Repository, you can use the Descriptors class e.g:
-            // var screen = uiAutomation.Open(Descriptors.MyApp.FirstScreen);
-            // screen.Click(Descriptors.MyApp.FirstScreen.SettingsButton);
-
-            // Assert
-            // To start using activities, use IntelliSense (CTRL + Space) to discover the available services, e.g. testing.VerifyExpression(...).
         }
+
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using UiPath.Core;
 using UiPath.Core.Activities.Storage;
 using UiPath.Excel;
@@ -40,6 +41,10 @@ namespace LazyFramework.DX.Shared.Models
 
             // Add the new item
             base.Enqueue(item);
+        }
+        
+        public override string ToString() {
+            return "[" + string.Join(", ", this.ToList()) + "]'";
         }
     }
 }
